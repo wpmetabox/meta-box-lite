@@ -150,5 +150,23 @@
         "*.json"
       ]
     }
+  },
+  "autoload": {
+    "files": [
+      "vendor/meta-box/meta-box/meta-box.php",
+      "vendor/meta-box/mb-acf-migration/mb-acf-migration.php",
+      "vendor/meta-box/mb-comment-meta/mb-comment-meta.php",
+      "vendor/meta-box/mb-custom-post-type/mb-custom-post-type.php",
+      "vendor/meta-box/mb-divi-integrator/mb-divi-integrator.php",
+      "vendor/meta-box/mb-elementor-integrator/mb-elementor-integrator.php",
+      "vendor/meta-box/mb-rank-math/mb-rank-math.php",
+      "vendor/meta-box/mb-relationships/mb-relationships.php",
+      "vendor/meta-box/mb-rest-api/mb-rest-api.php",
+      "vendor/meta-box/mb-toolset-migration/mb-toolset-migration.php",
+      "vendor/meta-box/mb-yoast-seo/mb-yoast-seo.php",
+      "vendor/meta-box/meta-box-beaver-themer-integrator/meta-box-beaver-themer-integrator.php",
+      "vendor/meta-box/meta-box-builder/meta-box-builder.php",
+      "vendor/meta-box/meta-box-facetwp-integrator/meta-box-facetwp-integrator.php"
+    ]
   }
 }
