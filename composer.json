@@ -1,0 +1,150 @@
+{
+  "config": {
+    "prepend-autoloader": false,
+    "allow-plugins": {
+      "composer/installers": true
+    }
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git@github.com:elightup/twig.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:wpmetabox/meta-box.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:wpmetabox/mbb-parser.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:wpmetabox/mb-custom-post-type.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:wpmetabox/mb-relationships.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:wpmetabox/meta-box-builder.git"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/wpmetabox/support.git"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/wpmetabox/mb-acf-migration.git"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/wpmetabox/mb-toolset-migration.git"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/wpmetabox/mb-rest-api.git"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/wpmetabox/mb-rank-math.git"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/wpmetabox/mb-divi-integrator.git"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/wpmetabox/meta-box-beaver-themer-integrator.git"
+    }
+  ],
+  "require": {
+    "meta-box/mb-acf-migration": "^1.1.0",
+    "meta-box/mb-toolset-migration": "^1.0.2",
+    "wpmetabox/meta-box": "^4",
+    "wpmetabox/mb-comment-meta": "^1.0",
+    "wpmetabox/mb-custom-post-type": "^2.6.4",
+    "wpmetabox/mb-relationships": "^1.12.1",
+    "wpmetabox/mb-yoast-seo": "^1.3.9",
+    "wpmetabox/meta-box-beaver-themer-integrator": "^2.1.2",
+    "wpmetabox/meta-box-facetwp-integrator": "^1.1.3",
+    "wpmetabox/text-limiter": "^1.2.0",
+    "composer/installers": "^1",
+    "wpmetabox/mb-elementor-integrator": "^2.1.11",
+    "meta-box/mb-rank-math": "^1.0.1",
+    "wpmetabox/mb-divi-integrator": "^1.0",
+    "wpmetabox/mb-rest-api": "^2.0.1",
+    "meta-box/meta-box-builder": "^4.7.2",
+    "elightup/twig": "dev-master"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "installer-paths": {
+      "vendor/meta-box/{$name}": ["vendor:wpmetabox", "vendor:meta-box"]
+    },
+    "dev-files": {
+      "/": [
+        ".git",
+        ".github/",
+        ".gitattributes",
+        ".gitignore",
+
+        ".distignore",
+
+        "*.yaml",
+        "*.yml",
+
+        "*.txt",
+        "*.less",
+        "*.scss",
+        "*.po",
+
+        "composer.json",
+        "composer.lock",
+        "package.json",
+        "package-lock.json",
+        "phpcs.xml",
+        "pnpm-lock.yaml",
+
+        ".babelrc",
+        "webpack.config.js",
+
+        ".editoconfig",
+        ".vscode",
+        "esbuild.js",
+
+        "LICENSE",
+        "*.md",
+
+        "test/",
+        "tests/",
+
+        "demo.php",
+        "demo/",
+        "sass/",
+        "vendor/"
+      ],
+      "wpmetabox/mb-custom-post-type": [
+        "app/"
+      ],
+      "meta-box/meta-box-builder": [
+        "app/",
+        "modules/settings-page/app/",
+        "modules/relationships/app/"
+      ],
+      "wpmetabox/mb-divi-integrator": [
+        "images/"
+      ],
+      "gamajo/template-loader": [
+        ".phpcs.xml.dist",
+        "*.json"
+      ],
+      "riimu/kit-phpencoder": [
+        "examples/",
+        "*.json"
+      ]
+    }
+  }
+}

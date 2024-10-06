@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bundle>
+	<domain name="meta-box-lite">
+		<project name="Meta Box Lite">
+			<source>
+				<directory>src</directory>
+			</source>
+			<target>
+				<directory>languages</directory>
+			</target>
+		</project>
+	</domain>
+	<domain name="mb-comment-meta">
+		<project name="MB Comment Meta">
+			<source>
+				<directory>vendor/meta-box/mb-comment-meta</directory>
+			</source>
+			<target>
+				<directory>vendor/meta-box/mb-comment-meta/languages</directory>
+			</target>
+		</project>
+	</domain>
+	<domain name="mb-custom-post-type">
+		<project name="MB Custom Post Type">
+			<source>
+				<directory>vendor/meta-box/mb-custom-post-type</directory>
+			</source>
+			<target>
+				<directory>vendor/meta-box/mb-custom-post-type/languages</directory>
+			</target>
+		</project>
+	</domain>
+	<domain name="mb-elementor-integrator">
+		<project name="Meta Box - Elementor Integrator">
+			<source>
+				<directory>vendor/meta-box/mb-elementor-integrator</directory>
+			</source>
+			<target>
+				<directory>vendor/meta-box/mb-elementor-integrator/languages</directory>
+			</target>
+		</project>
+	</domain>
+	<domain name="mb-relationships">
+		<project name="MB Relationships">
+			<source>
+				<directory>vendor/meta-box/mb-relationships</directory>
+			</source>
+			<target>
+				<directory>vendor/meta-box/mb-relationships/languages</directory>
+			</target>
+		</project>
+	</domain>
+	<domain name="mb-rest-api">
+		<project name="MB REST API">
+			<source>
+				<directory>vendor/meta-box/mb-rest-api</directory>
+			</source>
+			<target>
+				<directory>vendor/meta-box/mb-rest-api/languages</directory>
+			</target>
+		</project>
+	</domain>
+	<domain name="mb-yoast-seo">
+		<project name="Meta Box - Yoast SEO">
+			<source>
+				<directory>vendor/meta-box/mb-yoast-seo</directory>
+			</source>
+			<target>
+				<directory>vendor/meta-box/mb-yoast-seo/languages</directory>
+			</target>
+		</project>
+	</domain>
+	<domain name="meta-box-beaver-themer-integrator">
+		<project name="Meta Box - Beaver Themer Integrator">
+			<source>
+				<directory>vendor/meta-box/meta-box-beaver-themer-integrator</directory>
+			</source>
+			<target>
+				<directory>vendor/meta-box/meta-box-beaver-themer-integrator/languages</directory>
+			</target>
+		</project>
+	</domain>
+	<domain name="meta-box-builder">
+		<project name="Meta Box Builder">
+			<source>
+				<directory>vendor/meta-box/meta-box-builder</directory>
+			</source>
+			<target>
+				<directory>vendor/meta-box/meta-box-builder/languages</directory>
+			</target>
+		</project>
+	</domain>
+	<domain name="meta-box-facetwp-integrator">
+		<project name="Meta Box - FacetWP Integrator">
+			<source>
+				<directory>vendor/meta-box/meta-box-facetwp-integrator</directory>
+			</source>
+			<target>
+				<directory>vendor/meta-box/meta-box-facetwp-integrator/languages</directory>
+			</target>
+		</project>
+	</domain>
+	<domain name="text-limiter">
+		<project name="Meta Box Text Limiter">
+			<source>
+				<directory>vendor/meta-box/text-limiter</directory>
+			</source>
+			<target>
+				<directory>vendor/meta-box/text-limiter/languages</directory>
+			</target>
+		</project>
+	</domain>
+</bundle>
