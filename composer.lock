@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ecc3c58e6e38e21ba6576b91f8c1863",
+    "content-hash": "9555ad782b6145abbf048d7ee446c872",
     "packages": [
         {
             "name": "composer/installers",
@@ -762,17 +762,20 @@
         },
         {
             "name": "wpmetabox/meta-box",
-            "version": "4.18.4",
+            "version": "5.10.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box.git",
-                "reference": "d299ea6d2dcfb55b05201fd1ac10e4cc1a6e839a"
+                "reference": "c28a96abe84cff63e3cec0e6c9d525602212c998"
             },
-            "type": "library",
+            "require-dev": {
+                "phpunit/phpunit": "^11.3"
+            },
+            "type": "wordpress-plugin",
             "autoload": {
-                "files": [
-                    "meta-box.php"
-                ]
+                "psr-4": {
+                    "MetaBox\\": "src/"
+                }
             },
             "license": [
                 "GPL-2.0"
@@ -781,7 +784,7 @@
                 {
                     "name": "Tran Ngoc Tuan Anh",
                     "email": "anhtnt@elightup.com",
-                    "homepage": "https://deluxeblogtips.com",
+                    "homepage": "https://metabox.io",
                     "role": "Developer"
                 }
             ],
@@ -796,7 +799,7 @@
                 "wordpress-plugin",
                 "wp-admin"
             ],
-            "time": "2019-07-06T01:57:45+00:00"
+            "time": "2024-09-26T09:33:02+00:00"
         },
         {
             "name": "wpmetabox/meta-box-beaver-themer-integrator",

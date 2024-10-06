@@ -62,7 +62,6 @@
   "require": {
     "meta-box/mb-acf-migration": "^1.1.0",
     "meta-box/mb-toolset-migration": "^1.0.2",
-    "wpmetabox/meta-box": "^4",
     "wpmetabox/mb-comment-meta": "^1.0",
     "wpmetabox/mb-custom-post-type": "^2.6.4",
     "wpmetabox/mb-relationships": "^1.12.1",
@@ -76,10 +75,15 @@
     "wpmetabox/mb-divi-integrator": "^1.0",
     "wpmetabox/mb-rest-api": "^2.0.1",
     "meta-box/meta-box-builder": "^4.7.2",
-    "elightup/twig": "dev-master"
+    "elightup/twig": "dev-master",
+    "wpmetabox/meta-box": "^5.10"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
+  "scripts": {
+    "post-update-cmd": ["echo [WARNING] Delete all .git dirs", "rm -rf vendor/**/**/.git"],
+    "post-install-cmd": ["echo [WARNING] Delete all .git dirs", "rm -rf vendor/**/**/.git"]
+  },
   "extra": {
     "installer-paths": {
       "vendor/meta-box/{$name}": ["vendor:wpmetabox", "vendor:meta-box"]
