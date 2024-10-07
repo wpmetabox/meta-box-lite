@@ -10,3 +10,5 @@ Thumbs.db export-ignore
 .gitignore export-ignore
 composer.* export-ignore
 phpcs.xml export-ignore
+
+cleanup.php export-ignore

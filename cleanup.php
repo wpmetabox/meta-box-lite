@@ -1,6 +1,5 @@
 <?php
 $folders = [
-	'meta-box',
 	'mb-acf-migration',
 	'mb-comment-meta',
 	'mb-custom-post-type',
@@ -11,6 +10,7 @@ $folders = [
 	'mb-rest-api',
 	'mb-toolset-migration',
 	'mb-yoast-seo',
+	'meta-box',
 	'meta-box-beaver-themer-integrator',
 	'meta-box-builder',
 	'meta-box-facetwp-integrator',
@@ -23,8 +23,9 @@ foreach ( $folders as $folder ) {
 }
 
 function cleanup_header_comment( string $file ): void {
-	$content = (string) file_get_contents( $file, false, null, 0, 8 * KB_IN_BYTES );
-	$content = trim( preg_replace( '/^\*\*.$/', '', $content ) );
-	$content = trim( preg_replace( '/ \* .$/', '', $content ) );
+	$content = (string) file_get_contents( $file );
+	$content = preg_replace( '/^\/\*\*.*\n/m', '', $content );
+	$content = preg_replace( '/^ \*.*\n/m', '', $content );
+	$content = preg_replace( '/^ \*\/\n/m', '', $content );
 	file_put_contents( $file, $content );
 }

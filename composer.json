@@ -83,16 +83,18 @@
   "prefer-stable": true,
   "scripts": {
     "post-update-cmd": [
-      "echo [WARNING] Delete all .git dirs in /vendor/ folder",
+      "echo Deleting .git dirs...",
       "rm -rf vendor/**/**/.git",
-      "echo [WARNING] Delete all .git dirs in /modules/ folder",
-      "rm -rf modules/**/.git"
+      "rm -rf modules/**/.git",
+      "echo Cleaning up plugin headers...",
+      "php cleanup.php"
     ],
     "post-install-cmd": [
-      "echo [WARNING] Delete all .git dirs in /vendor/ folder",
+      "echo Deleting .git dirs...",
       "rm -rf vendor/**/**/.git",
-      "echo [WARNING] Delete all .git dirs in /modules/ folder",
-      "rm -rf modules/**/.git"
+      "rm -rf modules/**/.git",
+      "echo Cleaning up plugin headers...",
+      "php cleanup.php"
     ]
   },
   "extra": {
