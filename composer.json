@@ -76,7 +76,7 @@
     "wpmetabox/mb-rest-api": "^2.0.1",
     "meta-box/meta-box-builder": "^4.7.2",
     "elightup/twig": "dev-master",
-    "wpmetabox/meta-box": "^5.10"
+    "wpmetabox/meta-box": "dev-master"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9555ad782b6145abbf048d7ee446c872",
+    "content-hash": "5050d1e9b55eebe304eda131d72bcba5",
     "packages": [
         {
             "name": "composer/installers",
@@ -405,7 +405,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/support.git",
-                "reference": "21ac638244f63c9372ff9958810552a1a26135d9"
+                "reference": "99607eb4d8c8c96a7c882fc5a7c69cf3534d95bd"
             },
             "default-branch": true,
             "type": "library",
@@ -419,7 +419,7 @@
             ],
             "description": "Helpers for Meta Box plugins",
             "homepage": "https://metabox.io",
-            "time": "2022-07-27T10:00:48+00:00"
+            "time": "2024-10-07T00:27:46+00:00"
         },
         {
             "name": "riimu/kit-phpencoder",
@@ -762,20 +762,82 @@
         },
         {
             "name": "wpmetabox/meta-box",
-            "version": "5.10.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box.git",
-                "reference": "c28a96abe84cff63e3cec0e6c9d525602212c998"
+                "reference": "2882da46c0c1ecb017afeaf801693cec4ad7565f"
+            },
+            "require": {
+                "meta-box/support": "dev-master"
             },
             "require-dev": {
                 "phpunit/phpunit": "^11.3"
             },
+            "default-branch": true,
             "type": "wordpress-plugin",
+            "extra": {
+                "installer-paths": {
+                    "modules/{$name}": [
+                        "vendor:wpmetabox",
+                        "vendor:meta-box"
+                    ]
+                },
+                "dev-files": {
+                    "/": [
+                        ".git",
+                        ".github/",
+                        ".gitattributes",
+                        ".gitignore",
+                        ".distignore",
+                        "*.yaml",
+                        "*.yml",
+                        "*.txt",
+                        "*.less",
+                        "*.scss",
+                        "*.po",
+                        "composer.json",
+                        "composer.lock",
+                        "package.json",
+                        "package-lock.json",
+                        "phpcs.xml",
+                        "pnpm-lock.yaml",
+                        "phpstan.neon",
+                        "phpunit.xml",
+                        ".babelrc",
+                        "webpack.config.js",
+                        ".editoconfig",
+                        ".vscode",
+                        "esbuild.js",
+                        "LICENSE",
+                        "*.md",
+                        "test/",
+                        "tests/",
+                        "demo.php",
+                        "demo/",
+                        "sass/",
+                        "vendor/"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "MetaBox\\": "src/"
                 }
+            },
+            "scripts": {
+                "post-update-cmd": [
+                    "echo [WARNING] Delete all .git dirs in /vendor/ folder",
+                    "rm -rf vendor/**/**/.git",
+                    "echo [WARNING] Delete all .git dirs in /modules/ folder",
+                    "rm -rf modules/**/.git"
+                ],
+                "post-install-cmd": [
+                    "echo [WARNING] Delete all .git dirs in /vendor/ folder",
+                    "rm -rf vendor/**/**/.git",
+                    "echo [WARNING] Delete all .git dirs in /modules/ folder",
+                    "rm -rf modules/**/.git"
+                ]
             },
             "license": [
                 "GPL-2.0"
@@ -799,7 +861,7 @@
                 "wordpress-plugin",
                 "wp-admin"
             ],
-            "time": "2024-09-26T09:33:02+00:00"
+            "time": "2024-10-07T02:43:05+00:00"
         },
         {
             "name": "wpmetabox/meta-box-beaver-themer-integrator",
@@ -935,11 +997,12 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "elightup/twig": 20
+        "elightup/twig": 20,
+        "wpmetabox/meta-box": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
