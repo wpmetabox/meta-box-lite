@@ -81,12 +81,22 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "scripts": {
-    "post-update-cmd": ["echo [WARNING] Delete all .git dirs", "rm -rf vendor/**/**/.git"],
-    "post-install-cmd": ["echo [WARNING] Delete all .git dirs", "rm -rf vendor/**/**/.git"]
+    "post-update-cmd": [
+      "echo [WARNING] Delete all .git dirs in /vendor/ folder",
+      "rm -rf vendor/**/**/.git",
+      "echo [WARNING] Delete all .git dirs in /modules/ folder",
+      "rm -rf modules/**/.git"
+    ],
+    "post-install-cmd": [
+      "echo [WARNING] Delete all .git dirs in /vendor/ folder",
+      "rm -rf vendor/**/**/.git",
+      "echo [WARNING] Delete all .git dirs in /modules/ folder",
+      "rm -rf modules/**/.git"
+    ]
   },
   "extra": {
     "installer-paths": {
-      "vendor/meta-box/{$name}": ["vendor:wpmetabox", "vendor:meta-box"]
+      "modules/{$name}": ["vendor:wpmetabox", "vendor:meta-box"]
     },
     "dev-files": {
       "/": [
@@ -111,6 +121,8 @@
         "package-lock.json",
         "phpcs.xml",
         "pnpm-lock.yaml",
+        "phpstan.neon",
+        "phpunit.xml",
 
         ".babelrc",
         "webpack.config.js",
@@ -153,20 +165,21 @@
   },
   "autoload": {
     "files": [
-      "vendor/meta-box/meta-box/meta-box.php",
-      "vendor/meta-box/mb-acf-migration/mb-acf-migration.php",
-      "vendor/meta-box/mb-comment-meta/mb-comment-meta.php",
-      "vendor/meta-box/mb-custom-post-type/mb-custom-post-type.php",
-      "vendor/meta-box/mb-divi-integrator/mb-divi-integrator.php",
-      "vendor/meta-box/mb-elementor-integrator/mb-elementor-integrator.php",
-      "vendor/meta-box/mb-rank-math/mb-rank-math.php",
-      "vendor/meta-box/mb-relationships/mb-relationships.php",
-      "vendor/meta-box/mb-rest-api/mb-rest-api.php",
-      "vendor/meta-box/mb-toolset-migration/mb-toolset-migration.php",
-      "vendor/meta-box/mb-yoast-seo/mb-yoast-seo.php",
-      "vendor/meta-box/meta-box-beaver-themer-integrator/meta-box-beaver-themer-integrator.php",
-      "vendor/meta-box/meta-box-builder/meta-box-builder.php",
-      "vendor/meta-box/meta-box-facetwp-integrator/meta-box-facetwp-integrator.php"
+      "modules/meta-box/meta-box.php",
+      "modules/mb-acf-migration/mb-acf-migration.php",
+      "modules/mb-comment-meta/mb-comment-meta.php",
+      "modules/mb-custom-post-type/mb-custom-post-type.php",
+      "modules/mb-divi-integrator/mb-divi-integrator.php",
+      "modules/mb-elementor-integrator/mb-elementor-integrator.php",
+      "modules/mb-rank-math/mb-rank-math.php",
+      "modules/mb-relationships/mb-relationships.php",
+      "modules/mb-rest-api/mb-rest-api.php",
+      "modules/mb-toolset-migration/mb-toolset-migration.php",
+      "modules/mb-yoast-seo/mb-yoast-seo.php",
+      "modules/meta-box-beaver-themer-integrator/meta-box-beaver-themer-integrator.php",
+      "modules/meta-box-builder/meta-box-builder.php",
+      "modules/meta-box-facetwp-integrator/meta-box-facetwp-integrator.php",
+      "modules/text-limiter/text-limiter.php"
     ]
   }
 }
