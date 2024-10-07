@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5050d1e9b55eebe304eda131d72bcba5",
+    "content-hash": "84fc6117a9117415cf47ae8bbcb57197",
     "packages": [
         {
             "name": "composer/installers",
@@ -950,16 +950,16 @@
         },
         {
             "name": "wpmetabox/text-limiter",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box-text-limiter.git",
-                "reference": "0b48289dc51a099d98c01e2474d91beab37cc6e6"
+                "reference": "d01fcdd51e54d83dfdd0277d2ca87b8a87f2a209"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box-text-limiter/zipball/0b48289dc51a099d98c01e2474d91beab37cc6e6",
-                "reference": "0b48289dc51a099d98c01e2474d91beab37cc6e6",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-text-limiter/zipball/d01fcdd51e54d83dfdd0277d2ca87b8a87f2a209",
+                "reference": "d01fcdd51e54d83dfdd0277d2ca87b8a87f2a209",
                 "shasum": ""
             },
             "type": "wordpress-plugin",
@@ -988,9 +988,9 @@
             ],
             "support": {
                 "issues": "https://github.com/wpmetabox/meta-box-text-limiter/issues",
-                "source": "https://github.com/wpmetabox/meta-box-text-limiter/tree/1.2.1"
+                "source": "https://github.com/wpmetabox/meta-box-text-limiter/tree/1.2.2"
             },
-            "time": "2024-09-12T08:45:37+00:00"
+            "time": "2024-10-07T03:21:03+00:00"
         }
     ],
     "packages-dev": [],
