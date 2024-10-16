@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "84fc6117a9117415cf47ae8bbcb57197",
+    "content-hash": "4b4d14e174d432f9872c4a0e2edf8d50",
     "packages": [
         {
             "name": "composer/installers",
@@ -198,16 +198,17 @@
         },
         {
             "name": "meta-box/mb-acf-migration",
-            "version": "1.1.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mb-acf-migration.git",
-                "reference": "4c441a23c83dd10d315a75f58627e9bcc1aef5d5"
+                "reference": "bc06c5ae3ce7da783af6ace7f696d2b4ceebed80"
             },
             "require": {
                 "meta-box/mbb-parser": "dev-master",
                 "meta-box/support": "dev-master"
             },
+            "default-branch": true,
             "type": "wordpress-plugin",
             "autoload": {
                 "psr-4": {
@@ -228,7 +229,7 @@
                 "wordpress",
                 "wordpress-plugin"
             ],
-            "time": "2024-10-07T14:12:32+00:00"
+            "time": "2024-10-16T09:37:08+00:00"
         },
         {
             "name": "meta-box/mb-rank-math",
@@ -314,17 +315,18 @@
         },
         {
             "name": "meta-box/meta-box-builder",
-            "version": "4.9.3",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box-builder.git",
-                "reference": "7a2a83d9872642efad1cfae2f690ece92d098865"
+                "reference": "8778f629b087b16ff8a7edda893ea3d7a80d049a"
             },
             "require": {
                 "elightup/twig": "dev-master",
                 "meta-box/mbb-parser": "dev-master",
                 "meta-box/support": "dev-master"
             },
+            "default-branch": true,
             "type": "wordpress-plugin",
             "extra": {
                 "dev-files": {
@@ -397,7 +399,7 @@
                 }
             },
             "description": "Meta Box Builder extension for Meta Box",
-            "time": "2024-09-26T10:00:07+00:00"
+            "time": "2024-10-16T10:04:33+00:00"
         },
         {
             "name": "meta-box/support",
@@ -517,15 +519,16 @@
         },
         {
             "name": "wpmetabox/mb-custom-post-type",
-            "version": "2.7.6",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/mb-custom-post-type.git",
-                "reference": "b278f73bb064f899c214746e0e0f0abea9e7f778"
+                "reference": "44e74d413f092640817383252565446a92001de3"
             },
             "require": {
                 "meta-box/support": "dev-master"
             },
+            "default-branch": true,
             "type": "wordpress-plugin",
             "autoload": {
                 "psr-4": {
@@ -536,6 +539,14 @@
                 "format": [
                     "phpcbf src/",
                     "phpcbf src/ --standard=Generic --sniffs=Generic.Arrays.DisallowLongArraySyntax"
+                ],
+                "post-update-cmd": [
+                    "echo Deleting .git dirs...",
+                    "rm -rf vendor/**/**/.git"
+                ],
+                "post-install-cmd": [
+                    "echo Deleting .git dirs...",
+                    "rm -rf vendor/**/**/.git"
                 ]
             },
             "license": [
@@ -561,7 +572,7 @@
                 "wordpress-plugin",
                 "wp-admin"
             ],
-            "time": "2024-08-22T01:11:18+00:00"
+            "time": "2024-10-16T09:50:50+00:00"
         },
         {
             "name": "wpmetabox/mb-divi-integrator",
@@ -766,7 +777,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box.git",
-                "reference": "bb76e6175dcdb67b17203dadfebb83e3137a7169"
+                "reference": "c4ac47530bf7ce84c7598d19907524e2350f19b8"
             },
             "require": {
                 "meta-box/support": "dev-master"
@@ -852,7 +863,7 @@
                 "wordpress",
                 "wordpress-plugin"
             ],
-            "time": "2024-10-14T09:25:42+00:00"
+            "time": "2024-10-16T10:16:45+00:00"
         },
         {
             "name": "wpmetabox/meta-box-beaver-themer-integrator",
@@ -989,6 +1000,9 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "elightup/twig": 20,
+        "meta-box/mb-acf-migration": 20,
+        "meta-box/meta-box-builder": 20,
+        "wpmetabox/mb-custom-post-type": 20,
         "wpmetabox/meta-box": 20
     },
     "prefer-stable": true,

@@ -63,12 +63,12 @@
   "require": {
     "composer/installers": "^1",
     "elightup/twig": "dev-master",
-    "meta-box/mb-acf-migration": "^1.1.0",
+    "meta-box/mb-acf-migration": "dev-master",
     "meta-box/mb-rank-math": "^1.0.1",
     "meta-box/mb-toolset-migration": "^1.0.2",
-    "meta-box/meta-box-builder": "^4.7.2",
+    "meta-box/meta-box-builder": "dev-master",
     "wpmetabox/mb-comment-meta": "^1.0",
-    "wpmetabox/mb-custom-post-type": "^2.6.4",
+    "wpmetabox/mb-custom-post-type": "dev-master",
     "wpmetabox/mb-divi-integrator": "^1.0",
     "wpmetabox/mb-elementor-integrator": "^2.1.11",
     "wpmetabox/mb-relationships": "^1.12.1",
@@ -87,14 +87,24 @@
       "rm -rf vendor/**/**/.git",
       "rm -rf modules/**/.git",
       "echo Cleaning up plugin headers...",
-      "php cleanup.php"
+      "php cleanup.php",
+      "echo Removing Meta Box updater...",
+      "rm -rf modules/meta-box/src/Updater/",
+      "echo Replacing text domains...",
+      "sed -i -e \"s/'mb-elementor-integrator'/'meta-box-lite'/g\"  modules/mb-elementor-integrator/src/GroupField.php",
+      "phpcbf"
     ],
     "post-install-cmd": [
       "echo Deleting .git dirs...",
       "rm -rf vendor/**/**/.git",
       "rm -rf modules/**/.git",
       "echo Cleaning up plugin headers...",
-      "php cleanup.php"
+      "php cleanup.php",
+      "echo Removing Meta Box updater...",
+      "rm -rf modules/meta-box/src/Updater/",
+      "echo Replacing text domains...",
+      "sed -i -e \"s/'mb-elementor-integrator'/'meta-box-lite'/g\"  modules/mb-elementor-integrator/src/GroupField.php",
+      "phpcbf"
     ]
   },
   "extra": {

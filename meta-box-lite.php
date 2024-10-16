@@ -8,7 +8,6 @@
  * Author URI:  https://metabox.io
  * License:     GPL2+
  * Text Domain: meta-box-lite
- * Domain Path: /languages/
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
