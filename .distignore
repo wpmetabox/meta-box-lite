@@ -1,0 +1,13 @@
+.DS_Store
+Thumbs.db
+
+/.git
+/.github
+
+.gitignore
+.distignore
+
+composer.*
+phpcs.xml
+
+cleanup.php
