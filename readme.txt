@@ -27,6 +27,14 @@ Each custom field type has extensive internal options for unlimited content poss
 - Supports cloning fields for most field types including the WYSIWYG editor field
 - Optimized for performance
 
+== External Services ==
+
+This plugin embeds a YouTube video in the plugin's settings pages for tutorial purposes. The video is displayed directly from YouTube but no data is collected or shared by the plugin.
+
+== Privacy ==
+
+No data is collected or shared by this plugin. However, YouTube may collect data in accordance with their [Privacy Policy](https://policies.google.com/privacy).
+
 == Installation ==
 
 1. Visit **Plugins > Add New**
