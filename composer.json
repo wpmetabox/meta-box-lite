@@ -130,7 +130,6 @@
 
         "composer.json",
         "composer.lock",
-        "package.json",
         "package-lock.json",
         "phpcs.xml",
         "pnpm-lock.yaml",
@@ -138,7 +137,6 @@
         "phpunit.xml",
 
         ".babelrc",
-        "webpack.config.js",
 
         ".editoconfig",
         ".vscode",
@@ -154,14 +152,6 @@
         "demo/",
         "sass/",
         "vendor/"
-      ],
-      "wpmetabox/mb-custom-post-type": [
-        "app/"
-      ],
-      "meta-box/meta-box-builder": [
-        "app/",
-        "modules/settings-page/app/",
-        "modules/relationships/app/"
       ],
       "wpmetabox/mb-divi-integrator": [
         "images/"
