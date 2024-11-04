@@ -90,8 +90,6 @@
       "php cleanup.php",
       "echo Removing Meta Box updater...",
       "rm -rf modules/meta-box/src/Updater/",
-      "echo Replacing text domains...",
-      "sed -i '' \"s/'mb-elementor-integrator'/'meta-box-lite'/g\" modules/mb-elementor-integrator/src/GroupField.php",
       "phpcbf"
     ],
     "post-install-cmd": [
@@ -102,8 +100,6 @@
       "php cleanup.php",
       "echo Removing Meta Box updater...",
       "rm -rf modules/meta-box/src/Updater/",
-      "echo Replacing text domains...",
-      "sed -i '' \"s/'mb-elementor-integrator'/'meta-box-lite'/g\" modules/mb-elementor-integrator/src/GroupField.php",
       "phpcbf"
     ]
   },
