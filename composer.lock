@@ -526,7 +526,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/mb-custom-post-type.git",
-                "reference": "a0cdf59ba99f5ec20017cea5f8e14176b9e68c20"
+                "reference": "c991929f6dd996a399dab599f9fd405abbac78a6"
             },
             "require": {
                 "meta-box/support": "dev-master"
@@ -575,7 +575,7 @@
                 "wordpress-plugin",
                 "wp-admin"
             ],
-            "time": "2024-11-01T02:54:33+00:00"
+            "time": "2024-11-04T14:10:43+00:00"
         },
         {
             "name": "wpmetabox/mb-divi-integrator",
@@ -785,7 +785,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box.git",
-                "reference": "5a26684fcb70e1c10c487e90c8e535ba0f596de6"
+                "reference": "6dd1c09057e384f51961d6dbe977d5ead7f967e5"
             },
             "require": {
                 "meta-box/support": "dev-master"
@@ -871,7 +871,7 @@
                 "wordpress",
                 "wordpress-plugin"
             ],
-            "time": "2024-10-30T08:55:42+00:00"
+            "time": "2024-11-04T14:17:15+00:00"
         },
         {
             "name": "wpmetabox/meta-box-beaver-themer-integrator",
@@ -1029,7 +1029,7 @@
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
 }
