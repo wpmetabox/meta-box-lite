@@ -202,7 +202,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mb-acf-migration.git",
-                "reference": "2306ec0d2676dc16c809ec8aa8da5970f74cfaa3"
+                "reference": "0f129afa228866ca1064b7484841a5ae236b27bb"
             },
             "require": {
                 "meta-box/mbb-parser": "dev-master",
@@ -229,7 +229,7 @@
                 "wordpress",
                 "wordpress-plugin"
             ],
-            "time": "2024-11-01T03:13:52+00:00"
+            "time": "2024-11-06T03:55:10+00:00"
         },
         {
             "name": "meta-box/mb-rank-math",
