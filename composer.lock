@@ -321,7 +321,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box-builder.git",
-                "reference": "88cacb4f30b95f6a352fef6a64d7bbeb3a1bce61"
+                "reference": "9283c16cff098973b6f30b80c8c7696b4c04e491"
             },
             "require": {
                 "elightup/twig": "dev-master",
@@ -337,57 +337,40 @@
                         ".github/",
                         ".gitattributes",
                         ".gitignore",
+                        ".distignore",
+                        "*.yaml",
+                        "*.yml",
+                        "*.txt",
+                        "*.less",
+                        "*.scss",
+                        "*.po",
+                        "composer.json",
+                        "composer.lock",
+                        "package.json",
+                        "package-lock.json",
+                        "phpcs.xml",
+                        "pnpm-lock.yaml",
+                        "phpstan.neon",
+                        "phpunit.xml",
+                        ".babelrc",
+                        "webpack.config.js",
                         ".editoconfig",
+                        ".vscode",
+                        "esbuild.js",
                         "LICENSE",
                         "*.md",
                         "test/",
                         "tests/",
-                        "phpcs.xml"
-                    ],
-                    "meta-box/*": [
-                        ".git",
-                        ".distignore",
-                        ".babelrc",
-                        "webpack.config.js",
-                        "*.lock",
-                        "*.json",
-                        "*.yml",
-                        "*.txt",
-                        "*.less",
-                        "*.scss",
-                        "*.po",
-                        "*.pot",
-                        "demo.php",
-                        "demo/",
-                        "sass/",
-                        "vendor/"
-                    ],
-                    "wpmetabox/*": [
-                        ".git",
-                        ".distignore",
-                        ".babelrc",
-                        "webpack.config.js",
-                        "*.lock",
-                        "*.json",
-                        "*.yml",
-                        "*.txt",
-                        "*.less",
-                        "*.scss",
-                        "*.po",
-                        "*.pot",
                         "demo.php",
                         "demo/",
                         "sass/",
                         "vendor/"
                     ],
                     "riimu/kit-phpencoder": [
-                        "examples",
-                        "*.md",
-                        "*.json",
-                        "LICENSE"
+                        "examples/",
+                        "*.json"
                     ],
                     "elightup/twig": [
-                        ".git",
                         "*.json",
                         "twig.php"
                     ]
@@ -400,8 +383,21 @@
                     "MBB\\Relationships\\": "modules/relationships/src/"
                 }
             },
+            "scripts": {
+                "post-update-cmd": [
+                    "echo Deleting .git dirs...",
+                    "rm -rf vendor/**/**/.git"
+                ],
+                "post-install-cmd": [
+                    "echo Deleting .git dirs...",
+                    "rm -rf vendor/**/**/.git"
+                ],
+                "phpcs": [
+                    "phpcs > phpcs.txt"
+                ]
+            },
             "description": "Meta Box Builder extension for Meta Box",
-            "time": "2024-11-05T08:25:22+00:00"
+            "time": "2024-11-06T04:06:26+00:00"
         },
         {
             "name": "meta-box/support",
