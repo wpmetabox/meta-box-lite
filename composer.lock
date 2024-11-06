@@ -321,7 +321,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box-builder.git",
-                "reference": "803094790ceb9b9a5c826a872f74c997bd2ecc2b"
+                "reference": "4c0faf6ae02954b6c86d44933d6a246e956e719c"
             },
             "require": {
                 "elightup/twig": "dev-master",
@@ -397,7 +397,7 @@
                 ]
             },
             "description": "Meta Box Builder extension for Meta Box",
-            "time": "2024-11-06T07:34:55+00:00"
+            "time": "2024-11-06T14:59:14+00:00"
         },
         {
             "name": "meta-box/support",
