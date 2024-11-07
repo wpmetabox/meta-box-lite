@@ -476,12 +476,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mb-comment-meta.git",
-                "reference": "6d57f86a5605aff9566bdb9b897c41fe6cc4d81a"
+                "reference": "43acd6342d99b2f5494d6b0f5fd00468a9a16f7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/mb-comment-meta/zipball/6d57f86a5605aff9566bdb9b897c41fe6cc4d81a",
-                "reference": "6d57f86a5605aff9566bdb9b897c41fe6cc4d81a",
+                "url": "https://api.github.com/repos/wpmetabox/mb-comment-meta/zipball/43acd6342d99b2f5494d6b0f5fd00468a9a16f7d",
+                "reference": "43acd6342d99b2f5494d6b0f5fd00468a9a16f7d",
                 "shasum": ""
             },
             "default-branch": true,
@@ -514,7 +514,7 @@
                 "issues": "https://github.com/wpmetabox/mb-comment-meta/issues",
                 "source": "https://github.com/wpmetabox/mb-comment-meta/tree/1.0.2"
             },
-            "time": "2024-11-01T03:24:07+00:00"
+            "time": "2024-11-07T01:51:37+00:00"
         },
         {
             "name": "wpmetabox/mb-custom-post-type",
@@ -522,7 +522,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/mb-custom-post-type.git",
-                "reference": "51de59b7b0debbf3eb576fa32cd73d6a159f864c"
+                "reference": "2b926e02be68c16fcd75f7ae055d1890af867f8d"
             },
             "require": {
                 "meta-box/support": "dev-master"
@@ -571,7 +571,7 @@
                 "wordpress-plugin",
                 "wp-admin"
             ],
-            "time": "2024-11-07T01:23:31+00:00"
+            "time": "2024-11-07T01:45:31+00:00"
         },
         {
             "name": "wpmetabox/mb-divi-integrator",
@@ -655,7 +655,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/mb-relationships.git",
-                "reference": "e0b9ad6f21d8ed12ab44473db4483e3b03635636"
+                "reference": "3af8e00f91595f7fb6bfef41f84df66a87a0bd74"
             },
             "default-branch": true,
             "type": "wordpress-plugin",
@@ -685,7 +685,7 @@
                 "wordpress-plugin",
                 "wp-admin"
             ],
-            "time": "2024-11-07T01:32:44+00:00"
+            "time": "2024-11-07T01:43:57+00:00"
         },
         {
             "name": "wpmetabox/mb-rest-api",
