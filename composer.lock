@@ -655,7 +655,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/mb-relationships.git",
-                "reference": "c4511f5a8ab99830d83fdf904b54213c70952fd7"
+                "reference": "e0b9ad6f21d8ed12ab44473db4483e3b03635636"
             },
             "default-branch": true,
             "type": "wordpress-plugin",
@@ -685,7 +685,7 @@
                 "wordpress-plugin",
                 "wp-admin"
             ],
-            "time": "2024-11-07T01:29:09+00:00"
+            "time": "2024-11-07T01:32:44+00:00"
         },
         {
             "name": "wpmetabox/mb-rest-api",
