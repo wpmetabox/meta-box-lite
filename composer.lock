@@ -321,7 +321,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box-builder.git",
-                "reference": "4c0faf6ae02954b6c86d44933d6a246e956e719c"
+                "reference": "8d29a809164b8a73b236191b0f755504d2f8c1ae"
             },
             "require": {
                 "elightup/twig": "dev-master",
@@ -397,7 +397,7 @@
                 ]
             },
             "description": "Meta Box Builder extension for Meta Box",
-            "time": "2024-11-06T14:59:14+00:00"
+            "time": "2024-11-07T02:10:37+00:00"
         },
         {
             "name": "meta-box/support",
@@ -962,12 +962,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box-text-limiter.git",
-                "reference": "8896e8a66d97dee2385f068b64a49f80326ccf8c"
+                "reference": "3a4e06ea1e08997c14180c7f767ead792bbeb225"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box-text-limiter/zipball/8896e8a66d97dee2385f068b64a49f80326ccf8c",
-                "reference": "8896e8a66d97dee2385f068b64a49f80326ccf8c",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-text-limiter/zipball/3a4e06ea1e08997c14180c7f767ead792bbeb225",
+                "reference": "3a4e06ea1e08997c14180c7f767ead792bbeb225",
                 "shasum": ""
             },
             "default-branch": true,
@@ -997,9 +997,9 @@
             ],
             "support": {
                 "issues": "https://github.com/wpmetabox/meta-box-text-limiter/issues",
-                "source": "https://github.com/wpmetabox/meta-box-text-limiter/tree/1.2.3"
+                "source": "https://github.com/wpmetabox/meta-box-text-limiter/tree/master"
             },
-            "time": "2024-11-07T01:55:56+00:00"
+            "time": "2024-11-07T01:58:01+00:00"
         }
     ],
     "packages-dev": [],
