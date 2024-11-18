@@ -321,7 +321,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box-builder.git",
-                "reference": "8d29a809164b8a73b236191b0f755504d2f8c1ae"
+                "reference": "827272ead3034130e612155cbd8771c654d237e3"
             },
             "require": {
                 "elightup/twig": "dev-master",
@@ -397,7 +397,7 @@
                 ]
             },
             "description": "Meta Box Builder extension for Meta Box",
-            "time": "2024-11-07T02:10:37+00:00"
+            "time": "2024-11-12T08:49:35+00:00"
         },
         {
             "name": "meta-box/support",
@@ -522,7 +522,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/mb-custom-post-type.git",
-                "reference": "9fbdb2b187f4982107e29a363dea7ac1c4c5d88a"
+                "reference": "e2c558273f3ac0a48134f61c172f3f0ca00a472b"
             },
             "require": {
                 "meta-box/support": "dev-master"
@@ -571,7 +571,7 @@
                 "wordpress-plugin",
                 "wp-admin"
             ],
-            "time": "2024-11-08T02:15:02+00:00"
+            "time": "2024-11-08T07:57:14+00:00"
         },
         {
             "name": "wpmetabox/mb-divi-integrator",
@@ -781,7 +781,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box.git",
-                "reference": "644c0da3e56903975479bba71b4e7286a035ca52"
+                "reference": "c28f6965a114fc04a6e908d6a9a2a95f3ceda4cc"
             },
             "require": {
                 "meta-box/support": "dev-master"
@@ -867,7 +867,7 @@
                 "wordpress",
                 "wordpress-plugin"
             ],
-            "time": "2024-11-08T07:04:44+00:00"
+            "time": "2024-11-18T04:09:52+00:00"
         },
         {
             "name": "wpmetabox/meta-box-beaver-themer-integrator",
