@@ -962,12 +962,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box-text-limiter.git",
-                "reference": "eb78a3734845c12b9d84d015fd389f836e0b7e9b"
+                "reference": "51f021c947aec493f490e86fb30937542e0ce130"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box-text-limiter/zipball/eb78a3734845c12b9d84d015fd389f836e0b7e9b",
-                "reference": "eb78a3734845c12b9d84d015fd389f836e0b7e9b",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-text-limiter/zipball/51f021c947aec493f490e86fb30937542e0ce130",
+                "reference": "51f021c947aec493f490e86fb30937542e0ce130",
                 "shasum": ""
             },
             "default-branch": true,
@@ -997,9 +997,9 @@
             ],
             "support": {
                 "issues": "https://github.com/wpmetabox/meta-box-text-limiter/issues",
-                "source": "https://github.com/wpmetabox/meta-box-text-limiter/tree/master"
+                "source": "https://github.com/wpmetabox/meta-box-text-limiter/tree/1.2.4"
             },
-            "time": "2024-11-08T04:27:54+00:00"
+            "time": "2024-11-19T04:45:14+00:00"
         }
     ],
     "packages-dev": [],
