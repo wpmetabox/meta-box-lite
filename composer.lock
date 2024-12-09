@@ -579,7 +579,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mb-divi-integrator.git",
-                "reference": "1ab01dc90047601aa05ad0af68e191d5742f8dd7"
+                "reference": "91bc6d21c9b0ba646041072c70b7ba15264139e9"
             },
             "default-branch": true,
             "type": "wordpress-plugin",
@@ -598,7 +598,7 @@
                 }
             ],
             "description": "Display Meta Box data in Divi",
-            "time": "2024-11-01T02:52:15+00:00"
+            "time": "2024-12-05T23:22:50+00:00"
         },
         {
             "name": "wpmetabox/mb-elementor-integrator",
