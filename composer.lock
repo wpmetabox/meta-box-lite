@@ -781,7 +781,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box.git",
-                "reference": "3fa649ba0e8624c71f066a8437a4a47af5998710"
+                "reference": "1c7c514a5c41a77472b1a98d3cb3b4d33a471942"
             },
             "require": {
                 "meta-box/support": "dev-master"
@@ -867,7 +867,7 @@
                 "wordpress",
                 "wordpress-plugin"
             ],
-            "time": "2024-12-16T06:50:30+00:00"
+            "time": "2024-12-18T03:46:59+00:00"
         },
         {
             "name": "wpmetabox/meta-box-beaver-themer-integrator",
@@ -962,12 +962,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box-text-limiter.git",
-                "reference": "51f021c947aec493f490e86fb30937542e0ce130"
+                "reference": "fc01c51c038a51a0fb6a5865f0a557f26cb9facb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box-text-limiter/zipball/51f021c947aec493f490e86fb30937542e0ce130",
-                "reference": "51f021c947aec493f490e86fb30937542e0ce130",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-text-limiter/zipball/fc01c51c038a51a0fb6a5865f0a557f26cb9facb",
+                "reference": "fc01c51c038a51a0fb6a5865f0a557f26cb9facb",
                 "shasum": ""
             },
             "default-branch": true,
@@ -997,9 +997,9 @@
             ],
             "support": {
                 "issues": "https://github.com/wpmetabox/meta-box-text-limiter/issues",
-                "source": "https://github.com/wpmetabox/meta-box-text-limiter/tree/1.2.4"
+                "source": "https://github.com/wpmetabox/meta-box-text-limiter/tree/master"
             },
-            "time": "2024-11-19T04:45:14+00:00"
+            "time": "2024-12-17T06:21:20+00:00"
         }
     ],
     "packages-dev": [],
