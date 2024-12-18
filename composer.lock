@@ -781,7 +781,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box.git",
-                "reference": "1c7c514a5c41a77472b1a98d3cb3b4d33a471942"
+                "reference": "b51344addb231754d2f48bda5ee23f7d005de527"
             },
             "require": {
                 "meta-box/support": "dev-master"
@@ -867,7 +867,7 @@
                 "wordpress",
                 "wordpress-plugin"
             ],
-            "time": "2024-12-18T03:46:59+00:00"
+            "time": "2024-12-18T15:01:18+00:00"
         },
         {
             "name": "wpmetabox/meta-box-beaver-themer-integrator",
