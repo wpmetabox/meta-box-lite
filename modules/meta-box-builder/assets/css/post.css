@@ -1,0 +1,21 @@
+.mbb-settings {
+	display: none;
+	color: #72777c;
+	font-size: 16px;
+	height: 36px;
+	width: 24px;
+	line-height: 36px;
+}
+
+.block-editor-page .mbb-settings {
+	height: 44px;
+	line-height: 44px;
+}
+
+.mbb-settings:hover {
+	color: inherit;
+}
+
+.postbox-header:hover .mbb-settings {
+	display: inline-block;
+}

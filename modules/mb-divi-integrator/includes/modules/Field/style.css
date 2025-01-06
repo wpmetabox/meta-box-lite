@@ -1,0 +1,30 @@
+.mbdi-grid  {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.mbdi-grid.mbdi-grid-cols-1 {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.mbdi-grid.mbdi-grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.mbdi-grid.mbdi-grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.mbdi-grid.mbdi-grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.mbdi-grid.mbdi-grid-cols-5 {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.mbdi-grid.mbdi-grid-cols-6 {
+    grid-template-columns: repeat(6, 1fr);
+}

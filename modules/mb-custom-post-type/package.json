@@ -1,0 +1,26 @@
+{
+  "name": "mb-cpt",
+  "version": "2.1.0",
+  "description": "",
+  "main": "index.js",
+  "license": "GPL-2.0-or-later",
+  "scripts": {
+    "watch:css": "sass --no-source-map --style=compressed --watch assets/style.scss assets/style.css",
+    "build:css": "sass --no-source-map --style=compressed assets/style.scss assets/style.css",
+    "build:js": "wp-scripts build",
+    "build": "npm run build:css && npm run build:js",
+    "start": "wp-scripts start"
+  },
+  "dependencies": {
+    "dot-prop": "^5.3.0",
+    "react-codemirror2": "^7.2.1",
+    "slugify": "^1.4.5"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "@wordpress/icons": "^10.7.0",
+    "@wordpress/scripts": "^27.9.0",
+    "sass": "^1.54.0",
+    "url-loader": "^4.1.1"
+  }
+}

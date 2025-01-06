@@ -1,0 +1,52 @@
+<?php
+
+// Prevent loading this file directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	return;
+}
+
+if ( ! function_exists( 'mb_cpt_load' ) ) {
+	if ( file_exists( __DIR__ . '/vendor' ) ) {
+		require __DIR__ . '/vendor/autoload.php';
+	}
+
+	add_action( 'init', 'mb_cpt_load', 0 );
+
+	function mb_cpt_load() {
+		define( 'MB_CPT_DIR', __DIR__ );
+		define( 'MB_CPT_VER', '2.7.10' );
+
+		if ( class_exists( 'RWMB_Loader' ) ) {
+			list( , $url ) = RWMB_Loader::get_path( __DIR__ );
+			define( 'MB_CPT_URL', $url );
+		} else {
+			define( 'MB_CPT_URL', plugin_dir_url( __FILE__ ) );
+		}
+
+		load_plugin_textdomain( 'mb-custom-post-type' );
+
+		new MBCPT\PostTypeRegister();
+		new MBCPT\TaxonomyRegister();
+		new MBCPT\Order();
+
+		if ( ! is_admin() ) {
+			return;
+		}
+
+		// Show Meta Box admin menu.
+		add_filter( 'rwmb_admin_menu', '__return_true' );
+
+		new MBCPT\Edit( 'mb-post-type' );
+		new MBCPT\Edit( 'mb-taxonomy' );
+		new MBCPT\About();
+		new MBCPT\Warning();
+		new MBCPT\Import();
+		new MBCPT\Export();
+		new MBCPT\PostListTable();
+
+		if ( defined( 'CPTUI_VERSION' ) ) {
+			new MBCPT\Migration();
+			new MBCPT\Ajax();
+		}
+	}
+}

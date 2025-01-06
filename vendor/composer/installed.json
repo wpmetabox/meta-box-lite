@@ -1,0 +1,1061 @@
+{
+    "packages": [
+        {
+            "name": "composer/installers",
+            "version": "v1.12.0",
+            "version_normalized": "1.12.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "d20a64ed3c94748397ff5973488761b22f6d3f19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/d20a64ed3c94748397ff5973488761b22f6d3f19",
+                "reference": "d20a64ed3c94748397ff5973488761b22f6d3f19",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0 || ^2.0"
+            },
+            "replace": {
+                "roundcube/plugin-installer": "*",
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.6.* || ^2.0",
+                "composer/semver": "^1 || ^3",
+                "phpstan/phpstan": "^0.12.55",
+                "phpstan/phpstan-phpunit": "^0.12.16",
+                "symfony/phpunit-bridge": "^4.2 || ^5",
+                "symfony/process": "^2.3"
+            },
+            "time": "2021-09-13T08:19:44+00:00",
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Composer\\Installers\\Plugin",
+                "branch-alias": {
+                    "dev-main": "1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "https://composer.github.io/installers/",
+            "keywords": [
+                "Craft",
+                "Dolibarr",
+                "Eliasis",
+                "Hurad",
+                "ImageCMS",
+                "Kanboard",
+                "Lan Management System",
+                "MODX Evo",
+                "MantisBT",
+                "Mautic",
+                "Maya",
+                "OXID",
+                "Plentymarkets",
+                "Porto",
+                "RadPHP",
+                "SMF",
+                "Starbug",
+                "Thelia",
+                "Whmcs",
+                "WolfCMS",
+                "agl",
+                "aimeos",
+                "annotatecms",
+                "attogram",
+                "bitrix",
+                "cakephp",
+                "chef",
+                "cockpit",
+                "codeigniter",
+                "concrete5",
+                "croogo",
+                "dokuwiki",
+                "drupal",
+                "eZ Platform",
+                "elgg",
+                "expressionengine",
+                "fuelphp",
+                "grav",
+                "installer",
+                "itop",
+                "joomla",
+                "known",
+                "kohana",
+                "laravel",
+                "lavalite",
+                "lithium",
+                "magento",
+                "majima",
+                "mako",
+                "mediawiki",
+                "miaoxing",
+                "modulework",
+                "modx",
+                "moodle",
+                "osclass",
+                "pantheon",
+                "phpbb",
+                "piwik",
+                "ppi",
+                "processwire",
+                "puppet",
+                "pxcms",
+                "reindex",
+                "roundcube",
+                "shopware",
+                "silverstripe",
+                "sydes",
+                "sylius",
+                "symfony",
+                "tastyigniter",
+                "typo3",
+                "wordpress",
+                "yawik",
+                "zend",
+                "zikula"
+            ],
+            "support": {
+                "issues": "https://github.com/composer/installers/issues",
+                "source": "https://github.com/composer/installers/tree/v1.12.0"
+            },
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "./installers"
+        },
+        {
+            "name": "elightup/twig",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:elightup/twig.git",
+                "reference": "878f6cfa57ac080192f53922f93e5bdbeda314dd"
+            },
+            "time": "2022-12-03T14:54:46+00:00",
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "mozart": {
+                    "dep_namespace": "eLightUp\\",
+                    "dep_directory": "/",
+                    "classmap_directory": "/",
+                    "classmap_prefix": "eLightUp_",
+                    "packages": [
+                        "twig/twig"
+                    ],
+                    "delete_vendor_directories": true
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "eLightUp\\": "./"
+                }
+            },
+            "scripts": {
+                "post-install-cmd": [
+                    "mozart compose",
+                    "composer dump-autoload"
+                ],
+                "post-update-cmd": [
+                    "mozart compose",
+                    "composer dump-autoload"
+                ]
+            },
+            "install-path": "../elightup/twig"
+        },
+        {
+            "name": "meta-box/mb-acf-migration",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wpmetabox/mb-acf-migration.git",
+                "reference": "468512096d3b535031461ebc187e91f2e4cca493"
+            },
+            "require": {
+                "meta-box/mbb-parser": "dev-master",
+                "meta-box/support": "dev-master"
+            },
+            "time": "2024-11-07T02:15:34+00:00",
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "MetaBox\\ACF\\": "src/"
+                }
+            },
+            "license": [
+                "GPL-2.0"
+            ],
+            "description": "Migrate ACF custom fields to Meta Box",
+            "homepage": "https://metabox.io",
+            "keywords": [
+                "acf",
+                "advanced-custom-fields",
+                "custom-field",
+                "custom-fields",
+                "meta-box",
+                "wordpress",
+                "wordpress-plugin"
+            ],
+            "install-path": "../../modules/mb-acf-migration"
+        },
+        {
+            "name": "meta-box/mb-rank-math",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wpmetabox/mb-rank-math.git",
+                "reference": "691f368f077082141ab3ab8b60d91c2d79f82ba4"
+            },
+            "time": "2024-11-01T03:05:22+00:00",
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "installation-source": "source",
+            "license": [
+                "GPL-2.0"
+            ],
+            "description": "Add content of Meta Box custom fields to Rank Math Content Analysis.",
+            "homepage": "https://metabox.io/plugins/mb-rank-math/",
+            "keywords": [
+                "custom-field",
+                "meta-box",
+                "select2",
+                "seo",
+                "ui",
+                "wordpress",
+                "wordpress-plugin",
+                "wp-admin"
+            ],
+            "install-path": "../../modules/mb-rank-math"
+        },
+        {
+            "name": "meta-box/mb-toolset-migration",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wpmetabox/mb-toolset-migration.git",
+                "reference": "1d9baac7b20bfb0035428efd6e8cdb6cdbb364e2"
+            },
+            "require": {
+                "meta-box/mbb-parser": "dev-master",
+                "meta-box/support": "dev-master"
+            },
+            "time": "2024-11-01T03:12:16+00:00",
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "MetaBox\\TS\\": "src/"
+                }
+            },
+            "license": [
+                "GPL-2.0"
+            ],
+            "description": "Migrate Toolset custom fields to Meta Box",
+            "homepage": "https://metabox.io",
+            "keywords": [
+                "custom-field",
+                "custom-fields",
+                "meta-box",
+                "toolset",
+                "types",
+                "wordpress",
+                "wordpress-plugin"
+            ],
+            "install-path": "../../modules/mb-toolset-migration"
+        },
+        {
+            "name": "meta-box/mbb-parser",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:wpmetabox/mbb-parser.git",
+                "reference": "8fd84824fb6f678b0b2527e8aae226c093b635d1"
+            },
+            "require": {
+                "meta-box/support": "dev-master",
+                "riimu/kit-phpencoder": "^2.4"
+            },
+            "time": "2024-10-23T09:11:04+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "MBBParser\\": "src/"
+                }
+            },
+            "description": "Parse meta box settings from JSON",
+            "install-path": "../meta-box/mbb-parser"
+        },
+        {
+            "name": "meta-box/meta-box-builder",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:wpmetabox/meta-box-builder.git",
+                "reference": "71e2f54618f417228c12a3370dbdccac761b5093"
+            },
+            "require": {
+                "elightup/twig": "dev-master",
+                "meta-box/mbb-parser": "dev-master",
+                "meta-box/support": "dev-master"
+            },
+            "time": "2024-11-19T04:47:27+00:00",
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "extra": {
+                "dev-files": {
+                    "/": [
+                        ".git",
+                        ".github/",
+                        ".gitattributes",
+                        ".gitignore",
+                        ".distignore",
+                        "*.yaml",
+                        "*.yml",
+                        "*.txt",
+                        "*.less",
+                        "*.scss",
+                        "*.po",
+                        "composer.json",
+                        "composer.lock",
+                        "package.json",
+                        "package-lock.json",
+                        "phpcs.xml",
+                        "pnpm-lock.yaml",
+                        "phpstan.neon",
+                        "phpunit.xml",
+                        ".babelrc",
+                        "webpack.config.js",
+                        ".editoconfig",
+                        ".vscode",
+                        "esbuild.js",
+                        "LICENSE",
+                        "*.md",
+                        "test/",
+                        "tests/",
+                        "demo.php",
+                        "demo/",
+                        "sass/",
+                        "vendor/"
+                    ],
+                    "riimu/kit-phpencoder": [
+                        "examples/",
+                        "*.json"
+                    ],
+                    "elightup/twig": [
+                        "*.json",
+                        "twig.php"
+                    ]
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "MBB\\": "src/",
+                    "MBB\\SettingsPage\\": "modules/settings-page/src/",
+                    "MBB\\Relationships\\": "modules/relationships/src/"
+                }
+            },
+            "scripts": {
+                "post-update-cmd": [
+                    "echo Deleting .git dirs...",
+                    "rm -rf vendor/**/**/.git"
+                ],
+                "post-install-cmd": [
+                    "echo Deleting .git dirs...",
+                    "rm -rf vendor/**/**/.git"
+                ],
+                "phpcs": [
+                    "phpcs > phpcs.txt"
+                ]
+            },
+            "description": "Meta Box Builder extension for Meta Box",
+            "install-path": "../../modules/meta-box-builder"
+        },
+        {
+            "name": "meta-box/support",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wpmetabox/support.git",
+                "reference": "99607eb4d8c8c96a7c882fc5a7c69cf3534d95bd"
+            },
+            "time": "2024-10-07T00:27:46+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "MetaBox\\Support\\": ""
+                }
+            },
+            "license": [
+                "GNU GPL-2.0"
+            ],
+            "description": "Helpers for Meta Box plugins",
+            "homepage": "https://metabox.io",
+            "install-path": "../meta-box/support"
+        },
+        {
+            "name": "riimu/kit-phpencoder",
+            "version": "v2.4.2",
+            "version_normalized": "2.4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Riimu/Kit-PHPEncoder.git",
+                "reference": "72ff7825de193b272e17b228394819dbfc638e72"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Riimu/Kit-PHPEncoder/zipball/72ff7825de193b272e17b228394819dbfc638e72",
+                "reference": "72ff7825de193b272e17b228394819dbfc638e72",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "time": "2022-12-10T18:12:25+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Riimu\\Kit\\PHPEncoder\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Riikka Kalliomäki",
+                    "email": "riikka.kalliomaki@gmail.com",
+                    "homepage": "http://riimu.net"
+                }
+            ],
+            "description": "Highly customizable alternative to var_export for PHP code generation",
+            "homepage": "http://kit.riimu.net",
+            "keywords": [
+                "code",
+                "encoder",
+                "export",
+                "generator",
+                "variable"
+            ],
+            "support": {
+                "issues": "https://github.com/Riimu/Kit-PHPEncoder/issues",
+                "source": "https://github.com/Riimu/Kit-PHPEncoder/tree/v2.4.2"
+            },
+            "install-path": "../riimu/kit-phpencoder"
+        },
+        {
+            "name": "wpmetabox/mb-comment-meta",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wpmetabox/mb-comment-meta.git",
+                "reference": "43acd6342d99b2f5494d6b0f5fd00468a9a16f7d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpmetabox/mb-comment-meta/zipball/43acd6342d99b2f5494d6b0f5fd00468a9a16f7d",
+                "reference": "43acd6342d99b2f5494d6b0f5fd00468a9a16f7d",
+                "shasum": ""
+            },
+            "time": "2024-11-07T01:51:37+00:00",
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tran Ngoc Tuan Anh",
+                    "email": "anhtnt@elightup.com",
+                    "homepage": "https://metabox.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Add custom fields for comments in WordPress. Support 40+ field types with easy config.",
+            "homepage": "https://metabox.io/plugins/mb-comment-meta/",
+            "keywords": [
+                "comment",
+                "custom-field",
+                "meta-box",
+                "select2",
+                "ui",
+                "wordpress",
+                "wordpress-plugin",
+                "wp-admin"
+            ],
+            "support": {
+                "issues": "https://github.com/wpmetabox/mb-comment-meta/issues",
+                "source": "https://github.com/wpmetabox/mb-comment-meta/tree/1.0.2"
+            },
+            "install-path": "../../modules/mb-comment-meta"
+        },
+        {
+            "name": "wpmetabox/mb-custom-post-type",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:wpmetabox/mb-custom-post-type.git",
+                "reference": "b2feb619f1d368863dee04c8e4b29c866689d93b"
+            },
+            "require": {
+                "meta-box/support": "dev-master"
+            },
+            "time": "2024-11-19T04:36:46+00:00",
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "MBCPT\\": "src/"
+                }
+            },
+            "scripts": {
+                "format": [
+                    "phpcbf src/",
+                    "phpcbf src/ --standard=Generic --sniffs=Generic.Arrays.DisallowLongArraySyntax"
+                ],
+                "post-update-cmd": [
+                    "echo Deleting .git dirs...",
+                    "rm -rf vendor/**/**/.git"
+                ],
+                "post-install-cmd": [
+                    "echo Deleting .git dirs...",
+                    "rm -rf vendor/**/**/.git"
+                ]
+            },
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tran Ngoc Tuan Anh",
+                    "email": "anhtnt@elightup.com",
+                    "homepage": "https://metabox.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Create and manage custom post types and custom taxonomies with an easy-to-use interface in WordPress.",
+            "homepage": "https://metabox.io/plugins/custom-post-type/",
+            "keywords": [
+                "custom-field",
+                "custom-post-type",
+                "meta-box",
+                "select2",
+                "ui",
+                "wordpress",
+                "wordpress-plugin",
+                "wp-admin"
+            ],
+            "install-path": "../../modules/mb-custom-post-type"
+        },
+        {
+            "name": "wpmetabox/mb-divi-integrator",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wpmetabox/mb-divi-integrator.git",
+                "reference": "91bc6d21c9b0ba646041072c70b7ba15264139e9"
+            },
+            "time": "2024-12-05T23:22:50+00:00",
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "MBDI\\": "src/"
+                }
+            },
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tan Nguyen",
+                    "email": "tannt.com@gmail.com"
+                }
+            ],
+            "description": "Display Meta Box data in Divi",
+            "install-path": "../../modules/mb-divi-integrator"
+        },
+        {
+            "name": "wpmetabox/mb-elementor-integrator",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wpmetabox/mb-elementor-integrator.git",
+                "reference": "d9b335792c49d5d70abe570f711ba8ca8d034f8f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpmetabox/mb-elementor-integrator/zipball/d9b335792c49d5d70abe570f711ba8ca8d034f8f",
+                "reference": "d9b335792c49d5d70abe570f711ba8ca8d034f8f",
+                "shasum": ""
+            },
+            "time": "2024-11-01T03:00:33+00:00",
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MBEI\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tran Ngoc Tuan Anh",
+                    "email": "anhtnt@elightup.com",
+                    "homepage": "https://metabox.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Connect and display custom fields created by the Meta Box plugin in the Elementor’s dynamic tags.",
+            "homepage": "https://metabox.io/plugins/mb-elementor-integrator/",
+            "keywords": [
+                "custom-field",
+                "elementor",
+                "meta-box",
+                "ui",
+                "wordpress",
+                "wordpress-plugin"
+            ],
+            "support": {
+                "issues": "https://github.com/wpmetabox/mb-elementor-integrator/issues",
+                "source": "https://github.com/wpmetabox/mb-elementor-integrator/tree/2.2.2"
+            },
+            "install-path": "../../modules/mb-elementor-integrator"
+        },
+        {
+            "name": "wpmetabox/mb-relationships",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:wpmetabox/mb-relationships.git",
+                "reference": "3af8e00f91595f7fb6bfef41f84df66a87a0bd74"
+            },
+            "time": "2024-11-07T01:43:57+00:00",
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "installation-source": "source",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tran Ngoc Tuan Anh",
+                    "email": "anhtnt@elightup.com",
+                    "homepage": "https://metabox.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A lightweight solution for creating many-to-many posts to posts relationships in WordPress.",
+            "homepage": "https://metabox.io/plugins/mb-relationships/",
+            "keywords": [
+                "connection",
+                "connections",
+                "custom-field",
+                "meta-box",
+                "relationship",
+                "relationships",
+                "select2",
+                "ui",
+                "wordpress",
+                "wordpress-plugin",
+                "wp-admin"
+            ],
+            "install-path": "../../modules/mb-relationships"
+        },
+        {
+            "name": "wpmetabox/mb-rest-api",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wpmetabox/mb-rest-api.git",
+                "reference": "67a67db7cd078f1994bcbb373b2777a38f1333aa"
+            },
+            "time": "2024-11-01T03:06:20+00:00",
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "MetaBox\\RestApi\\": "src/"
+                }
+            },
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tran Ngoc Tuan Anh",
+                    "email": "anhtnt@elightup.com",
+                    "homepage": "https://deluxeblogtips.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Add Meta Box custom fields to the WordPress REST API responses.",
+            "homepage": "https://metabox.io/plugins/mb-rest-api/",
+            "keywords": [
+                "custom-field",
+                "custom-post-type",
+                "meta-box",
+                "rest",
+                "rest-api",
+                "select2",
+                "ui",
+                "wordpress",
+                "wordpress-plugin",
+                "wp-admin"
+            ],
+            "install-path": "../../modules/mb-rest-api"
+        },
+        {
+            "name": "wpmetabox/mb-yoast-seo",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wpmetabox/mb-yoast-seo.git",
+                "reference": "04887f15c9d23fee37d2084de8f89112339eab9a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpmetabox/mb-yoast-seo/zipball/04887f15c9d23fee37d2084de8f89112339eab9a",
+                "reference": "04887f15c9d23fee37d2084de8f89112339eab9a",
+                "shasum": ""
+            },
+            "time": "2024-10-14T10:06:11+00:00",
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tran Ngoc Tuan Anh",
+                    "email": "anhtnt@elightup.com",
+                    "homepage": "https://metabox.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Add content of Meta Box custom fields to Yoast SEO Content Analysis.",
+            "homepage": "https://metabox.io/plugins/meta-box-yoast-seo/",
+            "keywords": [
+                "custom-field",
+                "meta-box",
+                "select2",
+                "seo",
+                "ui",
+                "wordpress",
+                "wordpress-plugin",
+                "wp-admin"
+            ],
+            "support": {
+                "issues": "https://github.com/wpmetabox/mb-yoast-seo/issues",
+                "source": "https://github.com/wpmetabox/mb-yoast-seo/tree/1.3.10"
+            },
+            "install-path": "../../modules/mb-yoast-seo"
+        },
+        {
+            "name": "wpmetabox/meta-box",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:wpmetabox/meta-box.git",
+                "reference": "872dbd07d6ec90b3c5b5530e19e5f724c49797e3"
+            },
+            "require": {
+                "meta-box/support": "dev-master"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^11.3"
+            },
+            "time": "2024-12-23T02:09:08+00:00",
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "extra": {
+                "dev-files": {
+                    "/": [
+                        ".git",
+                        ".github/",
+                        ".gitattributes",
+                        ".gitignore",
+                        ".distignore",
+                        "*.yaml",
+                        "*.yml",
+                        "*.txt",
+                        "*.less",
+                        "*.scss",
+                        "*.po",
+                        "composer.json",
+                        "composer.lock",
+                        "package.json",
+                        "package-lock.json",
+                        "phpcs.xml",
+                        "pnpm-lock.yaml",
+                        "phpstan.neon",
+                        "phpunit.xml",
+                        ".babelrc",
+                        "webpack.config.js",
+                        ".editoconfig",
+                        ".vscode",
+                        "esbuild.js",
+                        "LICENSE",
+                        "*.md",
+                        "test/",
+                        "tests/",
+                        "demo.php",
+                        "demo/",
+                        "sass/",
+                        "vendor/"
+                    ]
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "MetaBox\\": "src/"
+                }
+            },
+            "scripts": {
+                "post-update-cmd": [
+                    "echo Deleting .git dirs...",
+                    "rm -rf vendor/**/**/.git"
+                ],
+                "post-install-cmd": [
+                    "echo Deleting .git dirs...",
+                    "rm -rf vendor/**/**/.git"
+                ],
+                "test": [
+                    "./vendor/bin/phpunit"
+                ]
+            },
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tran Ngoc Tuan Anh",
+                    "email": "anhtnt@elightup.com",
+                    "homepage": "https://metabox.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A powerful, professional developer toolkit to create custom meta boxes and custom fields for WordPress websites.",
+            "homepage": "https://metabox.io",
+            "keywords": [
+                "custom-field",
+                "custom-fields",
+                "meta-box",
+                "wordpress",
+                "wordpress-plugin"
+            ],
+            "install-path": "../../modules/meta-box"
+        },
+        {
+            "name": "wpmetabox/meta-box-beaver-themer-integrator",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wpmetabox/meta-box-beaver-themer-integrator.git",
+                "reference": "39f15de0f18a97de6a58a3652f9a356cd3090bbb"
+            },
+            "time": "2024-10-14T09:55:54+00:00",
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "MBBTI\\": "src/"
+                }
+            },
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tran Ngoc Tuan Anh",
+                    "email": "anhtnt@elightup.com",
+                    "homepage": "https://metabox.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Integrates Meta Box's custom fields with Beaver Themer.",
+            "homepage": "https://metabox.io/plugins/meta-box-beaver-themer-integrator/",
+            "keywords": [
+                "beaver-builder",
+                "beaver-themer",
+                "custom-field",
+                "meta-box",
+                "select2",
+                "ui",
+                "wordpress",
+                "wordpress-plugin",
+                "wp-admin"
+            ],
+            "install-path": "../../modules/meta-box-beaver-themer-integrator"
+        },
+        {
+            "name": "wpmetabox/meta-box-facetwp-integrator",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wpmetabox/meta-box-facetwp-integrator.git",
+                "reference": "1025e2bcf9e974adf9fce99351fbcfd24a31418e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-facetwp-integrator/zipball/1025e2bcf9e974adf9fce99351fbcfd24a31418e",
+                "reference": "1025e2bcf9e974adf9fce99351fbcfd24a31418e",
+                "shasum": ""
+            },
+            "time": "2024-10-14T09:38:18+00:00",
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tran Ngoc Tuan Anh",
+                    "email": "anhtnt@elightup.com",
+                    "homepage": "https://metabox.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Integrates Meta Box custom fields with FacetWP. Make custom fields filterable.",
+            "homepage": "https://metabox.io/plugins/meta-box-facetwp-integrator/",
+            "keywords": [
+                "custom-field",
+                "custom-post-type",
+                "meta-box",
+                "select2",
+                "ui",
+                "wordpress",
+                "wordpress-plugin",
+                "wp-admin"
+            ],
+            "support": {
+                "issues": "https://github.com/wpmetabox/meta-box-facetwp-integrator/issues",
+                "source": "https://github.com/wpmetabox/meta-box-facetwp-integrator/tree/master"
+            },
+            "install-path": "../../modules/meta-box-facetwp-integrator"
+        },
+        {
+            "name": "wpmetabox/text-limiter",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wpmetabox/meta-box-text-limiter.git",
+                "reference": "ee8579cddd507e4e36ea88a8072f4a51d35a5c26"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-text-limiter/zipball/ee8579cddd507e4e36ea88a8072f4a51d35a5c26",
+                "reference": "ee8579cddd507e4e36ea88a8072f4a51d35a5c26",
+                "shasum": ""
+            },
+            "time": "2024-12-23T02:38:41+00:00",
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tran Ngoc Tuan Anh",
+                    "email": "anhtnt@elightup.com",
+                    "homepage": "https://metabox.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Limit number of characters or words entered for text and textarea fields in meta boxes.",
+            "homepage": "https://metabox.io/plugins/meta-box-text-limiter/",
+            "keywords": [
+                "custom-field",
+                "meta-box",
+                "select2",
+                "ui",
+                "wordpress",
+                "wordpress-plugin",
+                "wp-admin"
+            ],
+            "support": {
+                "issues": "https://github.com/wpmetabox/meta-box-text-limiter/issues",
+                "source": "https://github.com/wpmetabox/meta-box-text-limiter/tree/master"
+            },
+            "install-path": "../../modules/text-limiter"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

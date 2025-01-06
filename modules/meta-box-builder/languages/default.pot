@@ -1,0 +1,1237 @@
+# <!=Copyright (C) 2014 Rilwis
+# This file is distributed under the GPL2+.=!>
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Meta Box Builder\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/meta-box\n"
+"POT-Creation-Date: 2019-05-29 09:01+0700\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: MetaBox.io <info@metabox.io>\n"
+"X-Generator: Poedit 2.2.2\n"
+"X-Poedit-KeywordsList: __;_x;_e;_ex;_n;_nx;esc_attr__;esc_attr_e;esc_attr_x;esc_html__;esc_html_e;esc_html_x;_n_noop;_nx_noop\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: assets\n"
+"X-Poedit-SearchPathExcluded-1: languages\n"
+"X-Poedit-SearchPathExcluded-2: vendor\n"
+
+#: meta-box-builder.php:33
+msgid "Meta Box Builder plugin requires PHP version 5.6+. Please contact your host and ask them to upgrade."
+msgstr ""
+
+#: src/AdminColumns.php:24
+msgid "Show For"
+msgstr ""
+
+#: src/AdminColumns.php:25 views/tabs/settings.php:1
+msgid "Location"
+msgstr ""
+
+#: src/AdminColumns.php:28
+msgid "Shortcode"
+msgstr ""
+
+#: src/AdminColumns.php:28
+msgid "Embed the field group in the front end for users to submit posts."
+msgstr ""
+
+#: src/AdminColumns.php:47 views/tabs/settings.php:14
+msgid "Users"
+msgstr ""
+
+#: src/AdminColumns.php:50 views/tabs/settings.php:17
+msgid "Comments"
+msgstr ""
+
+#: src/AdminColumns.php:53
+msgid "Attachments"
+msgstr ""
+
+#: src/AdminColumns.php:56
+msgid "Settings Pages"
+msgstr ""
+
+#: src/AdminColumns.php:59 views/tabs/settings.php:5
+msgid "Posts"
+msgstr ""
+
+#: src/AdminColumns.php:62 views/tabs/settings.php:8 views/tabs/settings.php:41
+msgid "Taxonomies"
+msgstr ""
+
+#: src/AdminColumns.php:70
+msgid "All Users"
+msgstr ""
+
+#: src/AdminColumns.php:73
+msgid "All Comments"
+msgstr ""
+
+#: src/AdminColumns.php:76
+msgid "All Attachments"
+msgstr ""
+
+#: src/Attribute.php:9 views/tabs/fields.php:56
+msgid "ID"
+msgstr ""
+
+#: src/Attribute.php:9
+msgid "Must be unique, will be used as meta key when saving to the database. Recommended to use only lowercase letters, numbers, and underscores."
+msgstr ""
+
+#: src/Attribute.php:10 views/settings/custom-attributes.php:4
+msgid "Custom attributes"
+msgstr ""
+
+#: src/Attribute.php:11 src/Fields/Taxonomy.php:10
+msgid "Default value"
+msgstr ""
+
+#: src/Attribute.php:12 src/Fields/ImageSelect.php:7
+msgid "Choices"
+msgstr ""
+
+#: src/Attribute.php:12
+msgid "Enter each choice on a line. For more control, you may specify both a value and label like \"red: Red\" (without quotes)"
+msgstr ""
+
+#: src/Attribute.php:13
+msgid "Size of the input box"
+msgstr ""
+
+#: src/Attribute.php:13
+msgid "Enter a number here. The bigger value, the longer input box. Normal size is around 30."
+msgstr ""
+
+#: src/Attribute.php:14 views/attributes/text-list-options.php:9
+msgid "Label"
+msgstr ""
+
+#: src/Attribute.php:14
+msgid "Optional field label. If empty, the field input is 100% width."
+msgstr ""
+
+#: src/Attribute.php:15
+msgid "Label description"
+msgstr ""
+
+#: src/Attribute.php:15
+msgid "Optional label description, displayed below the field label"
+msgstr ""
+
+#: src/Attribute.php:16 views/attributes/text-list-options.php:6
+msgid "Placeholder"
+msgstr ""
+
+#: src/Attribute.php:17 views/attributes/clone.php:4
+msgid "Cloneable"
+msgstr ""
+
+#: src/Attribute.php:17 views/attributes/clone.php:5
+msgid "Make field clonable (repeatable)"
+msgstr ""
+
+#: src/Attribute.php:18
+msgid "Custom HTML displayed before field output"
+msgstr ""
+
+#: src/Attribute.php:19
+msgid "Custom HTML displayed after field output"
+msgstr ""
+
+#: src/Attribute.php:20
+msgid "MIME types"
+msgstr ""
+
+#: src/Attribute.php:20
+msgid "This is a filter for items in Media Library popup, it does not restrict file types when upload."
+msgstr ""
+
+#: src/Attribute.php:21
+msgid "Force delete?"
+msgstr ""
+
+#: src/Attribute.php:21
+msgid "Delete files from the Media Library when deleting them from post meta"
+msgstr ""
+
+#: src/Attribute.php:22
+msgid "Allow to select opacity"
+msgstr ""
+
+#: src/Attribute.php:23
+msgid "Description"
+msgstr ""
+
+#: src/Attribute.php:24
+msgid "Show status"
+msgstr ""
+
+#: src/Attribute.php:24
+msgid "Display how many files uploaded/remaining"
+msgstr ""
+
+#: src/Attribute.php:25 src/Fields/Taxonomy.php:15 src/Fields/User.php:7
+msgid "Display \"Toggle All\" button"
+msgstr ""
+
+#: src/Attribute.php:26
+msgid "Required"
+msgstr ""
+
+#: src/Attribute.php:27
+msgid "Display choices on a single line"
+msgstr ""
+
+#: src/Attribute.php:28 src/Fields/Taxonomy.php:19 src/Fields/User.php:11
+msgid "Allow to select multiple choices"
+msgstr ""
+
+#: src/Attribute.php:29
+msgid "Save the date in the Unix timestamp format"
+msgstr ""
+
+#: src/Attribute.php:30
+msgid "Maximum number of files (leave empty for unlimited files)"
+msgstr ""
+
+#: src/Attribute.php:31
+msgid "Set the selected post as the parent of current post being edited"
+msgstr ""
+
+#: src/Attribute.php:32
+msgid "Prefix"
+msgstr ""
+
+#: src/Attribute.php:32
+msgid "Text displayed before the field value"
+msgstr ""
+
+#: src/Attribute.php:33
+msgid "Suffix"
+msgstr ""
+
+#: src/Attribute.php:33
+msgid "Text displayed after the field value"
+msgstr ""
+
+#: src/Attribute.php:34
+msgid "Save data in raw format"
+msgstr ""
+
+#: src/Attribute.php:35 src/Fields/Map.php:19 src/Fields/Osm.php:15
+msgid "Region code"
+msgstr ""
+
+#: src/Attribute.php:35 src/Fields/Map.php:19 src/Fields/Osm.php:15
+msgid "The region code, specified as a country code top-level domain. This parameter returns autocompleted address results influenced by the region (typically the country) from the address field."
+msgstr ""
+
+#: src/Edit.php:93
+msgid "Untitled Field Group"
+msgstr ""
+
+#: src/Fields/Base.php:28
+msgid "Custom CSS Class"
+msgstr ""
+
+#: src/Fields/Base.php:38
+msgid "+ Add Attribute"
+msgstr ""
+
+#: src/Fields/Base.php:56
+msgid "General"
+msgstr ""
+
+#: src/Fields/Base.php:61
+msgid "Appearance"
+msgstr ""
+
+#: src/Fields/Base.php:66 src/helpers.php:192
+msgid "Advanced"
+msgstr ""
+
+#: src/Fields/Button.php:7
+msgid "Button text"
+msgstr ""
+
+#: src/Fields/ButtonGroup.php:7
+msgid "Buttons"
+msgstr ""
+
+#: src/Fields/ButtonGroup.php:7
+msgid "Enter each button text on a line. For more control, you may specify both a value and label like \"red: Red\" (without quotes)"
+msgstr ""
+
+#: src/Fields/Checkbox.php:7
+msgid "Default checked?"
+msgstr ""
+
+#: src/Fields/Color.php:15
+msgid "Color picker options"
+msgstr ""
+
+#: src/Fields/Color.php:19 src/Fields/Date.php:15
+#: src/Fields/SelectAdvanced.php:9 src/Fields/Slider.php:18
+#: src/Fields/Time.php:14 src/Fields/Wysiwyg.php:15
+msgid "+ Add Option"
+msgstr ""
+
+#: src/Fields/CustomHtml.php:7
+msgid "Content (HTML allowed)"
+msgstr ""
+
+#: src/Fields/Date.php:8
+msgid "Display the date picker inline with the input"
+msgstr ""
+
+#: src/Fields/Date.php:8 src/Fields/Time.php:8
+msgid "Do not require to click the input field to trigger the date picker"
+msgstr ""
+
+#: src/Fields/Date.php:13
+msgid "Date picker options"
+msgstr ""
+
+#: src/Fields/File.php:7 src/Fields/FileAdvanced.php:7
+#: src/Fields/FileUpload.php:7 src/Fields/ImageAdvanced.php:7
+msgid "Maximum number of files"
+msgstr ""
+
+#: src/Fields/ImageSelect.php:7
+msgid "Enter each choice on a line in format \"value: http://url-to-image.jpg\" (without quotes)"
+msgstr ""
+
+#: src/Fields/Map.php:9 src/Fields/Osm.php:9
+msgid "Default location"
+msgstr ""
+
+#: src/Fields/Map.php:9 src/Fields/Osm.php:9
+msgid "Format: latitude,longitude"
+msgstr ""
+
+#: src/Fields/Map.php:13
+msgid "Google Maps API key"
+msgstr ""
+
+#: src/Fields/Post.php:31 src/Fields/Taxonomy.php:54 src/Fields/User.php:38
+msgid "Query arguments"
+msgstr ""
+
+#: src/Fields/Post.php:31
+msgid "Query arguments for getting posts. Use the same arguments as WP_Query."
+msgstr ""
+
+#: src/Fields/Post.php:32 src/Fields/Taxonomy.php:55 src/Fields/User.php:39
+msgid "+ Add Argument"
+msgstr ""
+
+#: src/Fields/SelectAdvanced.php:8
+msgid "Select2 options"
+msgstr ""
+
+#: src/Fields/Slider.php:17
+msgid "jQueryUI slider options"
+msgstr ""
+
+#: src/Fields/Switcher.php:19
+msgid "Label for ON status"
+msgstr ""
+
+#: src/Fields/Switcher.php:19 src/Fields/Switcher.php:23
+msgid "Leave empty to use iOS style"
+msgstr ""
+
+#: src/Fields/Switcher.php:23
+msgid "Label for OFF status"
+msgstr ""
+
+#: src/Fields/Tab.php:22
+msgid "Icon"
+msgstr ""
+
+#: src/Fields/Taxonomy.php:7 src/helpers.php:213
+msgid "Taxonomy"
+msgstr ""
+
+#: src/Fields/Taxonomy.php:23 src/Fields/User.php:15
+msgid "Display choices in a single line"
+msgstr ""
+
+#: src/Fields/Taxonomy.php:54
+msgid "Query arguments for getting taxonomy terms. Use the same arguments as get_terms()."
+msgstr ""
+
+#: src/Fields/Text.php:13
+msgid "Predefined values"
+msgstr ""
+
+#: src/Fields/Text.php:13
+msgid "Known as datalist, these are values that users can select from (they still can enter text if they want). Enter each value on a line."
+msgstr ""
+
+#: src/Fields/Time.php:8
+msgid "Display the time picker inline with the input"
+msgstr ""
+
+#: src/Fields/Time.php:12
+msgid "Time picker options"
+msgstr ""
+
+#: src/Fields/User.php:38
+msgid "Query arguments for getting users. Use the same arguments as get_users()."
+msgstr ""
+
+#: src/Fields/Wysiwyg.php:14
+msgid "Editor options"
+msgstr ""
+
+#: src/Import.php:16 src/Import.php:60
+msgid "Import"
+msgstr ""
+
+#: src/Import.php:16
+msgid "Import Field Groups"
+msgstr ""
+
+#: src/Import.php:31
+msgid "Choose a \".dat\" file from your computer:"
+msgstr ""
+
+#: src/Import.php:35
+msgid "Upload file and import"
+msgstr ""
+
+#: src/Import.php:54
+msgid "Export"
+msgstr ""
+
+#: src/Import.php:132
+msgid "Field groups have been imported successfully!"
+msgstr ""
+
+#: src/PostType.php:14
+msgid "Field Groups"
+msgstr ""
+
+#: src/PostType.php:15
+msgid "Field Group"
+msgstr ""
+
+#: src/PostType.php:16 src/PostType.php:17 src/PostType.php:23
+msgid "Custom Fields"
+msgstr ""
+
+#: src/PostType.php:18
+msgid "Add New"
+msgstr ""
+
+#: src/PostType.php:19
+msgid "Add New Field Group"
+msgstr ""
+
+#: src/PostType.php:20
+msgid "New Field Group"
+msgstr ""
+
+#: src/PostType.php:21
+msgid "Edit Field Group"
+msgstr ""
+
+#: src/PostType.php:22
+msgid "View Field Group"
+msgstr ""
+
+#: src/PostType.php:24
+msgid "Search Field Groups"
+msgstr ""
+
+#: src/PostType.php:25
+msgid "Parent Field Groups:"
+msgstr ""
+
+#: src/PostType.php:26
+msgid "No field groups found."
+msgstr ""
+
+#: src/PostType.php:27
+msgid "No field groups found in Trash."
+msgstr ""
+
+#: src/PostType.php:66 src/PostType.php:69 src/PostType.php:72
+#: src/PostType.php:73
+msgid "Field group updated."
+msgstr ""
+
+#: src/PostType.php:67
+msgid "Custom field updated."
+msgstr ""
+
+#: src/PostType.php:68
+msgid "Custom field deleted."
+msgstr ""
+
+#: src/PostType.php:71
+#, php-format
+msgid "Field group restored to revision from %s"
+msgstr ""
+
+#: src/PostType.php:74
+msgid "Field group submitted."
+msgstr ""
+
+#: src/helpers.php:174
+msgid "Basic"
+msgstr ""
+
+#: src/helpers.php:175
+msgid "Text"
+msgstr ""
+
+#: src/helpers.php:176
+msgid "Email"
+msgstr ""
+
+#: src/helpers.php:177
+msgid "URL"
+msgstr ""
+
+#: src/helpers.php:178
+msgid "Number"
+msgstr ""
+
+#: src/helpers.php:179
+msgid "Checkbox"
+msgstr ""
+
+#: src/helpers.php:180
+msgid "Checkbox List"
+msgstr ""
+
+#: src/helpers.php:181
+msgid "Button"
+msgstr ""
+
+#: src/helpers.php:182
+msgid "Button Group"
+msgstr ""
+
+#: src/helpers.php:183
+msgid "Password"
+msgstr ""
+
+#: src/helpers.php:184
+msgid "Radio"
+msgstr ""
+
+#: src/helpers.php:185 views/attributes/field-type.php:3
+msgid "Select"
+msgstr ""
+
+#: src/helpers.php:186
+msgid "Select Advanced"
+msgstr ""
+
+#: src/helpers.php:187
+msgid "Textarea"
+msgstr ""
+
+#: src/helpers.php:188 views/attributes/conditional-logic.php:9
+#: views/settings/conditional-logic.php:17 views/settings/show-hide.php:17
+msgid "Hidden"
+msgstr ""
+
+#: src/helpers.php:189
+msgid "Range"
+msgstr ""
+
+#: src/helpers.php:193
+msgid "Image Select"
+msgstr ""
+
+#: src/helpers.php:194
+msgid "Color Picker"
+msgstr ""
+
+#: src/helpers.php:195
+msgid "oEmbed"
+msgstr ""
+
+#: src/helpers.php:196
+msgid "Slider"
+msgstr ""
+
+#: src/helpers.php:197
+msgid "WYSIWYG"
+msgstr ""
+
+#: src/helpers.php:198
+msgid "Autocomplete"
+msgstr ""
+
+#: src/helpers.php:199
+msgid "Fieldset Text"
+msgstr ""
+
+#: src/helpers.php:200
+msgid "Text List"
+msgstr ""
+
+#: src/helpers.php:201
+msgid "Background"
+msgstr ""
+
+#: src/helpers.php:202
+msgid "Switch"
+msgstr ""
+
+#: src/helpers.php:203
+msgid "Google Maps"
+msgstr ""
+
+#: src/helpers.php:204
+msgid "Custom HTML"
+msgstr ""
+
+#: src/helpers.php:205
+msgid "Open Street Map"
+msgstr ""
+
+#: src/helpers.php:206
+msgid "Date"
+msgstr ""
+
+#: src/helpers.php:207
+msgid "Date Time"
+msgstr ""
+
+#: src/helpers.php:208
+msgid "Time"
+msgstr ""
+
+#: src/helpers.php:211
+msgid "WordPress"
+msgstr ""
+
+#: src/helpers.php:212 views/settings/include-exclude.php:35
+msgid "Post"
+msgstr ""
+
+#: src/helpers.php:214
+msgid "Taxonomy Advanced"
+msgstr ""
+
+#: src/helpers.php:215 views/settings/include-exclude.php:84
+msgid "User"
+msgstr ""
+
+#: src/helpers.php:216
+msgid "Sidebar"
+msgstr ""
+
+#: src/helpers.php:219
+msgid "Upload"
+msgstr ""
+
+#: src/helpers.php:220
+msgid "HTML File"
+msgstr ""
+
+#: src/helpers.php:221
+msgid "File Advanced"
+msgstr ""
+
+#: src/helpers.php:222
+msgid "File Upload"
+msgstr ""
+
+#: src/helpers.php:223
+msgid "File Input"
+msgstr ""
+
+#: src/helpers.php:224
+msgid "HTML Image"
+msgstr ""
+
+#: src/helpers.php:225
+msgid "Single Image"
+msgstr ""
+
+#: src/helpers.php:226
+msgid "Image Advanced"
+msgstr ""
+
+#: src/helpers.php:227
+msgid "Image Upload"
+msgstr ""
+
+#: src/helpers.php:228
+msgid "Video"
+msgstr ""
+
+#: src/helpers.php:231
+msgid "Layout"
+msgstr ""
+
+#: src/helpers.php:232
+msgid "Heading"
+msgstr ""
+
+#: src/helpers.php:233
+msgid "Divider"
+msgstr ""
+
+#: src/helpers.php:238
+msgid "Tab"
+msgstr ""
+
+#: src/helpers.php:241
+msgid "Group"
+msgstr ""
+
+#: views/attributes/address-field.php:2
+msgid "Address field"
+msgstr ""
+
+#: views/attributes/address-field.php:3
+msgid "The ID of address field. For multiple fields, separate them by comma."
+msgstr ""
+
+#: views/attributes/address-field.php:5
+#: views/attributes/conditional-logic.php:25
+#: views/settings/conditional-logic.php:32
+msgid "Select or enter a field"
+msgstr ""
+
+#: views/attributes/clone.php:12
+msgid "Sortable"
+msgstr ""
+
+#: views/attributes/clone.php:13
+msgid "Allows users to drag-and-drop reorder clones"
+msgstr ""
+
+#: views/attributes/clone.php:19
+msgid "Clone default value"
+msgstr ""
+
+#: views/attributes/clone.php:26
+msgid "Maximum number of clones"
+msgstr ""
+
+#: views/attributes/clone.php:27
+msgid "Leave empty for unlimited clones"
+msgstr ""
+
+#: views/attributes/clone.php:33
+msgid "Add more text"
+msgstr ""
+
+#: views/attributes/clone.php:34
+msgid "Custom text for the \"+ Add more\" button"
+msgstr ""
+
+#: views/attributes/collapsible.php:4
+msgid "Collapsible"
+msgstr ""
+
+#: views/attributes/collapsible.php:8
+msgid "Default state"
+msgstr ""
+
+#: views/attributes/collapsible.php:10
+msgid "Expanded"
+msgstr ""
+
+#: views/attributes/collapsible.php:11
+msgid "Collapsed"
+msgstr ""
+
+#: views/attributes/collapsible.php:17
+msgid "Save the state"
+msgstr ""
+
+#: views/attributes/collapsible.php:22
+msgid "Group title"
+msgstr ""
+
+#: views/attributes/collapsible.php:23
+msgid "Use {field_id} for a sub-field value and {#} for the clone index (if the group is cloneable)"
+msgstr ""
+
+#: views/attributes/columns.php:1 views/attributes/rows-columns.php:7
+msgid "Columns"
+msgstr ""
+
+#: views/attributes/columns.php:1
+msgid "Select number of columns for this field in a 12-column grid"
+msgstr ""
+
+#: views/attributes/conditional-logic.php:2
+#: views/settings/conditional-logic.php:9
+msgid "Conditional Logic"
+msgstr ""
+
+#: views/attributes/conditional-logic.php:3
+msgid "Toggle the field based on value of other fields, terms or HTML elements"
+msgstr ""
+
+#: views/attributes/conditional-logic.php:8
+#: views/settings/conditional-logic.php:16 views/settings/show-hide.php:16
+msgid "Visible"
+msgstr ""
+
+#: views/attributes/conditional-logic.php:12
+#: views/settings/conditional-logic.php:20
+#: views/settings/include-exclude.php:21 views/settings/show-hide.php:21
+msgid "when"
+msgstr ""
+
+#: views/attributes/conditional-logic.php:15
+#: views/settings/conditional-logic.php:23
+#: views/settings/include-exclude.php:24 views/settings/show-hide.php:24
+msgid "All"
+msgstr ""
+
+#: views/attributes/conditional-logic.php:16
+#: views/settings/conditional-logic.php:24
+#: views/settings/include-exclude.php:25 views/settings/show-hide.php:25
+msgid "Any"
+msgstr ""
+
+#: views/attributes/conditional-logic.php:19
+#: views/settings/conditional-logic.php:27
+#: views/settings/include-exclude.php:28 views/settings/show-hide.php:28
+msgid "of these conditions match"
+msgstr ""
+
+#: views/attributes/conditional-logic.php:35
+#: views/settings/conditional-logic.php:41
+msgid "contains"
+msgstr ""
+
+#: views/attributes/conditional-logic.php:36
+#: views/settings/conditional-logic.php:42
+msgid "not contains"
+msgstr ""
+
+#: views/attributes/conditional-logic.php:37
+#: views/settings/conditional-logic.php:43
+msgid "starts with"
+msgstr ""
+
+#: views/attributes/conditional-logic.php:38
+#: views/settings/conditional-logic.php:44
+msgid "not starts with"
+msgstr ""
+
+#: views/attributes/conditional-logic.php:39
+#: views/settings/conditional-logic.php:45
+msgid "ends with"
+msgstr ""
+
+#: views/attributes/conditional-logic.php:40
+#: views/settings/conditional-logic.php:46
+msgid "not ends with"
+msgstr ""
+
+#: views/attributes/conditional-logic.php:41
+#: views/settings/conditional-logic.php:47
+msgid "between"
+msgstr ""
+
+#: views/attributes/conditional-logic.php:42
+#: views/settings/conditional-logic.php:48
+msgid "not between"
+msgstr ""
+
+#: views/attributes/conditional-logic.php:43
+#: views/settings/conditional-logic.php:49
+#: views/settings/include-exclude.php:36 views/settings/include-exclude.php:43
+#: views/settings/include-exclude.php:50 views/settings/include-exclude.php:57
+#: views/settings/include-exclude.php:66 views/settings/include-exclude.php:76
+#: views/settings/include-exclude.php:85 views/settings/show-hide.php:36
+#: views/settings/show-hide.php:46 views/settings/show-hide.php:59
+msgid "in"
+msgstr ""
+
+#: views/attributes/conditional-logic.php:44
+#: views/settings/conditional-logic.php:50
+msgid "not in"
+msgstr ""
+
+#: views/attributes/conditional-logic.php:45
+#: views/settings/conditional-logic.php:51
+msgid "match"
+msgstr ""
+
+#: views/attributes/conditional-logic.php:46
+#: views/settings/conditional-logic.php:52
+msgid "not match"
+msgstr ""
+
+#: views/attributes/conditional-logic.php:50
+#: views/settings/conditional-logic.php:55
+msgid "Enter a value"
+msgstr ""
+
+#: views/attributes/conditional-logic.php:59
+#: views/settings/conditional-logic.php:62
+msgid "+ Add Rule"
+msgstr ""
+
+#: views/attributes/field-type.php:1
+msgid "Field type"
+msgstr ""
+
+#: views/attributes/field-type.php:4
+msgid "Select tree"
+msgstr ""
+
+#: views/attributes/field-type.php:5
+msgid "Select advanced"
+msgstr ""
+
+#: views/attributes/field-type.php:6
+msgid "Checkbox list"
+msgstr ""
+
+#: views/attributes/field-type.php:7
+msgid "Checkbox tree"
+msgstr ""
+
+#: views/attributes/field-type.php:8
+msgid "Radio list"
+msgstr ""
+
+#: views/attributes/fieldset-text-options.php:1
+#: views/attributes/text-list-options.php:1
+msgid "Inputs"
+msgstr ""
+
+#: views/attributes/fieldset-text-options.php:6
+#: views/attributes/key-value.php:6 views/settings/custom-attributes.php:10
+msgid "Enter key"
+msgstr ""
+
+#: views/attributes/fieldset-text-options.php:9
+msgid "Enter label"
+msgstr ""
+
+#: views/attributes/fieldset-text-options.php:17
+#: views/attributes/text-list-options.php:16
+msgid "+ Add Input"
+msgstr ""
+
+#: views/attributes/image-size.php:2
+msgid "Image size"
+msgstr ""
+
+#: views/attributes/image-size.php:3
+msgid "Image size that displays in the edit page"
+msgstr ""
+
+#: views/attributes/key-value.php:9 views/settings/custom-attributes.php:11
+msgid "Enter value"
+msgstr ""
+
+#: views/attributes/language.php:1
+msgid "Language"
+msgstr ""
+
+#: views/attributes/minmax.php:3
+msgid "Minimum value"
+msgstr ""
+
+#: views/attributes/minmax.php:7
+msgid "Maximum value"
+msgstr ""
+
+#: views/attributes/minmax.php:11
+msgid "Step"
+msgstr ""
+
+#: views/attributes/minmax.php:11
+msgid "Set the increments at which a numeric value can be set. It can be the string \"any\" (for floating numbers) or a positive number."
+msgstr ""
+
+#: views/attributes/post-type.php:1
+msgid "Post Type"
+msgstr ""
+
+#: views/attributes/rows-columns.php:3
+msgid "Rows"
+msgstr ""
+
+#: views/settings/conditional-logic.php:10
+msgid "Toggle the field group based on value of other fields, terms or HTML elements"
+msgstr ""
+
+#: views/settings/custom-attributes.php:5
+msgid "Apply to the current field group. For individual fields, please go to each field > tab Advanced and set."
+msgstr ""
+
+#: views/settings/custom-attributes.php:15
+msgid "+ Attribute"
+msgstr ""
+
+#: views/settings/custom-table.php:9
+msgid "Save custom fields in a custom table"
+msgstr ""
+
+#: views/settings/custom-table.php:10
+msgid "Use a custom table rather than meta table to save space and increase performance."
+msgstr ""
+
+#: views/settings/custom-table.php:12
+msgid "Enter table name"
+msgstr ""
+
+#: views/settings/include-exclude.php:9
+msgid "Advanced rules"
+msgstr ""
+
+#: views/settings/include-exclude.php:10
+msgid "More controls on where to show this field group."
+msgstr ""
+
+#: views/settings/include-exclude.php:15
+msgid "Always show"
+msgstr ""
+
+#: views/settings/include-exclude.php:16
+msgid "Show"
+msgstr ""
+
+#: views/settings/include-exclude.php:17
+msgid "Hide"
+msgstr ""
+
+#: views/settings/include-exclude.php:42
+msgid "Parent post"
+msgstr ""
+
+#: views/settings/include-exclude.php:49
+msgid "Page template"
+msgstr ""
+
+#: views/settings/include-exclude.php:65
+msgid "Parent"
+msgstr ""
+
+#: views/settings/include-exclude.php:75
+msgid "User role"
+msgstr ""
+
+#: views/settings/include-exclude.php:96
+msgid "Is a child post?"
+msgstr ""
+
+#: views/settings/include-exclude.php:103
+msgid "Custom callback"
+msgstr ""
+
+#: views/settings/include-exclude.php:106
+msgid "Enter PHP callback function name"
+msgstr ""
+
+#: views/settings/show-hide.php:9
+msgid "Toggle rules"
+msgstr ""
+
+#: views/settings/show-hide.php:10
+msgid "Toggle the whole field group based on some conditions."
+msgstr ""
+
+#: views/settings/show-hide.php:15
+msgid "Always visible"
+msgstr ""
+
+#: views/settings/show-hide.php:35
+msgid "Templates"
+msgstr ""
+
+#: views/settings/show-hide.php:45
+msgid "Post formats"
+msgstr ""
+
+#: views/tabs/code.php:7
+msgid "Copy the snippet below and paste it into your theme's <code>functions.php</code> file. Then you can safely deactivate Meta Box Builder (do not deactivate Meta Box)."
+msgstr ""
+
+#: views/tabs/code.php:8
+msgid "For more details, please see the <a href=\"https://docs.metabox.io/extensions/meta-box-builder/#getting-php-code\" target=\"_blank\">documentation</a>."
+msgstr ""
+
+#: views/tabs/code.php:12
+msgid "Click to copy the code"
+msgstr ""
+
+#: views/tabs/code.php:12
+msgid "Copy"
+msgstr ""
+
+#: views/tabs/fields.php:16
+msgid "Enter field type here"
+msgstr ""
+
+#: views/tabs/fields.php:52
+msgid "Title"
+msgstr ""
+
+#: views/tabs/fields.php:53
+msgid "Enter name here"
+msgstr ""
+
+#: views/tabs/fields.php:62 views/tabs/fields.php:131
+msgid "Switch to Draft"
+msgstr ""
+
+#: views/tabs/fields.php:63 views/tabs/fields.php:132
+msgid "Update"
+msgstr ""
+
+#: views/tabs/fields.php:65 views/tabs/fields.php:134
+msgid "Save Draft"
+msgstr ""
+
+#: views/tabs/fields.php:66 views/tabs/fields.php:135
+msgid "Publish"
+msgstr ""
+
+#: views/tabs/fields.php:75 views/tabs/nav.php:8 views/tabs/nav.php:13
+msgid "Fields"
+msgstr ""
+
+#: views/tabs/fields.php:77
+msgid "No fields. Select fields on the left to add them to this field group."
+msgstr ""
+
+#: views/tabs/fields.php:80
+msgid "Drag and drop fields to reorder. Click the title bar to reveal field settings."
+msgstr ""
+
+#: views/tabs/fields.php:112
+msgid "Drag and drop child fields here."
+msgstr ""
+
+#: views/tabs/fields.php:126
+msgid "Move to Trash"
+msgstr ""
+
+#: views/tabs/nav.php:9 views/tabs/nav.php:14
+msgid "Settings"
+msgstr ""
+
+#: views/tabs/nav.php:19
+msgid "Code"
+msgstr ""
+
+#: views/tabs/settings.php:11 views/tabs/settings.php:47
+msgid "Setting Pages"
+msgstr ""
+
+#: views/tabs/settings.php:21
+msgid "Show for"
+msgstr ""
+
+#: views/tabs/settings.php:31
+msgid "Post types"
+msgstr ""
+
+#: views/tabs/settings.php:37
+msgid "Show in media modal?"
+msgstr ""
+
+#: views/tabs/settings.php:58
+msgid "Options"
+msgstr ""
+
+#: views/tabs/settings.php:61
+msgid "Position"
+msgstr ""
+
+#: views/tabs/settings.php:64
+msgid "After content"
+msgstr ""
+
+#: views/tabs/settings.php:65
+msgid "Side"
+msgstr ""
+
+#: views/tabs/settings.php:67
+msgid "Before post title"
+msgstr ""
+
+#: views/tabs/settings.php:68
+msgid "After post title"
+msgstr ""
+
+#: views/tabs/settings.php:74
+msgid "Priority"
+msgstr ""
+
+#: views/tabs/settings.php:76
+msgid "High"
+msgstr ""
+
+#: views/tabs/settings.php:77
+msgid "Low"
+msgstr ""
+
+#: views/tabs/settings.php:81
+msgid "Style"
+msgstr ""
+
+#: views/tabs/settings.php:84
+msgid "Standard (WordPress meta box)"
+msgstr ""
+
+#: views/tabs/settings.php:85
+msgid "Seamless (no meta box)"
+msgstr ""
+
+#: views/tabs/settings.php:92
+msgid "Hidden by default."
+msgstr ""
+
+#: views/tabs/settings.php:96
+msgid "The meta box is hidden by default and requires users to select the corresponding checkbox in Screen Options to show it"
+msgstr ""
+
+#: views/tabs/settings.php:103
+msgid "Autosave"
+msgstr ""
+
+#: views/tabs/settings.php:111
+msgid "Tabs"
+msgstr ""
+
+#: views/tabs/settings.php:114
+msgid "Tabs style"
+msgstr ""
+
+#: views/tabs/settings.php:117
+msgid "Default"
+msgstr ""
+
+#: views/tabs/settings.php:118
+msgid "Box"
+msgstr ""
+
+#: views/tabs/settings.php:119
+msgid "Left"
+msgstr ""
+
+#: views/tabs/settings.php:124
+msgid "Show meta box wrapper"
+msgstr ""
+
+#: views/tabs/settings.php:129
+msgid "Save Changes"
+msgstr ""
