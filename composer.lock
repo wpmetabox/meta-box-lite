@@ -202,7 +202,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mb-acf-migration.git",
-                "reference": "2306ec0d2676dc16c809ec8aa8da5970f74cfaa3"
+                "reference": "468512096d3b535031461ebc187e91f2e4cca493"
             },
             "require": {
                 "meta-box/mbb-parser": "dev-master",
@@ -229,7 +229,7 @@
                 "wordpress",
                 "wordpress-plugin"
             ],
-            "time": "2024-11-01T03:13:52+00:00"
+            "time": "2024-11-07T02:15:34+00:00"
         },
         {
             "name": "meta-box/mb-rank-math",
@@ -321,7 +321,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box-builder.git",
-                "reference": "9dd838dfc16929f030de281defd5492f048c1135"
+                "reference": "71e2f54618f417228c12a3370dbdccac761b5093"
             },
             "require": {
                 "elightup/twig": "dev-master",
@@ -337,57 +337,40 @@
                         ".github/",
                         ".gitattributes",
                         ".gitignore",
+                        ".distignore",
+                        "*.yaml",
+                        "*.yml",
+                        "*.txt",
+                        "*.less",
+                        "*.scss",
+                        "*.po",
+                        "composer.json",
+                        "composer.lock",
+                        "package.json",
+                        "package-lock.json",
+                        "phpcs.xml",
+                        "pnpm-lock.yaml",
+                        "phpstan.neon",
+                        "phpunit.xml",
+                        ".babelrc",
+                        "webpack.config.js",
                         ".editoconfig",
+                        ".vscode",
+                        "esbuild.js",
                         "LICENSE",
                         "*.md",
                         "test/",
                         "tests/",
-                        "phpcs.xml"
-                    ],
-                    "meta-box/*": [
-                        ".git",
-                        ".distignore",
-                        ".babelrc",
-                        "webpack.config.js",
-                        "*.lock",
-                        "*.json",
-                        "*.yml",
-                        "*.txt",
-                        "*.less",
-                        "*.scss",
-                        "*.po",
-                        "*.pot",
-                        "demo.php",
-                        "demo/",
-                        "sass/",
-                        "vendor/"
-                    ],
-                    "wpmetabox/*": [
-                        ".git",
-                        ".distignore",
-                        ".babelrc",
-                        "webpack.config.js",
-                        "*.lock",
-                        "*.json",
-                        "*.yml",
-                        "*.txt",
-                        "*.less",
-                        "*.scss",
-                        "*.po",
-                        "*.pot",
                         "demo.php",
                         "demo/",
                         "sass/",
                         "vendor/"
                     ],
                     "riimu/kit-phpencoder": [
-                        "examples",
-                        "*.md",
-                        "*.json",
-                        "LICENSE"
+                        "examples/",
+                        "*.json"
                     ],
                     "elightup/twig": [
-                        ".git",
                         "*.json",
                         "twig.php"
                     ]
@@ -400,8 +383,21 @@
                     "MBB\\Relationships\\": "modules/relationships/src/"
                 }
             },
+            "scripts": {
+                "post-update-cmd": [
+                    "echo Deleting .git dirs...",
+                    "rm -rf vendor/**/**/.git"
+                ],
+                "post-install-cmd": [
+                    "echo Deleting .git dirs...",
+                    "rm -rf vendor/**/**/.git"
+                ],
+                "phpcs": [
+                    "phpcs > phpcs.txt"
+                ]
+            },
             "description": "Meta Box Builder extension for Meta Box",
-            "time": "2024-11-01T15:38:46+00:00"
+            "time": "2024-11-19T04:47:27+00:00"
         },
         {
             "name": "meta-box/support",
@@ -480,12 +476,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mb-comment-meta.git",
-                "reference": "6d57f86a5605aff9566bdb9b897c41fe6cc4d81a"
+                "reference": "43acd6342d99b2f5494d6b0f5fd00468a9a16f7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/mb-comment-meta/zipball/6d57f86a5605aff9566bdb9b897c41fe6cc4d81a",
-                "reference": "6d57f86a5605aff9566bdb9b897c41fe6cc4d81a",
+                "url": "https://api.github.com/repos/wpmetabox/mb-comment-meta/zipball/43acd6342d99b2f5494d6b0f5fd00468a9a16f7d",
+                "reference": "43acd6342d99b2f5494d6b0f5fd00468a9a16f7d",
                 "shasum": ""
             },
             "default-branch": true,
@@ -518,7 +514,7 @@
                 "issues": "https://github.com/wpmetabox/mb-comment-meta/issues",
                 "source": "https://github.com/wpmetabox/mb-comment-meta/tree/1.0.2"
             },
-            "time": "2024-11-01T03:24:07+00:00"
+            "time": "2024-11-07T01:51:37+00:00"
         },
         {
             "name": "wpmetabox/mb-custom-post-type",
@@ -526,7 +522,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/mb-custom-post-type.git",
-                "reference": "a0cdf59ba99f5ec20017cea5f8e14176b9e68c20"
+                "reference": "b2feb619f1d368863dee04c8e4b29c866689d93b"
             },
             "require": {
                 "meta-box/support": "dev-master"
@@ -575,7 +571,7 @@
                 "wordpress-plugin",
                 "wp-admin"
             ],
-            "time": "2024-11-01T02:54:33+00:00"
+            "time": "2024-11-19T04:36:46+00:00"
         },
         {
             "name": "wpmetabox/mb-divi-integrator",
@@ -583,7 +579,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mb-divi-integrator.git",
-                "reference": "1ab01dc90047601aa05ad0af68e191d5742f8dd7"
+                "reference": "91bc6d21c9b0ba646041072c70b7ba15264139e9"
             },
             "default-branch": true,
             "type": "wordpress-plugin",
@@ -602,7 +598,7 @@
                 }
             ],
             "description": "Display Meta Box data in Divi",
-            "time": "2024-11-01T02:52:15+00:00"
+            "time": "2024-12-05T23:22:50+00:00"
         },
         {
             "name": "wpmetabox/mb-elementor-integrator",
@@ -659,7 +655,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/mb-relationships.git",
-                "reference": "fb86f3c39a98bad1cb9c6321e4dc149373df8c11"
+                "reference": "3af8e00f91595f7fb6bfef41f84df66a87a0bd74"
             },
             "default-branch": true,
             "type": "wordpress-plugin",
@@ -689,7 +685,7 @@
                 "wordpress-plugin",
                 "wp-admin"
             ],
-            "time": "2024-11-01T03:08:29+00:00"
+            "time": "2024-11-07T01:43:57+00:00"
         },
         {
             "name": "wpmetabox/mb-rest-api",
@@ -785,7 +781,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box.git",
-                "reference": "5a26684fcb70e1c10c487e90c8e535ba0f596de6"
+                "reference": "872dbd07d6ec90b3c5b5530e19e5f724c49797e3"
             },
             "require": {
                 "meta-box/support": "dev-master"
@@ -871,7 +867,7 @@
                 "wordpress",
                 "wordpress-plugin"
             ],
-            "time": "2024-10-30T08:55:42+00:00"
+            "time": "2024-12-23T02:09:08+00:00"
         },
         {
             "name": "wpmetabox/meta-box-beaver-themer-integrator",
@@ -966,12 +962,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box-text-limiter.git",
-                "reference": "1f02fd3222529eab24b2517ac3368906f6a860a2"
+                "reference": "fc01c51c038a51a0fb6a5865f0a557f26cb9facb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box-text-limiter/zipball/1f02fd3222529eab24b2517ac3368906f6a860a2",
-                "reference": "1f02fd3222529eab24b2517ac3368906f6a860a2",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-text-limiter/zipball/fc01c51c038a51a0fb6a5865f0a557f26cb9facb",
+                "reference": "fc01c51c038a51a0fb6a5865f0a557f26cb9facb",
                 "shasum": ""
             },
             "default-branch": true,
@@ -1001,9 +997,9 @@
             ],
             "support": {
                 "issues": "https://github.com/wpmetabox/meta-box-text-limiter/issues",
-                "source": "https://github.com/wpmetabox/meta-box-text-limiter/tree/1.2.3"
+                "source": "https://github.com/wpmetabox/meta-box-text-limiter/tree/master"
             },
-            "time": "2024-11-01T02:57:35+00:00"
+            "time": "2024-12-17T06:21:20+00:00"
         }
     ],
     "packages-dev": [],
@@ -1029,7 +1025,7 @@
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
 }
