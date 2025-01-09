@@ -23,4 +23,10 @@ $mbl_update_checker = PucFactory::buildUpdateChecker(
 	__FILE__,
 	'meta-box-lite'
 );
-$mbl_update_checker->setBranch('master');
+$mbl_update_checker->setBranch( 'master' );
+
+$mbl_update_checker->addResultFilter( function ( $info, $response = null ): void {
+	$info->icons = [
+		'default' => 'https://i0.wp.com/metabox.io/wp-content/uploads/2015/08/logo.png',
+	];
+} );
