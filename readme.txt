@@ -18,7 +18,7 @@ The plugin provides an easy-to-use and WordPress-like interface to create post t
 
 Each custom field type has extensive internal options for unlimited content possibilities. Complete customization and control is just a few clicks away.
 
-### Features
+= Features =
 
 - Create custom post types
 - Create custom taxonomies
@@ -37,16 +37,12 @@ No data is collected or shared by this plugin. However, YouTube may collect data
 
 == Installation ==
 
-1. Visit **Plugins > Add New**
-1. Search for **Meta Box Lite**
-1. Click the **Install Now** button to install the plugin
-1. Click the **Activate** button to activate the plugin
+1. Visit [Meta Box Lite](https://metabox.io/lite/)
+1. Enter your email to download the plugin
+1. Upload the plugin to your site
+1. Activate it and you'll see **Meta Box** menu on the left
 
 [Get started here](https://docs.metabox.io/introduction/).
-
-== Frequently Asked Questions ==
-
-== Screenshots ==
 
 == Changelog ==
 
