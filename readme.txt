@@ -5,7 +5,7 @@ Tags: custom fields, custom post types, post type, custom taxonomies, meta box
 Requires at least: 5.9
 Requires PHP: 7.2
 Tested up to: 6.7.1
-Stable tag: 0.0.3
+Stable tag: 1.0.0
 License: GPLv2 or later
 
 A powerful and performant tool to create custom post types and custom fields for WordPress.
@@ -46,8 +46,8 @@ No data is collected or shared by this plugin. However, YouTube may collect data
 
 == Changelog ==
 
-= 0.0.2 - 2025-01-09 =
+= 1.0.0 - 2025-01-09 =
 
-- Test update
+Initial release
 
 == Upgrade Notice ==
