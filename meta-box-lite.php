@@ -3,7 +3,7 @@
  * Plugin Name: Meta Box Lite
  * Plugin URI:  https://metabox.io/pricing/
  * Description: A feature-rich free UI version of Meta Box.
- * Version:     0.0.2
+ * Version:     0.0.3
  * Author:      MetaBox.io
  * Author URI:  https://metabox.io
  * License:     GPL2+
