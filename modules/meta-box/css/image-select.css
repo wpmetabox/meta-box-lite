@@ -1,31 +1,21 @@
 .rwmb-image-select {
+	display: inline-block;
 	width: 80px;
 	height: 80px;
 	float: left;
-	margin: 0 8px 8px 0;
+	margin: 0 10px 10px 0;
 	border: 3px solid #d8d8d8;
-	border-radius: 4px;
+	border-radius: 3px;
 	padding: 1px;
-	cursor: pointer;
-
-	--color: #2271b1;
 }
-
-.block-editor-page .rwmb-image-select {
-	--color: var(--wp-admin-theme-color, #2271b1);
-}
-
 .rwmb-image-select img {
 	width: 100%;
 	height: 100%;
-	object-fit: cover;
 }
-
 .rwmb-image-select:hover,
-.rwmb-image-select:has(:checked) {
-	border-color: var(--color);
+.rwmb-image-select.rwmb-active {
+	border-color: #0074a2;
 }
-
 .rwmb-image_select.rwmb-image_select {
 	display: none;
 }

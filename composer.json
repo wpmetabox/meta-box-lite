@@ -74,11 +74,10 @@
     "wpmetabox/mb-relationships": "dev-master",
     "wpmetabox/mb-rest-api": "dev-master",
     "wpmetabox/mb-yoast-seo": "dev-master",
-    "wpmetabox/meta-box": "dev-master",
+    "wpmetabox/meta-box": "^5.10",
     "wpmetabox/meta-box-beaver-themer-integrator": "dev-master",
     "wpmetabox/meta-box-facetwp-integrator": "dev-master",
-    "wpmetabox/text-limiter": "dev-master",
-    "yahnis-elsts/plugin-update-checker": "^5.5"
+    "wpmetabox/text-limiter": "dev-master"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
@@ -88,18 +87,14 @@
       "rm -rf vendor/**/**/.git",
       "rm -rf modules/**/.git",
       "echo Cleaning up plugin headers...",
-      "php cleanup.php",
-      "echo Removing Meta Box updater...",
-      "rm -rf modules/meta-box/src/Updater/"
+      "php cleanup.php"
     ],
     "post-install-cmd": [
       "echo Deleting .git dirs...",
       "rm -rf vendor/**/**/.git",
       "rm -rf modules/**/.git",
       "echo Cleaning up plugin headers...",
-      "php cleanup.php",
-      "echo Removing Meta Box updater...",
-      "rm -rf modules/meta-box/src/Updater/"
+      "php cleanup.php"
     ]
   },
   "extra": {

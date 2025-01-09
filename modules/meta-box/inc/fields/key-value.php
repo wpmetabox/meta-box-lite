@@ -35,7 +35,22 @@ class RWMB_Key_Value_Field extends RWMB_Input_Field {
 	}
 
 	protected static function begin_html( array $field ) : string {
-		return parent::begin_html( $field ) . parent::input_description( $field );
+		$desc = $field['desc'] ? "<p id='{$field['id']}_description' class='description'>{$field['desc']}</p>" : '';
+
+		if ( empty( $field['name'] ) ) {
+			return '<div class="rwmb-input">' . $desc;
+		}
+
+		return sprintf(
+			'<div class="rwmb-label">
+				<label for="%s">%s</label>
+			</div>
+			<div class="rwmb-input">
+			%s',
+			$field['id'],
+			$field['name'],
+			$desc
+		);
 	}
 
 	protected static function input_description( array $field ) : string {

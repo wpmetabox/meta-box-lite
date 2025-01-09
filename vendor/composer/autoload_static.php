@@ -7,7 +7,6 @@ namespace Composer\Autoload;
 class ComposerStaticInitff1056f71c6dba41d243124bfd07b96d
 {
     public static $files = array (
-        '256558b1ddf2fa4366ea7d7602798dd1' => __DIR__ . '/..' . '/yahnis-elsts/plugin-update-checker/load-v5p5.php',
         'bb2ad5156ac7a5ea5170e3032f9986c5' => __DIR__ . '/../..' . '/modules/meta-box/meta-box.php',
         '9195b8cf8e415449278c0c4efa05f57e' => __DIR__ . '/../..' . '/modules/mb-acf-migration/mb-acf-migration.php',
         'd45d9ba5e80690d08cb8d4c4237b57c3' => __DIR__ . '/../..' . '/modules/mb-comment-meta/mb-comment-meta.php',

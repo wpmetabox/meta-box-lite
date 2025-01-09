@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => '__root__',
-        'pretty_version' => 'dev-master',
-        'version' => 'dev-master',
-        'reference' => 'dd06fed7933b31f3f0a94633eb9c3590100b6d13',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '5f2dc7eef0622809b122e35020a5791b6ca5b483',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'reference' => 'dd06fed7933b31f3f0a94633eb9c3590100b6d13',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '5f2dc7eef0622809b122e35020a5791b6ca5b483',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -204,14 +204,12 @@
             'dev_requirement' => false,
         ),
         'wpmetabox/meta-box' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'reference' => '872dbd07d6ec90b3c5b5530e19e5f724c49797e3',
+            'pretty_version' => '5.10.5',
+            'version' => '5.10.5.0',
+            'reference' => '3fa649ba0e8624c71f066a8437a4a47af5998710',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../modules/meta-box',
-            'aliases' => array(
-                0 => '9999999-dev',
-            ),
+            'aliases' => array(),
             'dev_requirement' => false,
         ),
         'wpmetabox/meta-box-beaver-themer-integrator' => array(
@@ -245,15 +243,6 @@
             'aliases' => array(
                 0 => '9999999-dev',
             ),
-            'dev_requirement' => false,
-        ),
-        'yahnis-elsts/plugin-update-checker' => array(
-            'pretty_version' => 'v5.5',
-            'version' => '5.5.0.0',
-            'reference' => '845d65da93bcff31649ede00d9d73b1beadbb7f0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../yahnis-elsts/plugin-update-checker',
-            'aliases' => array(),
             'dev_requirement' => false,
         ),
     ),

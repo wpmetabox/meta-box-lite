@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b2442f6acd0fad51a96c5134ed56f066",
+    "content-hash": "50712d73fbed87cd52ee2d447a66b018",
     "packages": [
         {
             "name": "composer/installers",
@@ -777,11 +777,11 @@
         },
         {
             "name": "wpmetabox/meta-box",
-            "version": "dev-master",
+            "version": "5.10.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box.git",
-                "reference": "872dbd07d6ec90b3c5b5530e19e5f724c49797e3"
+                "reference": "3fa649ba0e8624c71f066a8437a4a47af5998710"
             },
             "require": {
                 "meta-box/support": "dev-master"
@@ -789,7 +789,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^11.3"
             },
-            "default-branch": true,
             "type": "wordpress-plugin",
             "extra": {
                 "dev-files": {
@@ -867,7 +866,7 @@
                 "wordpress",
                 "wordpress-plugin"
             ],
-            "time": "2024-12-23T02:09:08+00:00"
+            "time": "2024-12-16T06:50:30+00:00"
         },
         {
             "name": "wpmetabox/meta-box-beaver-themer-integrator",
@@ -1000,56 +999,6 @@
                 "source": "https://github.com/wpmetabox/meta-box-text-limiter/tree/master"
             },
             "time": "2024-12-23T02:38:41+00:00"
-        },
-        {
-            "name": "yahnis-elsts/plugin-update-checker",
-            "version": "v5.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/YahnisElsts/plugin-update-checker.git",
-                "reference": "845d65da93bcff31649ede00d9d73b1beadbb7f0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/YahnisElsts/plugin-update-checker/zipball/845d65da93bcff31649ede00d9d73b1beadbb7f0",
-                "reference": "845d65da93bcff31649ede00d9d73b1beadbb7f0",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "php": ">=5.6.20"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "load-v5p5.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Yahnis Elsts",
-                    "email": "whiteshadow@w-shadow.com",
-                    "homepage": "https://w-shadow.com/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A custom update checker for WordPress plugins and themes. Useful if you can't host your plugin in the official WP repository but still want it to support automatic updates.",
-            "homepage": "https://github.com/YahnisElsts/plugin-update-checker/",
-            "keywords": [
-                "automatic updates",
-                "plugin updates",
-                "theme updates",
-                "wordpress"
-            ],
-            "support": {
-                "issues": "https://github.com/YahnisElsts/plugin-update-checker/issues",
-                "source": "https://github.com/YahnisElsts/plugin-update-checker/tree/v5.5"
-            },
-            "time": "2024-10-16T14:25:00+00:00"
         }
     ],
     "packages-dev": [],
@@ -1068,7 +1017,6 @@
         "wpmetabox/mb-relationships": 20,
         "wpmetabox/mb-rest-api": 20,
         "wpmetabox/mb-yoast-seo": 20,
-        "wpmetabox/meta-box": 20,
         "wpmetabox/meta-box-beaver-themer-integrator": 20,
         "wpmetabox/meta-box-facetwp-integrator": 20,
         "wpmetabox/text-limiter": 20
