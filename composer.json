@@ -74,7 +74,7 @@
     "wpmetabox/mb-relationships": "dev-master",
     "wpmetabox/mb-rest-api": "dev-master",
     "wpmetabox/mb-yoast-seo": "dev-master",
-    "wpmetabox/meta-box": "^5.10",
+    "wpmetabox/meta-box": "dev-master",
     "wpmetabox/meta-box-beaver-themer-integrator": "dev-master",
     "wpmetabox/meta-box-facetwp-integrator": "dev-master",
     "wpmetabox/text-limiter": "dev-master"

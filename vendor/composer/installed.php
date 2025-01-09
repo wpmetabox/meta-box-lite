@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '5f2dc7eef0622809b122e35020a5791b6ca5b483',
+        'reference' => 'aa429e6fa625dc45861768197aa221e03522f43b',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '5f2dc7eef0622809b122e35020a5791b6ca5b483',
+            'reference' => 'aa429e6fa625dc45861768197aa221e03522f43b',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -204,12 +204,14 @@
             'dev_requirement' => false,
         ),
         'wpmetabox/meta-box' => array(
-            'pretty_version' => '5.10.5',
-            'version' => '5.10.5.0',
-            'reference' => '3fa649ba0e8624c71f066a8437a4a47af5998710',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '9e243e8d8cbfbd3ef69218a441619394374a1708',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../modules/meta-box',
-            'aliases' => array(),
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
             'dev_requirement' => false,
         ),
         'wpmetabox/meta-box-beaver-themer-integrator' => array(

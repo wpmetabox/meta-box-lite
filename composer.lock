@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50712d73fbed87cd52ee2d447a66b018",
+    "content-hash": "104d4ad9a76a0a6225f0b125cddcf5bf",
     "packages": [
         {
             "name": "composer/installers",
@@ -777,11 +777,11 @@
         },
         {
             "name": "wpmetabox/meta-box",
-            "version": "5.10.5",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box.git",
-                "reference": "3fa649ba0e8624c71f066a8437a4a47af5998710"
+                "reference": "9e243e8d8cbfbd3ef69218a441619394374a1708"
             },
             "require": {
                 "meta-box/support": "dev-master"
@@ -789,6 +789,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^11.3"
             },
+            "default-branch": true,
             "type": "wordpress-plugin",
             "extra": {
                 "dev-files": {
@@ -866,7 +867,7 @@
                 "wordpress",
                 "wordpress-plugin"
             ],
-            "time": "2024-12-16T06:50:30+00:00"
+            "time": "2025-01-09T08:25:10+00:00"
         },
         {
             "name": "wpmetabox/meta-box-beaver-themer-integrator",
@@ -1017,6 +1018,7 @@
         "wpmetabox/mb-relationships": 20,
         "wpmetabox/mb-rest-api": 20,
         "wpmetabox/mb-yoast-seo": 20,
+        "wpmetabox/meta-box": 20,
         "wpmetabox/meta-box-beaver-themer-integrator": 20,
         "wpmetabox/meta-box-facetwp-integrator": 20,
         "wpmetabox/text-limiter": 20
