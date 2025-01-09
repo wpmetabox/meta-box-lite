@@ -4,7 +4,7 @@ Donate link: https://metabox.io/pricing/
 Tags: custom fields, custom post types, post type, custom taxonomies, meta box
 Requires at least: 5.9
 Requires PHP: 7.2
-Tested up to: 6.6.2
+Tested up to: 6.7.1
 Stable tag: 0.0.1
 License: GPLv2 or later
 
