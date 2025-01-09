@@ -23,7 +23,7 @@ $mbl_update_checker = PucFactory::buildUpdateChecker(
 	__FILE__,
 	'meta-box-lite'
 );
-$mbl_update_checker->setBranch( 'master' );
+$mbl_update_checker->setBranch( 'main' );
 
 $mbl_update_checker->addResultFilter( function ( $info, $response = null ): void {
 	$info->icons = [
