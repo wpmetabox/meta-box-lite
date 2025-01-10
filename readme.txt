@@ -5,7 +5,7 @@ Tags: custom fields, custom post types, post type, custom taxonomies, meta box
 Requires at least: 5.9
 Requires PHP: 7.2
 Tested up to: 6.7.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 
 A powerful and performant tool to create custom post types and custom fields for WordPress.
@@ -45,6 +45,10 @@ No data is collected or shared by this plugin. However, YouTube may collect data
 [Get started here](https://docs.metabox.io/introduction/).
 
 == Changelog ==
+
+= 1.0.1 - 2025-01-10 =
+
+Update license checker, ignore Meta Box Builder as it's now free
 
 = 1.0.0 - 2025-01-09 =
 
