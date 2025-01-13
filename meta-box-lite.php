@@ -10,8 +10,10 @@
  * Text Domain: meta-box-lite
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	return;
+if ( function_exists( 'add_action' ) ) {
+	// Use 'plugins_loaded' hook to make sure it runs "after" individual extensions are loaded.
+	// So individual extensions can take a higher priority.
+	add_action( 'plugins_loaded', function () {
+		require_once __DIR__ . '/vendor/autoload.php';
+	} );
 }
-
-require_once __DIR__ . '/vendor/autoload.php';
