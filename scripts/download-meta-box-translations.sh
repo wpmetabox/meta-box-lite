@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# NOTE: mush run in bash
+# bash scripts/download-meta-box-translations.sh
+
 # URL cơ sở của dự án Meta Box trên translate.wordpress.org
 BASE_URL="https://translate.wordpress.org/projects/wp-plugins/meta-box/dev/"
 
