@@ -17,8 +17,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-P24PF4B');</script>
 	<link rel='stylesheet' id='dashicons-css' href='https://s.w.org/wp-includes/css/dashicons.min.css?ver=6.8-alpha-59602' type='text/css' media='all' />
 <link rel='stylesheet' id='thickbox-css' href='https://translate.wordpress.org/wp-includes/js/thickbox/thickbox.css?ver=6.8-alpha-59602' type='text/css' media='all' />
-<link rel='stylesheet' id='gp-discussion-css-css' href='https://translate.wordpress.org/wp-content/plugins/gp-translation-helpers/css/discussion.css?ver=1702899956' type='text/css' media='all' />
-<link rel='stylesheet' id='gp-translation-helpers-editor-css' href='https://translate.wordpress.org/wp-content/plugins/gp-translation-helpers/css/editor.css?ver=1702899956' type='text/css' media='all' />
+<link rel='stylesheet' id='gp-discussion-css-css' href='https://translate.wordpress.org/wp-content/plugins/gp-translation-helpers/css/discussion.css?ver=1702899943' type='text/css' media='all' />
+<link rel='stylesheet' id='gp-translation-helpers-editor-css' href='https://translate.wordpress.org/wp-content/plugins/gp-translation-helpers/css/editor.css?ver=1702899943' type='text/css' media='all' />
 <link rel='stylesheet' id='admin-bar-css' href='https://translate.wordpress.org/wp-includes/css/admin-bar.min.css?ver=6.8-alpha-59602' type='text/css' media='all' />
 <style id='admin-bar-inline-css' type='text/css'>
 
@@ -27,10 +27,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	
 @media print { #wpadminbar { display:none; } }
 </style>
-<link rel='stylesheet' id='gp-base-css' href='https://translate.wordpress.org/wp-content/plugins/glotpress/assets/css/style.min.css?ver=1706269940-1' type='text/css' media='all' />
+<link rel='stylesheet' id='gp-base-css' href='https://translate.wordpress.org/wp-content/plugins/glotpress/assets/css/style.min.css?ver=1706269925-1' type='text/css' media='all' />
 <link rel='stylesheet' id='open-sans-css' href='https://fonts.googleapis.com/css2?family=Open+Sans%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C600%3B1%2C300%3B1%2C400%3B1%2C600&#038;display=swap' type='text/css' media='all' />
-<link rel='stylesheet' id='wporg-style-css' href='https://s.w.org/wp-content/themes/pub/wporg-main/css/style.css?ver=1701733749' type='text/css' media='all' />
-<link rel='stylesheet' id='wporg-translate-css' href='https://translate.wordpress.org/wp-content/plugins/wporg-gp-customizations/templates/style.css?ver=1709027936' type='text/css' media='all' />
+<link rel='stylesheet' id='wporg-style-css' href='https://s.w.org/wp-content/themes/pub/wporg-main/css/style.css?ver=1701733741' type='text/css' media='all' />
+<link rel='stylesheet' id='wporg-translate-css' href='https://translate.wordpress.org/wp-content/plugins/wporg-gp-customizations/templates/style.css?ver=1709027923' type='text/css' media='all' />
 <link rel='stylesheet' id='wp-block-library-css' href='https://translate.wordpress.org/wp-content/plugins/gutenberg/build/block-library/style.css?ver=19.9.0' type='text/css' media='all' />
 <link rel='stylesheet' id='wporg-chapter-list-style-css' href='https://translate.wordpress.org/wp-content/mu-plugins/pub-sync/blocks/chapter-list/build/style-index.css?ver=0.1.0-886dabda33dd88d9e9ac51c4f6ab9c42a5abee39' type='text/css' media='all' />
 <style id='wporg-favorite-button-style-inline-css' type='text/css'>
@@ -91,8 +91,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 :root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
 :where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
 </style>
-<link rel='stylesheet' id='wporg-global-fonts-css' href='https://translate.wordpress.org/wp-content/mu-plugins/pub-sync/global-fonts/style.css?ver=1722966445' type='text/css' media='all' />
-<link rel='stylesheet' id='wporg-global-header-footer-css' href='https://translate.wordpress.org/wp-content/mu-plugins/pub-sync/blocks/global-header-footer/build/style.css?ver=1734121585' type='text/css' media='all' />
+<link rel='stylesheet' id='wporg-global-fonts-css' href='https://translate.wordpress.org/wp-content/mu-plugins/pub-sync/global-fonts/style.css?ver=1722966425' type='text/css' media='all' />
+<link rel='stylesheet' id='wporg-global-header-footer-css' href='https://translate.wordpress.org/wp-content/mu-plugins/pub-sync/blocks/global-header-footer/build/style.css?ver=1734121564' type='text/css' media='all' />
 <style id='block-visibility-screen-size-styles-inline-css' type='text/css'>
 /* Large screens (desktops, 992px and up) */
 @media ( min-width: 992px ) {
@@ -129,8 +129,8 @@ var $translation_event = {"url":"https:\/\/translate.wordpress.org\/wp-admin\/ad
 wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 /* ]]> */
 </script>
-<script type="text/javascript" src="https://translate.wordpress.org/wp-content/plugins/glotpress/assets/js/common.min.js?ver=1690294506-1" id="gp-common-js"></script>
-<script type="text/javascript" src="https://translate.wordpress.org/wp-content/plugins/wporg-gp-translation-events/assets/js/translation-events.js?ver=1724945369" id="translation-events-js-js"></script>
+<script type="text/javascript" src="https://translate.wordpress.org/wp-content/plugins/glotpress/assets/js/common.min.js?ver=1690294496-1" id="gp-common-js"></script>
+<script type="text/javascript" src="https://translate.wordpress.org/wp-content/plugins/wporg-gp-translation-events/assets/js/translation-events.js?ver=1724945358" id="translation-events-js-js"></script>
 <link rel="https://api.w.org/" href="https://translate.wordpress.org/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://translate.wordpress.org/xmlrpc.php?rsd" />
 <meta name="generator" content="WordPress 6.8-alpha-59602" />
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Stream WordPress user activity plugin v4.0.2 -->
@@ -497,7 +497,7 @@ _stq.push([ "view", JSON.parse("{\"v\":\"ext\",\"blog\":\"124342649\",\"post\":\
 _stq.push([ "clickTrackerInit", "124342649", "0" ]);
 /* ]]> */
 </script>
-<script type="text/javascript" src="https://translate.wordpress.org/wp-content/mu-plugins/pub-sync/blocks/global-header-footer/js/view.js?ver=1728937715" id="wporg-global-header-script-js"></script>
+<script type="text/javascript" src="https://translate.wordpress.org/wp-content/mu-plugins/pub-sync/blocks/global-header-footer/js/view.js?ver=1728937697" id="wporg-global-header-script-js"></script>
 <script type="text/javascript">
 		jQuery('.glossary-links').prepend('<a href="/projects/wp-plugins/mb-custom-post-type/dev/pt_BR/default/export-translations/playground/" style="font-weight: 600;">Translate Live</a> <strong class="separator">•</strong> ');
 	</script>	<script>

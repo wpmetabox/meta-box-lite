@@ -14,6 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	return;
 }
 
+define( 'META_BOX_LITE_DIR', __DIR__ );
+
 // Use 'plugins_loaded' hook to make sure it runs "after" individual extensions are loaded.
 // So individual extensions can take a higher priority.
 add_action( 'plugins_loaded', function (): void {
@@ -23,5 +25,4 @@ add_action( 'plugins_loaded', function (): void {
 // Load translations
 add_action( 'init', function (): void {
 	load_plugin_textdomain( 'meta-box', false, basename( __DIR__ ) . '/languages/meta-box' );
-	load_plugin_textdomain( 'mb-custom-post-type', false, basename( __DIR__ ) . '/languages/mb-custom-post-type' );
 } );
