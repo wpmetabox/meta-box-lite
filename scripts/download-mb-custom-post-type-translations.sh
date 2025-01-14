@@ -9,6 +9,12 @@ OUTPUT_DIR="./languages/mb-custom-post-type"
 # Tạo thư mục đích nếu nó chưa tồn tại
 mkdir -p "$OUTPUT_DIR"
 
+# Bảng ánh xạ giữa tên locale và mã ngôn ngữ trong URL
+declare -A LANG_MAP
+LANG_MAP["vi"]="vi"
+LANG_MAP["zh_TW"]="zh-tw"
+LANG_MAP["pt_BR"]="pt-br"
+
 # Danh sách 3 ngôn ngữ được hỗ trợ (ĐÃ KIỂM TRA KỸ)
 LANGUAGES=(
     "zh_TW" "pt_BR" "vi"
@@ -22,8 +28,18 @@ MD5_TAXONOMY="58fd7ddfc95c317e1563ed5a87f9d1ed"
 
 # Duyệt qua từng ngôn ngữ
 for LANG in "${LANGUAGES[@]}"; do
+    DOWNLOAD_LANG=${LANG_MAP[$LANG]}
+
+    # Nếu không tìm thấy locale code, tiếp tục với ngôn ngữ tiếp theo
+    if [ -z "$DOWNLOAD_LANG" ]; then
+        DOWNLOAD_LANG=$LANG
+    fi
+
+    echo $LANG
+    echo $DOWNLOAD_LANG
+
     # Tạo URL tải xuống
-    DOWNLOAD_URL="$BASE_URL$LANG/default/export-translations/?format=php"
+    DOWNLOAD_URL="$BASE_URL$DOWNLOAD_LANG/default/export-translations/?format=php"
 
     # Tạo tên file (.l10n.php)
     FILENAME="mb-custom-post-type-$LANG.l10n.php"
@@ -38,7 +54,7 @@ for LANG in "${LANGUAGES[@]}"; do
     fi
 
     # Tạo URL tải xuống file JSON
-    DOWNLOAD_URL="$BASE_URL$LANG/default/export-translations/?format=jed1x"
+    DOWNLOAD_URL="$BASE_URL$DOWNLOAD_LANG/default/export-translations/?format=jed1x"
 
     # Tạo tên file (.json)
     FILENAME="mb-custom-post-type-$LANG-$MD5_POST_TYPE.json"
@@ -49,9 +65,9 @@ for LANG in "${LANGUAGES[@]}"; do
 
     if [[ $? -eq 0 ]]; then
         cp "$OUTPUT_DIR/$FILENAME" "$OUTPUT_DIR/$FILENAME2"
-        echo "Đã tải xuống: $FILENAME (từ $DOWNLOAD_URL)"
+        echo "Đã tải xuống cho ngôn ngữ: $LANG"
     else
-        echo "Lỗi khi tải xuống: $FILENAME (từ $DOWNLOAD_URL)"
+        echo "Lỗi khi tải xuống cho ngôn ngữ: $LANG"
     fi
 done
 
