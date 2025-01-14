@@ -11,7 +11,6 @@ mkdir -p "$OUTPUT_DIR"
 
 # Bảng ánh xạ giữa tên locale và mã ngôn ngữ trong URL
 declare -A LANG_MAP
-LANG_MAP["vi"]="vi"
 LANG_MAP["zh_TW"]="zh-tw"
 LANG_MAP["pt_BR"]="pt-br"
 
@@ -48,9 +47,9 @@ for LANG in "${LANGUAGES[@]}"; do
     curl -s -o "$OUTPUT_DIR/$FILENAME" "$DOWNLOAD_URL"
 
     if [[ $? -eq 0 ]]; then
-        echo "Đã tải xuống: $FILENAME (từ $DOWNLOAD_URL)"
+        echo "Đã tải xuống file PHP cho ngôn ngữ: $LANG"
     else
-        echo "Lỗi khi tải xuống: $FILENAME (từ $DOWNLOAD_URL)"
+        echo "Lỗi khi tải xuống file PHP cho ngôn ngữ: $LANG"
     fi
 
     # Tạo URL tải xuống file JSON
@@ -65,9 +64,9 @@ for LANG in "${LANGUAGES[@]}"; do
 
     if [[ $? -eq 0 ]]; then
         cp "$OUTPUT_DIR/$FILENAME" "$OUTPUT_DIR/$FILENAME2"
-        echo "Đã tải xuống cho ngôn ngữ: $LANG"
+        echo "Đã tải xuống file JSON cho ngôn ngữ: $LANG"
     else
-        echo "Lỗi khi tải xuống cho ngôn ngữ: $LANG"
+        echo "Lỗi khi tải xuống file JSON cho ngôn ngữ: $LANG"
     fi
 done
 
