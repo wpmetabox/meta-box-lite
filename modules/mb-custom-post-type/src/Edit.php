@@ -26,12 +26,7 @@ class Edit {
 		$asset = require MB_CPT_DIR . "/assets/build/$object.asset.php";
 		wp_enqueue_script( $this->post_type, MB_CPT_URL . "assets/build/$object.js", $asset['dependencies'], $asset['version'], true );
 		wp_localize_script( $this->post_type, 'MBCPT', $this->js_vars() );
-
-		$path = '';
-		if ( defined( 'META_BOX_LITE_DIR' ) ) {
-			$path = META_BOX_LITE_DIR . '/languages/mb-custom-post-type';
-		}
-		wp_set_script_translations( $this->post_type, 'mb-custom-post-type', $path );
+		wp_set_script_translations( $this->post_type, 'mb-custom-post-type' );
 	}
 
 	private function js_vars(): array {
