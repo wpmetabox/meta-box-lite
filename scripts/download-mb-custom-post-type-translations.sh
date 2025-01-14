@@ -22,12 +22,6 @@ LANGUAGES=(
     "zh_TW" "pt_BR" "vi"
 )
 
-# md5(modules/mb-custom-post-type/assets/build/post-type.js)
-MD5_POST_TYPE="991f24d69fe8c7b94a2c47b36cb5d31e"
-
-# md5(modules/mb-custom-post-type/assets/build/taxonomy.js)
-MD5_TAXONOMY="58fd7ddfc95c317e1563ed5a87f9d1ed"
-
 # Duyệt qua từng ngôn ngữ
 for LANG in "${LANGUAGES[@]}"; do
     DOWNLOAD_LANG=${LANG_MAP[$LANG]}
@@ -59,8 +53,8 @@ for LANG in "${LANGUAGES[@]}"; do
     DOWNLOAD_URL="$BASE_URL$DOWNLOAD_LANG/default/export-translations/?format=jed1x"
 
     # Tạo tên file (.json)
-    FILENAME="mb-custom-post-type-$LANG-$MD5_POST_TYPE.json"
-    FILENAME2="mb-custom-post-type-$LANG-$MD5_TAXONOMY.json"
+    FILENAME="mb-custom-post-type-$LANG-mb-post-type.json"
+    FILENAME2="mb-custom-post-type-$LANG-mb-taxonomy.json"
 
     # Tải file .mo
     curl -s -o "$OUTPUT_DIR/$FILENAME" "$DOWNLOAD_URL"
