@@ -23,4 +23,5 @@ add_action( 'plugins_loaded', function (): void {
 // Load translations
 add_action( 'init', function (): void {
 	load_plugin_textdomain( 'meta-box', false, basename( __DIR__ ) . '/languages/meta-box' );
+	load_plugin_textdomain( 'mb-custom-post-type', false, basename( __DIR__ ) . '/languages/mb-custom-post-type' );
 } );
