@@ -26,10 +26,10 @@ fi
 # Duyệt qua từng ngôn ngữ
 for LANG in "${LANGUAGES[@]}"; do
     # Tạo URL tải xuống
-    DOWNLOAD_URL="$BASE_URL$LANG/default/export-translations/?format=mo"
+    DOWNLOAD_URL="$BASE_URL$LANG/default/export-translations/?format=php"
 
-    # Tạo tên file
-    FILENAME="meta-box-$LANG.mo"
+    # Tạo tên file (.l10n.php)
+    FILENAME="meta-box-$LANG.l10n.php"
 
     # Tải file .mo
     curl -s -o "$OUTPUT_DIR/$FILENAME" "$DOWNLOAD_URL"
