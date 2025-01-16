@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "104d4ad9a76a0a6225f0b125cddcf5bf",
+    "content-hash": "9ef95f359f7e98bada8f39486f90cc6c",
     "packages": [
         {
             "name": "composer/installers",
@@ -321,7 +321,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box-builder.git",
-                "reference": "71e2f54618f417228c12a3370dbdccac761b5093"
+                "reference": "449e0a17700be3e0cf81cc35dbb43a188b6d05a0"
             },
             "require": {
                 "elightup/twig": "dev-master",
@@ -397,7 +397,7 @@
                 ]
             },
             "description": "Meta Box Builder extension for Meta Box",
-            "time": "2024-11-19T04:47:27+00:00"
+            "time": "2025-01-15T03:56:45+00:00"
         },
         {
             "name": "meta-box/support",
@@ -522,7 +522,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/mb-custom-post-type.git",
-                "reference": "3fdce0d3dde2ab5bc46176d3682d6c4b8fdcb8d1"
+                "reference": "cd6b61c06a8c3d1af67f0e599020bfc4eec7345d"
             },
             "require": {
                 "meta-box/support": "dev-master"
@@ -571,7 +571,7 @@
                 "wordpress-plugin",
                 "wp-admin"
             ],
-            "time": "2025-01-08T09:16:35+00:00"
+            "time": "2025-01-15T03:55:04+00:00"
         },
         {
             "name": "wpmetabox/mb-divi-integrator",
@@ -781,7 +781,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box.git",
-                "reference": "66134565e02393ac6483369cc09090a3f204a3ca"
+                "reference": "263fd9a7f13e79dfdb57a3a6e1538b642f83246a"
             },
             "require": {
                 "meta-box/support": "dev-master"
@@ -867,7 +867,7 @@
                 "wordpress",
                 "wordpress-plugin"
             ],
-            "time": "2025-01-10T05:10:05+00:00"
+            "time": "2025-01-14T03:52:36+00:00"
         },
         {
             "name": "wpmetabox/meta-box-beaver-themer-integrator",

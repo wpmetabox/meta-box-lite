@@ -85,16 +85,12 @@
     "post-update-cmd": [
       "echo Deleting .git dirs...",
       "rm -rf vendor/**/**/.git",
-      "rm -rf modules/**/.git",
-      "echo Cleaning up plugin headers...",
-      "php cleanup.php"
+      "rm -rf modules/**/.git"
     ],
     "post-install-cmd": [
       "echo Deleting .git dirs...",
       "rm -rf vendor/**/**/.git",
-      "rm -rf modules/**/.git",
-      "echo Cleaning up plugin headers...",
-      "php cleanup.php"
+      "rm -rf modules/**/.git"
     ]
   },
   "extra": {

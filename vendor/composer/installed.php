@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'b76955fe63f73d659b04d94313c6325d79a9f19a',
+        'reference' => '4d5980aee6dd6efde55569a31a8e2720842d545e',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'b76955fe63f73d659b04d94313c6325d79a9f19a',
+            'reference' => '4d5980aee6dd6efde55569a31a8e2720842d545e',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -86,7 +86,7 @@
         'meta-box/meta-box-builder' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '71e2f54618f417228c12a3370dbdccac761b5093',
+            'reference' => '449e0a17700be3e0cf81cc35dbb43a188b6d05a0',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../modules/meta-box-builder',
             'aliases' => array(
@@ -140,7 +140,7 @@
         'wpmetabox/mb-custom-post-type' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '3fdce0d3dde2ab5bc46176d3682d6c4b8fdcb8d1',
+            'reference' => 'cd6b61c06a8c3d1af67f0e599020bfc4eec7345d',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../modules/mb-custom-post-type',
             'aliases' => array(
@@ -206,7 +206,7 @@
         'wpmetabox/meta-box' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '66134565e02393ac6483369cc09090a3f204a3ca',
+            'reference' => '263fd9a7f13e79dfdb57a3a6e1538b642f83246a',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../modules/meta-box',
             'aliases' => array(

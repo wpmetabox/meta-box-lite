@@ -1,4 +1,13 @@
 <?php
+/**
+ * Plugin Name: Meta Box Builder
+ * Plugin URI:  https://metabox.io/plugins/meta-box-builder/
+ * Description: Drag and drop UI for creating custom meta boxes and custom fields.
+ * Version:     4.9.7
+ * Author:      MetaBox.io
+ * Author URI:  https://metabox.io
+ * License:     GPL2+
+ */
 
 // Prevent loading this file directly.
 if ( ! defined( 'ABSPATH' ) ) {
