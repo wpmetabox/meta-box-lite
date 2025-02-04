@@ -521,7 +521,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/mb-custom-post-type.git",
-                "reference": "f35ac1169a96eb8e3a5047d7414ae45c6d1589fc"
+                "reference": "c009b0c18ae11fc91f5f915a4db603e070267a93"
             },
             "require": {
                 "meta-box/support": "dev-master"
@@ -570,7 +570,7 @@
                 "wordpress-plugin",
                 "wp-admin"
             ],
-            "time": "2025-01-20T08:40:50+00:00"
+            "time": "2025-02-04T08:27:37+00:00"
         },
         {
             "name": "wpmetabox/mb-divi-integrator",

@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '45daf601240634f6de56909219720e77f3a39488',
+        'reference' => 'bbd677fd18b36aa5245173735aae5ca585d2bf0f',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '45daf601240634f6de56909219720e77f3a39488',
+            'reference' => 'bbd677fd18b36aa5245173735aae5ca585d2bf0f',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -140,7 +140,7 @@
         'wpmetabox/mb-custom-post-type' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'f35ac1169a96eb8e3a5047d7414ae45c6d1589fc',
+            'reference' => 'c009b0c18ae11fc91f5f915a4db603e070267a93',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../modules/mb-custom-post-type',
             'aliases' => array(
