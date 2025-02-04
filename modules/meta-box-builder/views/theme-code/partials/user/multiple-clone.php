@@ -13,10 +13,10 @@ $this->out( '<ul>' );
 				$this->out( '<?php foreach ( $clone as $user_id ) : ?>', 4 );
 					$this->out( '<?php $user = get_userdata( $user_id ); ?>', 5 );
 					$this->out( '<li><?php echo $user->display_name ?></li>', 5 );
-				$this->out( '<?php endforeach ?>', 4 );
+				$this->out( '<?php endforeach; ?>', 4 );
 			$this->out( '</ul>', 3 );
 		$this->out( '</li>', 2 );
-	$this->out( '<?php endforeach ?>', 1 );
+	$this->out( '<?php endforeach; ?>', 1 );
 $this->out( '</ul>', 0, 3 );
 
 // or simpler:

@@ -44,7 +44,7 @@ if ( ! empty( $field['clone'] ) ) {
 		$this->out( "<p>Name: <?php echo \$value['name'] ?></p>", 1 );
 		$this->out( "<p>Address: <?php echo \$value['address'] ?></p>", 1 );
 		$this->out( "<p>Email: <?php echo \$value['email'] ?></p>", 1 );
-	$this->out( '<?php endforeach ?>', 0, 0 );
+	$this->out( '<?php endforeach; ?>', 0, 0 );
 	return;
 }
 

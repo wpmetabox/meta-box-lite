@@ -321,7 +321,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box-builder.git",
-                "reference": "449e0a17700be3e0cf81cc35dbb43a188b6d05a0"
+                "reference": "fe046fb6d5d18585dccf0aab0eaeb26701b90fe4"
             },
             "require": {
                 "elightup/twig": "dev-master",
@@ -396,8 +396,7 @@
                     "phpcs > phpcs.txt"
                 ]
             },
-            "description": "Meta Box Builder extension for Meta Box",
-            "time": "2025-01-15T03:56:45+00:00"
+            "time": "2025-02-04T07:03:37+00:00"
         },
         {
             "name": "meta-box/support",
@@ -405,7 +404,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/support.git",
-                "reference": "99607eb4d8c8c96a7c882fc5a7c69cf3534d95bd"
+                "reference": "2f482c905c05ed4fdfcefadd749b13a13ff4daac"
             },
             "default-branch": true,
             "type": "library",
@@ -419,7 +418,7 @@
             ],
             "description": "Helpers for Meta Box plugins",
             "homepage": "https://metabox.io",
-            "time": "2024-10-07T00:27:46+00:00"
+            "time": "2025-01-20T07:23:19+00:00"
         },
         {
             "name": "riimu/kit-phpencoder",
@@ -522,7 +521,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/mb-custom-post-type.git",
-                "reference": "cd6b61c06a8c3d1af67f0e599020bfc4eec7345d"
+                "reference": "f35ac1169a96eb8e3a5047d7414ae45c6d1589fc"
             },
             "require": {
                 "meta-box/support": "dev-master"
@@ -571,7 +570,7 @@
                 "wordpress-plugin",
                 "wp-admin"
             ],
-            "time": "2025-01-15T03:55:04+00:00"
+            "time": "2025-01-20T08:40:50+00:00"
         },
         {
             "name": "wpmetabox/mb-divi-integrator",
@@ -606,12 +605,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mb-elementor-integrator.git",
-                "reference": "0f1740d7f79c6d618275f8e1fff2b87e26c6ede3"
+                "reference": "2bc75c7847cbd3ca1a45b3ae98c5b5382b9f0fbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/mb-elementor-integrator/zipball/0f1740d7f79c6d618275f8e1fff2b87e26c6ede3",
-                "reference": "0f1740d7f79c6d618275f8e1fff2b87e26c6ede3",
+                "url": "https://api.github.com/repos/wpmetabox/mb-elementor-integrator/zipball/2bc75c7847cbd3ca1a45b3ae98c5b5382b9f0fbe",
+                "reference": "2bc75c7847cbd3ca1a45b3ae98c5b5382b9f0fbe",
                 "shasum": ""
             },
             "default-branch": true,
@@ -645,9 +644,9 @@
             ],
             "support": {
                 "issues": "https://github.com/wpmetabox/mb-elementor-integrator/issues",
-                "source": "https://github.com/wpmetabox/mb-elementor-integrator/tree/master"
+                "source": "https://github.com/wpmetabox/mb-elementor-integrator/tree/2.2.3"
             },
-            "time": "2025-01-07T14:10:08+00:00"
+            "time": "2025-02-04T04:13:05+00:00"
         },
         {
             "name": "wpmetabox/mb-relationships",
@@ -962,12 +961,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box-text-limiter.git",
-                "reference": "ee8579cddd507e4e36ea88a8072f4a51d35a5c26"
+                "reference": "08d79cf61bb21f01378e3ac0d9c5618465a142f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box-text-limiter/zipball/ee8579cddd507e4e36ea88a8072f4a51d35a5c26",
-                "reference": "ee8579cddd507e4e36ea88a8072f4a51d35a5c26",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-text-limiter/zipball/08d79cf61bb21f01378e3ac0d9c5618465a142f0",
+                "reference": "08d79cf61bb21f01378e3ac0d9c5618465a142f0",
                 "shasum": ""
             },
             "default-branch": true,
@@ -997,9 +996,9 @@
             ],
             "support": {
                 "issues": "https://github.com/wpmetabox/meta-box-text-limiter/issues",
-                "source": "https://github.com/wpmetabox/meta-box-text-limiter/tree/master"
+                "source": "https://github.com/wpmetabox/meta-box-text-limiter/tree/1.2.5"
             },
-            "time": "2024-12-23T02:38:41+00:00"
+            "time": "2025-02-04T04:00:22+00:00"
         }
     ],
     "packages-dev": [],
@@ -1025,7 +1024,7 @@
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
 }

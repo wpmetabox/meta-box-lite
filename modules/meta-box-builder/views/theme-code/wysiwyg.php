@@ -32,7 +32,7 @@ if ( isset( $field['clone'] ) ) {
 	$this->out( "<?php \$values = rwmb_meta( '" . $this->get_encoded_value( $field['id'] ) . ' ) ?>' );
 	$this->out( '<?php foreach ( $values as $value ) : ?>' );
 		$this->out( '<?php echo do_shortcode( wpautop( $value ) ) ?>', 1 );
-	$this->out( '<?php endforeach ?>', 0, 0 );
+	$this->out( '<?php endforeach; ?>', 0, 0 );
 
 	return;
 }

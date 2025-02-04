@@ -14,7 +14,7 @@ if ( $in_group ) {
 		$this->out( '<ul>' );
 			$this->out( '<?php foreach ( $clones as $clone ) : ?>', 1 );
 				$this->out( '<li><?php echo $clone ?></li>', 2 );
-			$this->out( '<?php endforeach ?>', 1 );
+			$this->out( '<?php endforeach; ?>', 1 );
 		$this->out( '</ul>' );
 		$this->out( '<?php' );
 
@@ -39,7 +39,7 @@ if ( ! empty( $field['clone'] ) ) {
 	$this->out( '<ul>' );
 		$this->out( '<?php foreach ( $values as $value ) : ?>', 1 );
 			$this->out( '<li><?php echo $value ?></li>', 2 );
-		$this->out( '<?php endforeach ?>', 1 );
+		$this->out( '<?php endforeach; ?>', 1 );
 	$this->out( '</ul>', 0, 0 );
 
 	return;

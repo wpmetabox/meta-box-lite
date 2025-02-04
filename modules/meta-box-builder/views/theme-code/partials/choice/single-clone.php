@@ -15,5 +15,5 @@ $this->out( '<ul>' );
 			$this->out( 'Value: <?php echo $value ?><br>', 3 );
 			$this->out( 'Label: <?php echo $options[ $value ] ?>', 3 );
 		$this->out( '</li>', 2 );
-	$this->out( '<?php endforeach ?>', 1 );
+	$this->out( '<?php endforeach; ?>', 1 );
 $this->out( '</ul>', 0, 0 );

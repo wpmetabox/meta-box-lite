@@ -17,7 +17,7 @@ if ( $in_group ) {
 				$value = empty( $field ['timestamp'] ) ? '$date' : 'date( \'F j, Y\', $value )';
 				$this->out( '<li><?php echo ' . $value . ' ?></li>', 2 );
 
-			$this->out( '<?php endforeach ?>', 1 );
+			$this->out( '<?php endforeach; ?>', 1 );
 		$this->out( '</ul>' );
 		$this->out( '<?php' );
 		return;
@@ -45,7 +45,7 @@ if ( ! empty( $field['clone'] ) ) {
 			$value = empty( $field ['timestamp'] ) ? '$value' : 'date( \'F j, Y\', $value )';
 			$this->out( '<li><?php echo ' . $value . ' ?></li>', 2 );
 
-		$this->out( '<?php endforeach ?>', 1 );
+		$this->out( '<?php endforeach; ?>', 1 );
 	$this->out( '</ul>' );
 	return;
 }

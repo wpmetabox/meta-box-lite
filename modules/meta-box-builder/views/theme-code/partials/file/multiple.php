@@ -12,7 +12,7 @@ $this->out( '<h3>Uploaded files</h3>' );
 $this->out( '<ul>' );
 	$this->out( '<?php foreach ( $files as $file ) : ?>', 1 );
 		$this->out( '<li><a href="<?php echo $file[\'url\']; ?>"><?php echo $file[\'name\']; ?></a></li>', 2 );
-	$this->out( '<?php endforeach ?>', 1 );
+	$this->out( '<?php endforeach; ?>', 1 );
 $this->out( '</ul>', 0, 3 );
 
 // or simpler:

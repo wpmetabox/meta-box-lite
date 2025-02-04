@@ -47,6 +47,7 @@ class Data {
 			'post_format',
 			'wp_theme',
 			'wp_template_part_area',
+			'wp_pattern_category',
 			'mb-views-category',
 		];
 		$taxonomies = get_taxonomies( [], 'objects' );

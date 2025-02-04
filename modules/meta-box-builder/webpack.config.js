@@ -40,7 +40,7 @@ const plugins = [
 	} )
 ];
 
-// Main Meta Box Builder app.
+// Main app.
 const main = {
 	entry: './app/App.js',
 	output: {
