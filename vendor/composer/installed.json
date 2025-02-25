@@ -546,12 +546,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/mb-custom-post-type.git",
-                "reference": "33fd975c7f1cebb61bb938dafc194147dc6c9b5a"
+                "reference": "12994ec36fa67ff52f473cb1fc104683b4cf3b9f"
             },
             "require": {
                 "meta-box/support": "dev-master"
             },
-            "time": "2025-02-14T07:59:10+00:00",
+            "time": "2025-02-21T14:48:48+00:00",
             "default-branch": true,
             "type": "wordpress-plugin",
             "installation-source": "source",
@@ -823,7 +823,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box.git",
-                "reference": "263fd9a7f13e79dfdb57a3a6e1538b642f83246a"
+                "reference": "abb27e4c488b291962e8f912f56e7e3de29d8731"
             },
             "require": {
                 "meta-box/support": "dev-master"
@@ -831,7 +831,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^11.3"
             },
-            "time": "2025-01-14T03:52:36+00:00",
+            "time": "2025-02-25T14:05:21+00:00",
             "default-branch": true,
             "type": "wordpress-plugin",
             "extra": {
