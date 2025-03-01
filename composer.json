@@ -1,4 +1,6 @@
 {
+  "name": "wpmetabox/meta-box-lite",
+  "type": "wordpress-plugin",
   "config": {
     "prepend-autoloader": false,
     "allow-plugins": {
