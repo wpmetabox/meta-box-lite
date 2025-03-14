@@ -4,24 +4,24 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit9ef95f359f7e98bada8f39486f90cc6c
+class ComposerStaticInit176074a7ac21ac752053917cf886b225
 {
     public static $files = array (
-        'bb2ad5156ac7a5ea5170e3032f9986c5' => __DIR__ . '/../..' . '/modules/meta-box/meta-box.php',
-        '9195b8cf8e415449278c0c4efa05f57e' => __DIR__ . '/../..' . '/modules/mb-acf-migration/mb-acf-migration.php',
-        'd45d9ba5e80690d08cb8d4c4237b57c3' => __DIR__ . '/../..' . '/modules/mb-comment-meta/mb-comment-meta.php',
-        'f4f8943a33e9331987b83c5dbca3cbb8' => __DIR__ . '/../..' . '/modules/mb-custom-post-type/mb-custom-post-type.php',
-        '12bf048f557fcdf96bd657582056dc13' => __DIR__ . '/../..' . '/modules/mb-divi-integrator/mb-divi-integrator.php',
-        '53e5f459e3b3bd3d363b57f3762d653e' => __DIR__ . '/../..' . '/modules/mb-elementor-integrator/mb-elementor-integrator.php',
-        'c031731594be3c134da95963db29771b' => __DIR__ . '/../..' . '/modules/mb-rank-math/mb-rank-math.php',
-        'fa0768d6b1dd479a572914a99c2af7a3' => __DIR__ . '/../..' . '/modules/mb-relationships/mb-relationships.php',
-        '2bea1f0614b56f1133800caeae5e6df5' => __DIR__ . '/../..' . '/modules/mb-rest-api/mb-rest-api.php',
-        'a2e46144531a082e88682548cbcecd51' => __DIR__ . '/../..' . '/modules/mb-toolset-migration/mb-toolset-migration.php',
-        'fe708c586b6dc4f5b534e5cd329cf512' => __DIR__ . '/../..' . '/modules/mb-yoast-seo/mb-yoast-seo.php',
-        '30a7ba7060fe32310e7146ac1c287328' => __DIR__ . '/../..' . '/modules/meta-box-beaver-themer-integrator/meta-box-beaver-themer-integrator.php',
-        '8df026c8c79982bce14306d3e3e1c9cc' => __DIR__ . '/../..' . '/modules/meta-box-builder/meta-box-builder.php',
-        '0f9e0ce15017230bccbcc2bb4d0c0ef6' => __DIR__ . '/../..' . '/modules/meta-box-facetwp-integrator/meta-box-facetwp-integrator.php',
-        '8c74dad9fda44bae6e5e167d1597598d' => __DIR__ . '/../..' . '/modules/text-limiter/text-limiter.php',
+        '186da8db9313476fc959eccd12aabc88' => __DIR__ . '/../..' . '/modules/meta-box/meta-box.php',
+        '910837841834469cf1aab439104a71eb' => __DIR__ . '/../..' . '/modules/mb-acf-migration/mb-acf-migration.php',
+        'ccbafb9fc9649c3fe3bfd34495fc395d' => __DIR__ . '/../..' . '/modules/mb-comment-meta/mb-comment-meta.php',
+        '55a98195c96fd65b04cc1578967d2097' => __DIR__ . '/../..' . '/modules/mb-custom-post-type/mb-custom-post-type.php',
+        'a2cf7ec584d417254d3de8c43673d113' => __DIR__ . '/../..' . '/modules/mb-divi-integrator/mb-divi-integrator.php',
+        'd120b28b41b371765dbb32405b54340d' => __DIR__ . '/../..' . '/modules/mb-elementor-integrator/mb-elementor-integrator.php',
+        '574536f486a8527b9aaf61a3a3a664a7' => __DIR__ . '/../..' . '/modules/mb-rank-math/mb-rank-math.php',
+        '947bc2f22545edbb79528f8769803e83' => __DIR__ . '/../..' . '/modules/mb-relationships/mb-relationships.php',
+        '87a78edb66e96b5def87ff4ec7c8b588' => __DIR__ . '/../..' . '/modules/mb-rest-api/mb-rest-api.php',
+        '9d758b03a1633acafab8b59d58048754' => __DIR__ . '/../..' . '/modules/mb-toolset-migration/mb-toolset-migration.php',
+        '1916a748aff1d62aefdd8be2ad270a64' => __DIR__ . '/../..' . '/modules/mb-yoast-seo/mb-yoast-seo.php',
+        '47f83a91108aaee1c6aca2d4cc37a9b9' => __DIR__ . '/../..' . '/modules/meta-box-beaver-themer-integrator/meta-box-beaver-themer-integrator.php',
+        'b86c0cf88120f51fb00b028391a726fe' => __DIR__ . '/../..' . '/modules/meta-box-builder/meta-box-builder.php',
+        '86529b57185e6924f43db853fbb6bbef' => __DIR__ . '/../..' . '/modules/meta-box-facetwp-integrator/meta-box-facetwp-integrator.php',
+        '579820c187802988e966c2aaaf8772ff' => __DIR__ . '/../..' . '/modules/text-limiter/text-limiter.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -129,9 +129,9 @@ class ComposerStaticInit9ef95f359f7e98bada8f39486f90cc6c
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit9ef95f359f7e98bada8f39486f90cc6c::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit9ef95f359f7e98bada8f39486f90cc6c::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit9ef95f359f7e98bada8f39486f90cc6c::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit176074a7ac21ac752053917cf886b225::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit176074a7ac21ac752053917cf886b225::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit176074a7ac21ac752053917cf886b225::$classMap;
 
         }, null, ClassLoader::class);
     }

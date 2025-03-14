@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ef95f359f7e98bada8f39486f90cc6c",
+    "content-hash": "176074a7ac21ac752053917cf886b225",
     "packages": [
         {
             "name": "composer/installers",
@@ -780,7 +780,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box.git",
-                "reference": "abb27e4c488b291962e8f912f56e7e3de29d8731"
+                "reference": "db231d3cc98a3db1bfe33e116f5e0e2b5853e10b"
             },
             "require": {
                 "meta-box/support": "dev-master"
@@ -866,7 +866,7 @@
                 "wordpress",
                 "wordpress-plugin"
             ],
-            "time": "2025-02-25T14:05:21+00:00"
+            "time": "2025-03-14T08:00:26+00:00"
         },
         {
             "name": "wpmetabox/meta-box-beaver-themer-integrator",

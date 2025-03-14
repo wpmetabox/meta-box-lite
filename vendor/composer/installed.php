@@ -1,24 +1,15 @@
 <?php return array(
     'root' => array(
-        'name' => '__root__',
+        'name' => 'wpmetabox/meta-box-lite',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '7369abfc8485a84b0d6fdb351e39a61ca995b76d',
-        'type' => 'library',
+        'reference' => 'cff9a36f521c23aa95d9e4ae73fbb92cb852c711',
+        'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        '__root__' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '7369abfc8485a84b0d6fdb351e39a61ca995b76d',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../../',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
         'composer/installers' => array(
             'pretty_version' => 'v1.12.0',
             'version' => '1.12.0.0',
@@ -206,7 +197,7 @@
         'wpmetabox/meta-box' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'abb27e4c488b291962e8f912f56e7e3de29d8731',
+            'reference' => 'db231d3cc98a3db1bfe33e116f5e0e2b5853e10b',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../modules/meta-box',
             'aliases' => array(
@@ -234,6 +225,15 @@
             'aliases' => array(
                 0 => '9999999-dev',
             ),
+            'dev_requirement' => false,
+        ),
+        'wpmetabox/meta-box-lite' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'cff9a36f521c23aa95d9e4ae73fbb92cb852c711',
+            'type' => 'wordpress-plugin',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
             'dev_requirement' => false,
         ),
         'wpmetabox/text-limiter' => array(

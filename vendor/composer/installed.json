@@ -823,7 +823,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:wpmetabox/meta-box.git",
-                "reference": "abb27e4c488b291962e8f912f56e7e3de29d8731"
+                "reference": "db231d3cc98a3db1bfe33e116f5e0e2b5853e10b"
             },
             "require": {
                 "meta-box/support": "dev-master"
@@ -831,7 +831,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^11.3"
             },
-            "time": "2025-02-25T14:05:21+00:00",
+            "time": "2025-03-14T08:00:26+00:00",
             "default-branch": true,
             "type": "wordpress-plugin",
             "extra": {
