@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit176074a7ac21ac752053917cf886b225
+class ComposerStaticInitdc85b1e411ab938284984e2583544241
 {
     public static $files = array (
         '186da8db9313476fc959eccd12aabc88' => __DIR__ . '/../..' . '/modules/meta-box/meta-box.php',
@@ -129,9 +129,9 @@ class ComposerStaticInit176074a7ac21ac752053917cf886b225
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit176074a7ac21ac752053917cf886b225::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit176074a7ac21ac752053917cf886b225::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit176074a7ac21ac752053917cf886b225::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitdc85b1e411ab938284984e2583544241::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitdc85b1e411ab938284984e2583544241::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitdc85b1e411ab938284984e2583544241::$classMap;
 
         }, null, ClassLoader::class);
     }

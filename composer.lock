@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "176074a7ac21ac752053917cf886b225",
+    "content-hash": "dc85b1e411ab938284984e2583544241",
     "packages": [
         {
             "name": "composer/installers",
@@ -162,20 +162,26 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:elightup/twig.git",
+                "url": "https://github.com/elightup/twig.git",
                 "reference": "878f6cfa57ac080192f53922f93e5bdbeda314dd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/elightup/twig/zipball/878f6cfa57ac080192f53922f93e5bdbeda314dd",
+                "reference": "878f6cfa57ac080192f53922f93e5bdbeda314dd",
+                "shasum": ""
             },
             "default-branch": true,
             "type": "library",
             "extra": {
                 "mozart": {
-                    "dep_namespace": "eLightUp\\",
-                    "dep_directory": "/",
-                    "classmap_directory": "/",
-                    "classmap_prefix": "eLightUp_",
                     "packages": [
                         "twig/twig"
                     ],
+                    "dep_directory": "/",
+                    "dep_namespace": "eLightUp\\",
+                    "classmap_prefix": "eLightUp_",
+                    "classmap_directory": "/",
                     "delete_vendor_directories": true
                 }
             },
@@ -184,15 +190,9 @@
                     "eLightUp\\": "./"
                 }
             },
-            "scripts": {
-                "post-install-cmd": [
-                    "mozart compose",
-                    "composer dump-autoload"
-                ],
-                "post-update-cmd": [
-                    "mozart compose",
-                    "composer dump-autoload"
-                ]
+            "notification-url": "https://packagist.org/downloads/",
+            "support": {
+                "source": "https://github.com/elightup/twig/tree/master"
             },
             "time": "2022-12-03T14:54:46+00:00"
         },
@@ -203,6 +203,12 @@
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mb-acf-migration.git",
                 "reference": "388f98fa4b467227b7e58f01d7db139223d3315f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpmetabox/mb-acf-migration/zipball/388f98fa4b467227b7e58f01d7db139223d3315f",
+                "reference": "388f98fa4b467227b7e58f01d7db139223d3315f",
+                "shasum": ""
             },
             "require": {
                 "meta-box/mbb-parser": "dev-master",
@@ -215,6 +221,7 @@
                     "MetaBox\\ACF\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0"
             ],
@@ -229,7 +236,11 @@
                 "wordpress",
                 "wordpress-plugin"
             ],
-            "time": "2025-02-14T07:19:27+00:00"
+            "support": {
+                "issues": "https://github.com/wpmetabox/mb-acf-migration/issues",
+                "source": "https://github.com/wpmetabox/mb-acf-migration/tree/master"
+            },
+            "time": "2025-02-14T16:05:04+00:00"
         },
         {
             "name": "meta-box/mb-rank-math",
@@ -239,8 +250,15 @@
                 "url": "https://github.com/wpmetabox/mb-rank-math.git",
                 "reference": "f4b4a9b0991186ac25b96c85b2e095ca42e3e593"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpmetabox/mb-rank-math/zipball/f4b4a9b0991186ac25b96c85b2e095ca42e3e593",
+                "reference": "f4b4a9b0991186ac25b96c85b2e095ca42e3e593",
+                "shasum": ""
+            },
             "default-branch": true,
             "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0"
             ],
@@ -256,7 +274,11 @@
                 "wordpress-plugin",
                 "wp-admin"
             ],
-            "time": "2025-02-14T07:13:47+00:00"
+            "support": {
+                "issues": "https://github.com/wpmetabox/mb-rank-math/issues",
+                "source": "https://github.com/wpmetabox/mb-rank-math/tree/master"
+            },
+            "time": "2025-02-14T16:05:06+00:00"
         },
         {
             "name": "meta-box/mb-toolset-migration",
@@ -265,6 +287,12 @@
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mb-toolset-migration.git",
                 "reference": "a9adf753582df3793aa5862e0d5b1b9a3150d3f5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpmetabox/mb-toolset-migration/zipball/a9adf753582df3793aa5862e0d5b1b9a3150d3f5",
+                "reference": "a9adf753582df3793aa5862e0d5b1b9a3150d3f5",
+                "shasum": ""
             },
             "require": {
                 "meta-box/mbb-parser": "dev-master",
@@ -277,6 +305,7 @@
                     "MetaBox\\TS\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0"
             ],
@@ -291,15 +320,25 @@
                 "wordpress",
                 "wordpress-plugin"
             ],
-            "time": "2025-02-14T07:09:16+00:00"
+            "support": {
+                "issues": "https://github.com/wpmetabox/mb-toolset-migration/issues",
+                "source": "https://github.com/wpmetabox/mb-toolset-migration/tree/master"
+            },
+            "time": "2025-02-14T16:05:11+00:00"
         },
         {
             "name": "meta-box/mbb-parser",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:wpmetabox/mbb-parser.git",
+                "url": "https://github.com/wpmetabox/mbb-parser.git",
                 "reference": "8fd84824fb6f678b0b2527e8aae226c093b635d1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpmetabox/mbb-parser/zipball/8fd84824fb6f678b0b2527e8aae226c093b635d1",
+                "reference": "8fd84824fb6f678b0b2527e8aae226c093b635d1",
+                "shasum": ""
             },
             "require": {
                 "meta-box/support": "dev-master",
@@ -312,16 +351,27 @@
                     "MBBParser\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "description": "Parse meta box settings from JSON",
-            "time": "2024-10-23T09:11:04+00:00"
+            "support": {
+                "issues": "https://github.com/wpmetabox/mbb-parser/issues",
+                "source": "https://github.com/wpmetabox/mbb-parser/tree/master"
+            },
+            "time": "2024-10-23T09:35:51+00:00"
         },
         {
             "name": "meta-box/meta-box-builder",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:wpmetabox/meta-box-builder.git",
+                "url": "https://github.com/wpmetabox/meta-box-builder.git",
                 "reference": "c24efc645caf0f6c70eb58e774530c32f2f95ebb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/c24efc645caf0f6c70eb58e774530c32f2f95ebb",
+                "reference": "c24efc645caf0f6c70eb58e774530c32f2f95ebb",
+                "shasum": ""
             },
             "require": {
                 "elightup/twig": "dev-master",
@@ -366,13 +416,13 @@
                         "sass/",
                         "vendor/"
                     ],
-                    "riimu/kit-phpencoder": [
-                        "examples/",
-                        "*.json"
-                    ],
                     "elightup/twig": [
                         "*.json",
                         "twig.php"
+                    ],
+                    "riimu/kit-phpencoder": [
+                        "examples/",
+                        "*.json"
                     ]
                 }
             },
@@ -383,18 +433,10 @@
                     "MBB\\Relationships\\": "modules/relationships/src/"
                 }
             },
-            "scripts": {
-                "post-update-cmd": [
-                    "echo Deleting .git dirs...",
-                    "rm -rf vendor/**/**/.git"
-                ],
-                "post-install-cmd": [
-                    "echo Deleting .git dirs...",
-                    "rm -rf vendor/**/**/.git"
-                ],
-                "phpcs": [
-                    "phpcs > phpcs.txt"
-                ]
+            "notification-url": "https://packagist.org/downloads/",
+            "support": {
+                "issues": "https://github.com/wpmetabox/meta-box-builder/issues",
+                "source": "https://github.com/wpmetabox/meta-box-builder/tree/master"
             },
             "time": "2025-02-06T02:17:56+00:00"
         },
@@ -406,6 +448,12 @@
                 "url": "https://github.com/wpmetabox/support.git",
                 "reference": "2f482c905c05ed4fdfcefadd749b13a13ff4daac"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpmetabox/support/zipball/2f482c905c05ed4fdfcefadd749b13a13ff4daac",
+                "reference": "2f482c905c05ed4fdfcefadd749b13a13ff4daac",
+                "shasum": ""
+            },
             "default-branch": true,
             "type": "library",
             "autoload": {
@@ -413,11 +461,16 @@
                     "MetaBox\\Support\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GNU GPL-2.0"
             ],
             "description": "Helpers for Meta Box plugins",
             "homepage": "https://metabox.io",
+            "support": {
+                "issues": "https://github.com/wpmetabox/support/issues",
+                "source": "https://github.com/wpmetabox/support/tree/master"
+            },
             "time": "2025-01-20T07:23:19+00:00"
         },
         {
@@ -520,8 +573,14 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:wpmetabox/mb-custom-post-type.git",
+                "url": "https://github.com/wpmetabox/mb-custom-post-type.git",
                 "reference": "12994ec36fa67ff52f473cb1fc104683b4cf3b9f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpmetabox/mb-custom-post-type/zipball/12994ec36fa67ff52f473cb1fc104683b4cf3b9f",
+                "reference": "12994ec36fa67ff52f473cb1fc104683b4cf3b9f",
+                "shasum": ""
             },
             "require": {
                 "meta-box/support": "dev-master"
@@ -533,20 +592,7 @@
                     "MBCPT\\": "src/"
                 }
             },
-            "scripts": {
-                "format": [
-                    "phpcbf src/",
-                    "phpcbf src/ --standard=Generic --sniffs=Generic.Arrays.DisallowLongArraySyntax"
-                ],
-                "post-update-cmd": [
-                    "echo Deleting .git dirs...",
-                    "rm -rf vendor/**/**/.git"
-                ],
-                "post-install-cmd": [
-                    "echo Deleting .git dirs...",
-                    "rm -rf vendor/**/**/.git"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0"
             ],
@@ -570,6 +616,10 @@
                 "wordpress-plugin",
                 "wp-admin"
             ],
+            "support": {
+                "issues": "https://github.com/wpmetabox/mb-custom-post-type/issues",
+                "source": "https://github.com/wpmetabox/mb-custom-post-type/tree/master"
+            },
             "time": "2025-02-21T14:48:48+00:00"
         },
         {
@@ -580,6 +630,12 @@
                 "url": "https://github.com/wpmetabox/mb-divi-integrator.git",
                 "reference": "4316f4714969ec46dd9a16ecec71fd72c8f6b380"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpmetabox/mb-divi-integrator/zipball/4316f4714969ec46dd9a16ecec71fd72c8f6b380",
+                "reference": "4316f4714969ec46dd9a16ecec71fd72c8f6b380",
+                "shasum": ""
+            },
             "default-branch": true,
             "type": "wordpress-plugin",
             "autoload": {
@@ -587,6 +643,7 @@
                     "MBDI\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0"
             ],
@@ -597,7 +654,11 @@
                 }
             ],
             "description": "Display Meta Box data in Divi",
-            "time": "2025-02-14T03:01:41+00:00"
+            "support": {
+                "issues": "https://github.com/wpmetabox/mb-divi-integrator/issues",
+                "source": "https://github.com/wpmetabox/mb-divi-integrator/tree/main"
+            },
+            "time": "2025-02-14T16:05:54+00:00"
         },
         {
             "name": "wpmetabox/mb-elementor-integrator",
@@ -653,11 +714,18 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:wpmetabox/mb-relationships.git",
+                "url": "https://github.com/wpmetabox/mb-relationships.git",
                 "reference": "66e688bbc135f730cce6ac432f46eb8a60f748a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpmetabox/mb-relationships/zipball/66e688bbc135f730cce6ac432f46eb8a60f748a2",
+                "reference": "66e688bbc135f730cce6ac432f46eb8a60f748a2",
+                "shasum": ""
             },
             "default-branch": true,
             "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0"
             ],
@@ -672,19 +740,23 @@
             "description": "A lightweight solution for creating many-to-many posts to posts relationships in WordPress.",
             "homepage": "https://metabox.io/plugins/mb-relationships/",
             "keywords": [
-                "connection",
+                "Connection",
+                "Relationships",
                 "connections",
                 "custom-field",
                 "meta-box",
                 "relationship",
-                "relationships",
                 "select2",
                 "ui",
                 "wordpress",
                 "wordpress-plugin",
                 "wp-admin"
             ],
-            "time": "2025-02-14T07:28:30+00:00"
+            "support": {
+                "issues": "https://github.com/wpmetabox/mb-relationships/issues",
+                "source": "https://github.com/wpmetabox/mb-relationships/tree/master"
+            },
+            "time": "2025-02-14T16:04:55+00:00"
         },
         {
             "name": "wpmetabox/mb-rest-api",
@@ -694,6 +766,12 @@
                 "url": "https://github.com/wpmetabox/mb-rest-api.git",
                 "reference": "9d52dc5070dad5bb258b3cce92d2b6ce4bdac9b5"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpmetabox/mb-rest-api/zipball/9d52dc5070dad5bb258b3cce92d2b6ce4bdac9b5",
+                "reference": "9d52dc5070dad5bb258b3cce92d2b6ce4bdac9b5",
+                "shasum": ""
+            },
             "default-branch": true,
             "type": "wordpress-plugin",
             "autoload": {
@@ -701,6 +779,7 @@
                     "MetaBox\\RestApi\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0"
             ],
@@ -726,7 +805,11 @@
                 "wordpress-plugin",
                 "wp-admin"
             ],
-            "time": "2025-02-14T07:57:38+00:00"
+            "support": {
+                "issues": "https://github.com/wpmetabox/mb-rest-api/issues",
+                "source": "https://github.com/wpmetabox/mb-rest-api/tree/master"
+            },
+            "time": "2025-02-14T16:04:47+00:00"
         },
         {
             "name": "wpmetabox/mb-yoast-seo",
@@ -779,8 +862,14 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:wpmetabox/meta-box.git",
-                "reference": "db231d3cc98a3db1bfe33e116f5e0e2b5853e10b"
+                "url": "https://github.com/wpmetabox/meta-box.git",
+                "reference": "2dfbfba5bb2da9ac3ab0f8cc427e847378033d84"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/2dfbfba5bb2da9ac3ab0f8cc427e847378033d84",
+                "reference": "2dfbfba5bb2da9ac3ab0f8cc427e847378033d84",
+                "shasum": ""
             },
             "require": {
                 "meta-box/support": "dev-master"
@@ -833,19 +922,7 @@
                     "MetaBox\\": "src/"
                 }
             },
-            "scripts": {
-                "post-update-cmd": [
-                    "echo Deleting .git dirs...",
-                    "rm -rf vendor/**/**/.git"
-                ],
-                "post-install-cmd": [
-                    "echo Deleting .git dirs...",
-                    "rm -rf vendor/**/**/.git"
-                ],
-                "test": [
-                    "./vendor/bin/phpunit"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0"
             ],
@@ -866,7 +943,11 @@
                 "wordpress",
                 "wordpress-plugin"
             ],
-            "time": "2025-03-14T08:00:26+00:00"
+            "support": {
+                "issues": "https://github.com/wpmetabox/meta-box/issues",
+                "source": "https://github.com/wpmetabox/meta-box/tree/master"
+            },
+            "time": "2025-03-15T14:43:16+00:00"
         },
         {
             "name": "wpmetabox/meta-box-beaver-themer-integrator",
@@ -876,6 +957,12 @@
                 "url": "https://github.com/wpmetabox/meta-box-beaver-themer-integrator.git",
                 "reference": "bc0b8a2f9e683451d4f015c77dab971b68cbd483"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-beaver-themer-integrator/zipball/bc0b8a2f9e683451d4f015c77dab971b68cbd483",
+                "reference": "bc0b8a2f9e683451d4f015c77dab971b68cbd483",
+                "shasum": ""
+            },
             "default-branch": true,
             "type": "wordpress-plugin",
             "autoload": {
@@ -883,6 +970,7 @@
                     "MBBTI\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0"
             ],
@@ -907,7 +995,11 @@
                 "wordpress-plugin",
                 "wp-admin"
             ],
-            "time": "2025-02-14T07:23:53+00:00"
+            "support": {
+                "issues": "https://github.com/wpmetabox/meta-box-beaver-themer-integrator/issues",
+                "source": "https://github.com/wpmetabox/meta-box-beaver-themer-integrator/tree/master"
+            },
+            "time": "2025-02-14T16:04:57+00:00"
         },
         {
             "name": "wpmetabox/meta-box-facetwp-integrator",
