@@ -11,27 +11,27 @@
   "repositories": [
     {
       "type": "git",
-      "url": "git@github.com:elightup/twig.git"
+      "url": "https://github.com/elightup/twig.git"
     },
     {
       "type": "git",
-      "url": "git@github.com:wpmetabox/meta-box.git"
+      "url": "https://github.com/wpmetabox/meta-box.git"
     },
     {
       "type": "git",
-      "url": "git@github.com:wpmetabox/mbb-parser.git"
+      "url": "https://github.com/wpmetabox/mbb-parser.git"
     },
     {
       "type": "git",
-      "url": "git@github.com:wpmetabox/mb-custom-post-type.git"
+      "url": "https://github.com/wpmetabox/mb-custom-post-type.git"
     },
     {
       "type": "git",
-      "url": "git@github.com:wpmetabox/mb-relationships.git"
+      "url": "https://github.com/wpmetabox/mb-relationships.git"
     },
     {
       "type": "git",
-      "url": "git@github.com:wpmetabox/meta-box-builder.git"
+      "url": "https://github.com/wpmetabox/meta-box-builder.git"
     },
     {
       "type": "git",
