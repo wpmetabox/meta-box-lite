@@ -1,5 +1,7 @@
 {
   "name": "wpmetabox/meta-box-lite",
+  "license": "GPL-2.0-or-later",
+  "description": "A single plugin that provides UI and all free features for managing custom fields and dynamic content on WordPress.",
   "type": "wordpress-plugin",
   "config": {
     "prepend-autoloader": false,
@@ -11,16 +13,16 @@
   "require": {
     "composer/installers": "^1",
     "elightup/twig": "dev-master",
-    "meta-box/mb-acf-migration": "dev-master",
-    "meta-box/mb-rank-math": "dev-master",
-    "meta-box/mb-toolset-migration": "dev-master",
-    "meta-box/meta-box-builder": "dev-master",
+    "wpmetabox/mb-acf-migration": "dev-master",
+    "wpmetabox/meta-box-builder": "dev-master",
     "wpmetabox/mb-comment-meta": "dev-master",
     "wpmetabox/mb-custom-post-type": "dev-master",
     "wpmetabox/mb-divi-integrator": "dev-main",
     "wpmetabox/mb-elementor-integrator": "dev-master",
+    "wpmetabox/mb-rank-math": "dev-master",
     "wpmetabox/mb-relationships": "dev-master",
     "wpmetabox/mb-rest-api": "dev-master",
+    "wpmetabox/mb-toolset-migration": "dev-master",
     "wpmetabox/mb-yoast-seo": "dev-master",
     "wpmetabox/meta-box": "dev-master",
     "wpmetabox/meta-box-beaver-themer-integrator": "dev-master",
