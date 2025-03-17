@@ -9,8 +9,9 @@ return array(
     'eLightUp\\' => array($vendorDir . '/elightup/twig'),
     'Riimu\\Kit\\PHPEncoder\\' => array($vendorDir . '/riimu/kit-phpencoder/src'),
     'MetaBox\\TS\\' => array($baseDir . '/modules/mb-toolset-migration/src'),
-    'MetaBox\\Support\\' => array($vendorDir . '/meta-box/support'),
+    'MetaBox\\Support\\' => array($vendorDir . '/wpmetabox/support'),
     'MetaBox\\RestApi\\' => array($baseDir . '/modules/mb-rest-api/src'),
+    'MetaBox\\Pods\\' => array($baseDir . '/modules/mb-pods-migration/src'),
     'MetaBox\\ACF\\' => array($baseDir . '/modules/mb-acf-migration/src'),
     'MetaBox\\' => array($baseDir . '/modules/meta-box/src'),
     'MBEI\\' => array($baseDir . '/modules/mb-elementor-integrator/src'),
@@ -20,6 +21,6 @@ return array(
     'MBB\\Relationships\\' => array($baseDir . '/modules/meta-box-builder/modules/relationships/src'),
     'MBB\\' => array($baseDir . '/modules/meta-box-builder/src'),
     'MBBTI\\' => array($baseDir . '/modules/meta-box-beaver-themer-integrator/src'),
-    'MBBParser\\' => array($vendorDir . '/meta-box/mbb-parser/src'),
+    'MBBParser\\' => array($vendorDir . '/wpmetabox/mbb-parser/src'),
     'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src/Composer/Installers'),
 );

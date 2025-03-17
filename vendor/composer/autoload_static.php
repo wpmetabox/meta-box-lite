@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitdc85b1e411ab938284984e2583544241
+class ComposerStaticInit8a59c71b389c66ade363236ca67770f5
 {
     public static $files = array (
         '186da8db9313476fc959eccd12aabc88' => __DIR__ . '/../..' . '/modules/meta-box/meta-box.php',
@@ -38,6 +38,7 @@ class ComposerStaticInitdc85b1e411ab938284984e2583544241
             'MetaBox\\TS\\' => 11,
             'MetaBox\\Support\\' => 16,
             'MetaBox\\RestApi\\' => 16,
+            'MetaBox\\Pods\\' => 13,
             'MetaBox\\ACF\\' => 12,
             'MetaBox\\' => 8,
             'MBEI\\' => 5,
@@ -70,11 +71,15 @@ class ComposerStaticInitdc85b1e411ab938284984e2583544241
         ),
         'MetaBox\\Support\\' => 
         array (
-            0 => __DIR__ . '/..' . '/meta-box/support',
+            0 => __DIR__ . '/..' . '/wpmetabox/support',
         ),
         'MetaBox\\RestApi\\' => 
         array (
             0 => __DIR__ . '/../..' . '/modules/mb-rest-api/src',
+        ),
+        'MetaBox\\Pods\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/modules/mb-pods-migration/src',
         ),
         'MetaBox\\ACF\\' => 
         array (
@@ -114,7 +119,7 @@ class ComposerStaticInitdc85b1e411ab938284984e2583544241
         ),
         'MBBParser\\' => 
         array (
-            0 => __DIR__ . '/..' . '/meta-box/mbb-parser/src',
+            0 => __DIR__ . '/..' . '/wpmetabox/mbb-parser/src',
         ),
         'Composer\\Installers\\' => 
         array (
@@ -129,9 +134,9 @@ class ComposerStaticInitdc85b1e411ab938284984e2583544241
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitdc85b1e411ab938284984e2583544241::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitdc85b1e411ab938284984e2583544241::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitdc85b1e411ab938284984e2583544241::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit8a59c71b389c66ade363236ca67770f5::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit8a59c71b389c66ade363236ca67770f5::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit8a59c71b389c66ade363236ca67770f5::$classMap;
 
         }, null, ClassLoader::class);
     }
