@@ -8,60 +8,6 @@
     },
     "sort-packages": true
   },
-  "repositories": [
-    {
-      "type": "git",
-      "url": "https://github.com/elightup/twig.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/wpmetabox/meta-box.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/wpmetabox/mbb-parser.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/wpmetabox/mb-custom-post-type.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/wpmetabox/mb-relationships.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/wpmetabox/meta-box-builder.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/wpmetabox/support.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/wpmetabox/mb-acf-migration.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/wpmetabox/mb-toolset-migration.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/wpmetabox/mb-rest-api.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/wpmetabox/mb-rank-math.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/wpmetabox/mb-divi-integrator.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/wpmetabox/meta-box-beaver-themer-integrator.git"
-    }
-  ],
   "require": {
     "composer/installers": "^1",
     "elightup/twig": "dev-master",
