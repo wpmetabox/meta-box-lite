@@ -163,12 +163,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/elightup/twig.git",
-                "reference": "878f6cfa57ac080192f53922f93e5bdbeda314dd"
+                "reference": "588a9d55508d383de47cade5cb0049c809f4750f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elightup/twig/zipball/878f6cfa57ac080192f53922f93e5bdbeda314dd",
-                "reference": "878f6cfa57ac080192f53922f93e5bdbeda314dd",
+                "url": "https://api.github.com/repos/elightup/twig/zipball/588a9d55508d383de47cade5cb0049c809f4750f",
+                "reference": "588a9d55508d383de47cade5cb0049c809f4750f",
                 "shasum": ""
             },
             "default-branch": true,
@@ -194,7 +194,7 @@
             "support": {
                 "source": "https://github.com/elightup/twig/tree/master"
             },
-            "time": "2022-12-03T14:54:46+00:00"
+            "time": "2025-03-17T09:08:24+00:00"
         },
         {
             "name": "riimu/kit-phpencoder",
@@ -343,12 +343,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mb-custom-post-type.git",
-                "reference": "1cc0b4b50789cb67cfa565f6b842c002dc3971a6"
+                "reference": "b5dd49ff9c1f0f723da591c44ac1770f867192ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/mb-custom-post-type/zipball/1cc0b4b50789cb67cfa565f6b842c002dc3971a6",
-                "reference": "1cc0b4b50789cb67cfa565f6b842c002dc3971a6",
+                "url": "https://api.github.com/repos/wpmetabox/mb-custom-post-type/zipball/b5dd49ff9c1f0f723da591c44ac1770f867192ab",
+                "reference": "b5dd49ff9c1f0f723da591c44ac1770f867192ab",
                 "shasum": ""
             },
             "require": {
@@ -389,7 +389,7 @@
                 "issues": "https://github.com/wpmetabox/mb-custom-post-type/issues",
                 "source": "https://github.com/wpmetabox/mb-custom-post-type/tree/master"
             },
-            "time": "2025-03-17T08:48:35+00:00"
+            "time": "2025-03-20T08:46:11+00:00"
         },
         {
             "name": "wpmetabox/mb-divi-integrator",
@@ -942,12 +942,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box-builder.git",
-                "reference": "9842bba1411cf1691c2a5c07e7c7bfe6e00e5de5"
+                "reference": "6f3616fb659c46171cbc33321fab3c766dca809a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/9842bba1411cf1691c2a5c07e7c7bfe6e00e5de5",
-                "reference": "9842bba1411cf1691c2a5c07e7c7bfe6e00e5de5",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/6f3616fb659c46171cbc33321fab3c766dca809a",
+                "reference": "6f3616fb659c46171cbc33321fab3c766dca809a",
                 "shasum": ""
             },
             "require": {
@@ -1023,7 +1023,7 @@
                 "issues": "https://github.com/wpmetabox/meta-box-builder/issues",
                 "source": "https://github.com/wpmetabox/meta-box-builder/tree/master"
             },
-            "time": "2025-03-17T08:43:15+00:00"
+            "time": "2025-03-20T08:46:57+00:00"
         },
         {
             "name": "wpmetabox/meta-box-facetwp-integrator",

@@ -74,7 +74,15 @@ class Register {
 		] );
 
 		foreach ( $query->posts as $post ) {
-			$settings_pages[] = get_post_meta( $post->ID, 'settings_page', true );
+			$settings_page = get_post_meta( $post->ID, 'settings_page', true );
+			if ( empty( $settings_page ) || ! is_array( $settings_page ) ) {
+				continue;
+			}
+
+			// Allow WPML to modify the settings page to use translations.
+			$settings_page = apply_filters( 'mbb_settings_page', $settings_page, $post );
+
+			$settings_pages[] = $settings_page;
 		}
 
 		return $settings_pages;

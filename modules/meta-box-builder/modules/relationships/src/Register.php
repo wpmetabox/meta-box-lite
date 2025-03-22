@@ -73,6 +73,10 @@ class Register {
 
 		foreach ( $query->posts as $post ) {
 			$relationship = get_post_meta( $post->ID, 'relationship', true );
+
+			// Allow WPML to translate relationship data.
+			$relationship = apply_filters( 'mbb_relationship', $relationship, $post );
+
 			\MB_Relationships_API::register( $relationship );
 		}
 	}

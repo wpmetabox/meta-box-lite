@@ -16,24 +16,27 @@ class Register {
 			'post_status'            => 'publish',
 			'posts_per_page'         => -1,
 			'no_found_rows'          => true,
-			'fields'                 => 'ids',
 			'update_post_term_cache' => false,
 		] );
 
-		foreach ( $query->posts as $post_id ) {
-			$meta_box = get_post_meta( $post_id, 'meta_box', true );
+		foreach ( $query->posts as $post ) {
+			$meta_box = get_post_meta( $post->ID, 'meta_box', true );
 			if ( empty( $meta_box ) ) {
 				continue;
 			}
 
 			$this->transform_for_block( $meta_box );
-			$this->create_custom_table( $meta_box, $post_id );
+			$this->create_custom_table( $meta_box, $post->ID );
+
+			// Allow WPML to modify the meta box to use translations.
+			$meta_box = apply_filters( 'mbb_meta_box', $meta_box, $post );
+
 			$meta_boxes[] = $meta_box;
 
 			// Get list of meta box ID and meta box post ID to show the edit settings icon on the edit screen.
-			$settings = get_post_meta( $post_id, 'settings', true );
+			$settings = get_post_meta( $post->ID, 'settings', true );
 			if ( 'post' === Arr::get( $settings, 'object_type', 'post' ) ) {
-				$this->meta_box_post_ids[ $meta_box['id'] ] = $post_id;
+				$this->meta_box_post_ids[ $meta_box['id'] ] = $post->ID;
 			}
 		}
 

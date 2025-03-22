@@ -3,7 +3,7 @@
         'name' => 'wpmetabox/meta-box-lite',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'f23ff4370611caf36126783a27789284631643c9',
+        'reference' => '067f1dc13cab08fa603b70398a7937567968949a',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'elightup/twig' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '878f6cfa57ac080192f53922f93e5bdbeda314dd',
+            'reference' => '588a9d55508d383de47cade5cb0049c809f4750f',
             'type' => 'library',
             'install_path' => __DIR__ . '/../elightup/twig',
             'aliases' => array(
@@ -76,7 +76,7 @@
         'wpmetabox/mb-custom-post-type' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '1cc0b4b50789cb67cfa565f6b842c002dc3971a6',
+            'reference' => 'b5dd49ff9c1f0f723da591c44ac1770f867192ab',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../modules/mb-custom-post-type',
             'aliases' => array(
@@ -208,7 +208,7 @@
         'wpmetabox/meta-box-builder' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '9842bba1411cf1691c2a5c07e7c7bfe6e00e5de5',
+            'reference' => '6f3616fb659c46171cbc33321fab3c766dca809a',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../modules/meta-box-builder',
             'aliases' => array(
@@ -230,7 +230,7 @@
         'wpmetabox/meta-box-lite' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'f23ff4370611caf36126783a27789284631643c9',
+            'reference' => '067f1dc13cab08fa603b70398a7937567968949a',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

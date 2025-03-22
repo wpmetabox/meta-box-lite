@@ -119,6 +119,9 @@ class TaxonomyRegister extends Register {
 				continue;
 			}
 
+			// Allow WPML to translate taxonomy labels.
+			$data = apply_filters( 'mbcpt_taxonomy', $data, $post );
+
 			$taxonomies[ $data['slug'] ] = $data;
 		}
 
@@ -185,7 +188,6 @@ class TaxonomyRegister extends Register {
 		$add_fields_link = '';
 		$settings        = json_decode( $post->post_content, true );
 		if ( defined( 'MBB_VER' ) && is_array( $settings ) && ! empty( $settings['slug'] ) ) {
-			$link            = sprintf( admin_url( 'post-new.php?post_type=meta-box&post_title=%s' ), get_the_title() . ' Fields' );
 			$link            = add_query_arg( [
 				'post_type'              => 'meta-box',
 				// Translators: %s - taxonomy singular label.
@@ -231,5 +233,23 @@ class TaxonomyRegister extends Register {
 		];
 
 		return $bulk_messages;
+	}
+
+	/**
+	 * Get post by slug.
+	 *
+	 * @param string $slug Post slug.
+	 * @param string $post_type Post type.
+	 * @return WP_Post|null
+	 */
+	private function get_post_by_slug( $slug, $post_type ) {
+		$posts = get_posts( [
+			'name'        => $slug,
+			'post_type'   => $post_type,
+			'post_status' => 'publish',
+			'numberposts' => 1,
+		] );
+
+		return ! empty( $posts[0] ) ? $posts[0] : null;
 	}
 }
