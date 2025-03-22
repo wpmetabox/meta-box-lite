@@ -798,12 +798,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box.git",
-                "reference": "3aabf6cf680fac882166308a25f705e7ace1dc67"
+                "reference": "e583d6c92347673ae5fe4294eab6434d789fe701"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/3aabf6cf680fac882166308a25f705e7ace1dc67",
-                "reference": "3aabf6cf680fac882166308a25f705e7ace1dc67",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/e583d6c92347673ae5fe4294eab6434d789fe701",
+                "reference": "e583d6c92347673ae5fe4294eab6434d789fe701",
                 "shasum": ""
             },
             "require": {
@@ -882,7 +882,7 @@
                 "issues": "https://github.com/wpmetabox/meta-box/issues",
                 "source": "https://github.com/wpmetabox/meta-box/tree/master"
             },
-            "time": "2025-03-17T08:52:39+00:00"
+            "time": "2025-03-22T09:02:38+00:00"
         },
         {
             "name": "wpmetabox/meta-box-beaver-themer-integrator",
