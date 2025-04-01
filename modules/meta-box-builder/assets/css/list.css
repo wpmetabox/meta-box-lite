@@ -7,15 +7,18 @@
 	width: 16px;
 	height: 16px;
 }
+
 .mbb-tooltip .dashicons {
 	font-size: 14px;
 	width: 16px;
 	height: 16px;
 	margin-top: 2px;
 }
+
 .tippy-tooltip {
 	text-align: left;
 }
+
 .column-shortcode input {
 	max-width: 100%;
 }
@@ -25,6 +28,7 @@
 	display: none;
 	padding: 50px 0;
 }
+
 .mbb-import-form p {
 	color: #555d66;
 	font-size: 18px;
@@ -33,10 +37,41 @@
 	padding: 0;
 	text-align: center;
 }
+
 .mbb-import-form form {
 	background: #fafafa;
 	border: 1px solid #e5e5e5;
 	padding: 30px;
 	margin: 30px auto;
 	max-width: 380px;
+}
+
+.mbb-label {
+	padding: 4px 8px;
+	border-radius: 4px;
+	display: inline-block;
+}
+
+.mbb-sub-path {
+	color: #999;
+}
+
+.mbb-label[data-status="synced"] {
+	background: #dcfce7;
+	color: #16a34a;
+}
+
+.mbb-label[data-status="error_file_permission"] {
+	background: #fef2f2;
+	color: #ef4444;
+}
+
+.mbb-label[data-status="no_json"] {
+	background: #fef2f2;
+	color: #ef4444;
+}
+
+.mbb-label[data-status="sync_available"] {
+	background: #fffbeb;
+	color: #d97706;
 }

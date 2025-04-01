@@ -9,10 +9,10 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-    return;
+	return;
 }
 
 if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
-    require __DIR__ . '/vendor/autoload.php';
+	require __DIR__ . '/vendor/autoload.php';
 }
-new MBBParser\RestApi;
+new MBBParser\RestApi();

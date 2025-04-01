@@ -136,7 +136,15 @@ class FieldGroup {
 		}
 	}
 
-	public function use_translations( array $meta_box, WP_Post $post ): array {
+	/**
+	 * Filter to modify the meta box to use translations.
+	 *
+	 * @param array                                             $meta_box Meta box settings.
+	 * @param object{'post_name': string, 'post_title': string} $post     Post object. Can't use WP_Post because when using Local JSON, the post object is not available.
+	 *
+	 * @return array Modified meta box settings.
+	 */
+	public function use_translations( array $meta_box, object $post ): array {
 		$package = $this->get_package( $post );
 
 		if ( ! empty( $meta_box['title'] ) ) {
@@ -197,12 +205,18 @@ class FieldGroup {
 		}
 	}
 
-	private function get_package( WP_Post $post ): array {
+	/**
+	 * Get the package for the post.
+	 *
+	 * @param object{'post_name': string, 'post_title': string} $post Post object. Can't use WP_Post because when using Local JSON, the post object is not available.
+	 *
+	 * @return array Package.
+	 */
+	private function get_package( object $post ): array {
 		return [
-			'kind'      => 'Meta Box: Field Group',
-			'name'      => $post->post_name,
-			'title'     => $post->post_title,
-			'edit_link' => get_edit_post_link( $post ),
+			'kind'  => 'Meta Box: Field Group',
+			'name'  => $post->post_name,
+			'title' => $post->post_title,
 		];
 	}
 

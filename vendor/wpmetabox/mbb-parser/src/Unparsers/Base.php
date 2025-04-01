@@ -1,0 +1,134 @@
+<?php
+namespace MBBParser\Unparsers;
+
+use MBBParser\SettingsTrait;
+use MetaBox\Support\Arr;
+
+class Base {
+	use SettingsTrait;
+
+	protected $empty_keys = [];
+
+	public function __construct( $settings = [] ) {
+		$this->settings = (array) $settings;
+	}
+
+	public function set_settings( $settings ) {
+		$this->settings = (array) $settings;
+
+		return $this;
+	}
+
+	public function unparse_boolean_values() {
+		array_walk_recursive( $this->settings, [ $this, 'convert_string_to_boolean' ] );
+
+		return $this;
+	}
+
+	protected function convert_string_to_boolean( &$value ) {
+		if ( 'true' === $value ) {
+			$value = true;
+		} elseif ( 'false' === $value ) {
+			$value = false;
+		}
+	}
+
+	public function unparse_numeric_values() {
+		array_walk_recursive( $this->settings, [ $this, 'convert_number_to_string' ] );
+		return $this;
+	}
+
+	protected function convert_number_to_string( &$value ) {
+		if ( is_numeric( $value ) && ! is_bool( $value ) ) {
+			$value = (string) $value;
+		}
+	}
+
+	protected function unparse_array_attributes( $key ) {
+		$value = $this->$key;
+
+		if ( ! is_array( $value ) ) {
+			return $this;
+		}
+
+		$tmp_array = [];
+		foreach ( $value as $k => $v ) {
+			$tmp_key               = uniqid();
+			$tmp_array[ $tmp_key ] = [
+				'id'    => $tmp_key,
+				'key'   => $k,
+				'value' => $v,
+			];
+		}
+
+		$this->$key = $tmp_array;
+
+		return $this;
+	}
+
+	protected function unparse_conditional_logic() {
+		if ( empty( $this->visible ) && empty( $this->hidden ) ) {
+			return $this;
+		}
+
+		if ( ! class_exists( 'MB_Conditional_Logic' ) ) {
+			return $this;
+		}
+
+		$conditional_logic = ( new \MB_Conditional_Logic() )->parse_conditions( $this->settings );
+
+		$output = [];
+		foreach ( $conditional_logic as $action => $condition ) {
+			$output['type']     = $action;
+			$output['relation'] = $condition['relation'];
+			$output['when']     = [];
+
+			foreach ( $condition['when'] as $criteria ) {
+				$name = $criteria[0]; // Use field name as key
+
+				$output['when'][ $name ] = [
+					'id'       => $name,
+					'name'     => $name,
+					'operator' => $criteria[1],
+					'value'    => $criteria[2],
+				];
+			}
+		}
+		unset( $this->visible, $this->hidden );
+
+		$this->conditional_logic = $output;
+
+		return $this;
+	}
+
+	/**
+	 * Inverse of remove_default.
+	 *
+	 * @param mixed $key
+	 * @param mixed $value
+	 * @return static
+	 */
+	protected function add_default( $key, $value ) {
+		if ( ! isset( $this->$key ) ) {
+			$this->$key = $value;
+		}
+
+		return $this;
+	}
+
+	/**
+	 * Lookup from the data using keys, return the first key found or null
+	 *
+	 * @param array $keys
+	 * @return mixed
+	 */
+	public function lookup( array $keys, $default = null ) {
+		foreach ( $keys as $key ) {
+			if ( Arr::get( $this->settings, $key ) !== null ) {
+				return Arr::get( $this->settings, $key );
+			}
+		}
+
+		return $default;
+	}
+}

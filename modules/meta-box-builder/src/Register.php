@@ -10,39 +10,76 @@ class Register {
 		add_filter( 'rwmb_meta_boxes', [ $this, 'register_meta_box' ] );
 	}
 
-	public function register_meta_box( $meta_boxes ) {
-		$query = new \WP_Query( [
-			'post_type'              => 'meta-box',
-			'post_status'            => 'publish',
-			'posts_per_page'         => -1,
-			'no_found_rows'          => true,
-			'update_post_term_cache' => false,
-		] );
+	public function register_meta_box( $meta_boxes ): array {
+		$mbs = LocalJson::is_enabled() ? $this->get_json_meta_boxes() : $this->get_database_meta_boxes();
 
-		foreach ( $query->posts as $post ) {
-			$meta_box = get_post_meta( $post->ID, 'meta_box', true );
+		foreach ( $mbs as $meta_box ) {
+			$this->transform_for_block( $meta_box['meta_box'] );
+			$this->create_custom_table( $meta_box );
+
+			if ( empty( $meta_box['meta_box'] ) ) {
+				continue;
+			}
+
+			$settings = $meta_box['settings'] ?? [];
+
+			$object_type = Arr::get( $settings, 'object_type' );
+
+			if ( $object_type === 'post' ) {
+				$this->meta_box_post_ids[ $meta_box['meta_box']['id'] ] = $meta_box['meta_box']['id'];
+			}
+
+			// Allow WPML to modify the meta box to use translations. JSON meta boxes might not have post_title and post_name.
+			if ( isset( $meta_box['post_title'] ) && isset( $meta_box['post_name'] ) ) {
+				$post_object = (object) [
+					'post_title' => $meta_box['post_title'],
+					'post_name'  => $meta_box['post_name'],
+				];
+
+				$meta_box['meta_box'] = apply_filters( 'mbb_meta_box', $meta_box['meta_box'], $post_object );
+			}
+
+			$meta_boxes[] = $meta_box['meta_box'];
+		}
+
+		if ( ! empty( $this->meta_box_post_ids ) && is_admin() ) {
+			add_action( 'rwmb_enqueue_scripts', [ $this, 'enqueue_assets' ] );
+		}
+
+		return $meta_boxes;
+	}
+
+	private function get_json_meta_boxes(): array {
+		$meta_boxes = [];
+
+		$files = JsonService::get_files();
+		foreach ( $files as $file ) {
+			[ $data, $error ] = LocalJson::read_file( $file );
+
+			if ( $data === null || $error !== null ) {
+				continue;
+			}
+
+			$json     = json_decode( $data, true );
+			$unparser = new \MBBParser\Unparsers\MetaBox( $json );
+			$unparser->unparse();
+			$json     = $unparser->get_settings();
+			$meta_box = $json;
+
 			if ( empty( $meta_box ) ) {
 				continue;
 			}
 
-			$this->transform_for_block( $meta_box );
-			$this->create_custom_table( $meta_box, $post->ID );
-
-			// Allow WPML to modify the meta box to use translations.
-			$meta_box = apply_filters( 'mbb_meta_box', $meta_box, $post );
-
 			$meta_boxes[] = $meta_box;
-
-			// Get list of meta box ID and meta box post ID to show the edit settings icon on the edit screen.
-			$settings = get_post_meta( $post->ID, 'settings', true );
-			if ( 'post' === Arr::get( $settings, 'object_type', 'post' ) ) {
-				$this->meta_box_post_ids[ $meta_box['id'] ] = $post->ID;
-			}
 		}
 
-		if ( ! empty( $this->meta_box_post_ids ) ) {
-			add_action( 'rwmb_enqueue_scripts', [ $this, 'enqueue_assets' ] );
-		}
+		return $meta_boxes;
+	}
+
+	public function get_database_meta_boxes(): array {
+		$meta_boxes = JsonService::get_meta_boxes( [
+			'post_status' => 'publish',
+		], 'full' );
 
 		return $meta_boxes;
 	}
@@ -79,16 +116,23 @@ class Register {
 		};
 	}
 
-	private function create_custom_table( $meta_box, $post_id ): void {
-		if ( ! Helpers\Data::is_extension_active( 'mb-custom-table' ) || empty( $meta_box['table'] ) ) {
+	private function create_custom_table( $meta_box ): void {
+		if ( ! Helpers\Data::is_extension_active( 'mb-custom-table' ) || empty( $meta_box['meta_box']['table'] ) ) {
 			return;
 		}
 
-		// Get full custom table settings from JavaScript data.
-		$settings = get_post_meta( $post_id, 'settings', true );
-		if ( ! Arr::get( $settings, 'custom_table.create' ) ) {
+		// Get full custom table settings from both meta box settings and JavaScript data.
+		$custom_table_settings = $meta_box['meta_box']['custom_table'] ?? $meta_box['settings']['custom_table'] ?? [];
+
+		if ( empty( $custom_table_settings ) || ! is_array( $custom_table_settings ) ) {
 			return;
 		}
+
+		if ( ! Arr::get( $custom_table_settings, 'create' ) ) {
+			return;
+		}
+
+		$meta_box = $meta_box['meta_box'];
 		$columns = [];
 		$fields  = array_filter( $meta_box['fields'], [ $this, 'has_value' ] );
 		foreach ( $fields as $field ) {
@@ -108,17 +152,17 @@ class Register {
 		set_transient( $cache_key, 1, MONTH_IN_SECONDS );
 	}
 
-	public function enqueue_assets() {
+	public function enqueue_assets(): void {
 		wp_enqueue_style( 'mbb-post', MBB_URL . 'assets/css/post.css', [], MBB_VER );
 		wp_enqueue_script( 'mbb-post', MBB_URL . 'assets/js/post.js', [], MBB_VER, true );
 		\RWMB_Helpers_Field::localize_script_once( 'mbb-post', 'MBB', [
 			'meta_box_post_ids' => $this->meta_box_post_ids,
-			'base_url'          => admin_url( 'post.php?action=edit&post=' ),
+			'base_url'          => get_rest_url( null, 'mbb/redirection-url' ),
 			'title'             => __( 'Edit the field group settings', 'meta-box-builder' ),
 		] );
 	}
 
-	private function has_value( $field ) {
+	private function has_value( $field ): bool {
 		return ! empty( $field['id'] ) && ! in_array( $field['type'], [ 'heading', 'divider', 'button', 'custom_html', 'tab' ], true );
 	}
 }

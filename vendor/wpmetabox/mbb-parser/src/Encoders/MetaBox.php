@@ -33,7 +33,7 @@ class MetaBox {
 			$this->encode_fields( $this->settings['fields'] );
 		}
 
-		$encoder              = new PHPEncoder;
+		$encoder              = new PHPEncoder();
 		$this->encoded_string = $encoder->encode( $this->settings, [
 			'array.base'    => 4,
 			'array.align'   => true,
@@ -70,7 +70,7 @@ class MetaBox {
 				foreach ( $messages as $key => $value ) {
 					$messages[ $key ] = sprintf( '{translate}%s{/translate}', $value );
 				}
-				$validation[ 'messages' ][ $new_key ] = $messages;
+				$validation['messages'][ $new_key ] = $messages;
 			}
 		}
 		$this->validation = $validation;

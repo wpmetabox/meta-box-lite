@@ -7,33 +7,44 @@ use RWMB_Taxonomy_Field;
 use RWMB_User_Field;
 use MBB\Helpers\Data;
 use MetaBox\Support\Arr;
+use MBB\JsonService;
+use MBB\LocalJson;
 
 class Base {
 	public function __construct() {
 		add_action( 'rest_api_init', [ $this, 'register_routes' ] );
 	}
 
-	public function register_routes() {
-		$methods = $this->get_public_methods();
-		$methods = array_diff( $methods, [ '__construct', 'register_routes', 'has_permission' ] );
-		array_walk( $methods, [ $this, 'register_route' ] );
+	public function register_routes(): void {
+		$public_methods = $this->get_public_methods();
+		$public_methods = array_diff( $public_methods, [ '__construct', 'register_routes', 'has_permission' ] );
+		array_walk( $public_methods, [ $this, 'register_route' ] );
 	}
 
-	private function register_route( $method ) {
-		$route = str_replace( [ 'get_', '_' ], [ '', '-' ], $method );
+	private function register_route( $method ): void {
+		$route               = str_replace( [ 'get_', '_' ], [ '', '-' ], $method );
+		$methods             = str_starts_with( $method, 'set_' ) ? WP_REST_Server::EDITABLE : WP_REST_Server::READABLE;
+		$permission_callback = $route === 'redirection-url' ? '__return_true' : [ $this, 'has_permission' ];
+
 		register_rest_route( 'mbb', $route, [
-			'methods'             => WP_REST_Server::READABLE,
+			'methods'             => $methods,
 			'callback'            => [ $this, $method ],
-			'permission_callback' => [ $this, 'has_permission' ],
+			'permission_callback' => $permission_callback,
 		] );
 	}
 
-	public function has_permission() {
+	public function has_permission(): bool {
 		return current_user_can( 'manage_options' );
 	}
 
-	private function get_public_methods() {
+	/**
+	 * Get all public methods of the class.
+	 *
+	 * @return string[]
+	 */
+	private function get_public_methods(): array {
 		$methods = get_class_methods( $this );
+
 		return array_filter( $methods, function ( $method ) {
 			$reflect = new ReflectionMethod( $this, $method );
 			return $reflect->isPublic();
@@ -142,5 +153,63 @@ class Base {
 			}
 		}
 		return $data;
+	}
+
+	/**
+	 * Get local json data, including sync status.
+	 *
+	 * @return array
+	 */
+	public function get_json_data( \WP_REST_Request $request ): array {
+		$params = $request->get_params();
+		$json   = JsonService::get_json( $params );
+
+		return $json;
+	}
+
+	public function get_redirection_url( \WP_REST_Request $request ) {
+		$params = $request->get_params();
+
+		$slug = $params['slug'] ?? '';
+		if ( empty( $slug ) ) {
+			return '';
+		}
+
+		$post = get_page_by_path( $slug, OBJECT, 'meta-box' );
+
+		if ( ! $post ) {
+			return '';
+		}
+
+		wp_safe_redirect( admin_url( "post.php?post={$post->ID}&action=edit" ) );
+		exit;
+	}
+
+	public function set_json_data( \WP_REST_Request $request ): \WP_REST_Response {
+		$params = $request->get_params();
+
+		foreach ( [ 'id', 'use' ] as $param ) {
+			if ( ! isset( $params[ $param ] ) ) {
+				return new \WP_REST_Response( [
+					'success' => false,
+					// Translators: %s - The parameter name.
+					'message' => sprintf( __( '%s is required', 'meta-box-builder' ), ucfirst( $param ) ),
+				], 400 );
+			}
+		}
+
+		$target = $params['use'];
+
+		$res = call_user_func(
+			[ LocalJson::class, "use_$target" ],
+			[
+				'post_name' => $params['id'],
+				'post_type' => $params['post_type'] ?? 'meta-box',
+			]
+		);
+
+		return new \WP_REST_Response( [
+			'success' => (bool) $res,
+		], 200 );
 	}
 }

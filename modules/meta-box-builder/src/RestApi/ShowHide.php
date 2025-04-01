@@ -12,12 +12,13 @@ class ShowHide extends Base {
 		return $this->$method( $s, $name );
 	}
 
-	private function get_method( $name ) {
+	private function get_method( $name ): string {
 		$methods = [
 			'template' => 'get_templates',
 			'format'   => 'get_formats',
 		];
-		$method  = isset( $methods[ $name ] ) ? $methods[ $name ] : 'get_terms';
+		$method  = $methods[ $name ] ?? 'get_terms';
+
 		return $method;
 	}
 }

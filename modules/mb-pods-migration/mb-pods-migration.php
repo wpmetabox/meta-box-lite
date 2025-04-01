@@ -3,7 +3,7 @@
  * Plugin Name: MB Pods Migration
  * Plugin URI:  https://metabox.io/plugins/mb-pods-migration
  * Description: Migrate Pods custom fields to Meta Box.
- * Version:     1.0.2
+ * Version:     1.0.4
  * Author:      MetaBox.io
  * Author URI:  https://metabox.io
  * License:     GPL2+

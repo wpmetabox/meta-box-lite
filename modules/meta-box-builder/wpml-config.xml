@@ -1,0 +1,7 @@
+<wpml-config>
+	<custom-types>
+		<custom-type translate="0">meta-box</custom-type>
+		<custom-type translate="0">mb-settings-page</custom-type>
+		<custom-type translate="0">mb-relationship</custom-type>
+	</custom-types>
+</wpml-config>

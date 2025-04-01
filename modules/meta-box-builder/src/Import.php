@@ -10,6 +10,8 @@ class Import {
 		$this->upgrader_v4 = new Ver404();
 
 		add_action( 'admin_footer-edit.php', [ $this, 'output_js_templates' ] );
+
+		// Import from the Import selector.
 		add_action( 'admin_init', [ $this, 'import' ] );
 	}
 
@@ -19,10 +21,12 @@ class Import {
 		}
 		?>
 		<?php if ( isset( $_GET['imported'] ) ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
-			<div class="notice notice-success is-dismissible"><p><?php esc_html_e( 'Field groups have been imported successfully!', 'meta-box-builder' ); ?></p></div>
+			<div class="notice notice-success is-dismissible">
+				<p><?php esc_html_e( 'Field groups have been imported successfully!', 'meta-box-builder' ); ?></p>
+			</div>
 		<?php endif; ?>
 
-		<script type="text/template" id="mbb-import-form">
+		<template id="mbb-import-form">
 			<div class="mbb-import-form">
 				<p><?php esc_html_e( 'Choose an exported ".json" file from your computer:', 'meta-box-builder' ); ?></p>
 				<form enctype="multipart/form-data" method="post" action="">
@@ -32,7 +36,7 @@ class Import {
 					<?php submit_button( esc_attr__( 'Import', 'meta-box-builder' ), 'secondary', 'submit', false, [ 'disabled' => true ] ); ?>
 				</form>
 			</div>
-		</script>
+		</template>
 		<?php
 	}
 
@@ -65,31 +69,23 @@ class Import {
 	/**
 	 * Import .json from v4.
 	 */
-	private function import_json( $data ) {
+	private function import_json( string $data ): bool {
 		$posts = json_decode( $data, true );
 		if ( json_last_error() !== JSON_ERROR_NONE ) {
 			return false;
 		}
 
-		// If import only one post.
-		if ( isset( $posts['post_type'] ) ) {
+		// Check if $posts is multi-dimensional array or not.
+		if ( array_keys( $posts ) !== range( 0, count( $posts ) - 1 ) ) {
 			$posts = [ $posts ];
 		}
 
 		foreach ( $posts as $post ) {
-			if ( isset( $post['settings']['id'] ) && ! isset( $post['post_name'] ) ) {
-				$post['post_name'] = $post['settings']['id'];
-			}
-
-			if ( isset( $post['relationship']['id'] ) && ! isset( $post['post_name'] ) ) {
-				$post['post_name'] = $post['relationship']['id'];
-			}
-
-			if ( isset( $post['meta_box']['id'] ) && ! isset( $post['post_name'] ) ) {
-				$post['post_name'] = $post['meta_box']['id'];
-			}
-
+			$unparser = new \MBBParser\Unparsers\MetaBox( $post );
+			$unparser->unparse();
+			$post    = $unparser->get_settings();
 			$post_id = wp_insert_post( $post );
+
 			if ( ! $post_id ) {
 				wp_die( wp_kses_post( sprintf(
 					// Translators: %1$s - post type, %2$s - post title, %3$s - go back URL.
@@ -99,14 +95,29 @@ class Import {
 					admin_url( "edit.php?post_type={$post['post_type']}" )
 				) ) );
 			}
+
 			if ( is_wp_error( $post_id ) ) {
 				wp_die( wp_kses_post( implode( '<br>', $post_id->get_error_messages() ) ) );
 			}
 
-			$meta_keys = $this->get_meta_keys( $post['post_type'] );
+			// Handle the case when importing a meta box to already existing post.
+			// For example, when importing a meta box to a post that has post name "foo",
+			// The post name of the new post will be "foo-1", causing mismatch between the
+			// post name and the meta box id.
+			// Now we need to update those values
+			$new_post = get_post( $post_id );
+			if ( $new_post->post_name !== $post['post_name'] ) {
+				$post['post_name']      = $new_post->post_name;
+				$post['meta_box']['id'] = $new_post->post_name;
+			}
+
+			$meta_keys = Export::get_meta_keys( $post['post_type'] );
 			foreach ( $meta_keys as $meta_key ) {
 				update_post_meta( $post_id, $meta_key, $post[ $meta_key ] );
 			}
+
+			// After importing, we write to the json file too.
+			LocalJson::use_database( [ 'post_id' => $post_id ] );
 		}
 
 		return true;
@@ -157,18 +168,5 @@ class Import {
 		}
 
 		return true;
-	}
-
-	private function get_meta_keys( $post_type ) {
-		switch ( $post_type ) {
-			case 'meta-box':
-				return [ 'settings', 'fields', 'data', 'meta_box' ];
-			case 'mb-relationship':
-				return [ 'settings', 'relationship' ];
-			case 'mb-settings-page':
-				return [ 'settings', 'settings_page' ];
-			default:
-				return [];
-		}
 	}
 }

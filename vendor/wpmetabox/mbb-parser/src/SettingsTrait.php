@@ -1,6 +1,9 @@
 <?php
 namespace MBBParser;
 
+/**
+ * Use overloading magic methods for short syntax.
+ */
 trait SettingsTrait {
 	protected $settings;
 
@@ -8,23 +11,19 @@ trait SettingsTrait {
 		return $this->settings;
 	}
 
-	/**
-	 * Use overloading magic methods for short syntax.
-	 */
-
-	public function __get( $key ) {
-		return isset( $this->settings[ $key ] ) ? $this->settings[ $key ] : null;
+	public function __get( string $key ) {
+		return $this->settings[ $key ] ?? null;
 	}
 
-	public function __set( $key, $value ): void {
+	public function __set( string $key, $value ): void {
 		$this->settings[ $key ] = $value;
 	}
 
-	public function __isset( $key ): bool {
+	public function __isset( string $key ): bool {
 		return isset( $this->settings[ $key ] );
 	}
 
-	public function __unset( $key ): void {
+	public function __unset( string $key ): void {
 		unset( $this->settings[ $key ] );
 	}
 }
