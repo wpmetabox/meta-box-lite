@@ -54,7 +54,7 @@ class FieldGroup {
 			'title',
 			$package,
 			__( 'Title', 'meta-box-builder' ),
-			LINE
+			'LINE'
 		);
 
 		if ( ! empty( $meta_box['tabs'] ) ) {
@@ -65,7 +65,7 @@ class FieldGroup {
 					'tab_' . $key,
 					$package,
 					sprintf( __( 'Tab: %s', 'meta-box-builder' ), $tab['label'] ?? '' ),
-					LINE
+					'LINE'
 				);
 			}
 		}
@@ -91,7 +91,7 @@ class FieldGroup {
 				$package,
 				// translators: %1$s is the field name, %2$s is the key.
 				sprintf( '%1$s: %2$s', $field['name'], $label ),
-				LINE
+				'LINE'
 			);
 		}
 
@@ -106,7 +106,7 @@ class FieldGroup {
 						$package,
 						// translators: %1$s is the field name, %2$s is the option label.
 						sprintf( __( '%1$s: Option %2$s', 'meta-box-builder' ), $field['name'], $option ),
-						LINE
+						'LINE'
 					);
 				}
 			}
@@ -127,7 +127,7 @@ class FieldGroup {
 				$package,
 				// translators: %s is the field name.
 				sprintf( __( '%s: Tooltip', 'meta-box-builder' ), $field['name'] ),
-				LINE
+				'LINE'
 			);
 		}
 

@@ -1,6 +1,11 @@
 <?php
 namespace MBB;
 
+// Prevent loading this file directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	return;
+}
+
 // Show Meta Box admin menu.
 add_filter( 'rwmb_admin_menu', '__return_true' );
 load_plugin_textdomain( 'meta-box-builder', false, plugin_basename( MBB_DIR ) . '/languages/' );
@@ -26,6 +31,7 @@ if ( Helpers\Data::is_extension_active( 'meta-box-show-hide' ) ) {
 }
 
 new Integrations\WPML\Manager();
+new Integrations\Polylang\Manager();
 
 new Extensions\AdminColumns();
 new Extensions\Blocks();

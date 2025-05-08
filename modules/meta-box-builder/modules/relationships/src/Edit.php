@@ -23,8 +23,7 @@ class Edit extends BaseEditPage {
 
 	public function save( $post_id, $post ) {
 		$settings = array_merge( [
-			'menu_title' => $post->post_title,
-			'id'         => $post->post_name,
+			'id' => $post->post_name,
 		], rwmb_request()->post( 'settings' ) );
 
 		$parser = new Parsers\Relationship( $settings );

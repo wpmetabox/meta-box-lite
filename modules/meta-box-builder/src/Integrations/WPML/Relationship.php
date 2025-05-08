@@ -48,7 +48,7 @@ class Relationship {
 			'title',
 			$package,
 			__( 'Title', 'meta-box-builder' ),
-			LINE
+			'LINE'
 		);
 
 		$this->register_side_strings( 'from', $relationship['from'] ?? [], $package );
@@ -63,7 +63,7 @@ class Relationship {
 				$side . '_' . str_replace( '.', '_', $key ),
 				$package,
 				sprintf( '%s: %s', $side, $label ),
-				LINE
+				'LINE'
 			);
 		}
 	}

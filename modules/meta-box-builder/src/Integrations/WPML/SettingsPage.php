@@ -41,7 +41,7 @@ class SettingsPage {
 				$key,
 				$package,
 				$label,
-				LINE
+				'LINE'
 			);
 		}
 	}
