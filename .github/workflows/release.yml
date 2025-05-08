@@ -16,3 +16,4 @@ jobs:
       SERVER_IP: ${{ secrets.SERVER_IP }}
       DOWNLOADS_DIR: ${{ secrets.DOWNLOADS_DIR }}
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+      VERSION_SECRET: ${{ secrets.VERSION_SECRET }}
