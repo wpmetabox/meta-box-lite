@@ -6,8 +6,34 @@ class Parser {
 	private $fields_translations = [];
 
 	public function __construct() {
-		add_filter( 'mbb_meta_box_settings', [ $this, 'parse_translation_settings' ] );
+		if ( function_exists( 'pll_register_string' ) ) {
+			add_filter( 'mbb_save_settings', [ $this, 'save_fields_translations_to_settings' ] );
+			add_filter( 'mbb_meta_box_settings', [ $this, 'parse_translation_settings' ] );
+		}
+
 		add_filter( 'mbb_app_data', [ $this, 'filter_data_to_app' ] );
+	}
+
+	public function save_fields_translations_to_settings( array $settings ): array {
+		// Don't parse settings per field if the translation mode for the field group is not 'advanced'.
+		if ( empty( $settings['translation'] ) || $settings['translation'] !== 'advanced' ) {
+			unset( $settings['fields_translations'] );
+			return $settings;
+		}
+
+		if ( empty( $settings['fields_translations'] ) ) {
+			return $settings;
+		}
+
+		// Somehow the data submitted is not a JSON string, ignore it.
+		if ( ! is_string( $settings['fields_translations'] ) ) {
+			unset( $settings['fields_translations'] );
+			return $settings;
+		}
+
+		$settings['fields_translations'] = $this->parse_json( wp_unslash( $settings['fields_translations'] ) );
+
+		return $settings;
 	}
 
 	/**
@@ -23,11 +49,8 @@ class Parser {
 		}
 
 		// Store fields' translations for later parsing
-		if ( ! empty( $settings['fields_translations'] ) && is_string( $settings['fields_translations'] ) ) {
-			$this->fields_translations = json_decode( wp_unslash( $settings['fields_translations'] ), true );
-			if ( json_last_error() !== JSON_ERROR_NONE ) {
-				$this->fields_translations = [];
-			}
+		if ( isset( $settings['fields_translations'] ) && is_array( $settings['fields_translations'] ) ) {
+			$this->fields_translations = $settings['fields_translations'];
 			unset( $settings['fields_translations'] );
 		}
 
@@ -59,17 +82,26 @@ class Parser {
 		}
 	}
 
-	/**
-	 * Send fields_translations as an array to the JS app.
-	 * It's stored as a JSON string in the database, we need to decode it to an array.
-	 */
 	public function filter_data_to_app( array $data ): array {
-		if ( empty( $data['settings']['fields_translations'] ) ) {
+		if ( empty( $data['settings'] ) || ! is_array( $data['settings'] ) ) {
 			return $data;
 		}
 
-		$data['settings']['fields_translations'] = json_decode( $data['settings']['fields_translations'] ) ?: [];
+		$settings = &$data['settings'];
+
+		// Fix fields_translations data still stored in settings when Polylang is not active and it grows after saving field groups.
+		if ( ! function_exists( 'pll_register_string' ) ) {
+			unset( $settings['fields_translations'] );
+			return $data;
+		}
+
+		$settings = $this->save_fields_translations_to_settings( $settings );
 
 		return $data;
+	}
+
+	private function parse_json( string $json ): array {
+		$array = json_decode( $json, true );
+		return json_last_error() === JSON_ERROR_NONE && is_array( $array ) ? $array : [];
 	}
 }

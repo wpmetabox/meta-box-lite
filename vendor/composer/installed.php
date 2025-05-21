@@ -3,7 +3,7 @@
         'name' => 'wpmetabox/meta-box-lite',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '521afc46b20718a222ad75d30dce479cd2974906',
+        'reference' => '1b918bf297b820a55269e51743b12b45a2fa5b47',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -76,7 +76,7 @@
         'wpmetabox/mb-custom-post-type' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'd5d6e042cac3030dea44aebe0b7294f4812f5b0b',
+            'reference' => 'a099c585bad429ac83d26411890d0fb796fa018c',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../modules/mb-custom-post-type',
             'aliases' => array(
@@ -186,7 +186,7 @@
         'wpmetabox/meta-box' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '9cf65b4dbcda8bc3c6a06f96e591bd01dfdfe60c',
+            'reference' => 'dc0d430febdeef3667076a5b7894899ab1c9b088',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../modules/meta-box',
             'aliases' => array(
@@ -208,7 +208,7 @@
         'wpmetabox/meta-box-builder' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '783bbe630d45f3fdbdfafa606e2300f18ed66f6c',
+            'reference' => 'bc2b7d778cdbb8629f2d6ee8a3baff3b12a4c299',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../modules/meta-box-builder',
             'aliases' => array(
@@ -230,7 +230,7 @@
         'wpmetabox/meta-box-lite' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '521afc46b20718a222ad75d30dce479cd2974906',
+            'reference' => '1b918bf297b820a55269e51743b12b45a2fa5b47',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

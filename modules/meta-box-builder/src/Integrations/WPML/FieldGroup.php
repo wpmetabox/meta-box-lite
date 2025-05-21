@@ -215,7 +215,7 @@ class FieldGroup {
 	private function get_package( object $post ): array {
 		return [
 			'kind'  => 'Meta Box: Field Group',
-			'name'  => $post->post_name,
+			'name'  => urldecode( $post->post_name ),
 			'title' => $post->post_title,
 		];
 	}

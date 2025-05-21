@@ -93,7 +93,7 @@ class Relationship {
 	private function get_package( WP_Post $post ): array {
 		return [
 			'kind'      => 'Meta Box: Relationship',
-			'name'      => $post->post_name,
+			'name'      => urldecode( $post->post_name ),
 			'title'     => $post->post_title,
 			'edit_link' => get_edit_post_link( $post ),
 		];
