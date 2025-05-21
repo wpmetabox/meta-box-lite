@@ -1,3 +1,11 @@
+## 1.3.1 - 2025-05-21
+
+- Fix datetime field returns null
+- Fix single image field not working with Polylang Pro
+- Fix `fields_translations` settings still available and grows rapidly event when Polylang is not active
+- Fix reveal password not working
+- Fix WPML integration with some languages
+
 ## 1.3.0 - 2025-05-08
 
 Highlights:
