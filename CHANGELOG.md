@@ -1,3 +1,8 @@
+## 1.3.2 - 2025-06-11
+
+- Fix error for translating relationship texts
+- Add German translations for some extensions
+
 ## 1.3.1 - 2025-05-21
 
 - Fix datetime field returns null
