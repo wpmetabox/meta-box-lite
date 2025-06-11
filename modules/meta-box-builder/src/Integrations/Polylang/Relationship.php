@@ -37,8 +37,12 @@ class Relationship {
 		$context = $this->get_context( $relationship, $post );
 
 		// Register strings for both sides.
-		$this->register_side_strings( 'from', $relationship['from'] ?? [], $context );
-		$this->register_side_strings( 'to', $relationship['to'] ?? [], $context );
+		if ( is_array( $relationship['from'] ) ) {
+			$this->register_side_strings( 'from', $relationship['from'], $context );
+		}
+		if ( is_array( $relationship['to'] ) ) {
+			$this->register_side_strings( 'to', $relationship['to'], $context );
+		}
 
 		return $relationship;
 	}
@@ -57,8 +61,12 @@ class Relationship {
 	}
 
 	public function use_translations( array $relationship ): array {
-		$this->use_side_translations( 'from', $relationship['from'] );
-		$this->use_side_translations( 'to', $relationship['to'] );
+		if ( is_array( $relationship['from'] ) ) {
+			$this->use_side_translations( 'from', $relationship['from'] );
+		}
+		if ( is_array( $relationship['to'] ) ) {
+			$this->use_side_translations( 'to', $relationship['to'] );
+		}
 
 		return $relationship;
 	}

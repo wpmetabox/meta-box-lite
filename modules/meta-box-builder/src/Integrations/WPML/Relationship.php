@@ -51,8 +51,12 @@ class Relationship {
 			'LINE'
 		);
 
-		$this->register_side_strings( 'from', $relationship['from'] ?? [], $package );
-		$this->register_side_strings( 'to', $relationship['to'] ?? [], $package );
+		if ( is_array( $relationship['from'] ) ) {
+			$this->register_side_strings( 'from', $relationship['from'], $package );
+		}
+		if ( is_array( $relationship['to'] ) ) {
+			$this->register_side_strings( 'to', $relationship['to'], $package );
+		}
 	}
 
 	private function register_side_strings( string $side, array $data, array $package ): void {
@@ -75,8 +79,12 @@ class Relationship {
 			$relationship['title'] = apply_filters( 'wpml_translate_string', $relationship['title'], 'title', $package );
 		}
 
-		$this->use_side_translations( 'from', $relationship['from'], $package );
-		$this->use_side_translations( 'to', $relationship['to'], $package );
+		if ( is_array( $relationship['from'] ) ) {
+			$this->use_side_translations( 'from', $relationship['from'], $package );
+		}
+		if ( is_array( $relationship['to'] ) ) {
+			$this->use_side_translations( 'to', $relationship['to'], $package );
+		}
 
 		return $relationship;
 	}

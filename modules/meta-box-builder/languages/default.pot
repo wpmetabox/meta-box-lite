@@ -1,1237 +1,3643 @@
-# <!=Copyright (C) 2014 Rilwis
-# This file is distributed under the GPL2+.=!>
-#, fuzzy
+# Copyright (C) 2025 MetaBox.io
+# This file is distributed under the GPL2+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Meta Box Builder\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/meta-box\n"
-"POT-Creation-Date: 2019-05-29 09:01+0700\n"
+"Project-Id-Version: MB Builder 4.11.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/meta-box-builder\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: MetaBox.io <info@metabox.io>\n"
-"X-Generator: Poedit 2.2.2\n"
-"X-Poedit-KeywordsList: __;_x;_e;_ex;_n;_nx;esc_attr__;esc_attr_e;esc_attr_x;esc_html__;esc_html_e;esc_html_x;_n_noop;_nx_noop\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: assets\n"
-"X-Poedit-SearchPathExcluded-1: languages\n"
-"X-Poedit-SearchPathExcluded-2: vendor\n"
+"POT-Creation-Date: 2025-06-11T03:05:18+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: meta-box-builder\n"
 
-#: meta-box-builder.php:33
-msgid "Meta Box Builder plugin requires PHP version 5.6+. Please contact your host and ask them to upgrade."
+#. Plugin Name of the plugin
+#: meta-box-builder.php
+msgid "MB Builder"
 msgstr ""
 
-#: src/AdminColumns.php:24
-msgid "Show For"
+#. Plugin URI of the plugin
+#: meta-box-builder.php
+msgid "https://metabox.io/plugins/meta-box-builder/"
 msgstr ""
 
-#: src/AdminColumns.php:25 views/tabs/settings.php:1
-msgid "Location"
+#. Description of the plugin
+#: meta-box-builder.php
+msgid "Drag and drop UI for creating custom meta boxes and custom fields."
 msgstr ""
 
-#: src/AdminColumns.php:28
-msgid "Shortcode"
+#. Author of the plugin
+#: meta-box-builder.php
+msgid "MetaBox.io"
 msgstr ""
 
-#: src/AdminColumns.php:28
-msgid "Embed the field group in the front end for users to submit posts."
+#. Author URI of the plugin
+#: meta-box-builder.php
+msgid "https://metabox.io"
 msgstr ""
 
-#: src/AdminColumns.php:47 views/tabs/settings.php:14
-msgid "Users"
+#: bootstrap.php:56
+msgid "Field Group ID"
 msgstr ""
 
-#: src/AdminColumns.php:50 views/tabs/settings.php:17
-msgid "Comments"
+#: modules/relationships/src/Register.php:13
+msgctxt "Post Type General Name"
+msgid "Relationships"
 msgstr ""
 
-#: src/AdminColumns.php:53
-msgid "Attachments"
+#: modules/relationships/src/Register.php:14
+msgctxt "Post Type Singular Name"
+msgid "Relationship"
 msgstr ""
 
-#: src/AdminColumns.php:56
-msgid "Settings Pages"
+#: modules/relationships/src/Register.php:15
+#: modules/relationships/src/Register.php:16
+msgid "Relationship"
 msgstr ""
 
-#: src/AdminColumns.php:59 views/tabs/settings.php:5
-msgid "Posts"
+#: modules/relationships/src/Register.php:17
+msgid "Parent Relationship:"
 msgstr ""
 
-#: src/AdminColumns.php:62 views/tabs/settings.php:8 views/tabs/settings.php:41
-msgid "Taxonomies"
+#: modules/relationships/src/Register.php:18
+msgid "Relationships"
 msgstr ""
 
-#: src/AdminColumns.php:70
-msgid "All Users"
+#: modules/relationships/src/Register.php:19
+msgid "Add New Relationship"
 msgstr ""
 
-#: src/AdminColumns.php:73
-msgid "All Comments"
+#: modules/relationships/src/Register.php:20
+#: modules/relationships/src/Register.php:21
+msgid "New Relationship"
 msgstr ""
 
-#: src/AdminColumns.php:76
-msgid "All Attachments"
+#: modules/relationships/src/Register.php:22
+msgid "Edit Relationship"
 msgstr ""
 
-#: src/Attribute.php:9 views/tabs/fields.php:56
-msgid "ID"
+#: modules/relationships/src/Register.php:23
+msgid "Update Relationship"
 msgstr ""
 
-#: src/Attribute.php:9
-msgid "Must be unique, will be used as meta key when saving to the database. Recommended to use only lowercase letters, numbers, and underscores."
+#: modules/relationships/src/Register.php:24
+msgid "View Relationship"
 msgstr ""
 
-#: src/Attribute.php:10 views/settings/custom-attributes.php:4
-msgid "Custom attributes"
+#: modules/relationships/src/Register.php:25
+msgid "Search Relationship"
 msgstr ""
 
-#: src/Attribute.php:11 src/Fields/Taxonomy.php:10
-msgid "Default value"
+#: modules/relationships/src/Register.php:26
+#: modules/settings-page/src/Register.php:27
+#: src/AdminColumns.php:192
+msgid "Not found"
 msgstr ""
 
-#: src/Attribute.php:12 src/Fields/ImageSelect.php:7
-msgid "Choices"
+#: modules/relationships/src/Register.php:27
+#: modules/settings-page/src/Register.php:28
+msgid "Not found in Trash"
 msgstr ""
 
-#: src/Attribute.php:12
-msgid "Enter each choice on a line. For more control, you may specify both a value and label like \"red: Red\" (without quotes)"
+#: modules/relationships/src/RestApi.php:12
+msgid "From"
 msgstr ""
 
-#: src/Attribute.php:13
-msgid "Size of the input box"
+#: modules/relationships/src/RestApi.php:17
+msgid "To"
 msgstr ""
 
-#: src/Attribute.php:13
-msgid "Enter a number here. The bigger value, the longer input box. Normal size is around 30."
+#: modules/relationships/src/RestApi.php:30
+msgid "Object type"
 msgstr ""
 
-#: src/Attribute.php:14 views/attributes/text-list-options.php:9
-msgid "Label"
+#: modules/relationships/src/RestApi.php:34
+#: app/controls/Location.js:28
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Post type"
 msgstr ""
 
-#: src/Attribute.php:14
-msgid "Optional field label. If empty, the field input is 100% width."
-msgstr ""
-
-#: src/Attribute.php:15
-msgid "Label description"
-msgstr ""
-
-#: src/Attribute.php:15
-msgid "Optional label description, displayed below the field label"
-msgstr ""
-
-#: src/Attribute.php:16 views/attributes/text-list-options.php:6
-msgid "Placeholder"
-msgstr ""
-
-#: src/Attribute.php:17 views/attributes/clone.php:4
-msgid "Cloneable"
-msgstr ""
-
-#: src/Attribute.php:17 views/attributes/clone.php:5
-msgid "Make field clonable (repeatable)"
-msgstr ""
-
-#: src/Attribute.php:18
-msgid "Custom HTML displayed before field output"
-msgstr ""
-
-#: src/Attribute.php:19
-msgid "Custom HTML displayed after field output"
-msgstr ""
-
-#: src/Attribute.php:20
-msgid "MIME types"
-msgstr ""
-
-#: src/Attribute.php:20
-msgid "This is a filter for items in Media Library popup, it does not restrict file types when upload."
-msgstr ""
-
-#: src/Attribute.php:21
-msgid "Force delete?"
-msgstr ""
-
-#: src/Attribute.php:21
-msgid "Delete files from the Media Library when deleting them from post meta"
-msgstr ""
-
-#: src/Attribute.php:22
-msgid "Allow to select opacity"
-msgstr ""
-
-#: src/Attribute.php:23
-msgid "Description"
-msgstr ""
-
-#: src/Attribute.php:24
-msgid "Show status"
-msgstr ""
-
-#: src/Attribute.php:24
-msgid "Display how many files uploaded/remaining"
-msgstr ""
-
-#: src/Attribute.php:25 src/Fields/Taxonomy.php:15 src/Fields/User.php:7
-msgid "Display \"Toggle All\" button"
-msgstr ""
-
-#: src/Attribute.php:26
-msgid "Required"
-msgstr ""
-
-#: src/Attribute.php:27
-msgid "Display choices on a single line"
-msgstr ""
-
-#: src/Attribute.php:28 src/Fields/Taxonomy.php:19 src/Fields/User.php:11
-msgid "Allow to select multiple choices"
-msgstr ""
-
-#: src/Attribute.php:29
-msgid "Save the date in the Unix timestamp format"
-msgstr ""
-
-#: src/Attribute.php:30
-msgid "Maximum number of files (leave empty for unlimited files)"
-msgstr ""
-
-#: src/Attribute.php:31
-msgid "Set the selected post as the parent of current post being edited"
-msgstr ""
-
-#: src/Attribute.php:32
-msgid "Prefix"
-msgstr ""
-
-#: src/Attribute.php:32
-msgid "Text displayed before the field value"
-msgstr ""
-
-#: src/Attribute.php:33
-msgid "Suffix"
-msgstr ""
-
-#: src/Attribute.php:33
-msgid "Text displayed after the field value"
-msgstr ""
-
-#: src/Attribute.php:34
-msgid "Save data in raw format"
-msgstr ""
-
-#: src/Attribute.php:35 src/Fields/Map.php:19 src/Fields/Osm.php:15
-msgid "Region code"
-msgstr ""
-
-#: src/Attribute.php:35 src/Fields/Map.php:19 src/Fields/Osm.php:15
-msgid "The region code, specified as a country code top-level domain. This parameter returns autocompleted address results influenced by the region (typically the country) from the address field."
-msgstr ""
-
-#: src/Edit.php:93
-msgid "Untitled Field Group"
-msgstr ""
-
-#: src/Fields/Base.php:28
-msgid "Custom CSS Class"
-msgstr ""
-
-#: src/Fields/Base.php:38
-msgid "+ Add Attribute"
-msgstr ""
-
-#: src/Fields/Base.php:56
-msgid "General"
-msgstr ""
-
-#: src/Fields/Base.php:61
-msgid "Appearance"
-msgstr ""
-
-#: src/Fields/Base.php:66 src/helpers.php:192
-msgid "Advanced"
-msgstr ""
-
-#: src/Fields/Button.php:7
-msgid "Button text"
-msgstr ""
-
-#: src/Fields/ButtonGroup.php:7
-msgid "Buttons"
-msgstr ""
-
-#: src/Fields/ButtonGroup.php:7
-msgid "Enter each button text on a line. For more control, you may specify both a value and label like \"red: Red\" (without quotes)"
-msgstr ""
-
-#: src/Fields/Checkbox.php:7
-msgid "Default checked?"
-msgstr ""
-
-#: src/Fields/Color.php:15
-msgid "Color picker options"
-msgstr ""
-
-#: src/Fields/Color.php:19 src/Fields/Date.php:15
-#: src/Fields/SelectAdvanced.php:9 src/Fields/Slider.php:18
-#: src/Fields/Time.php:14 src/Fields/Wysiwyg.php:15
-msgid "+ Add Option"
-msgstr ""
-
-#: src/Fields/CustomHtml.php:7
-msgid "Content (HTML allowed)"
-msgstr ""
-
-#: src/Fields/Date.php:8
-msgid "Display the date picker inline with the input"
-msgstr ""
-
-#: src/Fields/Date.php:8 src/Fields/Time.php:8
-msgid "Do not require to click the input field to trigger the date picker"
-msgstr ""
-
-#: src/Fields/Date.php:13
-msgid "Date picker options"
-msgstr ""
-
-#: src/Fields/File.php:7 src/Fields/FileAdvanced.php:7
-#: src/Fields/FileUpload.php:7 src/Fields/ImageAdvanced.php:7
-msgid "Maximum number of files"
-msgstr ""
-
-#: src/Fields/ImageSelect.php:7
-msgid "Enter each choice on a line in format \"value: http://url-to-image.jpg\" (without quotes)"
-msgstr ""
-
-#: src/Fields/Map.php:9 src/Fields/Osm.php:9
-msgid "Default location"
-msgstr ""
-
-#: src/Fields/Map.php:9 src/Fields/Osm.php:9
-msgid "Format: latitude,longitude"
-msgstr ""
-
-#: src/Fields/Map.php:13
-msgid "Google Maps API key"
-msgstr ""
-
-#: src/Fields/Post.php:31 src/Fields/Taxonomy.php:54 src/Fields/User.php:38
-msgid "Query arguments"
-msgstr ""
-
-#: src/Fields/Post.php:31
-msgid "Query arguments for getting posts. Use the same arguments as WP_Query."
-msgstr ""
-
-#: src/Fields/Post.php:32 src/Fields/Taxonomy.php:55 src/Fields/User.php:39
-msgid "+ Add Argument"
-msgstr ""
-
-#: src/Fields/SelectAdvanced.php:8
-msgid "Select2 options"
-msgstr ""
-
-#: src/Fields/Slider.php:17
-msgid "jQueryUI slider options"
-msgstr ""
-
-#: src/Fields/Switcher.php:19
-msgid "Label for ON status"
-msgstr ""
-
-#: src/Fields/Switcher.php:19 src/Fields/Switcher.php:23
-msgid "Leave empty to use iOS style"
-msgstr ""
-
-#: src/Fields/Switcher.php:23
-msgid "Label for OFF status"
-msgstr ""
-
-#: src/Fields/Tab.php:22
-msgid "Icon"
-msgstr ""
-
-#: src/Fields/Taxonomy.php:7 src/helpers.php:213
+#: modules/relationships/src/RestApi.php:39
+#: src/RestApi/Fields.php:324
+#: app/controls/Location.js:29
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
 msgid "Taxonomy"
 msgstr ""
 
-#: src/Fields/Taxonomy.php:23 src/Fields/User.php:15
-msgid "Display choices in a single line"
+#: modules/relationships/src/RestApi.php:44
+#: src/Integrations/Polylang/Relationship.php:12
+#: src/Integrations/WPML/Relationship.php:12
+msgid "Empty message"
 msgstr ""
 
-#: src/Fields/Taxonomy.php:54
-msgid "Query arguments for getting taxonomy terms. Use the same arguments as get_terms()."
+#: modules/relationships/src/RestApi.php:45
+msgid "The message displayed when there’s no connections"
 msgstr ""
 
-#: src/Fields/Text.php:13
-msgid "Predefined values"
+#: modules/relationships/src/RestApi.php:50
+msgid "Show admin filter"
 msgstr ""
 
-#: src/Fields/Text.php:13
-msgid "Known as datalist, these are values that users can select from (they still can enter text if they want). Enter each value on a line."
+#: modules/relationships/src/RestApi.php:51
+msgid "Show a dropdown filter by this relationship in the admin table list."
 msgstr ""
 
-#: src/Fields/Time.php:8
-msgid "Display the time picker inline with the input"
+#: modules/relationships/src/RestApi.php:57
+#: src/Extensions/AdminColumns.php:20
+msgid "Show as an admin column"
 msgstr ""
 
-#: src/Fields/Time.php:12
-msgid "Time picker options"
+#: modules/relationships/src/RestApi.php:58
+msgid "Show this connection as a column in the All posts/terms/users table list in the admin area"
 msgstr ""
 
-#: src/Fields/User.php:38
-msgid "Query arguments for getting users. Use the same arguments as get_users()."
+#: modules/relationships/src/RestApi.php:63
+#: src/Extensions/AdminColumns.php:26
+msgid "Column position"
 msgstr ""
 
-#: src/Fields/Wysiwyg.php:14
-msgid "Editor options"
+#: modules/relationships/src/RestApi.php:64
+#: src/Extensions/AdminColumns.php:27
+msgid "Specify where to show the column in the table"
 msgstr ""
 
-#: src/Import.php:16 src/Import.php:60
-msgid "Import"
+#: modules/relationships/src/RestApi.php:69
+#: src/Extensions/AdminColumns.php:32
+msgid "Column title"
 msgstr ""
 
-#: src/Import.php:16
-msgid "Import Field Groups"
+#: modules/relationships/src/RestApi.php:70
+msgid "Leave empty to use the meta box title"
 msgstr ""
 
-#: src/Import.php:31
-msgid "Choose a \".dat\" file from your computer:"
+#: modules/relationships/src/RestApi.php:75
+#: src/Extensions/AdminColumns.php:73
+msgid "Item link type"
 msgstr ""
 
-#: src/Import.php:35
-msgid "Upload file and import"
+#: modules/relationships/src/RestApi.php:76
+#: src/Extensions/AdminColumns.php:74
+msgid "The link for the items displayed in the admin column"
 msgstr ""
 
-#: src/Import.php:54
-msgid "Export"
+#: modules/relationships/src/RestApi.php:78
+#: src/Extensions/AdminColumns.php:77
+#: app/controls/Block.js:23
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "View"
 msgstr ""
 
-#: src/Import.php:132
-msgid "Field groups have been imported successfully!"
+#: modules/relationships/src/RestApi.php:79
+#: src/Extensions/AdminColumns.php:78
+msgid "Edit"
 msgstr ""
 
-#: src/PostType.php:14
-msgid "Field Groups"
+#: modules/relationships/src/RestApi.php:80
+#: src/Extensions/AdminColumns.php:76
+msgid "No link"
 msgstr ""
 
-#: src/PostType.php:15
-msgid "Field Group"
-msgstr ""
-
-#: src/PostType.php:16 src/PostType.php:17 src/PostType.php:23
-msgid "Custom Fields"
-msgstr ""
-
-#: src/PostType.php:18
-msgid "Add New"
-msgstr ""
-
-#: src/PostType.php:19
-msgid "Add New Field Group"
-msgstr ""
-
-#: src/PostType.php:20
-msgid "New Field Group"
-msgstr ""
-
-#: src/PostType.php:21
-msgid "Edit Field Group"
-msgstr ""
-
-#: src/PostType.php:22
-msgid "View Field Group"
-msgstr ""
-
-#: src/PostType.php:24
-msgid "Search Field Groups"
-msgstr ""
-
-#: src/PostType.php:25
-msgid "Parent Field Groups:"
-msgstr ""
-
-#: src/PostType.php:26
-msgid "No field groups found."
-msgstr ""
-
-#: src/PostType.php:27
-msgid "No field groups found in Trash."
-msgstr ""
-
-#: src/PostType.php:66 src/PostType.php:69 src/PostType.php:72
-#: src/PostType.php:73
-msgid "Field group updated."
-msgstr ""
-
-#: src/PostType.php:67
-msgid "Custom field updated."
-msgstr ""
-
-#: src/PostType.php:68
-msgid "Custom field deleted."
-msgstr ""
-
-#: src/PostType.php:71
-#, php-format
-msgid "Field group restored to revision from %s"
-msgstr ""
-
-#: src/PostType.php:74
-msgid "Field group submitted."
-msgstr ""
-
-#: src/helpers.php:174
-msgid "Basic"
-msgstr ""
-
-#: src/helpers.php:175
-msgid "Text"
-msgstr ""
-
-#: src/helpers.php:176
-msgid "Email"
-msgstr ""
-
-#: src/helpers.php:177
-msgid "URL"
-msgstr ""
-
-#: src/helpers.php:178
-msgid "Number"
-msgstr ""
-
-#: src/helpers.php:179
-msgid "Checkbox"
-msgstr ""
-
-#: src/helpers.php:180
-msgid "Checkbox List"
-msgstr ""
-
-#: src/helpers.php:181
-msgid "Button"
-msgstr ""
-
-#: src/helpers.php:182
-msgid "Button Group"
-msgstr ""
-
-#: src/helpers.php:183
-msgid "Password"
-msgstr ""
-
-#: src/helpers.php:184
-msgid "Radio"
-msgstr ""
-
-#: src/helpers.php:185 views/attributes/field-type.php:3
-msgid "Select"
-msgstr ""
-
-#: src/helpers.php:186
-msgid "Select Advanced"
-msgstr ""
-
-#: src/helpers.php:187
-msgid "Textarea"
-msgstr ""
-
-#: src/helpers.php:188 views/attributes/conditional-logic.php:9
-#: views/settings/conditional-logic.php:17 views/settings/show-hide.php:17
-msgid "Hidden"
-msgstr ""
-
-#: src/helpers.php:189
-msgid "Range"
-msgstr ""
-
-#: src/helpers.php:193
-msgid "Image Select"
-msgstr ""
-
-#: src/helpers.php:194
-msgid "Color Picker"
-msgstr ""
-
-#: src/helpers.php:195
-msgid "oEmbed"
-msgstr ""
-
-#: src/helpers.php:196
-msgid "Slider"
-msgstr ""
-
-#: src/helpers.php:197
-msgid "WYSIWYG"
-msgstr ""
-
-#: src/helpers.php:198
-msgid "Autocomplete"
-msgstr ""
-
-#: src/helpers.php:199
-msgid "Fieldset Text"
-msgstr ""
-
-#: src/helpers.php:200
-msgid "Text List"
-msgstr ""
-
-#: src/helpers.php:201
-msgid "Background"
-msgstr ""
-
-#: src/helpers.php:202
-msgid "Switch"
-msgstr ""
-
-#: src/helpers.php:203
-msgid "Google Maps"
-msgstr ""
-
-#: src/helpers.php:204
-msgid "Custom HTML"
-msgstr ""
-
-#: src/helpers.php:205
-msgid "Open Street Map"
-msgstr ""
-
-#: src/helpers.php:206
-msgid "Date"
-msgstr ""
-
-#: src/helpers.php:207
-msgid "Date Time"
-msgstr ""
-
-#: src/helpers.php:208
-msgid "Time"
-msgstr ""
-
-#: src/helpers.php:211
-msgid "WordPress"
-msgstr ""
-
-#: src/helpers.php:212 views/settings/include-exclude.php:35
-msgid "Post"
-msgstr ""
-
-#: src/helpers.php:214
-msgid "Taxonomy Advanced"
-msgstr ""
-
-#: src/helpers.php:215 views/settings/include-exclude.php:84
-msgid "User"
-msgstr ""
-
-#: src/helpers.php:216
-msgid "Sidebar"
-msgstr ""
-
-#: src/helpers.php:219
-msgid "Upload"
-msgstr ""
-
-#: src/helpers.php:220
-msgid "HTML File"
-msgstr ""
-
-#: src/helpers.php:221
-msgid "File Advanced"
-msgstr ""
-
-#: src/helpers.php:222
-msgid "File Upload"
-msgstr ""
-
-#: src/helpers.php:223
-msgid "File Input"
-msgstr ""
-
-#: src/helpers.php:224
-msgid "HTML Image"
-msgstr ""
-
-#: src/helpers.php:225
-msgid "Single Image"
-msgstr ""
-
-#: src/helpers.php:226
-msgid "Image Advanced"
-msgstr ""
-
-#: src/helpers.php:227
-msgid "Image Upload"
-msgstr ""
-
-#: src/helpers.php:228
-msgid "Video"
-msgstr ""
-
-#: src/helpers.php:231
-msgid "Layout"
-msgstr ""
-
-#: src/helpers.php:232
-msgid "Heading"
-msgstr ""
-
-#: src/helpers.php:233
-msgid "Divider"
-msgstr ""
-
-#: src/helpers.php:238
-msgid "Tab"
-msgstr ""
-
-#: src/helpers.php:241
-msgid "Group"
-msgstr ""
-
-#: views/attributes/address-field.php:2
-msgid "Address field"
-msgstr ""
-
-#: views/attributes/address-field.php:3
-msgid "The ID of address field. For multiple fields, separate them by comma."
-msgstr ""
-
-#: views/attributes/address-field.php:5
-#: views/attributes/conditional-logic.php:25
-#: views/settings/conditional-logic.php:32
-msgid "Select or enter a field"
-msgstr ""
-
-#: views/attributes/clone.php:12
-msgid "Sortable"
-msgstr ""
-
-#: views/attributes/clone.php:13
-msgid "Allows users to drag-and-drop reorder clones"
-msgstr ""
-
-#: views/attributes/clone.php:19
-msgid "Clone default value"
-msgstr ""
-
-#: views/attributes/clone.php:26
-msgid "Maximum number of clones"
-msgstr ""
-
-#: views/attributes/clone.php:27
-msgid "Leave empty for unlimited clones"
-msgstr ""
-
-#: views/attributes/clone.php:33
-msgid "Add more text"
-msgstr ""
-
-#: views/attributes/clone.php:34
-msgid "Custom text for the \"+ Add more\" button"
-msgstr ""
-
-#: views/attributes/collapsible.php:4
-msgid "Collapsible"
-msgstr ""
-
-#: views/attributes/collapsible.php:8
-msgid "Default state"
-msgstr ""
-
-#: views/attributes/collapsible.php:10
-msgid "Expanded"
-msgstr ""
-
-#: views/attributes/collapsible.php:11
-msgid "Collapsed"
-msgstr ""
-
-#: views/attributes/collapsible.php:17
-msgid "Save the state"
-msgstr ""
-
-#: views/attributes/collapsible.php:22
-msgid "Group title"
-msgstr ""
-
-#: views/attributes/collapsible.php:23
-msgid "Use {field_id} for a sub-field value and {#} for the clone index (if the group is cloneable)"
-msgstr ""
-
-#: views/attributes/columns.php:1 views/attributes/rows-columns.php:7
-msgid "Columns"
-msgstr ""
-
-#: views/attributes/columns.php:1
-msgid "Select number of columns for this field in a 12-column grid"
-msgstr ""
-
-#: views/attributes/conditional-logic.php:2
-#: views/settings/conditional-logic.php:9
-msgid "Conditional Logic"
-msgstr ""
-
-#: views/attributes/conditional-logic.php:3
-msgid "Toggle the field based on value of other fields, terms or HTML elements"
-msgstr ""
-
-#: views/attributes/conditional-logic.php:8
-#: views/settings/conditional-logic.php:16 views/settings/show-hide.php:16
-msgid "Visible"
-msgstr ""
-
-#: views/attributes/conditional-logic.php:12
-#: views/settings/conditional-logic.php:20
-#: views/settings/include-exclude.php:21 views/settings/show-hide.php:21
-msgid "when"
-msgstr ""
-
-#: views/attributes/conditional-logic.php:15
-#: views/settings/conditional-logic.php:23
-#: views/settings/include-exclude.php:24 views/settings/show-hide.php:24
-msgid "All"
-msgstr ""
-
-#: views/attributes/conditional-logic.php:16
-#: views/settings/conditional-logic.php:24
-#: views/settings/include-exclude.php:25 views/settings/show-hide.php:25
-msgid "Any"
-msgstr ""
-
-#: views/attributes/conditional-logic.php:19
-#: views/settings/conditional-logic.php:27
-#: views/settings/include-exclude.php:28 views/settings/show-hide.php:28
-msgid "of these conditions match"
-msgstr ""
-
-#: views/attributes/conditional-logic.php:35
-#: views/settings/conditional-logic.php:41
-msgid "contains"
-msgstr ""
-
-#: views/attributes/conditional-logic.php:36
-#: views/settings/conditional-logic.php:42
-msgid "not contains"
-msgstr ""
-
-#: views/attributes/conditional-logic.php:37
-#: views/settings/conditional-logic.php:43
-msgid "starts with"
-msgstr ""
-
-#: views/attributes/conditional-logic.php:38
-#: views/settings/conditional-logic.php:44
-msgid "not starts with"
-msgstr ""
-
-#: views/attributes/conditional-logic.php:39
-#: views/settings/conditional-logic.php:45
-msgid "ends with"
-msgstr ""
-
-#: views/attributes/conditional-logic.php:40
-#: views/settings/conditional-logic.php:46
-msgid "not ends with"
-msgstr ""
-
-#: views/attributes/conditional-logic.php:41
-#: views/settings/conditional-logic.php:47
-msgid "between"
-msgstr ""
-
-#: views/attributes/conditional-logic.php:42
-#: views/settings/conditional-logic.php:48
-msgid "not between"
-msgstr ""
-
-#: views/attributes/conditional-logic.php:43
-#: views/settings/conditional-logic.php:49
-#: views/settings/include-exclude.php:36 views/settings/include-exclude.php:43
-#: views/settings/include-exclude.php:50 views/settings/include-exclude.php:57
-#: views/settings/include-exclude.php:66 views/settings/include-exclude.php:76
-#: views/settings/include-exclude.php:85 views/settings/show-hide.php:36
-#: views/settings/show-hide.php:46 views/settings/show-hide.php:59
-msgid "in"
-msgstr ""
-
-#: views/attributes/conditional-logic.php:44
-#: views/settings/conditional-logic.php:50
-msgid "not in"
-msgstr ""
-
-#: views/attributes/conditional-logic.php:45
-#: views/settings/conditional-logic.php:51
-msgid "match"
-msgstr ""
-
-#: views/attributes/conditional-logic.php:46
-#: views/settings/conditional-logic.php:52
-msgid "not match"
-msgstr ""
-
-#: views/attributes/conditional-logic.php:50
-#: views/settings/conditional-logic.php:55
-msgid "Enter a value"
-msgstr ""
-
-#: views/attributes/conditional-logic.php:59
-#: views/settings/conditional-logic.php:62
-msgid "+ Add Rule"
-msgstr ""
-
-#: views/attributes/field-type.php:1
-msgid "Field type"
-msgstr ""
-
-#: views/attributes/field-type.php:4
-msgid "Select tree"
-msgstr ""
-
-#: views/attributes/field-type.php:5
-msgid "Select advanced"
-msgstr ""
-
-#: views/attributes/field-type.php:6
-msgid "Checkbox list"
-msgstr ""
-
-#: views/attributes/field-type.php:7
-msgid "Checkbox tree"
-msgstr ""
-
-#: views/attributes/field-type.php:8
-msgid "Radio list"
-msgstr ""
-
-#: views/attributes/fieldset-text-options.php:1
-#: views/attributes/text-list-options.php:1
-msgid "Inputs"
-msgstr ""
-
-#: views/attributes/fieldset-text-options.php:6
-#: views/attributes/key-value.php:6 views/settings/custom-attributes.php:10
-msgid "Enter key"
-msgstr ""
-
-#: views/attributes/fieldset-text-options.php:9
-msgid "Enter label"
-msgstr ""
-
-#: views/attributes/fieldset-text-options.php:17
-#: views/attributes/text-list-options.php:16
-msgid "+ Add Input"
-msgstr ""
-
-#: views/attributes/image-size.php:2
-msgid "Image size"
-msgstr ""
-
-#: views/attributes/image-size.php:3
-msgid "Image size that displays in the edit page"
-msgstr ""
-
-#: views/attributes/key-value.php:9 views/settings/custom-attributes.php:11
-msgid "Enter value"
-msgstr ""
-
-#: views/attributes/language.php:1
-msgid "Language"
-msgstr ""
-
-#: views/attributes/minmax.php:3
-msgid "Minimum value"
-msgstr ""
-
-#: views/attributes/minmax.php:7
-msgid "Maximum value"
-msgstr ""
-
-#: views/attributes/minmax.php:11
-msgid "Step"
-msgstr ""
-
-#: views/attributes/minmax.php:11
-msgid "Set the increments at which a numeric value can be set. It can be the string \"any\" (for floating numbers) or a positive number."
-msgstr ""
-
-#: views/attributes/post-type.php:1
-msgid "Post Type"
-msgstr ""
-
-#: views/attributes/rows-columns.php:3
-msgid "Rows"
-msgstr ""
-
-#: views/settings/conditional-logic.php:10
-msgid "Toggle the field group based on value of other fields, terms or HTML elements"
-msgstr ""
-
-#: views/settings/custom-attributes.php:5
-msgid "Apply to the current field group. For individual fields, please go to each field > tab Advanced and set."
-msgstr ""
-
-#: views/settings/custom-attributes.php:15
-msgid "+ Attribute"
-msgstr ""
-
-#: views/settings/custom-table.php:9
-msgid "Save custom fields in a custom table"
-msgstr ""
-
-#: views/settings/custom-table.php:10
-msgid "Use a custom table rather than meta table to save space and increase performance."
-msgstr ""
-
-#: views/settings/custom-table.php:12
-msgid "Enter table name"
-msgstr ""
-
-#: views/settings/include-exclude.php:9
-msgid "Advanced rules"
-msgstr ""
-
-#: views/settings/include-exclude.php:10
-msgid "More controls on where to show this field group."
-msgstr ""
-
-#: views/settings/include-exclude.php:15
-msgid "Always show"
-msgstr ""
-
-#: views/settings/include-exclude.php:16
-msgid "Show"
-msgstr ""
-
-#: views/settings/include-exclude.php:17
-msgid "Hide"
-msgstr ""
-
-#: views/settings/include-exclude.php:42
-msgid "Parent post"
-msgstr ""
-
-#: views/settings/include-exclude.php:49
-msgid "Page template"
-msgstr ""
-
-#: views/settings/include-exclude.php:65
-msgid "Parent"
-msgstr ""
-
-#: views/settings/include-exclude.php:75
-msgid "User role"
-msgstr ""
-
-#: views/settings/include-exclude.php:96
-msgid "Is a child post?"
-msgstr ""
-
-#: views/settings/include-exclude.php:103
-msgid "Custom callback"
-msgstr ""
-
-#: views/settings/include-exclude.php:106
-msgid "Enter PHP callback function name"
-msgstr ""
-
-#: views/settings/show-hide.php:9
-msgid "Toggle rules"
-msgstr ""
-
-#: views/settings/show-hide.php:10
-msgid "Toggle the whole field group based on some conditions."
-msgstr ""
-
-#: views/settings/show-hide.php:15
-msgid "Always visible"
-msgstr ""
-
-#: views/settings/show-hide.php:35
-msgid "Templates"
-msgstr ""
-
-#: views/settings/show-hide.php:45
-msgid "Post formats"
-msgstr ""
-
-#: views/tabs/code.php:7
-msgid "Copy the snippet below and paste it into your theme's <code>functions.php</code> file. Then you can safely deactivate Meta Box Builder (do not deactivate Meta Box)."
-msgstr ""
-
-#: views/tabs/code.php:8
-msgid "For more details, please see the <a href=\"https://docs.metabox.io/extensions/meta-box-builder/#getting-php-code\" target=\"_blank\">documentation</a>."
-msgstr ""
-
-#: views/tabs/code.php:12
-msgid "Click to copy the code"
-msgstr ""
-
-#: views/tabs/code.php:12
-msgid "Copy"
-msgstr ""
-
-#: views/tabs/fields.php:16
-msgid "Enter field type here"
-msgstr ""
-
-#: views/tabs/fields.php:52
+#: modules/relationships/src/RestApi.php:88
+#: modules/settings-page/src/RestApi.php:100
+#: src/Integrations/Polylang/SettingsPage.php:11
+#: src/Integrations/WPML/FieldGroup.php:56
+#: src/Integrations/WPML/Relationship.php:50
+#: src/Integrations/WPML/SettingsPage.php:11
 msgid "Title"
 msgstr ""
 
-#: views/tabs/fields.php:53
-msgid "Enter name here"
+#: modules/relationships/src/RestApi.php:92
+msgid "Context"
 msgstr ""
 
-#: views/tabs/fields.php:62 views/tabs/fields.php:131
-msgid "Switch to Draft"
-msgstr ""
-
-#: views/tabs/fields.php:63 views/tabs/fields.php:132
-msgid "Update"
-msgstr ""
-
-#: views/tabs/fields.php:65 views/tabs/fields.php:134
-msgid "Save Draft"
-msgstr ""
-
-#: views/tabs/fields.php:66 views/tabs/fields.php:135
-msgid "Publish"
-msgstr ""
-
-#: views/tabs/fields.php:75 views/tabs/nav.php:8 views/tabs/nav.php:13
-msgid "Fields"
-msgstr ""
-
-#: views/tabs/fields.php:77
-msgid "No fields. Select fields on the left to add them to this field group."
-msgstr ""
-
-#: views/tabs/fields.php:80
-msgid "Drag and drop fields to reorder. Click the title bar to reveal field settings."
-msgstr ""
-
-#: views/tabs/fields.php:112
-msgid "Drag and drop child fields here."
-msgstr ""
-
-#: views/tabs/fields.php:126
-msgid "Move to Trash"
-msgstr ""
-
-#: views/tabs/nav.php:9 views/tabs/nav.php:14
-msgid "Settings"
-msgstr ""
-
-#: views/tabs/nav.php:19
-msgid "Code"
-msgstr ""
-
-#: views/tabs/settings.php:11 views/tabs/settings.php:47
-msgid "Setting Pages"
-msgstr ""
-
-#: views/tabs/settings.php:21
-msgid "Show for"
-msgstr ""
-
-#: views/tabs/settings.php:31
-msgid "Post types"
-msgstr ""
-
-#: views/tabs/settings.php:37
-msgid "Show in media modal?"
-msgstr ""
-
-#: views/tabs/settings.php:58
-msgid "Options"
-msgstr ""
-
-#: views/tabs/settings.php:61
-msgid "Position"
-msgstr ""
-
-#: views/tabs/settings.php:64
+#: modules/relationships/src/RestApi.php:94
+#: app/controls/Post.js:15
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
 msgid "After content"
 msgstr ""
 
-#: views/tabs/settings.php:65
+#: modules/relationships/src/RestApi.php:95
+#: app/controls/Post.js:16
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
 msgid "Side"
 msgstr ""
 
-#: views/tabs/settings.php:67
-msgid "Before post title"
-msgstr ""
-
-#: views/tabs/settings.php:68
-msgid "After post title"
-msgstr ""
-
-#: views/tabs/settings.php:74
+#: modules/relationships/src/RestApi.php:100
+#: app/controls/Post.js:33
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
 msgid "Priority"
 msgstr ""
 
-#: views/tabs/settings.php:76
-msgid "High"
-msgstr ""
-
-#: views/tabs/settings.php:77
+#: modules/relationships/src/RestApi.php:102
+#: app/controls/Post.js:34
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
 msgid "Low"
 msgstr ""
 
-#: views/tabs/settings.php:81
+#: modules/relationships/src/RestApi.php:103
+#: app/controls/Post.js:34
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "High"
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:108
+#: modules/settings-page/src/RestApi.php:71
+#: src/Registry.php:706
+#: app/controls/Post.js:40
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
 msgid "Style"
 msgstr ""
 
-#: views/tabs/settings.php:84
-msgid "Standard (WordPress meta box)"
-msgstr ""
-
-#: views/tabs/settings.php:85
-msgid "Seamless (no meta box)"
-msgstr ""
-
-#: views/tabs/settings.php:92
-msgid "Hidden by default."
-msgstr ""
-
-#: views/tabs/settings.php:96
-msgid "The meta box is hidden by default and requires users to select the corresponding checkbox in Screen Options to show it"
-msgstr ""
-
-#: views/tabs/settings.php:103
-msgid "Autosave"
-msgstr ""
-
-#: views/tabs/settings.php:111
-msgid "Tabs"
-msgstr ""
-
-#: views/tabs/settings.php:114
-msgid "Tabs style"
-msgstr ""
-
-#: views/tabs/settings.php:117
+#: modules/relationships/src/RestApi.php:110
+#: src/Extensions/Tabs.php:133
 msgid "Default"
 msgstr ""
 
-#: views/tabs/settings.php:118
-msgid "Box"
+#: modules/relationships/src/RestApi.php:111
+msgid "Seamless"
 msgstr ""
 
-#: views/tabs/settings.php:119
+#: modules/relationships/src/RestApi.php:116
+#: app/controls/Post.js:47
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Collapsed by default"
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:120
+#: modules/relationships/src/RestApi.php:174
+#: modules/settings-page/src/RestApi.php:67
+#: src/Registry.php:54
+#: src/RestApi/Settings.php:13
+msgid "Custom CSS class"
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:126
+#: src/Integrations/Polylang/FieldGroup.php:12
+#: src/Integrations/WPML/FieldGroup.php:13
+#: src/Registry.php:23
+#: src/Registry.php:728
+#: app/components/Tabs/FieldsTab/Header.js:7
+#: assets/js/app.js:2
+msgid "Label"
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:130
+#: src/Integrations/Polylang/FieldGroup.php:14
+#: src/Integrations/WPML/FieldGroup.php:15
+#: src/Registry.php:33
+msgid "Label description"
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:131
+#: src/Registry.php:34
+msgid "Display below the field label"
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:135
+#: src/Registry.php:37
+#: src/Registry.php:446
+msgid "Input description"
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:136
+#: src/Registry.php:38
+#: src/Registry.php:447
+msgid "Display below the field input"
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:140
+#: src/Integrations/Polylang/FieldGroup.php:16
+#: src/Integrations/WPML/FieldGroup.php:17
+#: src/Registry.php:121
+#: src/Registry.php:727
+msgid "Placeholder"
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:144
+#: src/Registry.php:261
+msgid "Add new"
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:148
+#: src/Registry.php:271
+#: src/Registry.php:308
+#: src/Registry.php:499
+#: src/Registry.php:759
+msgid "Query args"
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:149
+#: src/Registry.php:500
+msgid "Query arguments for getting posts. Same as in the WP_Query class."
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:154
+msgid "Max items"
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:155
+msgid "Set to 1 to set 1-n relationship or 1-1 relationship. Leave empty for unlimited items, e.g. n-n relationship."
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:159
+#: src/Integrations/Polylang/FieldGroup.php:15
+#: src/Integrations/WPML/FieldGroup.php:16
+#: src/Registry.php:114
+msgid "Add more text"
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:160
+#: src/Registry.php:115
+msgid "Custom text for the the \"+ Add more\" button. Leave empty to use the default text."
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:164
+#: src/Integrations/Polylang/FieldGroup.php:19
+#: src/Integrations/WPML/FieldGroup.php:20
+#: src/Registry.php:47
+#: app/controls/AdminColumnsPosition.js:22
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Before"
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:165
+#: src/Registry.php:48
+msgid "Custom HTML displayed before the field output"
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:169
+#: src/Integrations/Polylang/FieldGroup.php:20
+#: src/Integrations/WPML/FieldGroup.php:21
+#: src/Registry.php:51
+#: app/controls/AdminColumnsPosition.js:21
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "After"
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:170
+#: src/Registry.php:52
+msgid "Custom HTML displayed after the field output"
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:201
+#: src/RestApi/Fields.php:270
+#: app/controls/IncludeExclude.js:79
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Post"
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:203
+msgid "Term"
+msgstr ""
+
+#: modules/relationships/src/RestApi.php:206
+#: src/RestApi/Fields.php:360
+#: app/controls/IncludeExclude.js:89
+#: app/controls/Location.js:30
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "User"
+msgstr ""
+
+#: modules/settings-page/src/Edit.php:21
+#: src/Registry.php:27
+#: app/components/Tabs/FieldsTab/Header.js:17
+#: assets/js/app.js:2
+msgid "ID"
+msgstr ""
+
+#: modules/settings-page/src/Edit.php:25
+#: src/RestApi/Fields.php:47
+#: app/components/Tabs/FieldsTab/Field.js:30
+#: app/components/Tabs/FieldsTab/Group.js:37
+#: assets/js/app.js:2
+msgid "Advanced"
+msgstr ""
+
+#: modules/settings-page/src/Edit.php:30
+msgid "Option name"
+msgstr ""
+
+#: modules/settings-page/src/Edit.php:31
+msgid "Option name where settings data is saved to. Takes settings page ID if missed. If you want to use theme mods, then set this to <code>theme_mods_$themeslug</code>."
+msgstr ""
+
+#: modules/settings-page/src/Register.php:14
+msgctxt "Post Type General Name"
+msgid "Settings Pages"
+msgstr ""
+
+#: modules/settings-page/src/Register.php:15
+msgctxt "Post Type Singular Name"
+msgid "Settings Page"
+msgstr ""
+
+#: modules/settings-page/src/Register.php:16
+#: modules/settings-page/src/Register.php:17
+#: src/Extensions/SettingsPage.php:17
+msgid "Settings Page"
+msgstr ""
+
+#: modules/settings-page/src/Register.php:18
+msgid "Parent Settings Page:"
+msgstr ""
+
+#: modules/settings-page/src/Register.php:19
+#: src/AdminColumns.php:499
+msgid "Settings Pages"
+msgstr ""
+
+#: modules/settings-page/src/Register.php:20
+msgid "Add New Settings Page"
+msgstr ""
+
+#: modules/settings-page/src/Register.php:21
+#: modules/settings-page/src/Register.php:22
+msgid "New Settings Page"
+msgstr ""
+
+#: modules/settings-page/src/Register.php:23
+msgid "Edit Settings Page"
+msgstr ""
+
+#: modules/settings-page/src/Register.php:24
+msgid "Update Settings Page"
+msgstr ""
+
+#: modules/settings-page/src/Register.php:25
+msgid "View Settings Page"
+msgstr ""
+
+#: modules/settings-page/src/Register.php:26
+msgid "Search Settings Page"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:12
+msgid "Menu type"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:14
+msgid "Top-level menu"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:15
+msgid "Submenu"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:19
+msgid "Show menu after"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:23
+msgid "Default first submenu title"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:27
+msgid "Parent menu"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:33
+#: src/Extensions/Tabs.php:29
+#: app/controls/Block.js:151
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Icon type"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:35
+#: src/Extensions/Tabs.php:31
+#: app/controls/Block.js:153
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Dashicons"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:36
+#: src/Extensions/Tabs.php:32
+msgid "Font Awesome"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:37
+msgid "SVG"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:38
+#: src/Extensions/Tabs.php:33
+msgid "Custom URL"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:43
+#: modules/settings-page/src/RestApi.php:56
+#: src/Extensions/Tabs.php:37
+#: src/Extensions/Tabs.php:41
+#: src/Extensions/Tooltip.php:24
+#: src/RestApi/Fields.php:210
+#: app/controls/Block.js:167
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Icon"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:47
+msgid "Icon SVG"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:48
+msgid "Must be in base64 encoded format"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:52
+#: src/Extensions/Tabs.php:47
+msgid "Icon URL"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:57
+#: src/Extensions/Tabs.php:42
+msgid "The icon to be used for the admin menu (FontAwesome)"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:58
+#: src/Extensions/Tabs.php:43
+msgid "Enter <a target=\"_blank\" href=\"https://fontawesome.com/search?o=r&m=free\">FontAwesome</a> icon class here. Supports FontAwesome free version only."
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:63
+msgid "Required capability"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:68
+msgid "Custom CSS for the wrapper div"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:73
+msgid "Boxes"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:74
+msgid "No boxes"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:78
+#: src/Extensions/Columns.php:19
+#: src/Registry.php:739
+msgid "Columns"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:84
+msgid "Tabs"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:86
+#: src/Extensions/Tabs.php:130
+msgid "Tab style"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:88
+#: src/Extensions/Tooltip.php:33
+msgid "Top"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:89
+#: src/Extensions/Tabs.php:135
+#: src/Extensions/Tooltip.php:35
+#: app/controls/Block.js:219
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
 msgid "Left"
 msgstr ""
 
-#: views/tabs/settings.php:124
-msgid "Show meta box wrapper"
+#: modules/settings-page/src/RestApi.php:92
+msgid "Custom submit button"
 msgstr ""
 
-#: views/tabs/settings.php:129
-msgid "Save Changes"
+#: modules/settings-page/src/RestApi.php:94
+#: src/Integrations/Polylang/SettingsPage.php:13
+#: src/Integrations/WPML/SettingsPage.php:13
+msgid "Custom message"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:95
+msgid "The custom message displayed when saving options"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:98
+msgid "Help tabs"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:99
+msgid "The content displayed when clicking on the Help button on the top right (near the Screen Options button). HTML is allowed."
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:101
+#: src/Extensions/Tooltip.php:41
+msgid "Content"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:104
+msgid "Customizer"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:105
+msgid "Show this settings page as a panel in the Customizer"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:108
+msgid "Customizer only"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:109
+msgid "Show only in the Customizer, no admin settings page"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:112
+msgid "Network"
+msgstr ""
+
+#: modules/settings-page/src/RestApi.php:113
+msgid "Make the settings page network-wide (in multisite environment)"
+msgstr ""
+
+#: src/AdminColumns.php:135
+msgid "Imported successfully"
+msgstr ""
+
+#: src/AdminColumns.php:139
+msgid "Import failed"
+msgstr ""
+
+#: src/AdminColumns.php:186
+msgid "Not allowed"
+msgstr ""
+
+#. translators: %s: field group title
+#: src/AdminColumns.php:253
+msgid "Select %s"
+msgstr ""
+
+#: src/AdminColumns.php:302
+#: src/Helpers/Template.php:76
+msgid "Sync changes"
+msgstr ""
+
+#: src/AdminColumns.php:328
+#: src/AdminColumns.php:362
+#: src/AdminColumns.php:448
+#: src/Edit.php:133
+msgid "Sync available"
+msgstr ""
+
+#: src/AdminColumns.php:355
+#: src/Edit.php:126
+#: src/Export.php:27
+msgid "Export"
+msgstr ""
+
+#: src/AdminColumns.php:356
+#: src/Edit.php:127
+#: src/Import.php:36
+msgid "Import"
+msgstr ""
+
+#: src/AdminColumns.php:357
+#: src/Edit.php:128
+msgid "Not Imported"
+msgstr ""
+
+#: src/AdminColumns.php:358
+#: src/Edit.php:129
+msgid "Error!"
+msgstr ""
+
+#: src/AdminColumns.php:359
+#: src/AdminColumns.php:450
+#: src/Edit.php:130
+msgid "Synced"
+msgstr ""
+
+#: src/AdminColumns.php:360
+#: src/Edit.php:131
+msgid "Syncing..."
+msgstr ""
+
+#: src/AdminColumns.php:361
+#: src/Edit.php:132
+msgid "(newer)"
+msgstr ""
+
+#: src/AdminColumns.php:374
+msgid "Show For"
+msgstr ""
+
+#: src/AdminColumns.php:375
+#: app/controls/Location.js:26
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Location"
+msgstr ""
+
+#: src/AdminColumns.php:379
+msgid "Shortcode"
+msgstr ""
+
+#: src/AdminColumns.php:379
+msgid "Embed the field group in the front end for users to submit posts."
+msgstr ""
+
+#: src/AdminColumns.php:383
+msgid "Path"
+msgstr ""
+
+#: src/AdminColumns.php:384
+msgid "Sync status"
+msgstr ""
+
+#: src/AdminColumns.php:384
+msgid "You must set the modified time to a Unix timestamp for it to display correctly."
+msgstr ""
+
+#: src/AdminColumns.php:447
+msgid "Error: Not writable"
+msgstr ""
+
+#: src/AdminColumns.php:449
+msgid "No JSON available"
+msgstr ""
+
+#: src/AdminColumns.php:480
+msgid "Sync"
+msgstr ""
+
+#: src/AdminColumns.php:486
+#: src/Edit.php:84
+msgid "Review"
+msgstr ""
+
+#: src/AdminColumns.php:497
+msgid "Users"
+msgstr ""
+
+#: src/AdminColumns.php:498
+msgid "Comments"
+msgstr ""
+
+#: src/AdminColumns.php:500
+msgid "Posts"
+msgstr ""
+
+#: src/AdminColumns.php:501
+#: src/Registry.php:246
+msgid "Taxonomies"
+msgstr ""
+
+#: src/AdminColumns.php:502
+msgid "Blocks"
+msgstr ""
+
+#: src/AdminColumns.php:547
+msgid "File not found"
+msgstr ""
+
+#: src/AdminColumns.php:559
+msgid "All Users"
+msgstr ""
+
+#: src/AdminColumns.php:562
+msgid "All Comments"
+msgstr ""
+
+#: src/Edit.php:50
+msgid "The JSON file is not writable. Please check the file permission."
+msgstr ""
+
+#: src/Edit.php:64
+msgid "No related local JSON file, a new file named \"%s\" will be created when you save the meta box."
+msgstr ""
+
+#: src/Edit.php:79
+msgid ""
+"Your database version is different than the JSON version.\n"
+"\t\t\t\t\t\tAny changes will override the JSON file."
+msgstr ""
+
+#: src/Edit.php:96
+#: src/Edit.php:105
+msgid "Documentation"
+msgstr ""
+
+#: src/Edit.php:106
+msgid "How to create custom fields"
+msgstr ""
+
+#: src/Edit.php:107
+msgid "Understanding field types"
+msgstr ""
+
+#: src/Extensions/AdminColumns.php:21
+msgid "Show this field as a column in the All posts/terms/users table list in the admin area"
+msgstr ""
+
+#: src/Extensions/AdminColumns.php:33
+msgid "Leave empty to use the field name"
+msgstr ""
+
+#: src/Extensions/AdminColumns.php:38
+msgid "Column content before"
+msgstr ""
+
+#: src/Extensions/AdminColumns.php:39
+msgid "Custom HTML outputted before the column content"
+msgstr ""
+
+#: src/Extensions/AdminColumns.php:44
+msgid "Column content after"
+msgstr ""
+
+#: src/Extensions/AdminColumns.php:45
+msgid "Custom HTML outputted after the column content"
+msgstr ""
+
+#: src/Extensions/AdminColumns.php:50
+#: src/Registry.php:84
+msgid "Sortable"
+msgstr ""
+
+#: src/Extensions/AdminColumns.php:51
+msgid "Whether to sort the column by field values"
+msgstr ""
+
+#: src/Extensions/AdminColumns.php:53
+#: app/controls/IncludeExclude.js:109
+#: app/controls/ShowHide.js:92
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Yes"
+msgstr ""
+
+#: src/Extensions/AdminColumns.php:54
+msgid "Yes (as number)"
+msgstr ""
+
+#: src/Extensions/AdminColumns.php:55
+#: app/controls/IncludeExclude.js:110
+#: app/controls/ShowHide.js:93
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "No"
+msgstr ""
+
+#: src/Extensions/AdminColumns.php:61
+msgid "Searchable"
+msgstr ""
+
+#: src/Extensions/AdminColumns.php:62
+msgid "Allow to search posts by field values"
+msgstr ""
+
+#: src/Extensions/AdminColumns.php:67
+msgid "Filterable"
+msgstr ""
+
+#: src/Extensions/AdminColumns.php:68
+msgid "Allow to filter posts by custom taxonomy, applied only if the field is a taxonomy field"
+msgstr ""
+
+#: src/Extensions/Blocks.php:362
+msgid "Block path is not writable. Please check the folder permission."
+msgstr ""
+
+#: src/Extensions/Columns.php:20
+msgid "Select number of columns for this field in a 12-column grid"
+msgstr ""
+
+#: src/Extensions/ConditionalLogic.php:22
+#: src/Extensions/ConditionalLogic.php:31
+msgid "Conditional logic"
+msgstr ""
+
+#: src/Extensions/ConditionalLogic.php:23
+msgid "Toggle the field visibility by other fields' values"
+msgstr ""
+
+#: src/Extensions/ConditionalLogic.php:32
+msgid "Toggle the visibility of the field group by other fields' values"
+msgstr ""
+
+#: src/Extensions/FrontendSubmission.php:18
+msgid "Hide from front end?"
+msgstr ""
+
+#: src/Extensions/Group.php:17
+msgid "Group"
+msgstr ""
+
+#: src/Extensions/Group.php:25
+msgid "Collapsible"
+msgstr ""
+
+#: src/Extensions/Group.php:27
+msgid "Default state"
+msgstr ""
+
+#: src/Extensions/Group.php:30
+msgid "Expanded"
+msgstr ""
+
+#: src/Extensions/Group.php:31
+msgid "Collapsed"
+msgstr ""
+
+#: src/Extensions/Group.php:35
+msgid "Save state"
+msgstr ""
+
+#: src/Extensions/Group.php:39
+#: src/Integrations/Polylang/FieldGroup.php:22
+#: src/Integrations/WPML/FieldGroup.php:23
+msgid "Group title"
+msgstr ""
+
+#: src/Extensions/Group.php:40
+msgid "Use {field_id} for a sub-field value and {#} for the clone index (if the group is cloneable)"
+msgstr ""
+
+#: src/Extensions/Relationships.php:17
+msgid "Relationship ID"
+msgstr ""
+
+#: src/Extensions/RestApi.php:18
+msgid "Hide from Rest API?"
+msgstr ""
+
+#: src/Extensions/Tabs.php:22
+#: app/controls/Location.js:77
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Tab"
+msgstr ""
+
+#: src/Extensions/Tabs.php:131
+msgid "Change how look and feel of tabs in Meta Box Tabs"
+msgstr ""
+
+#: src/Extensions/Tabs.php:134
+msgid "Box"
+msgstr ""
+
+#: src/Extensions/Tabs.php:138
+msgid "Default active tab ID"
+msgstr ""
+
+#: src/Extensions/TextLimiter.php:22
+msgid "Text limit"
+msgstr ""
+
+#. Translators: %s - Link to docs.
+#: src/Extensions/TextLimiter.php:24
+msgid "Limit the content by characters or words. Leave empty or enter 0 for no limit. <a href=\"%s\" target=\"_blank\">Learn more</a>."
+msgstr ""
+
+#: src/Extensions/Tooltip.php:20
+msgid "Tooltip"
+msgstr ""
+
+#: src/Extensions/Tooltip.php:25
+msgid "Can be \"info\" (default), \"help\", Dashicons or URL of the custom icon image"
+msgstr ""
+
+#: src/Extensions/Tooltip.php:30
+#: app/controls/Post.js:26
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Position"
+msgstr ""
+
+#: src/Extensions/Tooltip.php:34
+msgid "Bottom"
+msgstr ""
+
+#: src/Extensions/Tooltip.php:36
+#: app/controls/Block.js:220
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Right"
+msgstr ""
+
+#: src/Helpers/Template.php:24
+msgid "Review changes"
+msgstr ""
+
+#: src/Helpers/Template.php:31
+msgid "Database"
+msgstr ""
+
+#: src/Helpers/Template.php:32
+#: src/Helpers/Template.php:42
+msgid "Last updated:"
+msgstr ""
+
+#: src/Helpers/Template.php:38
+msgid "JSON"
+msgstr ""
+
+#: src/Helpers/Template.php:39
+msgid "(Always in use)"
+msgstr ""
+
+#: src/Helpers/Template.php:54
+msgid "All changes synced!"
+msgstr ""
+
+#: src/Helpers/Template.php:62
+msgid "Error during syncing data, please check folder permission or file format!"
+msgstr ""
+
+#: src/Helpers/Template.php:70
+msgid "No changes detected."
+msgstr ""
+
+#: src/Import.php:25
+msgid "Field groups have been imported successfully!"
+msgstr ""
+
+#: src/Import.php:31
+msgid "Choose an exported \".json\" file from your computer:"
+msgstr ""
+
+#. Translators: %s - go back URL.
+#: src/Import.php:61
+msgid "Invalid file data. <a href=\"%s\">Go back</a>."
+msgstr ""
+
+#: src/Integrations/Polylang/FieldGroup.php:13
+#: src/Integrations/WPML/FieldGroup.php:14
+#: app/controls/Block.js:144
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Description"
+msgstr ""
+
+#: src/Integrations/Polylang/FieldGroup.php:17
+#: src/Integrations/WPML/FieldGroup.php:18
+#: src/Registry.php:687
+msgid "Prefix"
+msgstr ""
+
+#: src/Integrations/Polylang/FieldGroup.php:18
+#: src/Integrations/WPML/FieldGroup.php:19
+#: src/Registry.php:691
+msgid "Suffix"
+msgstr ""
+
+#: src/Integrations/Polylang/FieldGroup.php:21
+#: src/Integrations/WPML/FieldGroup.php:22
+#: src/Registry.php:120
+#: src/Registry.php:387
+#: src/Registry.php:732
+msgid "Default value"
+msgstr ""
+
+#: src/Integrations/Polylang/FieldGroup.php:23
+#: src/Integrations/WPML/FieldGroup.php:24
+msgid "Prepend"
+msgstr ""
+
+#: src/Integrations/Polylang/FieldGroup.php:24
+#: src/Integrations/WPML/FieldGroup.php:25
+msgid "Append"
+msgstr ""
+
+#. translators: %s is the title of the field group.
+#: src/Integrations/Polylang/FieldGroup.php:169
+msgid "Meta Box Field Group: %s"
+msgstr ""
+
+#: src/Integrations/Polylang/FieldGroupValues.php:19
+msgid "Translation"
+msgstr ""
+
+#: src/Integrations/Polylang/FieldGroupValues.php:20
+msgid "Choose how to handle field translations in this field group"
+msgstr ""
+
+#: src/Integrations/Polylang/FieldGroupValues.php:22
+msgid "Do not translate any fields in this field group"
+msgstr ""
+
+#: src/Integrations/Polylang/FieldGroupValues.php:23
+msgid "Translate all fields in this field group"
+msgstr ""
+
+#: src/Integrations/Polylang/FieldGroupValues.php:24
+msgid "Synchronize values across languages"
+msgstr ""
+
+#: src/Integrations/Polylang/FieldGroupValues.php:25
+msgid "Set translation mode per field"
+msgstr ""
+
+#: src/Integrations/Polylang/Relationship.php:13
+#: src/Integrations/WPML/Relationship.php:13
+msgid "Admin column title"
+msgstr ""
+
+#: src/Integrations/Polylang/Relationship.php:14
+#: src/Integrations/WPML/Relationship.php:14
+msgid "Meta box title"
+msgstr ""
+
+#: src/Integrations/Polylang/Relationship.php:15
+#: src/Integrations/WPML/Relationship.php:15
+msgid "Field name"
+msgstr ""
+
+#: src/Integrations/Polylang/Relationship.php:16
+#: src/Integrations/WPML/Relationship.php:16
+msgid "Field description"
+msgstr ""
+
+#: src/Integrations/Polylang/Relationship.php:17
+#: src/Integrations/WPML/Relationship.php:17
+msgid "Field label description"
+msgstr ""
+
+#: src/Integrations/Polylang/Relationship.php:18
+#: src/Integrations/WPML/Relationship.php:18
+msgid "Field placeholder"
+msgstr ""
+
+#: src/Integrations/Polylang/Relationship.php:19
+#: src/Integrations/WPML/Relationship.php:19
+msgid "Field add button"
+msgstr ""
+
+#. translators: %s is the title of the relationship.
+#: src/Integrations/Polylang/Relationship.php:85
+msgid "Meta Box Relationship: %s"
+msgstr ""
+
+#: src/Integrations/Polylang/SettingsPage.php:12
+#: src/Integrations/WPML/SettingsPage.php:12
+msgid "Submit button"
+msgstr ""
+
+#. translators: %s is the title of the settings page.
+#: src/Integrations/Polylang/SettingsPage.php:46
+msgid "Meta Box Settings Page: %s"
+msgstr ""
+
+#: src/Integrations/WPML/FieldGroup.php:67
+msgid "Tab: %s"
+msgstr ""
+
+#. translators: %1$s is the field name, %2$s is the option label.
+#: src/Integrations/WPML/FieldGroup.php:108
+msgid "%1$s: Option %2$s"
+msgstr ""
+
+#. translators: %s is the field name.
+#: src/Integrations/WPML/FieldGroup.php:129
+msgid "%s: Tooltip"
+msgstr ""
+
+#: src/LocalJson.php:30
+msgid "File not found!"
+msgstr ""
+
+#: src/LocalJson.php:34
+msgid "File not readable!"
+msgstr ""
+
+#: src/LocalJson.php:239
+msgid "Error during saving json file. Please check the folder permission and save again."
+msgstr ""
+
+#: src/PostType.php:12
+msgctxt "post type general name"
+msgid "Field Groups"
+msgstr ""
+
+#: src/PostType.php:13
+msgctxt "post type singular name"
+msgid "Field Group"
+msgstr ""
+
+#: src/PostType.php:14
+msgctxt "admin menu"
+msgid "Custom Fields"
+msgstr ""
+
+#: src/PostType.php:15
+msgctxt "add new on admin bar"
+msgid "Custom Fields"
+msgstr ""
+
+#: src/PostType.php:16
+msgctxt "meta-box-builder"
+msgid "Add New"
+msgstr ""
+
+#: src/PostType.php:17
+msgid "Add New Field Group"
+msgstr ""
+
+#: src/PostType.php:18
+msgid "New Field Group"
+msgstr ""
+
+#: src/PostType.php:19
+msgid "Edit Field Group"
+msgstr ""
+
+#: src/PostType.php:20
+msgid "View Field Group"
+msgstr ""
+
+#: src/PostType.php:21
+msgid "Custom Fields"
+msgstr ""
+
+#: src/PostType.php:22
+msgid "Search Field Groups"
+msgstr ""
+
+#: src/PostType.php:23
+msgid "Parent Field Groups:"
+msgstr ""
+
+#: src/PostType.php:24
+msgid "No field groups found."
+msgstr ""
+
+#: src/PostType.php:25
+msgid "No field groups found in Trash."
+msgstr ""
+
+#: src/PostType.php:68
+#: src/PostType.php:71
+#: src/PostType.php:74
+#: src/PostType.php:75
+msgid "Field group updated."
+msgstr ""
+
+#: src/PostType.php:69
+msgid "Custom field updated."
+msgstr ""
+
+#: src/PostType.php:70
+msgid "Custom field deleted."
+msgstr ""
+
+#. translators: %s: date and time of the revision
+#: src/PostType.php:73
+msgid "Field group restored to revision from %s"
+msgstr ""
+
+#: src/PostType.php:76
+msgid "Field group submitted."
+msgstr ""
+
+#: src/Register.php:161
+msgid "Edit the field group settings"
+msgstr ""
+
+#: src/Registry.php:21
+#: app/components/Tabs/FieldsTab/Header.js:18
+#: assets/js/app.js:2
+msgid "Type"
+msgstr ""
+
+#: src/Registry.php:24
+msgid "Leave empty to make the input 100% width."
+msgstr ""
+
+#: src/Registry.php:29
+msgid "Must be unique, will be used as meta key when saving to the database. Recommended to use only lowercase letters, numbers, and underscores."
+msgstr ""
+
+#: src/Registry.php:30
+msgid "Use only lowercase letters, numbers, underscores (and be careful dashes)."
+msgstr ""
+
+#: src/Registry.php:43
+msgid "Validation"
+msgstr ""
+
+#: src/Registry.php:44
+msgid "Advanced validation rules powered by jQuery validation"
+msgstr ""
+
+#: src/Registry.php:56
+msgid "Save field value"
+msgstr ""
+
+#: src/Registry.php:57
+msgid "Uncheck this checkbox to prevent the field from saving its value into the database. Useful when you want to save yourself. Note: not working in the block editor."
+msgstr ""
+
+#: src/Registry.php:60
+msgid "Custom sanitize callback"
+msgstr ""
+
+#: src/Registry.php:61
+msgid "Enter PHP function name for custom sanitization. Enter \"none\" to disable sanitization."
+msgstr ""
+
+#: src/Registry.php:64
+msgid "Custom HTML5 attributes"
+msgstr ""
+
+#: src/Registry.php:65
+msgid "Use this to add custom HTML5 attributes (like data-*). Work only for text input fields."
+msgstr ""
+
+#: src/Registry.php:74
+#: src/RestApi/Settings.php:21
+msgid "Custom settings"
+msgstr ""
+
+#: src/Registry.php:75
+msgid "Use this to add custom settings for the field. The custom settings will overwrite existing settings if they have the same key."
+msgstr ""
+
+#: src/Registry.php:80
+msgid "Cloneable"
+msgstr ""
+
+#: src/Registry.php:81
+msgid "Make field cloneable (repeatable)"
+msgstr ""
+
+#: src/Registry.php:85
+msgid "Allows to drag-and-drop reorder clones"
+msgstr ""
+
+#: src/Registry.php:89
+msgid "Clone default value"
+msgstr ""
+
+#: src/Registry.php:93
+msgid "Clone as multiple"
+msgstr ""
+
+#: src/Registry.php:94
+msgid "Save clones in multiple rows in the database"
+msgstr ""
+
+#: src/Registry.php:98
+msgid "Clone empty start"
+msgstr ""
+
+#: src/Registry.php:99
+msgid "Start from no items except the \"+ Add more\" button"
+msgstr ""
+
+#: src/Registry.php:104
+msgid "Min number of clones"
+msgstr ""
+
+#: src/Registry.php:109
+msgid "Max number of clones"
+msgstr ""
+
+#: src/Registry.php:110
+msgid "Leave empty for unlimited clones"
+msgstr ""
+
+#: src/Registry.php:124
+msgid "Size of the input box"
+msgstr ""
+
+#: src/Registry.php:127
+msgid "Save format"
+msgstr ""
+
+#: src/Registry.php:128
+msgid "Custom format for the value saved in the database. Accepts same formats as the PHP date() function. Leave empty to save as it is."
+msgstr ""
+
+#: src/Registry.php:148
+msgid "Save value as timestamp"
+msgstr ""
+
+#: src/Registry.php:150
+#: src/Registry.php:154
+#: src/Registry.php:391
+#: src/Registry.php:744
+msgid "Inline"
+msgstr ""
+
+#: src/Registry.php:151
+#: src/Registry.php:155
+msgid "Display the date picker inline with the input. Do not require to click the input field to trigger the date picker."
+msgstr ""
+
+#: src/Registry.php:157
+msgid "Disabled"
+msgstr ""
+
+#: src/Registry.php:158
+#: app/controls/Validation.js:35
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Required"
+msgstr ""
+
+#: src/Registry.php:159
+msgid "Read only"
+msgstr ""
+
+#: src/Registry.php:161
+#: src/Registry.php:191
+msgid "Date picker options"
+msgstr ""
+
+#: src/Registry.php:162
+msgid "jQueryUI date picker options"
+msgstr ""
+
+#: src/Registry.php:192
+msgid "jQueryUI date and time picker options"
+msgstr ""
+
+#: src/Registry.php:225
+msgid "Default location"
+msgstr ""
+
+#: src/Registry.php:226
+msgid "Format: latitude,longitude."
+msgstr ""
+
+#: src/Registry.php:229
+msgid "Address field"
+msgstr ""
+
+#: src/Registry.php:230
+msgid "The ID of address field. For multiple fields, separate them by comma."
+msgstr ""
+
+#: src/Registry.php:231
+#: app/controls/ConditionalLogic.js:53
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Enter or select a field ID"
+msgstr ""
+
+#: src/Registry.php:235
+msgid "Language"
+msgstr ""
+
+#: src/Registry.php:239
+msgid "Region"
+msgstr ""
+
+#: src/Registry.php:250
+msgid "Field type"
+msgstr ""
+
+#: src/Registry.php:252
+#: src/RestApi/Fields.php:288
+msgid "Select"
+msgstr ""
+
+#: src/Registry.php:253
+msgid "Select advanced"
+msgstr ""
+
+#: src/Registry.php:254
+msgid "Select tree"
+msgstr ""
+
+#: src/Registry.php:255
+msgid "Checkbox list"
+msgstr ""
+
+#: src/Registry.php:256
+msgid "Checkbox tree"
+msgstr ""
+
+#: src/Registry.php:257
+msgid "Radio list"
+msgstr ""
+
+#: src/Registry.php:262
+msgid "Allow users to create a new item"
+msgstr ""
+
+#: src/Registry.php:264
+msgid "Remove default meta box"
+msgstr ""
+
+#: src/Registry.php:266
+msgid "Multiple"
+msgstr ""
+
+#: src/Registry.php:267
+msgid "Allow to select multiple choices"
+msgstr ""
+
+#: src/Registry.php:269
+msgid "Display \"Toggle All\" button"
+msgstr ""
+
+#: src/Registry.php:272
+#: src/Registry.php:309
+msgid "Query arguments for getting terms. Same as in the get_terms() function."
+msgstr ""
+
+#: src/Registry.php:348
+msgid "Max number of files"
+msgstr ""
+
+#: src/Registry.php:349
+msgid "Leave empty for unlimited uploads"
+msgstr ""
+
+#: src/Registry.php:352
+msgid "Show status"
+msgstr ""
+
+#: src/Registry.php:353
+msgid "Display how many files uploaded/remaining"
+msgstr ""
+
+#: src/Registry.php:356
+msgid "Force delete"
+msgstr ""
+
+#: src/Registry.php:357
+msgid "Delete files from the Media Library when deleting them from post meta"
+msgstr ""
+
+#: src/Registry.php:364
+msgid "Choices"
+msgstr ""
+
+#: src/Registry.php:365
+msgid "Enter each choice per line. You can also set both value and label like <code>red: Red</code>."
+msgstr ""
+
+#: src/Registry.php:366
+#: src/Registry.php:377
+msgid "To use a PHP function that returns an array of options, enter <code>callback: function_name</code>."
+msgstr ""
+
+#: src/Registry.php:367
+#: src/Registry.php:378
+msgid "The callback function must be declared before adding to the box."
+msgstr ""
+
+#: src/Registry.php:371
+msgid "Button text"
+msgstr ""
+
+#: src/Registry.php:375
+msgid "Buttons"
+msgstr ""
+
+#: src/Registry.php:376
+msgid "Enter each button text per line. You can also set both value and label like <code>red: Red</code>."
+msgstr ""
+
+#: src/Registry.php:380
+msgid "Display buttons horizontally"
+msgstr ""
+
+#: src/Registry.php:383
+msgid "Checked by default"
+msgstr ""
+
+#: src/Registry.php:388
+msgid "Enter each value on a line"
+msgstr ""
+
+#: src/Registry.php:392
+msgid "Display choices on a single line"
+msgstr ""
+
+#: src/Registry.php:396
+msgid "Allow to select opacity"
+msgstr ""
+
+#: src/Registry.php:398
+#: src/Registry.php:399
+msgid "Color picker options"
+msgstr ""
+
+#: src/Registry.php:407
+msgid "Content (HTML allowed)"
+msgstr ""
+
+#: src/Registry.php:409
+msgid "PHP Callback"
+msgstr ""
+
+#: src/Registry.php:410
+msgid "PHP function that is called to show custom HTML content. Will overwrite the content setting above."
+msgstr ""
+
+#: src/Registry.php:415
+#: src/Registry.php:726
+msgid "Inputs"
+msgstr ""
+
+#: src/Registry.php:416
+msgid "Enter label"
+msgstr ""
+
+#: src/Registry.php:421
+msgid "Custom upload folder"
+msgstr ""
+
+#: src/Registry.php:422
+msgid "Relatively to the WordPress root path"
+msgstr ""
+
+#: src/Registry.php:427
+#: app/controls/Validation.js:51
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "MIME types"
+msgstr ""
+
+#: src/Registry.php:428
+msgid "Filters items in the Media Library popup. Does not restrict file types when upload. Separate by commas."
+msgstr ""
+
+#: src/Registry.php:433
+msgid "Max file size"
+msgstr ""
+
+#: src/Registry.php:434
+msgid "Supports b, kb, mb, gb, tb suffixes. e.g. \"10mb\" or \"1gb\"."
+msgstr ""
+
+#: src/Registry.php:439
+msgid "Google Maps API key"
+msgstr ""
+
+#: src/Registry.php:440
+msgid "Your unique API Key for Google Maps Platform"
+msgstr ""
+
+#: src/Registry.php:452
+msgid "Image size"
+msgstr ""
+
+#: src/Registry.php:453
+msgid "Image size that displays in the edit page, used to make sure images are not blurry. It's not meant to display images with the exact width and height."
+msgstr ""
+
+#: src/Registry.php:457
+msgid "New image placement"
+msgstr ""
+
+#: src/Registry.php:459
+msgid "Beginning of the list"
+msgstr ""
+
+#: src/Registry.php:460
+msgid "End of the list"
+msgstr ""
+
+#: src/Registry.php:465
+msgid "Placeholder for key"
+msgstr ""
+
+#: src/Registry.php:466
+msgid "Placeholder for value"
+msgstr ""
+
+#: src/Registry.php:471
+#: app/controls/Validation.js:39
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Min value"
+msgstr ""
+
+#: src/Registry.php:475
+#: app/controls/Validation.js:40
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Max value"
+msgstr ""
+
+#: src/Registry.php:478
+#: app/controls/Validation.js:42
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Step"
+msgstr ""
+
+#: src/Registry.php:479
+msgid "Set the increments at which a numeric value can be set. Enter 'any' to accept any number."
+msgstr ""
+
+#: src/Registry.php:484
+msgid "Not available text"
+msgstr ""
+
+#: src/Registry.php:485
+msgid "The text message displayed to users when the embed media is not available. Accepts HTML."
+msgstr ""
+
+#: src/Registry.php:491
+msgid "Post types"
+msgstr ""
+
+#: src/Registry.php:495
+msgid "Set as parent"
+msgstr ""
+
+#: src/Registry.php:496
+msgid "Set the selected post as the parent of current post being edited."
+msgstr ""
+
+#: src/Registry.php:602
+#: src/Registry.php:603
+#: src/Registry.php:632
+#: src/Registry.php:633
+msgid "Select2 options"
+msgstr ""
+
+#: src/Registry.php:660
+msgid "Icon set"
+msgstr ""
+
+#: src/Registry.php:662
+msgid "Font Awesome Free"
+msgstr ""
+
+#: src/Registry.php:663
+msgid "Font Awesome Pro"
+msgstr ""
+
+#: src/Registry.php:664
+#: app/controls/IncludeExclude.js:93
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Custom"
+msgstr ""
+
+#: src/Registry.php:669
+msgid "Icon file"
+msgstr ""
+
+#: src/Registry.php:670
+msgid "The full path to the icon file definition, which can be a text or JSON file."
+msgstr ""
+
+#: src/Registry.php:675
+msgid "Icon dir"
+msgstr ""
+
+#: src/Registry.php:676
+msgid "Full path to the folder that contains all SVGs of icons."
+msgstr ""
+
+#: src/Registry.php:680
+msgid "Icon CSS"
+msgstr ""
+
+#: src/Registry.php:681
+msgid "URL to the icon CSS file. It's required only when you use icons as an icon font (e.g. no SVG)."
+msgstr ""
+
+#: src/Registry.php:688
+msgid "Text displayed before the field value"
+msgstr ""
+
+#: src/Registry.php:692
+msgid "Text displayed after the field value"
+msgstr ""
+
+#: src/Registry.php:695
+msgid "Slider options"
+msgstr ""
+
+#: src/Registry.php:696
+msgid "jQueryUI slider options"
+msgstr ""
+
+#: src/Registry.php:708
+msgid "Rounded"
+msgstr ""
+
+#: src/Registry.php:709
+msgid "Square"
+msgstr ""
+
+#: src/Registry.php:712
+msgid "Custom ON status label"
+msgstr ""
+
+#: src/Registry.php:713
+msgid "Custom OFF status label"
+msgstr ""
+
+#: src/Registry.php:714
+msgid "ON by default"
+msgstr ""
+
+#: src/Registry.php:717
+msgid "Prepend text"
+msgstr ""
+
+#: src/Registry.php:718
+msgid "Append text"
+msgstr ""
+
+#: src/Registry.php:720
+msgid "Predefined values"
+msgstr ""
+
+#: src/Registry.php:721
+msgid "Known as \"datalist\", these are values that users can select from (they still can enter text if they want). Enter each value on a line."
+msgstr ""
+
+#: src/Registry.php:735
+msgid "Rows"
+msgstr ""
+
+#: src/Registry.php:745
+msgid "Display the time picker inline with the input. Do not require to click the input field to trigger the time picker."
+msgstr ""
+
+#: src/Registry.php:748
+msgid "Time picker options"
+msgstr ""
+
+#: src/Registry.php:749
+msgid "jQueryUI time picker options"
+msgstr ""
+
+#: src/Registry.php:760
+msgid "Query arguments for getting user. Same as in the get_user() function."
+msgstr ""
+
+#: src/Registry.php:823
+msgid "Save data in the raw format"
+msgstr ""
+
+#: src/Registry.php:825
+msgid "Editor options"
+msgstr ""
+
+#: src/Registry.php:826
+msgid "The editor options, the same as settings for wp_editor() function"
+msgstr ""
+
+#. Translators: %s - The parameter name.
+#: src/RestApi/Base.php:196
+msgid "%s is required"
+msgstr ""
+
+#: src/RestApi/Fields.php:43
+msgid "Basic"
+msgstr ""
+
+#: src/RestApi/Fields.php:51
+msgid "HTML5"
+msgstr ""
+
+#: src/RestApi/Fields.php:55
+msgid "WordPress"
+msgstr ""
+
+#: src/RestApi/Fields.php:59
+msgid "Upload"
+msgstr ""
+
+#: src/RestApi/Fields.php:63
+msgid "Layout"
+msgstr ""
+
+#: src/RestApi/Fields.php:90
+msgid "Autocomplete"
+msgstr ""
+
+#: src/RestApi/Fields.php:93
+msgid "Text input that uses an autocomplete library to suggest user input. Not recommended. Use the Select or Select advanced field type instead."
+msgstr ""
+
+#: src/RestApi/Fields.php:96
+msgid "Background"
+msgstr ""
+
+#: src/RestApi/Fields.php:99
+msgid "Set background properties"
+msgstr ""
+
+#: src/RestApi/Fields.php:102
+msgid "Button"
+msgstr ""
+
+#: src/RestApi/Fields.php:105
+msgid "A simple button, usually used for JavaScript triggers"
+msgstr ""
+
+#: src/RestApi/Fields.php:108
+msgid "Button Group"
+msgstr ""
+
+#: src/RestApi/Fields.php:111
+msgid "Select one or multiple choices by enabling button(s) from a group"
+msgstr ""
+
+#: src/RestApi/Fields.php:114
+msgid "Checkbox"
+msgstr ""
+
+#: src/RestApi/Fields.php:117
+msgid "A simple checkbox, usually used for Yes/No question"
+msgstr ""
+
+#: src/RestApi/Fields.php:120
+msgid "Checkbox List"
+msgstr ""
+
+#: src/RestApi/Fields.php:123
+msgid "A list of checkboxes where you can select multiple choices"
+msgstr ""
+
+#: src/RestApi/Fields.php:126
+msgid "Color Picker"
+msgstr ""
+
+#: src/RestApi/Fields.php:129
+msgid "Color picker"
+msgstr ""
+
+#: src/RestApi/Fields.php:132
+msgid "Custom HTML"
+msgstr ""
+
+#: src/RestApi/Fields.php:135
+msgid "Output custom HTML content"
+msgstr ""
+
+#: src/RestApi/Fields.php:138
+msgid "Date Picker"
+msgstr ""
+
+#: src/RestApi/Fields.php:141
+msgid "Date picker"
+msgstr ""
+
+#: src/RestApi/Fields.php:144
+msgid "Datetime Picker"
+msgstr ""
+
+#: src/RestApi/Fields.php:147
+msgid "Date and time picker"
+msgstr ""
+
+#: src/RestApi/Fields.php:150
+msgid "Divider"
+msgstr ""
+
+#: src/RestApi/Fields.php:153
+msgid "Simple horizontal line"
+msgstr ""
+
+#: src/RestApi/Fields.php:156
+#: app/controls/Validation.js:43
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Email"
+msgstr ""
+
+#: src/RestApi/Fields.php:159
+msgid "For entering an email address with browser validation"
+msgstr ""
+
+#: src/RestApi/Fields.php:162
+msgid "Fieldset Text"
+msgstr ""
+
+#: src/RestApi/Fields.php:165
+msgid "Group of text inputs. Not recommended. Use the Group field type instead."
+msgstr ""
+
+#: src/RestApi/Fields.php:168
+msgid "File"
+msgstr ""
+
+#: src/RestApi/Fields.php:171
+msgid "Simple file upload with default UI like <input type=\"file\" />. Not recommended. Use File advanced instead."
+msgstr ""
+
+#: src/RestApi/Fields.php:174
+msgid "File Advanced"
+msgstr ""
+
+#: src/RestApi/Fields.php:177
+msgid "Multiple file uploads with WordPress media popup"
+msgstr ""
+
+#: src/RestApi/Fields.php:180
+msgid "File Input"
+msgstr ""
+
+#: src/RestApi/Fields.php:183
+msgid "A text input for entering a file URL with the ability to select a file from the Media Library"
+msgstr ""
+
+#: src/RestApi/Fields.php:186
+msgid "File Upload"
+msgstr ""
+
+#: src/RestApi/Fields.php:189
+msgid "Multiple file uploads with a drag and drop area"
+msgstr ""
+
+#: src/RestApi/Fields.php:192
+#: src/RestApi/Fields.php:195
+msgid "Google Maps"
+msgstr ""
+
+#: src/RestApi/Fields.php:198
+msgid "Heading"
+msgstr ""
+
+#: src/RestApi/Fields.php:201
+msgid "Heading text"
+msgstr ""
+
+#: src/RestApi/Fields.php:204
+#: app/controls/ConditionalLogic.js:39
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Hidden"
+msgstr ""
+
+#: src/RestApi/Fields.php:207
+msgid "For storing a default hidden value"
+msgstr ""
+
+#: src/RestApi/Fields.php:213
+msgid "Icon with FontAwesome set"
+msgstr ""
+
+#: src/RestApi/Fields.php:216
+msgid "Image"
+msgstr ""
+
+#: src/RestApi/Fields.php:219
+msgid "Simple image upload with default UI like <input type=\"file\" />. Not recommended. Use Image advanced instead."
+msgstr ""
+
+#: src/RestApi/Fields.php:222
+msgid "Image Advanced"
+msgstr ""
+
+#: src/RestApi/Fields.php:225
+msgid "Multiple image uploads with WordPress media popup, usually used for a gallery"
+msgstr ""
+
+#: src/RestApi/Fields.php:228
+msgid "Image Select"
+msgstr ""
+
+#: src/RestApi/Fields.php:231
+msgid "Select a choice with images"
+msgstr ""
+
+#: src/RestApi/Fields.php:234
+msgid "Image Upload"
+msgstr ""
+
+#: src/RestApi/Fields.php:237
+msgid "Multiple image uploads with a drag and drop area"
+msgstr ""
+
+#: src/RestApi/Fields.php:240
+msgid "Key Value"
+msgstr ""
+
+#: src/RestApi/Fields.php:243
+msgid "Add an unlimited group of key-value pairs"
+msgstr ""
+
+#: src/RestApi/Fields.php:246
+msgid "Number"
+msgstr ""
+
+#: src/RestApi/Fields.php:249
+msgid "For entering a number with browser validation"
+msgstr ""
+
+#: src/RestApi/Fields.php:252
+msgid "oEmbed"
+msgstr ""
+
+#: src/RestApi/Fields.php:255
+msgid "Input for media from Youtube, Vimeo, and all supported sites by WordPress"
+msgstr ""
+
+#: src/RestApi/Fields.php:258
+#: src/RestApi/Fields.php:261
+msgid "Open Street Maps"
+msgstr ""
+
+#: src/RestApi/Fields.php:264
+msgid "Password"
+msgstr ""
+
+#: src/RestApi/Fields.php:267
+msgid "For entering a password"
+msgstr ""
+
+#: src/RestApi/Fields.php:273
+msgid "For selecting posts"
+msgstr ""
+
+#: src/RestApi/Fields.php:276
+msgid "Radio"
+msgstr ""
+
+#: src/RestApi/Fields.php:279
+msgid "Radio input where you can select only one choice"
+msgstr ""
+
+#: src/RestApi/Fields.php:282
+#: app/controls/Validation.js:41
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Range"
+msgstr ""
+
+#: src/RestApi/Fields.php:285
+msgid "A slider for selecting a number"
+msgstr ""
+
+#: src/RestApi/Fields.php:291
+msgid "Select dropdown where you can select one or multiple choice"
+msgstr ""
+
+#: src/RestApi/Fields.php:294
+msgid "Select Advanced"
+msgstr ""
+
+#: src/RestApi/Fields.php:297
+msgid "Beautiful select dropdown using select2 library"
+msgstr ""
+
+#: src/RestApi/Fields.php:300
+msgid "Sidebar"
+msgstr ""
+
+#: src/RestApi/Fields.php:303
+msgid "For selecting sidebars"
+msgstr ""
+
+#: src/RestApi/Fields.php:306
+msgid "Single Image"
+msgstr ""
+
+#: src/RestApi/Fields.php:309
+msgid "Single image upload with WordPress media popup"
+msgstr ""
+
+#: src/RestApi/Fields.php:312
+msgid "jQuery UI Slider"
+msgstr ""
+
+#: src/RestApi/Fields.php:315
+msgid "jQuery UI slider"
+msgstr ""
+
+#: src/RestApi/Fields.php:318
+msgid "Switch"
+msgstr ""
+
+#: src/RestApi/Fields.php:321
+msgid "On/off switch with iOS style"
+msgstr ""
+
+#: src/RestApi/Fields.php:327
+msgid "For selecting taxonomy terms. Doesn't save term IDs in post meta, but set post terms."
+msgstr ""
+
+#: src/RestApi/Fields.php:330
+msgid "Taxonomy Advanced"
+msgstr ""
+
+#: src/RestApi/Fields.php:333
+msgid "For selecting taxonomy terms and saving term IDs in post meta as a comma-separated string. It doesn't set post terms."
+msgstr ""
+
+#: src/RestApi/Fields.php:336
+msgid "Text"
+msgstr ""
+
+#: src/RestApi/Fields.php:339
+msgid "A single-line text input"
+msgstr ""
+
+#: src/RestApi/Fields.php:342
+msgid "Text List"
+msgstr ""
+
+#: src/RestApi/Fields.php:345
+msgid "Group of text inputs. Similar to Fieldset text, but has a different UI. Not recommended. Use the Group field type instead."
+msgstr ""
+
+#: src/RestApi/Fields.php:348
+msgid "Textarea"
+msgstr ""
+
+#: src/RestApi/Fields.php:351
+msgid "A paragraph text input"
+msgstr ""
+
+#: src/RestApi/Fields.php:354
+msgid "Time Picker"
+msgstr ""
+
+#: src/RestApi/Fields.php:357
+msgid "Time picker"
+msgstr ""
+
+#: src/RestApi/Fields.php:363
+msgid "For selecting users"
+msgstr ""
+
+#: src/RestApi/Fields.php:366
+#: app/controls/Validation.js:44
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "URL"
+msgstr ""
+
+#: src/RestApi/Fields.php:369
+msgid "An input for URL with browser validation"
+msgstr ""
+
+#: src/RestApi/Fields.php:372
+msgid "Video"
+msgstr ""
+
+#: src/RestApi/Fields.php:375
+msgid "Multiple video uploads with WordPress media popup"
+msgstr ""
+
+#: src/RestApi/Fields.php:378
+msgid "WYSIWYG Editor"
+msgstr ""
+
+#: src/RestApi/Fields.php:381
+msgid "WordPress editor"
+msgstr ""
+
+#: src/RestApi/Settings.php:14
+msgid "Custom CSS class for the meta box wrapper"
+msgstr ""
+
+#: src/RestApi/Settings.php:17
+msgid "Field ID prefix"
+msgstr ""
+
+#: src/RestApi/Settings.php:18
+msgid "Auto add a prefix to all field IDs to keep them separated from other field groups or other plugins. Leave empty to ignore this or use underscore (_) to make the fields hidden."
+msgstr ""
+
+#: src/RestApi/Settings.php:22
+msgid "Apply to the current field group. For individual fields, please go to each field > tab Advanced."
+msgstr ""
+
+#: app/App.js:45
+#: assets/js/app.js:2
+msgid "Something went wrong. Please try again!"
+msgstr ""
+
+#: app/App.js:50
+#: assets/js/app.js:2
+msgid "Fields"
+msgstr ""
+
+#: app/App.js:54
+#: assets/js/app.js:2
+#: modules/relationships/app/App.js:25
+#: modules/settings-page/app/App.js:27
+msgid "Settings"
+msgstr ""
+
+#: app/App.js:56
+#: assets/js/app.js:2
+#: modules/relationships/app/App.js:26
+#: modules/settings-page/app/App.js:29
+msgid "Get PHP Code"
+msgstr ""
+
+#: app/App.js:73
+#: assets/js/app.js:2
+msgid "Theme code"
+msgstr ""
+
+#: app/components/Tabs/Fields.js:28
+#: assets/js/app.js:2
+msgid "Loading fields, please wait..."
+msgstr ""
+
+#: app/components/Tabs/Fields.js:33
+#: assets/js/app.js:2
+msgid "There are no fields here. Click the <strong>+ Add Field</strong> to add a new field."
+msgstr ""
+
+#: app/components/Tabs/FieldsTab/Field.js:29
+#: app/components/Tabs/FieldsTab/Group.js:36
+#: assets/js/app.js:2
+#: modules/relationships/app/Side.js:20
+#: modules/relationships/assets/relationships.js:2
+msgid "General"
+msgstr ""
+
+#: app/components/Tabs/FieldsTab/Group.js:51
+#: assets/js/app.js:2
+msgid "Subfields"
+msgstr ""
+
+#: app/components/Tabs/FieldsTab/Group.js:84
+#: assets/js/app.js:2
+msgid "+ Add Subfield"
+msgstr ""
+
+#: app/components/Tabs/FieldsTab/Header.js:11
+#: assets/js/app.js:2
+msgid "Expand/Collapse all fields"
+msgstr ""
+
+#: app/components/Tabs/FieldsTab/Header.js:19
+#: assets/js/app.js:2
+msgid "Actions"
+msgstr ""
+
+#: app/components/Tabs/FieldsTab/HeaderId.js:29
+#: app/components/Tabs/FieldsTab/HeaderLabel.js:32
+#: assets/js/app.js:2
+msgid "Click to edit"
+msgstr ""
+
+#: app/components/Tabs/FieldsTab/HeaderLabel.js:19
+#: assets/js/app.js:2
+msgid "(No label)"
+msgstr ""
+
+#: app/components/Tabs/FieldsTab/Inserter.js:11
+#: assets/js/app.js:2
+msgid "+ Add Field"
+msgstr ""
+
+#: app/components/Tabs/FieldsTab/Inserter.js:12
+#: assets/js/app.js:2
+msgid "Add a new field"
+msgstr ""
+
+#: app/components/Tabs/FieldsTab/Inserter.js:40
+#: assets/js/app.js:2
+msgid "Search for a field type"
+msgstr ""
+
+#: app/components/Tabs/FieldsTab/Inserter.js:47
+#: assets/js/app.js:2
+msgid "Fetching field types, please wait..."
+msgstr ""
+
+#: app/components/Tabs/FieldsTab/Node.js:28
+#: assets/js/app.js:2
+msgid "Do you really want to remove this field?"
+msgstr ""
+
+#: app/components/Tabs/FieldsTab/Node.js:54
+#: assets/js/app.js:2
+msgid "Click to reveal field settings. Drag and drop to reorder fields."
+msgstr ""
+
+#: app/components/Tabs/FieldsTab/Node.js:59
+#: assets/js/app.js:2
+msgid "Toggle subfields"
+msgstr ""
+
+#: app/components/Tabs/FieldsTab/Node.js:71
+#: assets/js/app.js:2
+msgid "Duplicate"
+msgstr ""
+
+#: app/components/Tabs/FieldsTab/Node.js:72
+#: app/controls/ConditionalLogic.js:75
+#: app/controls/IncludeExclude.js:123
+#: app/controls/KeyValue.js:59
+#: app/controls/ShowHide.js:104
+#: app/controls/Validation.js:69
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Remove"
+msgstr ""
+
+#: app/components/Tabs/FieldsTab/Node.js:73
+#: assets/js/app.js:2
+msgid "Toggle field settings"
+msgstr ""
+
+#: app/components/Tabs/Result.js:43
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Text domain"
+msgstr ""
+
+#: app/components/Tabs/Result.js:44
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Required for multilingual website. Used in the exported code only."
+msgstr ""
+
+#: app/components/Tabs/Result.js:50
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Function name"
+msgstr ""
+
+#: app/components/Tabs/Result.js:54
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Generate"
+msgstr ""
+
+#: app/components/Tabs/Result.js:55
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Generating code, please wait..."
+msgstr ""
+
+#: app/components/Tabs/Result.js:59
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Copy the code and paste into your theme's functions.php file."
+msgstr ""
+
+#: app/components/Tabs/Result.js:70
+#: app/components/Tabs/ThemeCodeTab/Content.js:32
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Copied!"
+msgstr ""
+
+#: app/components/Tabs/Result.js:70
+#: app/components/Tabs/ThemeCodeTab/Content.js:32
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Copy"
+msgstr ""
+
+#: app/components/Tabs/Settings.js:47
+#: assets/js/app.js:2
+msgid "View settings"
+msgstr ""
+
+#: app/components/Tabs/ThemeCode.js:31
+#: assets/js/app.js:2
+msgid "Below is the auto-generated code to <a href=\"%s\">display fields' values</a> that you can use in your theme. We display several ways to output the fields' values if possible, so choose which one is best for you."
+msgstr ""
+
+#: app/components/Tabs/ThemeCode.js:32
+#: assets/js/app.js:2
+msgid "Please use this code as a starting point and modify it to fit your needs. For more details about fields, please refer to the <a href=\"%s\">documentation</a>."
+msgstr ""
+
+#: app/components/Tabs/ThemeCode.js:37
+#: assets/js/app.js:2
+msgid "No fields available."
+msgstr ""
+
+#: app/controls/AdminColumnsPosition.js:23
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Replace"
+msgstr ""
+
+#: app/controls/Block.js:17
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "PHP callback function"
+msgstr ""
+
+#: app/controls/Block.js:18
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Template file"
+msgstr ""
+
+#: app/controls/Block.js:19
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Code"
+msgstr ""
+
+#: app/controls/Block.js:95
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "The path is not writable."
+msgstr ""
+
+#: app/controls/Block.js:153
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Custom SVG"
+msgstr ""
+
+#: app/controls/Block.js:161
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "SVG icon"
+msgstr ""
+
+#: app/controls/Block.js:163
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Paste the SVG content here"
+msgstr ""
+
+#: app/controls/Block.js:174
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Icon color"
+msgstr ""
+
+#: app/controls/Block.js:175
+#: app/controls/Block.js:186
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Leave empty to use default color"
+msgstr ""
+
+#: app/controls/Block.js:185
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Icon background color"
+msgstr ""
+
+#: app/controls/Block.js:192
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Category"
+msgstr ""
+
+#: app/controls/Block.js:199
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Keywords"
+msgstr ""
+
+#: app/controls/Block.js:201
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Separate by commas"
+msgstr ""
+
+#: app/controls/Block.js:206
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Block settings position"
+msgstr ""
+
+#: app/controls/Block.js:209
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "In the content area"
+msgstr ""
+
+#: app/controls/Block.js:210
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "On the right sidebar"
+msgstr ""
+
+#: app/controls/Block.js:216
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Alignment"
+msgstr ""
+
+#: app/controls/Block.js:221
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Center"
+msgstr ""
+
+#: app/controls/Block.js:222
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Wide"
+msgstr ""
+
+#: app/controls/Block.js:223
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Full"
+msgstr ""
+
+#: app/controls/Block.js:230
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Custom CSS class name"
+msgstr ""
+
+#: app/controls/Block.js:235
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Block Render Settings"
+msgstr ""
+
+#: app/controls/Block.js:238
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Render with"
+msgstr ""
+
+#: app/controls/Block.js:248
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Render callback"
+msgstr ""
+
+#: app/controls/Block.js:250
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Enter PHP function name"
+msgstr ""
+
+#: app/controls/Block.js:258
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Render template"
+msgstr ""
+
+#: app/controls/Block.js:260
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Enter absolute path to the template file"
+msgstr ""
+
+#: app/controls/Block.js:266
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Render code"
+msgstr ""
+
+#: app/controls/Block.js:278
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Block attribute. Replace <code>attribute</code> with <code>anchor</code>, <code>align</code> or <code>className</code>)."
+msgstr ""
+
+#: app/controls/Block.js:282
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Field value. Replace <code>field_id</code> with a real field ID."
+msgstr ""
+
+#: app/controls/Block.js:286
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Whether in preview mode."
+msgstr ""
+
+#: app/controls/Block.js:290
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Current post ID."
+msgstr ""
+
+#: app/controls/Block.js:294
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Run a PHP/WordPress function via <code>mb</code> namespace. Replace <code>function</code> with a valid PHP/WordPress function name."
+msgstr ""
+
+#: app/controls/Block.js:303
+#: app/controls/Block.js:310
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Select a view"
+msgstr ""
+
+#: app/controls/Block.js:322
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "+ Add View"
+msgstr ""
+
+#: app/controls/Block.js:329
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Edit View"
+msgstr ""
+
+#: app/controls/Block.js:337
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Custom CSS"
+msgstr ""
+
+#: app/controls/Block.js:339
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Enter URL to the custom CSS file"
+msgstr ""
+
+#: app/controls/Block.js:344
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Custom JavaScript"
+msgstr ""
+
+#: app/controls/Block.js:346
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Enter URL to the custom JavaScript file"
+msgstr ""
+
+#: app/controls/Block.js:351
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Custom assets callback"
+msgstr ""
+
+#: app/controls/Block.js:353
+#: app/controls/IncludeExclude.js:119
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Enter PHP callback function name"
+msgstr ""
+
+#: app/controls/Block.js:357
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Block JSON Settings"
+msgstr ""
+
+#: app/controls/Block.js:360
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Generate block.json"
+msgstr ""
+
+#: app/controls/Block.js:367
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Block folder"
+msgstr ""
+
+#: app/controls/Block.js:369
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Enter absolute path to the folder containing the <code>block.json</code> and block asset files. <b>Do not include the block name (e.g. field group ID)</b>. The full path for the block files will be like <code>path/to/folder/block-name/block.json</code>."
+msgstr ""
+
+#: app/controls/Block.js:379
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Synchronize block.json"
+msgstr ""
+
+#: app/controls/Block.js:382
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "We detected a newer version of <code>block.json</code> from the current folder, do you want to override settings from this path?"
+msgstr ""
+
+#: app/controls/Block.js:388
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Override Block JSON"
+msgstr ""
+
+#: app/controls/Block.js:392
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Are you sure you want to override the block.json settings?"
+msgstr ""
+
+#: app/controls/Block.js:402
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Supported variables"
+msgstr ""
+
+#: app/controls/Block.js:407
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Site path"
+msgstr ""
+
+#: app/controls/Block.js:411
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Site URL"
+msgstr ""
+
+#: app/controls/Block.js:415
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Path to the current [child] theme directory"
+msgstr ""
+
+#: app/controls/Block.js:419
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "URL to the current [child] theme directory"
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:30
+#: app/controls/IncludeExclude.js:33
+#: app/controls/ShowHide.js:33
+#: app/controls/Validation.js:22
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "+ Add Rule"
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:38
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Visible"
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:41
+#: app/controls/IncludeExclude.js:44
+#: app/controls/ShowHide.js:44
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "when"
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:43
+#: app/controls/IncludeExclude.js:46
+#: app/controls/ShowHide.js:46
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "any"
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:44
+#: app/controls/IncludeExclude.js:47
+#: app/controls/ShowHide.js:47
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "all"
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:46
+#: app/controls/IncludeExclude.js:49
+#: app/controls/ShowHide.js:49
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "conditions match"
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:55
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "="
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:56
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid ">"
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:57
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "<"
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:58
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid ">="
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:59
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "<="
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:60
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "!="
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:61
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "contains"
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:62
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "not contains"
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:63
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "starts with"
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:64
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "not starts with"
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:65
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "ends with"
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:66
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "not ends with"
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:67
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "between"
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:68
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "not between"
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:69
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "in"
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:70
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "not in"
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:71
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "match"
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:72
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "not match"
+msgstr ""
+
+#: app/controls/ConditionalLogic.js:74
+#: app/controls/Validation.js:62
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Enter a value"
+msgstr ""
+
+#: app/controls/CustomTable.js:11
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Save data in a custom table"
+msgstr ""
+
+#: app/controls/CustomTable.js:17
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Table name"
+msgstr ""
+
+#: app/controls/CustomTable.js:24
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Include table prefix"
+msgstr ""
+
+#: app/controls/CustomTable.js:31
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Create table automatically"
+msgstr ""
+
+#: app/controls/CustomTable.js:32
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Enable this option will automatically create the table with all columns as TEXT. Create the table manually to set proper column types for a better performance."
+msgstr ""
+
+#: app/controls/FieldInserter.js:9
+#: app/controls/Icon.js:60
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Search..."
+msgstr ""
+
+#: app/controls/IncludeExclude.js:21
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Advanced location rules"
+msgstr ""
+
+#: app/controls/IncludeExclude.js:22
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "More rules on where to display the field group. For each rule, maximum 10 items are displayed. To select other items, please use the search."
+msgstr ""
+
+#: app/controls/IncludeExclude.js:41
+#: app/controls/ShowHide.js:41
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Show"
+msgstr ""
+
+#: app/controls/IncludeExclude.js:42
+#: app/controls/ShowHide.js:42
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Hide"
+msgstr ""
+
+#: app/controls/IncludeExclude.js:80
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Parent post"
+msgstr ""
+
+#: app/controls/IncludeExclude.js:81
+#: app/controls/ShowHide.js:69
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Page template"
+msgstr ""
+
+#: app/controls/IncludeExclude.js:86
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Parent"
+msgstr ""
+
+#: app/controls/IncludeExclude.js:88
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "User role"
+msgstr ""
+
+#: app/controls/IncludeExclude.js:90
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Edited user role"
+msgstr ""
+
+#: app/controls/IncludeExclude.js:91
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Edited user"
+msgstr ""
+
+#: app/controls/IncludeExclude.js:92
+#: app/controls/ShowHide.js:74
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Is child post"
+msgstr ""
+
+#: app/controls/KeyValue.js:11
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Enter key"
+msgstr ""
+
+#: app/controls/KeyValue.js:12
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Enter value"
+msgstr ""
+
+#: app/controls/KeyValue.js:39
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "+ Add New"
+msgstr ""
+
+#: app/controls/Location.js:26
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Select where to display the field group"
+msgstr ""
+
+#: app/controls/Location.js:31
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Comment"
+msgstr ""
+
+#: app/controls/Location.js:32
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Settings page"
+msgstr ""
+
+#: app/controls/Location.js:33
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Block"
+msgstr ""
+
+#: app/controls/Location.js:68
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Show in media modal"
+msgstr ""
+
+#: app/controls/Location.js:78
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Select a tab in the settings page that the field group belongs to"
+msgstr ""
+
+#: app/controls/Post.js:19
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Before post title"
+msgstr ""
+
+#: app/controls/Post.js:20
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "After post title"
+msgstr ""
+
+#: app/controls/Post.js:41
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Standard (WordPress meta box)"
+msgstr ""
+
+#: app/controls/Post.js:41
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Seamless (no meta box)"
+msgstr ""
+
+#: app/controls/Post.js:48
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Whether to collapse the meta box when page loads"
+msgstr ""
+
+#: app/controls/Post.js:56
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Hidden by default"
+msgstr ""
+
+#: app/controls/Post.js:57
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "The meta box is hidden by default and requires users to select the corresponding checkbox in Screen Options to show it"
+msgstr ""
+
+#: app/controls/Post.js:66
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Autosave"
+msgstr ""
+
+#: app/controls/Post.js:75
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Enable revision"
+msgstr ""
+
+#: app/controls/Post.js:76
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Track changes of custom fields with revisions"
+msgstr ""
+
+#: app/controls/ShowHide.js:20
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Toggle rules"
+msgstr ""
+
+#: app/controls/ShowHide.js:21
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Conditions to toggle visibility of the field group. For each rule, maximum 10 items are displayed. To select other items, please use the search."
+msgstr ""
+
+#: app/controls/ShowHide.js:70
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Post format"
+msgstr ""
+
+#: app/controls/ShowHide.js:75
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Input value"
+msgstr ""
+
+#: app/controls/ShowHide.js:100
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "CSS selector"
+msgstr ""
+
+#: app/controls/TextLimiter.js:16
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "characters"
+msgstr ""
+
+#: app/controls/TextLimiter.js:17
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "words"
+msgstr ""
+
+#: app/controls/TranslationModal.js:19
+#: assets/js/app.js:2
+msgid "Select a translation mode for each field"
+msgstr ""
+
+#: app/controls/TranslationModal.js:28
+#: assets/js/app.js:2
+#: modules/relationships/app/Side.js:22
+#: modules/relationships/assets/relationships.js:2
+msgid "Field"
+msgstr ""
+
+#: app/controls/TranslationModal.js:30
+#: assets/js/app.js:2
+msgid "Ignore"
+msgstr ""
+
+#: app/controls/TranslationModal.js:31
+#: assets/js/app.js:2
+msgid "The field value will NOT be copied to the new translation"
+msgstr ""
+
+#: app/controls/TranslationModal.js:34
+#: assets/js/app.js:2
+msgid "Translate"
+msgstr ""
+
+#: app/controls/TranslationModal.js:35
+#: assets/js/app.js:2
+msgid "The field value will be copied to the new translation, then you can edit it"
+msgstr ""
+
+#: app/controls/TranslationModal.js:38
+#: assets/js/app.js:2
+msgid "Synchronize"
+msgstr ""
+
+#: app/controls/TranslationModal.js:39
+#: assets/js/app.js:2
+msgid "The field value will be synced to ALL translations whenever you make changes to ANY translation"
+msgstr ""
+
+#: app/controls/TranslationModal.js:82
+#: assets/js/app.js:2
+msgid "Save"
+msgstr ""
+
+#: app/controls/Validation.js:36
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Min length"
+msgstr ""
+
+#: app/controls/Validation.js:37
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Max length"
+msgstr ""
+
+#: app/controls/Validation.js:38
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Range length"
+msgstr ""
+
+#: app/controls/Validation.js:45
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Date"
+msgstr ""
+
+#: app/controls/Validation.js:46
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "ISO date"
+msgstr ""
+
+#: app/controls/Validation.js:47
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Decimal number"
+msgstr ""
+
+#: app/controls/Validation.js:48
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Digits only"
+msgstr ""
+
+#: app/controls/Validation.js:49
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Credit card number"
+msgstr ""
+
+#: app/controls/Validation.js:50
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "US phone number"
+msgstr ""
+
+#: app/controls/Validation.js:52
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "File extensions"
+msgstr ""
+
+#: app/controls/Validation.js:53
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Equals to another field"
+msgstr ""
+
+#: app/controls/Validation.js:54
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Remote"
+msgstr ""
+
+#: app/controls/Validation.js:66
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Ex. 2,6"
+msgstr ""
+
+#: app/controls/Validation.js:66
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Separate values by a comma"
+msgstr ""
+
+#: app/controls/Validation.js:68
+#: assets/js/app.js:2
+#: modules/relationships/assets/relationships.js:2
+#: modules/settings-page/assets/settings-page.js:2
+msgid "Custom error message"
+msgstr ""
+
+#: app/hooks/useFields.js:40
+#: assets/js/app.js:2
+msgid " (Copy)"
+msgstr ""
+
+#: modules/relationships/app/App.js:35
+msgid "Delete data in database if the relationship is deleted."
+msgstr ""
+
+#: modules/relationships/app/App.js:43
+msgid "Enable only if two sides of the relationship are the same."
+msgstr ""
+
+#: modules/relationships/app/Side.js:12
+#: modules/relationships/assets/relationships.js:2
+msgid "Click to toggle side settings"
+msgstr ""
+
+#: modules/relationships/app/Side.js:15
+#: modules/relationships/assets/relationships.js:2
+msgid "Toggle settings"
+msgstr ""
+
+#: modules/relationships/app/Side.js:21
+#: modules/relationships/assets/relationships.js:2
+msgid "Meta Box"
+msgstr ""
+
+#: modules/settings-page/app/Content.js:20
+msgid "Loading settings, please wait..."
 msgstr ""
