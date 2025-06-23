@@ -207,7 +207,7 @@ class MetaBox extends Base {
 			] );
 		}
 
-		if ( ! empty( $this->settings['settings']['custom_table'] ) ) {
+		if ( ! empty( $this->settings['settings']['custom_table'] ) && ! empty( $this->settings['settings']['custom_table']['enable'] ) ) {
 			$meta_box_custom_table = [];
 
 			// We need those keys on meta box only for minimal format,
@@ -218,13 +218,14 @@ class MetaBox extends Base {
 			];
 
 			foreach ( $extra_keys as $key ) {
-				if ( isset( $this->settings['settings']['custom_table'][ $key ] ) &&
-					$this->settings['settings']['custom_table'][ $key ] ) {
+				if ( ! empty( $this->settings['settings']['custom_table'][ $key ] ) ) {
 					$meta_box_custom_table[ $key ] = true;
 				}
 			}
 
-			$this->settings['meta_box']['custom_table'] = $meta_box_custom_table;
+			if ( ! empty( $meta_box_custom_table ) ) {
+				$this->settings['meta_box']['custom_table'] = $meta_box_custom_table;
+			}
 		}
 
 		return $this;
@@ -335,7 +336,7 @@ class MetaBox extends Base {
 		];
 
 		$settings = array_merge( $this->lookup( [ 'settings' ], [] ), $settings );
-		
+
 		foreach ( $this->settings as $key => $value ) {
 			if ( in_array( $key, $this->get_unneeded_keys() ) ) {
 				continue;

@@ -147,7 +147,7 @@ class Base {
 		$data = $this->conditional_logic;
 		foreach ( $data['when'] as &$condition ) {
 			// Allow to set array as CSV.
-			if ( false !== strpos( $condition['value'], ',' ) ) {
+			if ( is_string( $condition['value'] ) && str_contains( $condition['value'], ',' ) ) {
 				$condition['value'] = Arr::from_csv( $condition['value'] );
 			}
 			if ( $condition['name'] === '' ) {
