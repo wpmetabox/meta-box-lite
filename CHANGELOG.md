@@ -1,3 +1,8 @@
+### 1.3.3 - 2025-06-23
+
+- Fix issue translating empty groups with WPML/Polylang
+- Add German translation
+
 ## 1.3.2 - 2025-06-11
 
 - Fix error for translating relationship texts
