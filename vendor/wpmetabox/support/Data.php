@@ -2,7 +2,7 @@
 namespace MetaBox\Support;
 
 class Data {
-	public static function get_post_types() {
+	public static function get_post_types(): array {
 		$unsupported = [
 			// WordPress built-in post types.
 			'customize_changeset',
@@ -19,6 +19,8 @@ class Data {
 			'wp_template',
 			'wp_template_part',
 			'wp_global_styles',
+			'wp_font_famlity',
+			'wp_font_face',
 
 			// Meta Box post types.
 			'mb-post-type',
@@ -40,7 +42,7 @@ class Data {
 		return $post_types;
 	}
 
-	public static function get_taxonomies() {
+	public static function get_taxonomies(): array {
 		$unsupported = [
 			'link_category',
 			'nav_menu',
@@ -56,7 +58,7 @@ class Data {
 		return $taxonomies;
 	}
 
-	public static function get_dashicons() {
+	public static function get_dashicons(): array {
 		return [
 			'admin-appearance',
 			'admin-collapse',

@@ -33,11 +33,25 @@ class Settings extends Base {
 		unset( $this->object_type );
 	}
 
-	private function parse_location() {
+	private function parse_location(): self {
 		$object_type = $this->object_type ?: 'post';
 
-		if ( in_array( $object_type, [ 'user', 'comment', 'block' ], true ) ) {
-			unset( $this->$object_type );
+		if ( $object_type === 'post' ) {
+			unset( $this->taxonomies );
+			unset( $this->settings_pages );
+			unset( $this->type );
+		} else if ( $object_type === 'term' ) {
+			unset( $this->post_types );
+			unset( $this->settings_pages );
+			unset( $this->type );
+		} else if ( $object_type === 'setting' ) {
+			unset( $this->post_types );
+			unset( $this->taxonomies );
+			unset( $this->type );
+		} else if ( in_array( $object_type, [ 'block', 'user', 'comment' ], true ) ) {
+			unset( $this->post_types );
+			unset( $this->taxonomies );
+			unset( $this->settings_pages );
 			$this->type = $object_type;
 		}
 
@@ -93,6 +107,10 @@ class Settings extends Base {
 			global $wpdb;
 			$prefix      = Arr::get( $this->settings, 'custom_table.prefix', false );
 			$this->table = ( $prefix ? $wpdb->prefix : '' ) . $name;
+		} else {
+			// Remove custom table settings if it's not enabled.
+			unset( $this->storage_type );
+			unset( $this->table );
 		}
 
 		unset( $this->custom_table );

@@ -52,7 +52,7 @@ class MetaBox extends Base {
 		];
 
 		if ( isset( $this->settings['settings'] ) ) {
-			$settings = array_merge( $settings, $this->settings['settings'] );
+			$settings = array_merge( $this->settings['settings'], $settings );
 		}
 
 		$this->settings_parser = new Settings( $settings );

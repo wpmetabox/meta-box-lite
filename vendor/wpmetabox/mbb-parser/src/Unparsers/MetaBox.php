@@ -1,7 +1,6 @@
 <?php
 namespace MBBParser\Unparsers;
 
-use MetaBox\Support\Arr;
 /**
  * This class is the inverse of the parser.
  * We convert the parsed data back to the format that can be saved to the database.
@@ -200,32 +199,46 @@ class MetaBox extends Base {
 
 		$this->settings['settings']['custom_table'] = array_merge( $default_custom_table, $custom_table );
 
+		// For short reference.
+		$custom_table = &$this->settings['settings']['custom_table'];
+
+		// If table name is set, we need to set the name and enable the custom table back to the settings.
 		if ( isset( $this->table ) ) {
-			$this->settings['settings']['custom_table'] = array_merge( $this->settings['settings']['custom_table'], [
-				'name'   => $this->table,
-				'enable' => true,
-			] );
-		}
+			$name = $this->table;
 
-		if ( ! empty( $this->settings['settings']['custom_table'] ) && ! empty( $this->settings['settings']['custom_table']['enable'] ) ) {
-			$meta_box_custom_table = [];
-
-			// We need those keys on meta box only for minimal format,
-			// other keys can be retrieved from meta box settings itself.
-			$extra_keys = [
-				'prefix',
-				'create',
-			];
-
-			foreach ( $extra_keys as $key ) {
-				if ( ! empty( $this->settings['settings']['custom_table'][ $key ] ) ) {
-					$meta_box_custom_table[ $key ] = true;
+			// Strip the prefix if it's set.
+			if ( ! empty( $custom_table['prefix'] ) ) {
+				global $wpdb;
+				if ( str_starts_with( $name, $wpdb->prefix ) ) {
+					$name = substr( $name, strlen( $wpdb->prefix ) );
 				}
 			}
 
-			if ( ! empty( $meta_box_custom_table ) ) {
-				$this->settings['meta_box']['custom_table'] = $meta_box_custom_table;
+			$custom_table['name']   = $name;
+			$custom_table['enable'] = true;
+		}
+
+		if ( empty( $custom_table['enable'] ) ) {
+			return $this;
+		}
+
+		// Generate extra props for meta box settings.
+		$meta_box_custom_table = [];
+
+		// We need those keys on meta box only for minimal format, other keys can be retrieved from meta box settings itself.
+		$extra_keys = [
+			'prefix',
+			'create',
+		];
+
+		foreach ( $extra_keys as $key ) {
+			if ( ! empty( $custom_table[ $key ] ) ) {
+				$meta_box_custom_table[ $key ] = true;
 			}
+		}
+
+		if ( ! empty( $meta_box_custom_table ) ) {
+			$this->settings['meta_box']['custom_table'] = $meta_box_custom_table;
 		}
 
 		return $this;
