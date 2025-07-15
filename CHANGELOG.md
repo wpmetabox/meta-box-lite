@@ -1,3 +1,14 @@
+### 1.4.0 - 2025-07-15
+
+Highlights:
+
+Rewrite the re-order feature, making works with hierarchical post types. Now you can drag and drop posts to re-order them and even setup parent/child relationships. To re-order posts, now you need to click the "Re-order" link in the header of the screen (near All | Published filters).
+
+Other changes:
+
+- Addmin filter for relationships: allow to remove selected choice
+- Fix validation for blocks
+
 ### 1.3.3 - 2025-06-23
 
 - Fix issue translating empty groups with WPML/Polylang
