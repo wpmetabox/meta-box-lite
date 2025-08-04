@@ -240,10 +240,9 @@ class Blocks {
 			$attributes = $this->generate_block_attributes( $raw_data['fields'] );
 		}
 
-		$align = array_filter( $settings['supports']['align'] );
 		// Alignments
-		if ( ! empty( $align ) ) {
-			$metadata['supports']['align'] = $align;
+		if ( ! empty( $settings['supports']['align'] ) ) {
+			$metadata['supports']['align'] = array_filter( $settings['supports']['align'] );
 			$attributes['align']           = [
 				'type' => 'string',
 			];
