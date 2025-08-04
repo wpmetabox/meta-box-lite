@@ -17,8 +17,6 @@ return array(
     'MBEI\\' => array($baseDir . '/modules/mb-elementor-integrator/src'),
     'MBDI\\' => array($baseDir . '/modules/mb-divi-integrator/src'),
     'MBCPT\\' => array($baseDir . '/modules/mb-custom-post-type/src'),
-    'MBB\\SettingsPage\\' => array($baseDir . '/modules/meta-box-builder/modules/settings-page/src'),
-    'MBB\\Relationships\\' => array($baseDir . '/modules/meta-box-builder/modules/relationships/src'),
     'MBB\\' => array($baseDir . '/modules/meta-box-builder/src'),
     'MBBTI\\' => array($baseDir . '/modules/meta-box-beaver-themer-integrator/src'),
     'MBBParser\\' => array($vendorDir . '/wpmetabox/mbb-parser/src'),

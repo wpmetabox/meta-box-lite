@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunk=globalThis.webpackChunk||[]).push([[8991],{8991:(e,t,l)=>{l.r(t),l.d(t,{default:()=>b});var s=l(1609),a=l(6087),d=l(7723);const b=(0,a.memo)((({field:e})=>(0,s.createElement)("button",{className:"button"},e.std||(0,d.__)("Click me","meta-box-builder"))),((e,t)=>e.field.std===t.field.std))}}]);

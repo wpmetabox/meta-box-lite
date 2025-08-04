@@ -1,13 +1,17 @@
 <?php
 namespace MBB\RestApi;
 
+use MetaBox\Support\Arr;
 use WP_REST_Request;
 
 class IncludeExclude extends Base {
 	public function include_exclude( WP_REST_Request $request ) {
 		$name       = $request->get_param( 'name' );
 		$s          = strtolower( $request->get_param( 's' ) );
-		$post_types = strtolower( $request->get_param( 'post_types' ) );
+		$post_types = $request->get_param( 'post_types' ) ?: '';
+		if ( is_string( $post_types ) ) {
+			$post_types = Arr::from_csv( $post_types );
+		}
 
 		$method = $this->get_method( $name );
 		$name   = 'get_terms' === $method ? str_replace( 'parent_', '', $name ) : $name;

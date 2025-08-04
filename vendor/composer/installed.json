@@ -983,17 +983,17 @@
         },
         {
             "name": "wpmetabox/meta-box-builder",
-            "version": "dev-master",
-            "version_normalized": "dev-master",
+            "version": "dev-ui",
+            "version_normalized": "dev-ui",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box-builder.git",
-                "reference": "ca46b5e86fc053d2821515a15f96d6f99279d362"
+                "reference": "385cf934b2f3fbbad41aa2e262fd8baf1cd752b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/ca46b5e86fc053d2821515a15f96d6f99279d362",
-                "reference": "ca46b5e86fc053d2821515a15f96d6f99279d362",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/385cf934b2f3fbbad41aa2e262fd8baf1cd752b6",
+                "reference": "385cf934b2f3fbbad41aa2e262fd8baf1cd752b6",
                 "shasum": ""
             },
             "require": {
@@ -1005,8 +1005,7 @@
                 "opis/json-schema": "^2.4",
                 "phpunit/phpunit": "^11.3"
             },
-            "time": "2025-07-18T07:52:27+00:00",
-            "default-branch": true,
+            "time": "2025-08-04T10:16:33+00:00",
             "type": "wordpress-plugin",
             "extra": {
                 "dev-files": {
@@ -1057,9 +1056,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "MBB\\": "src/",
-                    "MBB\\SettingsPage\\": "modules/settings-page/src/",
-                    "MBB\\Relationships\\": "modules/relationships/src/"
+                    "MBB\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1069,7 +1066,7 @@
             "description": "MB Builder extension for Meta Box",
             "support": {
                 "issues": "https://github.com/wpmetabox/meta-box-builder/issues",
-                "source": "https://github.com/wpmetabox/meta-box-builder/tree/master"
+                "source": "https://github.com/wpmetabox/meta-box-builder/tree/ui"
             },
             "install-path": "../../modules/meta-box-builder"
         },

@@ -48,7 +48,7 @@ class Export {
 			'post_status' => $post_status,
 			'post__in'    => $post_ids,
 		] );
-		
+
 		if ( empty( $data ) ) {
 			return;
 		}
@@ -93,7 +93,7 @@ class Export {
 	 */
 	public static function get_meta_keys( string $post_type ): array {
 		$meta_keys = [
-			'meta-box'         => [ 'settings', 'fields', 'data', 'meta_box' ],
+			'meta-box'         => [ 'settings', 'fields', 'meta_box' ],
 			'mb-relationship'  => [ 'settings', 'relationship' ],
 			'mb-settings-page' => [ 'settings', 'settings_page' ],
 		];

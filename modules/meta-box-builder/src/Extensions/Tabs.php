@@ -7,46 +7,50 @@ use MBB\Helpers\Data;
 
 class Tabs {
 	public function __construct() {
+		add_action( 'mbb_field_types', [ $this, 'add_field_type' ] );
 		if ( ! Data::is_extension_active( 'meta-box-tabs' ) ) {
 			return;
 		}
-		add_action( 'mbb_field_types', [ $this, 'add_field_type' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_font_awesome' ] );
 		add_filter( 'mbb_meta_box_settings', [ $this, 'parse_meta_box_settings' ] );
-
-		add_filter( 'mbb_settings_controls', [ $this, 'add_settings_controls' ] );
 	}
 
 	public function add_field_type( $field_types ) {
 		$field_types['tab'] = [
 			'title'    => __( 'Tab', 'meta-box-builder' ),
 			'category' => 'layout',
+			'disabled' => ! Data::is_extension_active( 'meta-box-tabs' ),
 			'controls' => [
-				'name',
-				'id',
-				'type',
-				Control::Select( 'icon_type', [
+				Control::Name( 'name', [
+					'required' => true,
+					'label'    => __( 'Label', 'meta-box-builder' ),
+				] ),
+				Control::Id( 'id', [
+					'label'       => __( 'ID', 'meta-box-builder' ),
+					'required'    => true,
+					'description' => __( 'Use only lowercase letters, numbers, underscores (and be careful dashes).', 'meta-box-builder' ),
+				] ),
+				Control::Radio( 'icon_type', [
 					'label'   => __( 'Icon type', 'meta-box-builder' ),
 					'options' => [
 						'dashicons'   => __( 'Dashicons', 'meta-box-builder' ),
 						'fontawesome' => __( 'Font Awesome', 'meta-box-builder' ),
-						'url'         => __( 'Custom URL', 'meta-box-builder' ),
+						'url'         => __( 'Custom', 'meta-box-builder' ),
 					],
 				], 'dashicons' ),
-				Control::Icon( 'icon', [
+				Control::DashiconPicker( 'icon', [
 					'label'      => __( 'Icon', 'meta-box-builder' ),
 					'dependency' => 'icon_type:dashicons',
-				] ),
+				], '' ),
 				Control::Fontawesome( 'icon_fa', [
 					'label'       => __( 'Icon', 'meta-box-builder' ),
-					'tooltip'     => __( 'The icon to be used for the admin menu (FontAwesome)', 'meta-box-builder' ),
-					'description' => __( 'Enter <a target="_blank" href="https://fontawesome.com/search?o=r&m=free">FontAwesome</a> icon class here. Supports FontAwesome free version only.', 'meta-box-builder' ),
+					'description' => __( 'Enter <a target="_blank" href="https://fontawesome.com/search?o=r&m=free">Font Awesome</a> icon class here. Supports the free version only.', 'meta-box-builder' ),
 					'dependency'  => 'icon_type:fontawesome',
-				] ),
+				], '' ),
 				Control::Input( 'icon_url', [
 					'label'      => __( 'Icon URL', 'meta-box-builder' ),
 					'dependency' => 'icon_type:url',
-				] ),
+				], '' ),
 			],
 		];
 
@@ -123,20 +127,5 @@ class Tabs {
 				$field['tab'] = $previous_tab;
 			}
 		}
-	}
-
-	public function add_settings_controls( $controls ) {
-		$controls['14.1'] = Control::Select( 'tab_style', [
-			'label'   => __( 'Tab style', 'meta-box-builder' ),
-			'tooltip' => __( 'Change how look and feel of tabs in Meta Box Tabs', 'meta-box-builder' ),
-			'options' => [
-				'default' => __( 'Default', 'meta-box-builder' ),
-				'box'     => __( 'Box', 'meta-box-builder' ),
-				'left'    => __( 'Left', 'meta-box-builder' ),
-			],
-		] );
-		$controls['14.2'] = Control::Input( 'tab_default_active', __( 'Default active tab ID', 'meta-box-builder' ) );
-
-		return $controls;
 	}
 }

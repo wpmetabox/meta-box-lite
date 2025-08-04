@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8a59c71b389c66ade363236ca67770f5",
+    "content-hash": "bb6bc479d2cf37ff7dd138dacf1634a1",
     "packages": [
         {
             "name": "composer/installers",
@@ -938,16 +938,16 @@
         },
         {
             "name": "wpmetabox/meta-box-builder",
-            "version": "dev-master",
+            "version": "dev-ui",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box-builder.git",
-                "reference": "ca46b5e86fc053d2821515a15f96d6f99279d362"
+                "reference": "385cf934b2f3fbbad41aa2e262fd8baf1cd752b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/ca46b5e86fc053d2821515a15f96d6f99279d362",
-                "reference": "ca46b5e86fc053d2821515a15f96d6f99279d362",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/385cf934b2f3fbbad41aa2e262fd8baf1cd752b6",
+                "reference": "385cf934b2f3fbbad41aa2e262fd8baf1cd752b6",
                 "shasum": ""
             },
             "require": {
@@ -959,7 +959,6 @@
                 "opis/json-schema": "^2.4",
                 "phpunit/phpunit": "^11.3"
             },
-            "default-branch": true,
             "type": "wordpress-plugin",
             "extra": {
                 "dev-files": {
@@ -1009,9 +1008,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "MBB\\": "src/",
-                    "MBB\\SettingsPage\\": "modules/settings-page/src/",
-                    "MBB\\Relationships\\": "modules/relationships/src/"
+                    "MBB\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1021,9 +1018,9 @@
             "description": "MB Builder extension for Meta Box",
             "support": {
                 "issues": "https://github.com/wpmetabox/meta-box-builder/issues",
-                "source": "https://github.com/wpmetabox/meta-box-builder/tree/master"
+                "source": "https://github.com/wpmetabox/meta-box-builder/tree/ui"
             },
-            "time": "2025-07-18T07:52:27+00:00"
+            "time": "2025-08-04T10:16:33+00:00"
         },
         {
             "name": "wpmetabox/meta-box-facetwp-integrator",

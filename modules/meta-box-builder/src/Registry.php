@@ -18,115 +18,106 @@ class Registry {
 		// In the same order as in Fields class.
 		$controls = [
 			// General.
-			Control::Type( 'type', __( 'Type', 'meta-box-builder' ) ),
 			Control::Name( 'name', [
-				'label'   => __( 'Label', 'meta-box-builder' ),
-				'tooltip' => __( 'Leave empty to make the input 100% width.', 'meta-box-builder' ),
+				'label'       => __( 'Label', 'meta-box-builder' ),
+				'description' => __( 'Leave empty to make the input 100% width.', 'meta-box-builder' ),
 			] ),
 			Control::Id( 'id', [
 				'label'       => __( 'ID', 'meta-box-builder' ),
 				'required'    => true,
-				'tooltip'     => __( 'Must be unique, will be used as meta key when saving to the database. Recommended to use only lowercase letters, numbers, and underscores.', 'meta-box-builder' ),
+				'tooltip'     => __( 'Must be unique, will be used as the key when saving to the database', 'meta-box-builder' ),
 				'description' => __( 'Use only lowercase letters, numbers, underscores (and be careful dashes).', 'meta-box-builder' ),
 			] ),
+
+			// Appearance
 			Control::Input( 'label_description', [
-				'label'   => __( 'Label description', 'meta-box-builder' ),
-				'tooltip' => __( 'Display below the field label', 'meta-box-builder' ),
-			] ),
+				'label'       => __( 'Label description', 'meta-box-builder' ),
+				'description' => __( 'Display below the field label.', 'meta-box-builder' ),
+			], '', 'appearance' ),
 			Control::Input( 'desc', [
-				'label'   => __( 'Input description', 'meta-box-builder' ),
-				'tooltip' => __( 'Display below the field input', 'meta-box-builder' ),
-			] ),
+				'label'       => __( 'Input description', 'meta-box-builder' ),
+				'description' => __( 'Display below the field input.', 'meta-box-builder' ),
+			], '', 'appearance' ),
+			Control::Input( 'placeholder', __( 'Placeholder', 'meta-box-builder' ), '', 'appearance' ),
+			Control::InputGroup( 'prepend_append', [
+				'label'  => __( 'Text wrap', 'meta-box-builder' ),
+				'label1' => __( 'Prepend', 'meta-box-builder' ),
+				'label2' => __( 'Append', 'meta-box-builder' ),
+				'key1'   => 'prepend',
+				'key2'   => 'append',
+			], [ 'prepend' => '', 'append' => '' ], 'appearance' ),
+			Control::Input( 'size', [
+				'type'        => 'number',
+				'label'       => __( 'Input size', 'meta-box-builder' ),
+				'description' => __( 'Leave empty to make the input 100% width.', 'meta-box-builder' ),
+			], '', 'appearance' ),
+
+
+			// Validation.
+			Control::Validation( 'validation', [], [], 'validation' ),
 
 			// Advanced.
-			Control::Validation( 'validation', [
-				'label'   => '<a href="https://docs.metabox.io/validation/" target="_blank" rel="noreffer noopener">' . __( 'Validation', 'meta-box-builder' ) . '</a>',
-				'tooltip' => __( 'Advanced validation rules powered by jQuery validation', 'meta-box-builder' ),
-			], [], 'advanced' ),
+			Control::Input( 'class', [
+				'label'       => __( 'Custom CSS class', 'meta-box-builder' ),
+				'description' => __( 'Custom CSS class for the field wrapper div.', 'meta-box-builder' ),
+			], '', 'advanced' ),
 			Control::Textarea( 'before', [
-				'label'   => __( 'Before', 'meta-box-builder' ),
-				'tooltip' => __( 'Custom HTML displayed before the field output', 'meta-box-builder' ),
+				'label'       => __( 'HTML before', 'meta-box-builder' ),
+				'description' => __( 'Custom HTML displayed before the field wrapper HTML.', 'meta-box-builder' ),
 			], '', 'advanced' ),
 			Control::Textarea( 'after', [
-				'label'   => __( 'After', 'meta-box-builder' ),
-				'tooltip' => __( 'Custom HTML displayed after the field output', 'meta-box-builder' ),
+				'label'       => __( 'HTML after', 'meta-box-builder' ),
+				'description' => __( 'Custom HTML displayed after the field wrapper HTML.', 'meta-box-builder' ),
 			], '', 'advanced' ),
-			Control::Input( 'class', __( 'Custom CSS class', 'meta-box-builder' ), '', 'advanced' ),
-			Control::Checkbox( 'save_field', [
-				'label'   => __( 'Save field value', 'meta-box-builder' ),
-				'tooltip' => __( 'Uncheck this checkbox to prevent the field from saving its value into the database. Useful when you want to save yourself. Note: not working in the block editor.', 'meta-box-builder' ),
+			Control::Toggle( 'save_field', [
+				'label'       => __( 'Save field value', 'meta-box-builder' ),
+				'description' => __( 'Uncheck this checkbox to prevent the field from saving its value into the database. Use only when you want to save the data yourself with code.', 'meta-box-builder' ),
 			], true, 'advanced' ),
 			Control::Input( 'sanitize_callback', [
-				'label'   => '<a href="https://docs.metabox.io/sanitization/" target="_blank" rel="noreferrer noopener">' . __( 'Custom sanitize callback', 'meta-box-builder' ) . '</a>',
-				'tooltip' => __( 'Enter PHP function name for custom sanitization. Enter "none" to disable sanitization.', 'meta-box-builder' ),
+				'label'       => __( 'Custom sanitize callback', 'meta-box-builder' ),
+				'description' => __( 'Enter a PHP function name to manually sanitize the value before saving it to the database. Enter "none" to bypass sanitization.', 'meta-box-builder' ),
 			], '', 'advanced' ),
 			Control::KeyValue( 'attributes', [
-				'label'   => '<a href="https://docs.metabox.io/custom-attributes/" target="_blank" rel="noreferrer noopener">' . __( 'Custom HTML5 attributes', 'meta-box-builder' ) . '</a>',
-				'tooltip' => __( 'Use this to add custom HTML5 attributes (like data-*). Work only for text input fields.', 'meta-box-builder' ),
-				'keys'    => [ 'disabled', 'max', 'maxlength', 'min', 'minlength', 'pattern', 'readonly', 'required', 'step', 'type' ],
-				'values'  => [
+				'label'       => __( 'Custom attributes', 'meta-box-builder' ),
+				'description' => __( 'Add custom attributes (like data-*) to the input. Work only for text fields.', 'meta-box-builder' ),
+				'keys'        => [ 'disabled', 'max', 'maxlength', 'min', 'minlength', 'pattern', 'readonly', 'required', 'step', 'type' ],
+				'values'      => [
 					'disabled' => [ 'true', 'false' ],
 					'readonly' => [ 'true', 'false' ],
 					'required' => [ 'true', 'false' ],
 				],
 			], [], 'advanced' ),
 			Control::KeyValue( 'custom_settings', [
-				'label'   => '<a href="https://docs.metabox.io/extensions/meta-box-builder/#custom-attributes">' . __( 'Custom settings', 'meta-box-builder' ) . '</a>',
-				'tooltip' => __( 'Use this to add custom settings for the field. The custom settings will overwrite existing settings if they have the same key.', 'meta-box-builder' ),
+				'label'       => __( 'Custom settings', 'meta-box-builder' ),
+				'description' => __( 'Add custom settings to the field. Will overwrite existing settings if they have the <a href="https://docs.metabox.io/field-settings/" target="_blank">same key</a>. Use <a href="https://docs.metabox.io/extensions/meta-box-builder/#custom-settings" target="_blank">dot/JSON notation</a> to add nested settings.', 'meta-box-builder' ),
 			], [], 'advanced' ),
 
 			// Clone.
-			Control::Checkbox( 'clone', [
+			Control::CloneSettings( 'clone_settings', [
 				'label'   => __( 'Cloneable', 'meta-box-builder' ),
 				'tooltip' => __( 'Make field cloneable (repeatable)', 'meta-box-builder' ),
-			] ),
-			Control::Checkbox( 'sort_clone', [
-				'label'      => __( 'Sortable', 'meta-box-builder' ),
-				'tooltip'    => __( 'Allows to drag-and-drop reorder clones', 'meta-box-builder' ),
-				'dependency' => 'clone:true',
-			] ),
-			Control::Checkbox( 'clone_default', [
-				'label'      => __( 'Clone default value', 'meta-box-builder' ),
-				'dependency' => 'clone:true',
-			] ),
-			Control::Checkbox( 'clone_as_multiple', [
-				'label'      => __( 'Clone as multiple', 'meta-box-builder' ),
-				'tooltip'    => __( 'Save clones in multiple rows in the database', 'meta-box-builder' ),
-				'dependency' => 'clone:true',
-			] ),
-			Control::Checkbox( 'clone_empty_start', [
-				'label'      => __( 'Clone empty start', 'meta-box-builder' ),
-				'tooltip'    => __( 'Start from no items except the "+ Add more" button', 'meta-box-builder' ),
-				'dependency' => 'clone:true',
-			] ),
-			Control::Input( 'min_clone', [
-				'type'       => 'number',
-				'label'      => __( 'Min number of clones', 'meta-box-builder' ),
-				'dependency' => 'clone:true',
-			] ),
-			Control::Input( 'max_clone', [
-				'type'       => 'number',
-				'label'      => __( 'Max number of clones', 'meta-box-builder' ),
-				'tooltip'    => __( 'Leave empty for unlimited clones', 'meta-box-builder' ),
-				'dependency' => 'clone:true',
-			] ),
-			Control::Input( 'add_button', [
-				'label'      => __( 'Add more text', 'meta-box-builder' ),
-				'tooltip'    => __( 'Custom text for the the "+ Add more" button. Leave empty to use the default text.', 'meta-box-builder' ),
-				'dependency' => 'clone:true',
 			] ),
 
 			// Date.
 			Control::Input( 'std', __( 'Default value', 'meta-box-builder' ) ),
-			Control::Input( 'placeholder', __( 'Placeholder', 'meta-box-builder' ) ),
-			Control::Input( 'size', [
-				'type'  => 'number',
-				'label' => __( 'Size of the input box', 'meta-box-builder' ),
+			Control::SelectWithInput( 'format', [
+				'label' => __( 'Display format', 'meta-box-builder' ),
+				// Translators: %s - URL to jQueryUI date picker page.
+				'description' => sprintf( __( '<a href="%s" target="_blank">jQueryUI date format</a> (not PHP) to show in the input.', 'meta-box-builder' ), 'https://api.jqueryui.com/datepicker/#utility-formatDate' ),
+				'options'     => [
+					'yy-mm-dd'  => '2024-03-28 (yy-mm-dd)',
+					'dd-mm-yy'  => '28-03-2024 (dd-mm-yy)',
+					'mm/dd/yy'  => '03/28/2024 (mm/dd/yy)',
+					'dd MM yy'  => '28 March 2024 (dd MM yy)',
+					'M dd, yy' => 'Mar 03, 2024 (M dd, yy)',
+					'MM dd, yy' => 'March 28, 2024 (MM dd, yy)',
+				],
 			] ),
-			Control::DateTime( 'save_format', [
+			'save_format_date' => Control::SelectWithInput( 'save_format', [
 				'label'       => __( 'Save format', 'meta-box-builder' ),
-				'description' => __( 'Custom format for the value saved in the database. Accepts same formats as the PHP date() function. Leave empty to save as it is.', 'meta-box-builder' ),
-				'date'        => [
+				// Translators: %s - URL to PHP's date() function page.
+				'description' => sprintf( __( '<a href="%s" target="_blank">PHP date format</a> for the value saved in the database. Leave empty to save as it is.', 'meta-box-builder' ), 'https://www.php.net/manual/en/datetime.format.php' ),
+				'options'        => [
 					'Y-m-d'  => '2024-03-28 (Y-m-d)',
 					'd-m-Y'  => '28-03-2024 (d-m-Y)',
 					'm/d/Y'  => '03/28/2024 (m/d/Y)',
@@ -134,33 +125,32 @@ class Registry {
 					'M j, Y' => 'Mar 03, 2024 (M j, Y)',
 					'F j, Y' => 'March 28, 2024 (F j, Y)',
 				],
-				'time'        => [
-					'H:i'   => '09:20 (H:i)',
-					'h:i A' => '04:20 AM (h:i A)',
-				],
-				'datetime'    => [
+				'dependency' => 'timestamp:false'
+			] ),
+			'save_format_datetime' => Control::SelectWithInput( 'save_format', [
+				'label'       => __( 'Save format', 'meta-box-builder' ),
+				// Translators: %s - URL to PHP's date() function page.
+				'description' => sprintf( __( '<a href="%s" target="_blank">PHP date format</a> for the value saved in the database. Leave empty to save as it is.', 'meta-box-builder' ), 'https://www.php.net/manual/en/datetime.format.php' ),
+				'options'    => [
+					'Y-m-d H:i'    => '2024-03-28 09:20 (Y-m-d H:i)',
 					'd-m-Y H:i'    => '28-03-2024 09:20 (d-m-Y H:i)',
 					'm/d/Y H:i'    => '03/28/2024 09:20 (m/d/Y H:i)',
-					'Y-m-d H:i'    => '2024-03-28 09:20 (Y-m-d H:i)',
 					'M j, Y h:i A' => 'Mar 28, 2024 09:20 AM (M j, Y h:i A)',
 				],
+				'dependency' => 'timestamp:false'
 			] ),
-			Control::Checkbox( 'timestamp', __( 'Save value as timestamp', 'meta-box-builder' ) ),
-			'inline_date'                  => Control::Checkbox( 'inline', [
-				'label'   => __( 'Inline', 'meta-box-builder' ),
-				'tooltip' => __( 'Display the date picker inline with the input. Do not require to click the input field to trigger the date picker.', 'meta-box-builder' ),
-			] ),
-			'inline_datetime'              => Control::Checkbox( 'inline', [
-				'label'   => __( 'Inline', 'meta-box-builder' ),
-				'tooltip' => __( 'Display the date picker inline with the input. Do not require to click the input field to trigger the date picker.', 'meta-box-builder' ),
-			] ),
-			Control::Checkbox( 'disabled', __( 'Disabled', 'meta-box-builder' ) ),
-			Control::Checkbox( 'required', __( 'Required', 'meta-box-builder' ) ),
-			Control::Checkbox( 'readonly', __( 'Read only', 'meta-box-builder' ) ),
+			Control::Toggle( 'timestamp', __( 'Save value as timestamp', 'meta-box-builder' ) ),
+			'inline_date'     => Control::Toggle( 'inline', __( 'Display the date picker inline with the input', 'meta-box-builder' ), false, 'appearance' ),
+			'inline_datetime' => Control::Toggle( 'inline', __( 'Display the date picker inline with the input', 'meta-box-builder' ), false, 'appearance' ),
+			Control::Toggle( 'disabled', __( 'Disabled', 'meta-box-builder' ) ),
+			Control::Required( 'required', __( 'Required', 'meta-box-builder' ) ),
+			Control::Toggle( 'readonly', __( 'Read only', 'meta-box-builder' ) ),
+			Control::InputAttributes( 'input_attributes', __( 'Attributes', 'meta-box-builder' ) ),
 			'js_options_date'              => Control::KeyValue( 'js_options', [
-				'label'   => '<a href="https://api.jqueryui.com/datepicker/" target="_blank" rel="nofollow noopenner">' . __( 'Date picker options', 'meta-box-builder' ) . '</a>',
-				'tooltip' => __( 'jQueryUI date picker options', 'meta-box-builder' ),
-				'keys'    => [
+				'label'       => __( 'Date picker options', 'meta-box-builder' ),
+				// Translators: %s - URL to the jQueryUI date picker page.
+				'description' => sprintf( __( 'Custom options for the <a href="%s" target="_blank">jQueryUI date picker</a> library.', 'meta-box-builder' ), 'https://api.jqueryui.com/datepicker/' ),
+				'keys'        => [
 					'buttonText',
 					'changeMonth',
 					'changeYear',
@@ -186,10 +176,11 @@ class Registry {
 					'dateFormat'      => [ 'yy-mm-dd', 'mm/dd/yy', 'dd-mm-yy' ],
 					'showButtonPanel' => [ 'true', 'false' ],
 				],
-			] ),
+			], [], 'advanced' ),
 			'js_options_datetime'          => Control::KeyValue( 'js_options', [
-				'label'   => '<a href="https://api.jqueryui.com/datepicker/" target="_blank" rel="nofollow noopenner">' . __( 'Date picker options', 'meta-box-builder' ) . '</a>',
-				'tooltip' => __( 'jQueryUI date and time picker options', 'meta-box-builder' ),
+				'label'   => __( 'Datetime picker options', 'meta-box-builder' ),
+				// Translators: %1$s - URL to the jQueryUI date picker page, %2$s - URL to the jQueryUI time picker page.
+				'description' => sprintf( __( 'Custom options for the jQueryUI <a href="%1$s" target="_blank">date picker</a> and <a href="%2$s" target="_blank">time picker</a> libraries.', 'meta-box-builder' ), 'https://api.jqueryui.com/datepicker/', 'https://trentrichardson.com/examples/timepicker/' ),
 				'keys'    => [
 					'buttonText',
 					'changeMonth',
@@ -215,19 +206,23 @@ class Registry {
 				'values'  => [
 					'changeMonth'     => [ 'true', 'false' ],
 					'changeYear'      => [ 'true', 'false' ],
-					'dateFormat'      => [ 'yy-mm-dd HH:mm', 'mm/dd/yy HH:mm', 'dd-mm-yy HH:mm' ],
+					'dateFormat'      => [ 'yy-mm-dd', 'mm/dd/yy', 'dd-mm-yy' ],
 					'showButtonPanel' => [ 'true', 'false' ],
 				],
-			] ),
+			], [], 'advanced' ),
 
 			// Map.
 			'std_map'                      => Control::Input( 'std', [
-				'label'   => __( 'Default location', 'meta-box-builder' ),
-				'tooltip' => __( 'Format: latitude,longitude.', 'meta-box-builder' ),
+				'label'       => __( 'Default location', 'meta-box-builder' ),
+				'description' => __( 'Format: latitude,longitude.', 'meta-box-builder' ),
+			] ),
+			'std_osm'                      => Control::Input( 'std', [
+				'label'       => __( 'Default location', 'meta-box-builder' ),
+				'description' => __( 'Format: latitude,longitude.', 'meta-box-builder' ),
 			] ),
 			Control::AddressField( 'address_field', [
 				'label'       => __( 'Address field', 'meta-box-builder' ),
-				'tooltip'     => __( 'The ID of address field. For multiple fields, separate them by comma.', 'meta-box-builder' ),
+				'description' => __( 'The ID of the address field. For multiple fields, separate them by comma.', 'meta-box-builder' ),
 				'placeholder' => __( 'Enter or select a field ID', 'meta-box-builder' ),
 				'required'    => true,
 			] ),
@@ -242,7 +237,7 @@ class Registry {
 
 			// Taxonomy.
 			Control::ReactSelect( 'taxonomy', [
-				'name'    => 'taxonomy[]',
+				'name'    => 'taxonomy',
 				'label'   => __( 'Taxonomies', 'meta-box-builder' ),
 				'options' => $this->get_taxonomies(),
 			] ),
@@ -257,20 +252,35 @@ class Registry {
 					'radio_list'      => __( 'Radio list', 'meta-box-builder' ),
 				],
 			], 'select_advanced' ),
-			Control::Checkbox( 'add_new', [
-				'label'   => __( 'Add new', 'meta-box-builder' ),
-				'tooltip' => __( 'Allow users to create a new item', 'meta-box-builder' ),
-			] ),
-			Control::Checkbox( 'remove_default', __( 'Remove default meta box', 'meta-box-builder' ) ),
-			Control::Checkbox( 'multiple', [
-				'label'   => __( 'Multiple', 'meta-box-builder' ),
-				'tooltip' => __( 'Allow to select multiple choices', 'meta-box-builder' ),
-			] ),
-			Control::Checkbox( 'select_all_none', __( 'Display "Toggle All" button', 'meta-box-builder' ) ),
+			Control::Toggle( 'add_new', __( 'Allow to create a new item', 'meta-box-builder' ) ),
+			Control::Toggle( 'remove_default', __( 'Remove default meta box', 'meta-box-builder' ) ),
+			Control::Toggle( 'multiple', __( 'Allow to select multiple items', 'meta-box-builder' ) ),
+			Control::Toggle( 'select_all_none', __( 'Display "Toggle All" button', 'meta-box-builder' ), false, 'appearance' ),
+			'select_all_none_post' => Control::Toggle( 'select_all_none', [
+				'label'      => __( 'Display "Toggle All" button', 'meta-box-builder' ),
+				'dependency' => 'multiple:true',
+			], false, 'appearance' ),
+			'select_all_none_taxonomy' => Control::Toggle( 'select_all_none', [
+				'label'      => __( 'Display "Toggle All" button', 'meta-box-builder' ),
+				'dependency' => 'multiple:true',
+			], false, 'appearance' ),
+			'select_all_none_taxonomy_advanced' => Control::Toggle( 'select_all_none', [
+				'label'      => __( 'Display "Toggle All" button', 'meta-box-builder' ),
+				'dependency' => 'multiple:true',
+			], false, 'appearance' ),
+			'select_all_none_user' => Control::Toggle( 'select_all_none', [
+				'label'      => __( 'Display "Toggle All" button', 'meta-box-builder' ),
+				'dependency' => 'multiple:true',
+			], false, 'appearance' ),
+			'select_all_none_select' => Control::Toggle( 'select_all_none', [
+				'label'      => __( 'Display "Select: All | None" button', 'meta-box-builder' ),
+				'dependency' => 'multiple:true',
+			], false, 'appearance' ),
 			'query_args_taxonomy'          => Control::KeyValue( 'query_args', [
-				'label'   => '<a href="https://developer.wordpress.org/reference/classes/wp_term_query/__construct/" target="_blank" rel="nofollow noreferrer">' . __( 'Query args', 'meta-box-builder' ) . '</a>',
-				'tooltip' => __( 'Query arguments for getting terms. Same as in the get_terms() function.', 'meta-box-builder' ),
-				'keys'    => [
+				'label'       => __( 'Query args', 'meta-box-builder' ),
+				// Translators: %s - URL to the get_terms() docs.
+				'description' => sprintf( __( 'Query arguments for getting terms. Same as in the <a href="%s" target="_blank">get_terms()</a> function.', 'meta-box-builder' ), 'https://developer.wordpress.org/reference/classes/wp_term_query/__construct/' ),
+				'keys'        => [
 					'object_ids',
 					'orderby',
 					'order',
@@ -305,8 +315,9 @@ class Registry {
 				],
 			] ),
 			'query_args_taxonomy_advanced' => Control::KeyValue( 'query_args', [
-				'label'   => '<a href="https://developer.wordpress.org/reference/classes/wp_term_query/__construct/" target="_blank" rel="nofollow noreferrer">' . __( 'Query args', 'meta-box-builder' ) . '</a>',
-				'tooltip' => __( 'Query arguments for getting terms. Same as in the get_terms() function.', 'meta-box-builder' ),
+				'label'       => __( 'Query args', 'meta-box-builder' ),
+				// Translators: %s - URL to the get_terms() docs.
+				'description' => sprintf( __( 'Query arguments for getting terms. Same as in the <a href="%s" target="_blank">get_terms()</a> function.', 'meta-box-builder' ), 'https://developer.wordpress.org/reference/classes/wp_term_query/__construct/' ),
 				'keys'    => [
 					'object_ids',
 					'orderby',
@@ -344,17 +355,17 @@ class Registry {
 
 			// Upload.
 			Control::Input( 'max_file_uploads', [
-				'type'    => 'number',
-				'label'   => __( 'Max number of files', 'meta-box-builder' ),
-				'tooltip' => __( 'Leave empty for unlimited uploads', 'meta-box-builder' ),
+				'type'        => 'number',
+				'label'       => __( 'Max number of files', 'meta-box-builder' ),
+				'description' => __( 'Leave empty for unlimited uploads.', 'meta-box-builder' ),
 			] ),
-			Control::Checkbox( 'max_status', [
+			Control::Toggle( 'max_status', [
 				'label'   => __( 'Show status', 'meta-box-builder' ),
 				'tooltip' => __( 'Display how many files uploaded/remaining', 'meta-box-builder' ),
 			], true ),
-			Control::Checkbox( 'force_delete', [
+			Control::Toggle( 'force_delete', [
 				'label'   => __( 'Force delete', 'meta-box-builder' ),
-				'tooltip' => __( 'Delete files from the Media Library when deleting them from post meta', 'meta-box-builder' ),
+				'tooltip' => __( 'Delete files when deleting them from post meta', 'meta-box-builder' ),
 			] ),
 
 			// Field specific.
@@ -362,52 +373,45 @@ class Registry {
 			// Autocomplete.
 			Control::Textarea( 'options', [
 				'label'       => __( 'Choices', 'meta-box-builder' ),
-				'description' => __( 'Enter each choice per line. You can also set both value and label like <code>red: Red</code>.', 'meta-box-builder' ) .
-					'<br>' . __( 'To use a PHP function that returns an array of options, enter <code>callback: function_name</code>.', 'meta-box-builder' ) .
-					'<br>' . __( 'The callback function must be declared before adding to the box.', 'meta-box-builder' ),
+				'description' => __( 'Enter each choice per line. Use <code>value: Label</code> format for both value and label or <code>callback: function_name</code> for a PHP callback (the function must exist).', 'meta-box-builder' ),
 			] ),
 
 			// Button.
-			'std_button'                   => Control::Input( 'std', __( 'Button text', 'meta-box-builder' ) ),
+			'std_button'                   => Control::Input( 'std', __( 'Button text', 'meta-box-builder' ), __( 'Click me', 'meta-box-builder' ) ),
 
 			// Button group.
 			'options_button_group'         => Control::Textarea( 'options', [
 				'label'       => __( 'Buttons', 'meta-box-builder' ),
-				'description' => __( 'Enter each button text per line. You can also set both value and label like <code>red: Red</code>.', 'meta-box-builder' ) .
-					'<br>' . __( 'To use a PHP function that returns an array of options, enter <code>callback: function_name</code>.', 'meta-box-builder' ) .
-					'<br>' . __( 'The callback function must be declared before adding to the box.', 'meta-box-builder' ),
+				'description' => __( 'Enter each button text per line. Use <code>value: Label</code> format for both value and label or <code>callback: function_name</code> for a PHP callback (the function must exist).', 'meta-box-builder' ),
 			] ),
-			'inline_button_group'          => Control::Checkbox( 'inline', __( 'Display buttons horizontally', 'meta-box-builder' ), true ),
+			'inline_button_group'          => Control::Toggle( 'inline', __( 'Display buttons horizontally', 'meta-box-builder' ), true, 'appearance' ),
 
 			// Checkbox.
-			'std_checkbox'                 => Control::Checkbox( 'std', __( 'Checked by default', 'meta-box-builder' ) ),
+			'std_checkbox'                 => Control::Toggle( 'std', __( 'Checked by default', 'meta-box-builder' ) ),
 
 			// Checkbox list.
 			'std_checkbox_list'            => Control::Textarea( 'std', [
-				'label'   => __( 'Default value', 'meta-box-builder' ),
-				'tooltip' => __( 'Enter each value on a line', 'meta-box-builder' ),
+				'label'       => __( 'Default value', 'meta-box-builder' ),
+				'description' => __( 'Enter each value on a line.', 'meta-box-builder' ),
 			] ),
-			Control::Checkbox( 'inline', [
-				'label'   => __( 'Inline', 'meta-box-builder' ),
-				'tooltip' => __( 'Display choices on a single line', 'meta-box-builder' ),
-			] ),
+			Control::Toggle( 'inline', __( 'Display choices horizontally', 'meta-box-builder' ), false, 'appearance' ),
 
 			// Color.
-			Control::Checkbox( 'alpha_channel', __( 'Allow to select opacity', 'meta-box-builder' ) ),
+			Control::Toggle( 'alpha_channel', __( 'Allow to select opacity', 'meta-box-builder' ) ),
 			'js_options_color'             => Control::KeyValue( 'js_options', [
-				'label'   => '<a href="https://automattic.github.io/Iris/" target="_blank" rel="nofollow noopenner">' . __( 'Color picker options', 'meta-box-builder' ) . '</a>',
-				'tooltip' => __( 'Color picker options', 'meta-box-builder' ),
-				'keys'    => [ 'mode', 'width', 'palettes' ],
-				'values'  => [
+				'label'       => __( 'Color picker options', 'meta-box-builder' ),
+				'description' => __( 'Custom options for the color picker library. <a href="https://automattic.github.io/Iris/" target="_blank">See here</a>.', 'meta-box-builder' ),
+				'keys'        => [ 'mode', 'width', 'palettes' ],
+				'values'      => [
 					'mode' => [ 'hsl', 'hsv' ],
 				],
-			] ),
+			], [], 'advanced' ),
 
 			// Custom HTML.
 			'std_custom_html'              => Control::Textarea( 'std', __( 'Content (HTML allowed)', 'meta-box-builder' ) ),
 			Control::Input( 'callback', [
-				'label'   => __( 'PHP Callback', 'meta-box-builder' ),
-				'tooltip' => __( 'PHP function that is called to show custom HTML content. Will overwrite the content setting above.', 'meta-box-builder' ),
+				'label'       => __( 'Custom callback', 'meta-box-builder' ),
+				'description' => __( 'A PHP function that is called to show custom HTML content. Will overwrite the content setting above.', 'meta-box-builder' ),
 			] ),
 
 			// Fieldset text.
@@ -418,33 +422,39 @@ class Registry {
 
 			// File.
 			Control::Input( 'upload_dir', [
-				'label'   => __( 'Custom upload folder', 'meta-box-builder' ),
-				'tooltip' => __( 'Relatively to the WordPress root path', 'meta-box-builder' ),
+				'label'       => __( 'Custom upload folder', 'meta-box-builder' ),
+				'description' => __( 'Relatively to the WordPress root path.', 'meta-box-builder' ),
 			] ),
 
 			// File advanced.
 			Control::Input( 'mime_type', [
-				'label'   => __( 'MIME types', 'meta-box-builder' ),
-				'tooltip' => __( 'Filters items in the Media Library popup. Does not restrict file types when upload. Separate by commas.', 'meta-box-builder' ),
+				'label'       => __( 'MIME types', 'meta-box-builder' ),
+				'description' => __( 'Filters items in the Media Library popup. Does not restrict file types when upload. Separate by commas.', 'meta-box-builder' ),
 			] ),
 
 			// File upload.
-			Control::Input( 'max_file_size', [
-				'label'   => __( 'Max file size', 'meta-box-builder' ),
-				'tooltip' => __( 'Supports b, kb, mb, gb, tb suffixes. e.g. "10mb" or "1gb".', 'meta-box-builder' ),
-			] ),
+			Control::FileSize( 'max_file_size', __( 'Max file size', 'meta-box-builder' ) ),
 
 			// Map.
 			Control::Input( 'api_key', [
-				'label'    => '<a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank" rel="noopenner noreferrer">' . __( 'Google Maps API key', 'meta-box-builder' ) . '</a>',
-				'tooltip'  => __( 'Your unique API Key for Google Maps Platform', 'meta-box-builder' ),
-				'required' => true,
+				'label'       => __( 'Google Maps API key', 'meta-box-builder' ),
+				'description' => sprintf( __( 'If you don\'t have one, <a href="%s" target="_blank">create one here</a>.', 'meta-box-builder' ), 'https://developers.google.com/maps/documentation/javascript/get-api-key' ),
+				'required'    => true,
 			] ),
 
 			// Heading.
-			'desc_heading'                 => Control::Input( 'desc', [
-				'label'   => __( 'Input description', 'meta-box-builder' ),
-				'tooltip' => __( 'Display below the field input', 'meta-box-builder' ),
+			'name_heading' => Control::Name( 'name', [
+				'label' => __( 'Heading text', 'meta-box-builder' ),
+			] ),
+			'desc_heading' => Control::Input( 'desc', [
+				'label'       => __( 'Description', 'meta-box-builder' ),
+				'description' => __( 'Display below the heading text.', 'meta-box-builder' ),
+			], '', 'general' ),
+
+			// Image select.
+			'options_image_select' => Control::Textarea( 'options', [
+				'label'       => __( 'Choices', 'meta-box-builder' ),
+				'description' => __( 'Enter each choice per line. Use <code>value: image URL</code> format or <code>callback: function_name</code> for a PHP callback (the function must exist).', 'meta-box-builder' ),
 			] ),
 
 			// Image advanced.
@@ -453,7 +463,7 @@ class Registry {
 				'tooltip' => __( 'Image size that displays in the edit page, used to make sure images are not blurry. It\'s not meant to display images with the exact width and height.', 'meta-box-builder' ),
 				'options' => $this->get_image_sizes(),
 			], 'thumbnail' ),
-			Control::Select( 'add_to', [
+			Control::Radio( 'add_to', [
 				'label'   => __( 'New image placement', 'meta-box-builder' ),
 				'options' => [
 					'beginning' => __( 'Beginning of the list', 'meta-box-builder' ),
@@ -462,43 +472,42 @@ class Registry {
 			], 'end' ),
 
 			// Key value.
-			Control::Input( 'placeholder_key', __( 'Placeholder for key', 'meta-box-builder' ) ),
-			Control::Input( 'placeholder_value', __( 'Placeholder for value', 'meta-box-builder' ) ),
+			Control::Input( 'placeholder_key', __( 'Placeholder for key', 'meta-box-builder' ), '', 'appearance' ),
+			Control::Input( 'placeholder_value', __( 'Placeholder for value', 'meta-box-builder' ), '', 'appearance' ),
 
 			// Number.
-			Control::Input( 'min', [
-				'type'  => 'number',
-				'label' => __( 'Min value', 'meta-box-builder' ),
-			] ),
-			Control::Input( 'max', [
-				'type'  => 'number',
-				'label' => __( 'Max value', 'meta-box-builder' ),
+			Control::InputGroup( 'minmax', [
+				'label'  => __( 'Limit', 'meta-box-builder' ),
+				'label1' => __( 'Min', 'meta-box-builder' ),
+				'label2' => __( 'Max', 'meta-box-builder' ),
+				'key1'   => 'min',
+				'key2'   => 'max',
 			] ),
 			Control::Input( 'step', [
-				'label'   => __( 'Step', 'meta-box-builder' ),
-				'tooltip' => __( "Set the increments at which a numeric value can be set. Enter 'any' to accept any number.", 'meta-box-builder' ),
+				'label'       => __( 'Step', 'meta-box-builder' ),
+				'description' => __( "Set the increments at which a numeric value can be set. Enter 'any' to accept any number.", 'meta-box-builder' ),
 			] ),
 
 			// Oembed.
 			Control::Input( 'not_available_string', [
-				'label'   => __( 'Not available text', 'meta-box-builder' ),
-				'tooltip' => __( 'The text message displayed to users when the embed media is not available. Accepts HTML.', 'meta-box-builder' ),
+				'label'       => __( 'Not available text', 'meta-box-builder' ),
+				'description' => __( 'The text message displayed to users when the embed media is not available. Accepts HTML.', 'meta-box-builder' ),
 			] ),
 
 			// Post.
 			Control::ReactSelect( 'post_type', [
-				'name'    => 'post_type[]',
+				'name'    => 'post_type',
 				'label'   => __( 'Post types', 'meta-box-builder' ),
 				'options' => $this->get_post_types(),
 			], [ 'post' ] ),
-			Control::Checkbox( 'parent', [
+			Control::Toggle( 'parent', [
 				'label'   => __( 'Set as parent', 'meta-box-builder' ),
 				'tooltip' => __( 'Set the selected post as the parent of current post being edited.', 'meta-box-builder' ),
 			] ),
 			'query_args_post'              => Control::KeyValue( 'query_args', [
-				'label'   => '<a href="https://developer.wordpress.org/reference/classes/wp_query/" target="_blank" rel="nofollow noopenner">' . __( 'Query args', 'meta-box-builder' ) . '</a>',
-				'tooltip' => __( 'Query arguments for getting posts. Same as in the WP_Query class.', 'meta-box-builder' ),
-				'keys'    => [
+				'label'       => __( 'Query args', 'meta-box-builder' ),
+				'description' => sprintf( __( 'Query arguments for getting posts. Same as in the <a href="%s" target="_blank">WP_Query</a> class.', 'meta-box-builder' ), 'https://developer.wordpress.org/reference/classes/wp_query/' ),
+				'keys'        => [
 					'author',
 					'author_name',
 					'author__in',
@@ -599,9 +608,9 @@ class Registry {
 
 			// Select advanced.
 			'js_options_select_advanced'   => Control::KeyValue( 'js_options', [
-				'label'   => '<a href="https://select2.org/configuration/options-api" target="_blank" rel="nofollow noopenner">' . __( 'Select2 options', 'meta-box-builder' ) . '</a>',
-				'tooltip' => __( 'Select2 options', 'meta-box-builder' ),
-				'keys'    => [
+				'label'       => __( 'Select2 options', 'meta-box-builder' ),
+				'description' => sprintf( __( 'Advanced options for the <a href="%s" target="_blank">select2</a> library.', 'meta-box-builder' ), 'https://select2.org/configuration/options-api' ),
+				'keys'        => [
 					'ajax',
 					'allowClear',
 					'closeOnSelect',
@@ -625,38 +634,10 @@ class Registry {
 					'disabled'          => [ 'true', 'false' ],
 					'scrollAfterSelect' => [ 'true', 'false' ],
 				],
-			] ),
+			], [], 'advanced' ),
 
 			// Icon.
-			'js_options_icon'              => Control::KeyValue( 'js_options', [
-				'label'   => '<a href="https://select2.org/configuration/options-api" target="_blank" rel="nofollow noopenner">' . __( 'Select2 options', 'meta-box-builder' ) . '</a>',
-				'tooltip' => __( 'Select2 options', 'meta-box-builder' ),
-				'keys'    => [
-					'ajax',
-					'allowClear',
-					'closeOnSelect',
-					'dir',
-					'disabled',
-					'dropdownAutoWidth',
-					'dropdownCssClass',
-					'language',
-					'maximumInputLength',
-					'maximumSelectionLength',
-					'minimumInputLength',
-					'minimumResultsForSearch',
-					'scrollAfterSelect',
-					'selectionCssClass',
-					'selectOnClose',
-					'width',
-				],
-				'values'  => [
-					'allowClear'        => [ 'true', 'false' ],
-					'closeOnSelect'     => [ 'true', 'false' ],
-					'disabled'          => [ 'true', 'false' ],
-					'scrollAfterSelect' => [ 'true', 'false' ],
-				],
-			] ),
-			Control::Select( 'icon_set', [
+			Control::Radio( 'icon_set', [
 				'label'   => __( 'Icon set', 'meta-box-builder' ),
 				'options' => [
 					'font-awesome-free' => __( 'Font Awesome Free', 'meta-box-builder' ),
@@ -665,61 +646,63 @@ class Registry {
 				],
 			], 'font-awesome-free' ),
 			Control::Input( 'icon_file', [
-				'type'       => 'text',
-				'label'      => __( 'Icon file', 'meta-box-builder' ),
-				'tooltip'    => __( 'The full path to the icon file definition, which can be a text or JSON file.', 'meta-box-builder' ),
-				'dependency' => 'icon_set:[font-awesome-pro,custom]',
+				'type'        => 'text',
+				'label'       => __( 'Icon file', 'meta-box-builder' ),
+				'description' => __( 'The full path to the icon file definition, which can be a text or JSON file.', 'meta-box-builder' ),
+				'dependency'  => 'icon_set:[font-awesome-pro,custom]',
 			] ),
 			Control::Input( 'icon_dir', [
-				'type'       => 'text',
-				'label'      => __( 'Icon dir', 'meta-box-builder' ),
-				'tooltip'    => __( 'Full path to the folder that contains all SVGs of icons.', 'meta-box-builder' ),
-				'dependency' => 'icon_set:custom',
+				'type'        => 'text',
+				'label'       => __( 'Icon dir', 'meta-box-builder' ),
+				'description' => __( 'Full path to the folder that contains all SVGs of icons.', 'meta-box-builder' ),
+				'dependency'  => 'icon_set:custom',
 			] ),
 			Control::Input( 'icon_css', [
-				'label'      => __( 'Icon CSS', 'meta-box-builder' ),
-				'tooltip'    => __( 'URL to the icon CSS file. It\'s required only when you use icons as an icon font (e.g. no SVG).', 'meta-box-builder' ),
-				'dependency' => 'icon_set:custom',
+				'label'       => __( 'Icon CSS URL', 'meta-box-builder' ),
+				'description' => __( 'Required only when you use icons as an icon font (e.g. no SVG).', 'meta-box-builder' ),
+				'dependency'  => 'icon_set:custom',
 			] ),
 
 			// Slider.
-			Control::Input( 'prefix', [
-				'label'   => __( 'Prefix', 'meta-box-builder' ),
-				'tooltip' => __( 'Text displayed before the field value', 'meta-box-builder' ),
-			] ),
-			Control::Input( 'suffix', [
-				'label'   => __( 'Suffix', 'meta-box-builder' ),
-				'tooltip' => __( 'Text displayed after the field value', 'meta-box-builder' ),
-			] ),
-			'js_options_slider'            => Control::KeyValue( 'js_options', [
-				'label'   => '<a href="https://api.jqueryui.com/slider" target="_blank" rel="nofollow noopenner">' . __( 'Slider options', 'meta-box-builder' ) . '</a>',
-				'tooltip' => __( 'jQueryUI slider options', 'meta-box-builder' ),
-				'keys'    => [ 'animate', 'max', 'min', 'orientation', 'step' ],
-				'values'  => [
+			Control::InputGroup( 'prefix_suffix', [
+				'label'  => __( 'Text wrap', 'meta-box-builder' ),
+				'label1' => __( 'Prefix', 'meta-box-builder' ),
+				'label2' => __( 'Suffix', 'meta-box-builder' ),
+				'key1'   => 'prefix',
+				'key2'   => 'suffix',
+			], ['prefix' => '', 'suffix' => ''], 'appearance' ),
+			'js_options_slider' => Control::KeyValue( 'js_options', [
+				'label'       => __( 'Slider options', 'meta-box-builder' ),
+				'description' => sprintf( __( 'Custom options for the <a href="%s" target="_blank">jQueryUI slider</a>.', 'meta-box-builder' ), 'https://api.jqueryui.com/slider' ),
+				'keys'        => [ 'animate', 'max', 'min', 'orientation', 'step' ],
+				'values'      => [
 					'orientation' => [ 'horizontal', 'vertical' ],
 					'animate'     => [ 'true', 'false', 'fast', 'slow' ],
 				],
-			] ),
+			], [], 'advanced' ),
 
 			// Switch.
-			Control::Select( 'style', [
+			Control::ToggleGroup( 'style', [
 				'label'   => __( 'Style', 'meta-box-builder' ),
 				'options' => [
 					'rounded' => __( 'Rounded', 'meta-box-builder' ),
 					'square'  => __( 'Square', 'meta-box-builder' ),
 				],
-			], 'rounded' ),
-			Control::Input( 'on_label', __( 'Custom ON status label', 'meta-box-builder' ) ),
-			Control::Input( 'off_label', __( 'Custom OFF status label', 'meta-box-builder' ) ),
-			'std_switch'                   => Control::Checkbox( 'std', __( 'ON by default', 'meta-box-builder' ) ),
+			], 'rounded', 'appearance' ),
+			Control::InputGroup( 'on_off', [
+				'label'  => __( 'Labels', 'meta-box-builder' ),
+				'label1' => __( 'ON', 'meta-box-builder' ),
+				'label2' => __( 'OFF', 'meta-box-builder' ),
+				'key1'   => 'on_label',
+				'key2'   => 'off_label',
+			], [ 'on_label' => '', 'off_label' => '' ], 'appearance' ),
+			'std_switch' => Control::Toggle( 'std', __( 'ON by default', 'meta-box-builder' ) ),
 
 			// Text.
-			Control::Input( 'prepend', __( 'Prepend text', 'meta-box-builder' ) ),
-			Control::Input( 'append', __( 'Append text', 'meta-box-builder' ) ),
 			Control::Textarea( 'datalist_choices', [
-				'label'   => __( 'Predefined values', 'meta-box-builder' ),
-				'tooltip' => __( 'Known as "datalist", these are values that users can select from (they still can enter text if they want). Enter each value on a line.', 'meta-box-builder' ),
-			] ),
+				'label'       => __( 'Predefined values', 'meta-box-builder' ),
+				'description' => __( 'Known as "datalist", these are values that users can select from (they still can enter text if they want). Enter each value on a line.', 'meta-box-builder' ),
+			], '', 'advanced' ),
 
 			// Text list.
 			'options_text_list'            => Control::KeyValue( 'options', [
@@ -729,36 +712,34 @@ class Registry {
 			] ),
 
 			// Textarea.
-			'std_textarea'                 => Control::Textarea( 'std', __( 'Default value', 'meta-box-builder' ) ),
-			Control::Input( 'rows', [
-				'type'  => 'number',
-				'label' => __( 'Rows', 'meta-box-builder' ),
-			] ),
-			Control::Input( 'cols', [
-				'type'  => 'number',
-				'label' => __( 'Columns', 'meta-box-builder' ),
-			] ),
+			'std_textarea' => Control::Textarea( 'std', __( 'Default value', 'meta-box-builder' ) ),
+			Control::InputGroup( 'textarea_size', [
+				'label'  => __( 'Size', 'meta-box-builder' ),
+				'label1' => __( 'Rows', 'meta-box-builder' ),
+				'label2' => __( 'Columns', 'meta-box-builder' ),
+				'key1'   => 'rows',
+				'key2'   => 'cols',
+			], [ 'rowls' => '', 'cols' => '' ], 'appearance' ),
 
 			// Time.
-			'inline_time'                  => Control::Checkbox( 'inline', [
-				'label'   => __( 'Inline', 'meta-box-builder' ),
-				'tooltip' => __( 'Display the time picker inline with the input. Do not require to click the input field to trigger the time picker.', 'meta-box-builder' ),
-			] ),
+			'inline_time'                  => Control::Toggle( 'inline', __( 'Display the time picker inline with the input', 'meta-box-builder' ), false, 'appearance' ),
 			'js_options_time'              => Control::KeyValue( 'js_options', [
-				'label'   => '<a href="http://trentrichardson.com/examples/timepicker" target="_blank" rel="nofollow noopenner">' . __( 'Time picker options', 'meta-box-builder' ) . '<a/>',
-				'tooltip' => __( 'jQueryUI time picker options', 'meta-box-builder' ),
-				'keys'    => [ 'controlType', 'timeFormat' ],
-				'values'  => [
+				'label'       => __( 'Time picker options', 'meta-box-builder' ),
+				// Translators: %s - URL to the time picker page.
+				'description' => sprintf( __( 'Custom options for the <a href="%s" target="_blank">jQueryUI time picker</a> library.', 'meta-box-builder' ), 'http://trentrichardson.com/examples/timepicker' ),
+				'keys'        => [ 'controlType', 'timeFormat' ],
+				'values'      => [
 					'controlType' => [ 'select', 'slider' ],
 					'timeFormat'  => [ 'HH:mm', 'HH:mm T' ],
 				],
-			] ),
+			], [], 'advanced' ),
 
 			// User.
 			'query_args_user'              => Control::KeyValue( 'query_args', [
-				'label'   => '<a href="https://developer.wordpress.org/reference/classes/wp_user_query/prepare_query/" target="_blank" rel="nofollow noopenner">' . __( 'Query args', 'meta-box-builder' ) . '</a>',
-				'tooltip' => __( 'Query arguments for getting user. Same as in the get_user() function.', 'meta-box-builder' ),
-				'keys'    => [
+				'label'       => __( 'Query args', 'meta-box-builder' ),
+				// Translators: %s - URL to the get_users() page.
+				'description' => sprintf( __( 'Query arguments for getting user. Same as in the <a href="%s target="_blank">get_user()</a> function.', 'meta-box-builder' ), 'https://developer.wordpress.org/reference/classes/wp_user_query/prepare_query/' ),
+				'keys'        => [
 					'blog_id',
 					'role',
 					'role__in',
@@ -820,18 +801,22 @@ class Registry {
 			] ),
 
 			// Wysiwyg.
-			Control::Checkbox( 'raw', __( 'Save data in the raw format', 'meta-box-builder' ) ),
+			Control::Toggle( 'raw', [
+				'label'   => __( 'Save data in the raw format.', 'meta-box-builder' ),
+				'tooltip' => __( 'Do not apply wpautop() to the value before saving to the database', 'meta-box-builder' )
+			] ),
 			'options_wysiwyg'              => Control::KeyValue( 'options', [
-				'label'   => '<a href="https://developer.wordpress.org/reference/functions/wp_editor/" target="_blank" rel="nofollow noopenner">' . __( 'Editor options', 'meta-box-builder' ) . '</a>',
-				'tooltip' => __( 'The editor options, the same as settings for wp_editor() function', 'meta-box-builder' ),
-				'keys'    => [ 'media_buttons', 'default_editor', 'drag_drop_upload', 'quicktags', 'textarea_rows', 'teeny' ],
-				'values'  => [
+				'label'       => __( 'Editor options', 'meta-box-builder' ),
+				// Translators: %s - URL to the wp_editor() page.
+				'description' => sprintf( __( 'The editor options, the same as settings for the <a href="%s" target="_blank">wp_editor()</a> function', 'meta-box-builder' ), 'https://developer.wordpress.org/reference/functions/wp_editor/' ),
+				'keys'        => [ 'media_buttons', 'default_editor', 'drag_drop_upload', 'quicktags', 'textarea_rows', 'teeny' ],
+				'values'      => [
 					'media_buttons'    => [ 'true', 'false' ],
 					'drag_drop_upload' => [ 'true', 'false' ],
 					'teeny'            => [ 'true', 'false' ],
 					'default'          => [ 'true', 'false', 'tinymce', 'html' ],
 				],
-			] ),
+			], [], 'advanced' ),
 		];
 
 		foreach ( $controls as $id => $control ) {

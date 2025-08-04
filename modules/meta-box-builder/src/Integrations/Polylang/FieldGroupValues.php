@@ -1,32 +1,17 @@
 <?php
 namespace MBB\Integrations\Polylang;
 
-use MBB\Control;
-
 class FieldGroupValues {
-	const MODES = [ 'translate', 'copy', 'ignore', 'advanced' ];
-
 	public function __construct() {
-		add_filter( 'mbb_settings_controls', [ $this, 'add_translation_control' ] );
+		add_filter( 'mbb_app_data', [ $this, 'add_app_data' ] );
 
 		// Tell Polylang whether to translate or copy a field
 		add_filter( 'pll_copy_post_metas', [ $this, 'copy_post_metas' ], 10, 3 );
 	}
 
-	public function add_translation_control( array $controls ): array {
-		// Add the control after the custom settings control (index 40)
-		$controls[50] = Control::Select( 'translation', [
-			'label'   => __( 'Translation', 'meta-box-builder' ),
-			'tooltip' => __( 'Choose how to handle field translations in this field group', 'meta-box-builder' ),
-			'options' => [
-				'ignore'    => __( 'Do not translate any fields in this field group', 'meta-box-builder' ),
-				'translate' => __( 'Translate all fields in this field group', 'meta-box-builder' ),
-				'copy'      => __( 'Synchronize values across languages', 'meta-box-builder' ),
-				'advanced'  => __( 'Set translation mode per field', 'meta-box-builder' ),
-			],
-		], 'ignore' );
-
-		return $controls;
+	public function add_app_data( array $data ): array {
+		$data['polylang'] = true;
+		return $data;
 	}
 
 	public function copy_post_metas( $keys, $sync, $from ): array {

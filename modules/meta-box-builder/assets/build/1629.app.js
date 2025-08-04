@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunk=globalThis.webpackChunk||[]).push([[1629],{1629:(e,a,l)=>{l.r(a),l.d(a,{default:()=>u});var t=l(1609),n=l(6427),i=l(731);const u=({name:e,defaultValue:a,updateField:l,...u})=>(0,t.createElement)(i.default,{...u},(0,t.createElement)(n.RangeControl,{min:1,max:12,initialPosition:12,value:a,onChange:a=>l(e,a)}))}}]);

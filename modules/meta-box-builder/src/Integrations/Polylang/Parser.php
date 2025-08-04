@@ -22,16 +22,15 @@ class Parser {
 		}
 
 		if ( empty( $settings['fields_translations'] ) ) {
-			return $settings;
-		}
-
-		// Somehow the data submitted is not a JSON string, ignore it.
-		if ( ! is_string( $settings['fields_translations'] ) ) {
+			unset( $settings['translation'] );
 			unset( $settings['fields_translations'] );
 			return $settings;
 		}
 
-		$settings['fields_translations'] = $this->parse_json( wp_unslash( $settings['fields_translations'] ) );
+		// Backward compatibility: previously the data was submitted as a JSON string, parse it.
+		if ( isset( $settings['fields_translations'] ) && is_string( $settings['fields_translations'] ) ) {
+			$settings['fields_translations'] = $this->parse_json( wp_unslash( $settings['fields_translations'] ) );
+		}
 
 		return $settings;
 	}

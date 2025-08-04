@@ -1,0 +1,53 @@
+.mb {
+	--nav-width: 0;
+}
+
+.mb-main {
+	max-width: 60rem;
+}
+
+.mb-content {
+	padding: 32px 32px 0 32px;
+}
+
+.og-field {
+	display: grid;
+	grid-template-columns: 180px 1fr;
+}
+
+.og-label {
+	text-transform: none;
+	font-size: 13px;
+}
+
+.og-attribute {
+	flex-direction: row;
+}
+
+.components-panel__body {
+	margin-inline: -32px;
+}
+
+.components-tab-panel__tab-content {
+	padding: 16px;
+}
+
+.components-tab-panel__tabs {
+	border-bottom: 1px solid #e0e0e0;
+	gap: 24px;
+	margin-inline: 16px;
+}
+
+.components-tab-panel__tabs-item {
+	padding-inline: 0;
+}
+
+.components-tab-panel__tabs-item.is-active::after {
+	outline: none;
+	bottom: -1px;
+	height: 3px;
+}
+
+#post_title {
+	text-align: center;
+}

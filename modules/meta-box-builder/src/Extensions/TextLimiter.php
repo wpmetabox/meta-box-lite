@@ -14,14 +14,13 @@ class TextLimiter {
 	}
 
 	public function add_field_controls( $controls, $type ) {
-		if ( $type === 'tab' ) {
+		if ( ! in_array( $type, [ 'text', 'textarea', 'wysiwyg' ] ) ) {
 			return $controls;
 		}
 
 		$control = Control::TextLimiter( 'text_limiter', [
 			'label'       => __( 'Text limit', 'meta-box-builder' ),
-			// Translators: %s - Link to docs.
-			'description' => sprintf( __( 'Limit the content by characters or words. Leave empty or enter 0 for no limit. <a href="%s" target="_blank">Learn more</a>.', 'meta-box-builder' ), 'https://docs.metabox.io/extensions/meta-box-text-limiter/"' ),
+			'description' => __( 'Leave empty or enter 0 for no limit.', 'meta-box-builder' ),
 		], [], 'general' );
 
 		return Control::insert( $controls, 'std', $control );

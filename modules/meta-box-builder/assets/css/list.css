@@ -75,3 +75,8 @@
 	background: #fffbeb;
 	color: #d97706;
 }
+
+/* Status column */
+.column-status {
+	width: 50px;
+}

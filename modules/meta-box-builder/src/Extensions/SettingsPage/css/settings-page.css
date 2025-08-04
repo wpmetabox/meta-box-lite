@@ -1,0 +1,35 @@
+.mb {
+	--nav-width: 0;
+}
+
+.mb-main {
+	max-width: 60rem;
+}
+
+.mb-content {
+	padding: 32px;
+}
+
+.og-field {
+	display: grid;
+	grid-template-columns: 180px 1fr;
+}
+
+.og-label {
+	text-transform: none;
+	font-size: 13px;
+}
+
+.og-attribute {
+	flex-direction: row;
+}
+
+hr {
+	margin: 32px -32px;
+	border-top: 0;
+	border-bottom-color: #e0e0e0;
+}
+
+#post_title {
+	text-align: center;
+}

@@ -68,7 +68,7 @@
 		} );
 
 		// Dialog for diff
-		document.querySelector( '#mbb-diff-dialog-close' ).addEventListener( 'click', () => {
+		document.querySelector( '#mbb-diff-dialog-close' )?.addEventListener( 'click', () => {
 			document.querySelector( '#mbb-diff-dialog' ).close();
 		} );
 
@@ -80,7 +80,7 @@
 		} );
 
 		// Click outside to close dialog
-		document.querySelector( '#mbb-diff-dialog' ).addEventListener( 'click', ( e ) => {
+		document.querySelector( '#mbb-diff-dialog' )?.addEventListener( 'click', ( e ) => {
 			if ( e.target === document.querySelector( '#mbb-diff-dialog' ) ) {
 				document.querySelector( '#mbb-diff-dialog' ).close();
 			}

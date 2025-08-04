@@ -44,8 +44,6 @@ class ComposerStaticInit8a59c71b389c66ade363236ca67770f5
             'MBEI\\' => 5,
             'MBDI\\' => 5,
             'MBCPT\\' => 6,
-            'MBB\\SettingsPage\\' => 17,
-            'MBB\\Relationships\\' => 18,
             'MBB\\' => 4,
             'MBBTI\\' => 6,
             'MBBParser\\' => 10,
@@ -100,14 +98,6 @@ class ComposerStaticInit8a59c71b389c66ade363236ca67770f5
         'MBCPT\\' => 
         array (
             0 => __DIR__ . '/../..' . '/modules/mb-custom-post-type/src',
-        ),
-        'MBB\\SettingsPage\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/modules/meta-box-builder/modules/settings-page/src',
-        ),
-        'MBB\\Relationships\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/modules/meta-box-builder/modules/relationships/src',
         ),
         'MBB\\' => 
         array (

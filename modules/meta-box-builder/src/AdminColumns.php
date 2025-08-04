@@ -47,7 +47,7 @@ class AdminColumns {
 		}
 
 		if ( $new_status === 'publish' && $old_status === 'draft' ) {
-			// When switching from 'draft' to 'publish', the earlier meta box does not contains id 
+			// When switching from 'draft' to 'publish', the earlier meta box does not contains id
 			// (since draft posts don't have post_name property).
 			// So, we need to set the id for the meta box
 			$meta_box = get_post_meta( $post->ID, 'meta_box', true );
@@ -76,7 +76,7 @@ class AdminColumns {
 
 		if ( $new_status === 'draft' ) {
 			$post = get_post( $post_id );
-			
+
 			if ( $post->post_type !== $this->post_type ) {
 				return $new_status;
 			}
@@ -122,7 +122,16 @@ class AdminColumns {
 		] );
 	}
 
-	public function admin_notices() {
+	public function admin_notices(): void {
+		if ( get_current_screen()->id !== 'edit-meta-box' ) {
+			return;
+		}
+
+		// Don't show other notices.
+		remove_all_actions( 'admin_notices' );
+
+		$this->show_new_ui_notice();
+
 		if ( ! LocalJson::is_enabled() ) {
 			return;
 		}
@@ -146,6 +155,22 @@ class AdminColumns {
 		?>
 		<div class="notice notice-<?php esc_attr_e( $messages[ $custom_admin_notice ]['status'] ) ?> is-dismissible">
 			<p><?php esc_html_e( $messages[ $custom_admin_notice ]['message'] ) ?></p>
+		</div>
+		<?php
+	}
+
+	public function show_new_ui_notice(): void {
+		?>
+		<div class="notice notice-info is-dismissible">
+			<p>
+				<?php
+				echo wp_kses_post( sprintf(
+					__('You are using the <a href="%s" target="_blank">new version</a> of the builder with a total new UI/UX. If you have any issues or suggestions, please <a href="%s" target="_blank">let us know</a>.', 'meta-box-builder'),
+					'https://metabox.io/mb-builder-5-0-0-rc2/',
+					'https://metabox.io/contact/'
+				) );
+				?>
+			</p>
 		</div>
 		<?php
 	}
@@ -455,11 +480,9 @@ class AdminColumns {
 		if ( $sync_data['is_newer'] === 0 ) {
 			$status = 'synced';
 		}
-
 		if ( ! $sync_data['is_writable'] ) {
 			$status = 'error_file_permission';
 		}
-
 		if ( $sync_data['local'] === null ) {
 			$status = 'no_json';
 		}
@@ -469,14 +492,13 @@ class AdminColumns {
 		</span>
 
 		<?php
-		if ( $sync_data['is_newer'] <= 0 || ! $sync_data['is_writable'] ) {
+		if ( $status !== 'sync_available' ) {
 			return;
 		}
 		?>
 		<div class="row-actions">
 			<span class="sync">
-				<a class="button-sync" data-use="json" data-id="<?php esc_html_e( $meta_box_id ) ?>" href="javascript:;"
-					role="button">
+				<a class="button-sync" data-use="json" data-id="<?php esc_html_e( $meta_box_id ) ?>" href="javascript:;">
 					<?= esc_html__( 'Sync', 'meta-box-builder' ); ?>
 				</a>
 			</span>

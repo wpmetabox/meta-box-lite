@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunk=globalThis.webpackChunk||[]).push([[6898],{6898:(e,t,a)=>{a.r(t),a.d(t,{default:()=>i});var l=a(1609);const i=({id:e,options:t})=>t.length>0&&(0,l.createElement)("datalist",{id:e},t.map((e=>(0,l.createElement)("option",{key:e},e))))}}]);

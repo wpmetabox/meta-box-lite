@@ -1,10 +1,9 @@
 <?php
 namespace MBB;
 
-use MBB\Extensions\Blocks;
+use MBB\Helpers\Path;
 
 class JsonService {
-
 	/**
 	 * Get data from JSON file and format it in a verbose format to use everywhere possible:
 	 * - Compare
@@ -103,7 +102,7 @@ class JsonService {
 			if ( ! isset( $meta_box['id'] ) ) {
 				continue;
 			}
-			
+
 			$id        = $meta_box['id'];
 			$post_id   = $meta_box['post_id'];
 			$post_type = $meta_box['post_type'];
@@ -122,7 +121,7 @@ class JsonService {
 
 				$file         = self::get_future_path( $id );
 				$folder       = dirname( $file );
-				$is_writeable = Blocks::is_future_path_writable( $folder );
+				$is_writeable = Path::is_future_path_writable( $folder );
 
 				$items[ $id ] = [
 					'file'            => $file,
@@ -268,26 +267,32 @@ class JsonService {
 	 * @return string[]
 	 */
 	public static function get_paths(): array {
-		$theme_path    = get_stylesheet_directory();
-		$mb_json_paths = [];
+		// Cache paths to avoid multiple calls to this function.
+		static $paths = [];
 
-		if ( file_exists( "$theme_path/mb-json" ) ) {
-			$mb_json_paths[] = "$theme_path/mb-json";
+		if ( ! empty( $paths ) ) {
+			return $paths;
 		}
 
-		$mb_json_paths = apply_filters( 'mb_json_paths', $mb_json_paths );
+		$theme_path = get_stylesheet_directory();
+
+		if ( file_exists( "$theme_path/mb-json" ) ) {
+			$paths[] = "$theme_path/mb-json";
+		}
+
+		$paths = apply_filters( 'mb_json_paths', $paths );
 
 		// Allow developers to return a single path.
-		if ( is_string( $mb_json_paths ) ) {
-			$mb_json_paths = [ $mb_json_paths ];
+		if ( is_string( $paths ) ) {
+			$paths = [ $paths ];
 		}
 
 		// Remove unwritable paths
-		$mb_json_paths = array_filter( $mb_json_paths, function ( $path ) {
+		$paths = array_filter( $paths, function ( $path ) {
 			return is_writable( $path );
 		} );
 
-		return $mb_json_paths;
+		return $paths;
 	}
 
 	/**

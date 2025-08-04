@@ -14,12 +14,13 @@ class Register {
 		$mbs = LocalJson::is_enabled() ? $this->get_json_meta_boxes() : $this->get_database_meta_boxes();
 
 		foreach ( $mbs as $meta_box ) {
-			$this->transform_for_block( $meta_box['meta_box'] );
-			$this->create_custom_table( $meta_box );
-
 			if ( empty( $meta_box['meta_box'] ) ) {
 				continue;
 			}
+
+			// Use do_action_ref_array() to pass the reference to the meta box, to be able to modify it.
+			// See Extensions\Blocks\CodeToCallbackTransformer.
+			do_action_ref_array( 'mbb_before_register_meta_box', [ &$meta_box ] );
 
 			$settings = $meta_box['settings'] ?? [];
 
@@ -82,74 +83,6 @@ class Register {
 		], 'full' );
 
 		return $meta_boxes;
-	}
-
-	private function transform_for_block( &$meta_box ) {
-		if ( ! Helpers\Data::is_extension_active( 'mb-blocks' ) || empty( $meta_box['type'] ) || 'block' !== $meta_box['type'] ) {
-			return;
-		}
-
-		if ( empty( $meta_box['render_code'] ) ) {
-			return;
-		}
-
-		$meta_box['render_callback'] = function ( $attributes, $is_preview = false, $post_id = null ) use ( $meta_box ) {
-			$data               = $attributes;
-			$data['is_preview'] = $is_preview;
-			$data['post_id']    = $post_id;
-
-			// Get all fields data.
-			$fields = array_filter( $meta_box['fields'], [ $this, 'has_value' ] );
-			foreach ( $fields as $field ) {
-				$data[ $field['id'] ] = 'group' === $field['type'] ? mb_get_block_field( $field['id'], [] ) : mb_the_block_field( $field['id'], [], false );
-			}
-
-			$loader = new \eLightUp\Twig\Loader\ArrayLoader( [
-				'block' => '{% autoescape false %}' . $meta_box['render_code'] . '{% endautoescape %}',
-			] );
-			$twig   = new \eLightUp\Twig\Environment( $loader );
-
-			// Proxy for all PHP/WordPress functions.
-			$data['mb'] = new TwigProxy();
-
-			echo $twig->render( 'block', $data ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		};
-	}
-
-	private function create_custom_table( $meta_box ): void {
-		if ( ! Helpers\Data::is_extension_active( 'mb-custom-table' ) || empty( $meta_box['meta_box']['table'] ) ) {
-			return;
-		}
-
-		// Get full custom table settings from both meta box settings and JavaScript data.
-		$custom_table_settings = $meta_box['meta_box']['custom_table'] ?? $meta_box['settings']['custom_table'] ?? [];
-
-		if ( empty( $custom_table_settings ) || ! is_array( $custom_table_settings ) ) {
-			return;
-		}
-
-		if ( ! Arr::get( $custom_table_settings, 'create' ) ) {
-			return;
-		}
-
-		$meta_box = $meta_box['meta_box'];
-		$columns = [];
-		$fields  = array_filter( $meta_box['fields'], [ $this, 'has_value' ] );
-		foreach ( $fields as $field ) {
-			$columns[ $field['id'] ] = 'TEXT';
-		}
-
-		$data      = [
-			'table'   => $meta_box['table'],
-			'columns' => $columns,
-		];
-		$cache_key = 'mb_create_table_' . md5( wp_json_encode( $data ) );
-		if ( get_transient( $cache_key ) !== false ) {
-			return;
-		}
-
-		\MB_Custom_Table_API::create( $meta_box['table'], $columns );
-		set_transient( $cache_key, 1, MONTH_IN_SECONDS );
 	}
 
 	public function enqueue_assets(): void {

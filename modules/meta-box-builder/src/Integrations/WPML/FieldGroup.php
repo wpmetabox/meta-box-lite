@@ -131,7 +131,7 @@ class FieldGroup {
 			);
 		}
 
-		if ( ! empty( $field['fields'] ) && is_array( $field['fields'] ) ) {
+		if ( 'group' === $field['type'] ) {
 			$this->register_fields_strings( $field['fields'], $package, $id );
 		}
 	}
@@ -200,7 +200,7 @@ class FieldGroup {
 			}
 		}
 
-		if ( ! empty( $field['fields'] ) && is_array( $field['fields'] ) ) {
+		if ( 'group' === $field['type'] ) {
 			$this->use_fields_translations( $field['fields'], $package, $id );
 		}
 	}

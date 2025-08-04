@@ -164,19 +164,14 @@ class LocalJson {
 			return false;
 		}
 
+		$post = null;
 		if ( isset( $args['post_id'] ) ) {
 			$post = get_post( $args['post_id'] );
 		} elseif ( isset( $args['post_name'] ) ) {
 			$post = get_page_by_path( $args['post_name'], OBJECT, 'meta-box' );
-		} else {
-			return false;
 		}
 
-		if ( ! $post ) {
-			return false;
-		}
-
-		if ( $post->post_type !== 'meta-box' || $post->post_status !== 'publish' ) {
+		if ( empty( $post ) || $post->post_type !== 'meta-box' || $post->post_status !== 'publish' ) {
 			return false;
 		}
 
@@ -221,28 +216,6 @@ class LocalJson {
 			break;
 		}
 
-		$success = self::write_file( $file_path, $post_data );
-
-		if ( ! $success ) {
-			/**
-			 * Meta key 'data' is used to store temporary error messages.
-			 * It's used for both local JSON and blocks JSON. See src/Extensions/Blocks.php
-			 * Return an error message.
-			 * @var mixed
-			 */
-			$data = get_post_meta( $post->ID, 'data', true );
-
-			if ( ! is_array( $data ) ) {
-				$data = [];
-			}
-
-			$data['json_path_error'] = __( 'Error during saving json file. Please check the folder permission and save again.', 'meta-box-builder' );
-
-			update_post_meta( $post->ID, 'data', $data );
-
-			return false;
-		}
-
-		return true;
+		return (bool) self::write_file( $file_path, $post_data );
 	}
 }

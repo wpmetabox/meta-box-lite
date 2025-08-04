@@ -6,9 +6,6 @@ use MBB\Helpers\Data;
 
 class Group {
 	public function __construct() {
-		if ( ! Data::is_extension_active( 'meta-box-group' ) ) {
-			return;
-		}
 		add_filter( 'mbb_field_types', [ $this, 'add_field_type' ] );
 	}
 
@@ -16,14 +13,14 @@ class Group {
 		$field_types['group'] = [
 			'title'    => __( 'Group', 'meta-box-builder' ),
 			'category' => 'layout',
+			'disabled' => ! Data::is_extension_active( 'meta-box-group' ),
 			'controls' => [
 				'name',
 				'id',
-				'type',
 				'label_description',
 				'desc',
-				Control::Checkbox( 'collapsible', __( 'Collapsible', 'meta-box-builder' ) ),
-				Control::Select( 'default_state', [
+				Control::Toggle( 'collapsible', __( 'Collapsible', 'meta-box-builder' ) ),
+				Control::ToggleGroup( 'default_state', [
 					'label'      => __( 'Default state', 'meta-box-builder' ),
 					'dependency' => 'collapsible:true',
 					'options'    => [
@@ -31,8 +28,8 @@ class Group {
 						'collapsed' => __( 'Collapsed', 'meta-box-builder' ),
 					],
 				], 'expanded' ),
-				Control::Checkbox( 'save_state', [
-					'label'      => __( 'Save state', 'meta-box-builder' ),
+				Control::Toggle( 'save_state', [
+					'label'      => __( 'Remember state', 'meta-box-builder' ),
 					'dependency' => 'collapsible:true',
 				] ),
 				Control::GroupTitle( 'group_title', [
@@ -40,14 +37,7 @@ class Group {
 					'tooltip'    => __( 'Use {field_id} for a sub-field value and {#} for the clone index (if the group is cloneable)', 'meta-box-builder' ),
 					'dependency' => 'collapsible:true',
 				] ),
-				'clone',
-				'sort_clone',
-				'clone_default',
-				'clone_as_multiple',
-				'clone_empty_start',
-				'min_clone',
-				'max_clone',
-				'add_button',
+				'clone_settings',
 				'before',
 				'after',
 				'class',

@@ -169,16 +169,4 @@ class Data {
 	public static function tooltip( $content ) {
 		return '<button type="button" class="mbb-tooltip" data-tippy-content="' . esc_attr( $content ) . '"><span class="dashicons dashicons-editor-help"></span></button>';
 	}
-
-	/**
-	 * Parse post content to meta box settings array.
-	 * Try JSON decode first, then unserialize for backward-compatibility.
-	 *
-	 * @param  string $data Encoded post content.
-	 * @return array
-	 */
-	public static function parse_meta_box_settings( $data ) {
-		$settings = json_decode( $data, true );
-		return json_last_error() === JSON_ERROR_NONE ? $settings : @unserialize( $data );
-	}
 }

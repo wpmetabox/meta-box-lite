@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunk=globalThis.webpackChunk||[]).push([[4055],{4055:(e,a,l)=>{l.r(a),l.d(a,{default:()=>c});var t=l(1609);const c=({name:e,label:a,defaultValue:l,updateField:c,...u})=>(0,t.createElement)("label",{className:"og-status"},(0,t.createElement)("input",{type:"checkbox",name:e,checked:l,value:!0,onChange:a=>c(e,a.target.checked)}),a)}}]);
