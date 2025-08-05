@@ -19,7 +19,7 @@ class Data {
 			'wp_template',
 			'wp_template_part',
 			'wp_global_styles',
-			'wp_font_famlity',
+			'wp_font_family',
 			'wp_font_face',
 
 			// Meta Box post types.
