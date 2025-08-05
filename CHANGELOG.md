@@ -1,3 +1,9 @@
+### 2.0.0 - 2025-08-05
+
+Highlights:
+
+This version introduces a rewritten the builder with a new UI/UX. [Learn more](https://metabox.io/mb-builder-5-0-0-rc2/) about the new UI.
+
 ### 1.4.0 - 2025-07-15
 
 Highlights:
