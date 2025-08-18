@@ -47,9 +47,7 @@ if ( Helpers\Data::is_extension_active( 'mb-custom-table' ) ) {
 	new Extensions\CustomTable();
 }
 
-if ( Helpers\Data::is_extension_active( 'mb-admin-columns' ) ) {
-	new Extensions\AdminColumns();
-}
+new Extensions\AdminColumns();
 
 new Integrations\WPML\Manager();
 new Integrations\Polylang\Manager();

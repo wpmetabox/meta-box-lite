@@ -3,11 +3,11 @@
         'name' => 'wpmetabox/meta-box-lite',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'eec44ba5d6f110cb9e46bb60296f0f0a7abfadff',
+        'reference' => 'be3a990ff065be4e63b9e62b26e530d3b70b6402',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'dev' => false,
+        'dev' => true,
     ),
     'versions' => array(
         'composer/installers' => array(
@@ -76,7 +76,7 @@
         'wpmetabox/mb-custom-post-type' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'df716a9380ae8add37a8de11c87edc3b7aca7699',
+            'reference' => '6f7d8d5960e916d5572d1d4b6410c88d7a759fdd',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../modules/mb-custom-post-type',
             'aliases' => array(
@@ -186,7 +186,7 @@
         'wpmetabox/meta-box' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '281d3b834f65cba4c1e75d26eb76df00559f9f51',
+            'reference' => '6e7975e4c67f8e2ed5dd87bdb072c4827f269bc4',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../modules/meta-box',
             'aliases' => array(
@@ -208,7 +208,7 @@
         'wpmetabox/meta-box-builder' => array(
             'pretty_version' => 'dev-ui',
             'version' => 'dev-ui',
-            'reference' => 'dce0c49b38d7001f8f09bc2f18a3d40f1bf887db',
+            'reference' => 'b9824c7ea5555673179f785ebdb78367b9378624',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../modules/meta-box-builder',
             'aliases' => array(),
@@ -228,7 +228,7 @@
         'wpmetabox/meta-box-lite' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'eec44ba5d6f110cb9e46bb60296f0f0a7abfadff',
+            'reference' => 'be3a990ff065be4e63b9e62b26e530d3b70b6402',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

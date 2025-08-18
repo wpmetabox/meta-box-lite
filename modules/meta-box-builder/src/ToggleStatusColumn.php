@@ -5,11 +5,12 @@ use WP_Post;
 use RWMB_Switch_Field;
 
 class ToggleStatusColumn {
-	private $post_types = [ 'meta-box', 'mb-settings-page', 'mb-relationship' ];
+	private $post_types = [ 'meta-box', 'mb-settings-page', 'mb-relationship', 'mb-post-type', 'mb-taxonomy', 'mb-views' ];
 
 	public function __construct() {
 		foreach ( $this->post_types as $post_type ) {
-			add_filter( 'manage_' . $post_type . '_posts_columns', [ $this, 'add_column' ] );
+			// Priority 20 to ensure the column is added after other columns are added (like in views).
+			add_filter( 'manage_' . $post_type . '_posts_columns', [ $this, 'add_column' ], 20 );
 			add_action( 'manage_' . $post_type . '_posts_custom_column', [ $this, 'show_column' ], 10, 2 );
 		}
 		add_action( 'admin_print_styles-edit.php', [ $this, 'enqueue_scripts' ] );
@@ -70,6 +71,8 @@ class ToggleStatusColumn {
 
 		// Use the switch styles from Meta Box.
 		RWMB_Switch_Field::admin_enqueue_scripts();
+
+		wp_add_inline_style( 'rwmb-switch', '.column-status {width: 50px}' );
 	}
 
 	public function handle_toggle_status(): void {

@@ -353,18 +353,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mb-custom-post-type.git",
-                "reference": "df716a9380ae8add37a8de11c87edc3b7aca7699"
+                "reference": "6f7d8d5960e916d5572d1d4b6410c88d7a759fdd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/mb-custom-post-type/zipball/df716a9380ae8add37a8de11c87edc3b7aca7699",
-                "reference": "df716a9380ae8add37a8de11c87edc3b7aca7699",
+                "url": "https://api.github.com/repos/wpmetabox/mb-custom-post-type/zipball/6f7d8d5960e916d5572d1d4b6410c88d7a759fdd",
+                "reference": "6f7d8d5960e916d5572d1d4b6410c88d7a759fdd",
                 "shasum": ""
             },
             "require": {
                 "wpmetabox/support": "dev-master"
             },
-            "time": "2025-07-29T07:29:56+00:00",
+            "time": "2025-08-18T09:00:19+00:00",
             "default-branch": true,
             "type": "wordpress-plugin",
             "installation-source": "dist",
@@ -399,7 +399,7 @@
             ],
             "support": {
                 "issues": "https://github.com/wpmetabox/mb-custom-post-type/issues",
-                "source": "https://github.com/wpmetabox/mb-custom-post-type/tree/master"
+                "source": "https://github.com/wpmetabox/mb-custom-post-type/tree/2.9.1"
             },
             "install-path": "../../modules/mb-custom-post-type"
         },
@@ -838,12 +838,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box.git",
-                "reference": "281d3b834f65cba4c1e75d26eb76df00559f9f51"
+                "reference": "6e7975e4c67f8e2ed5dd87bdb072c4827f269bc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/281d3b834f65cba4c1e75d26eb76df00559f9f51",
-                "reference": "281d3b834f65cba4c1e75d26eb76df00559f9f51",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/6e7975e4c67f8e2ed5dd87bdb072c4827f269bc4",
+                "reference": "6e7975e4c67f8e2ed5dd87bdb072c4827f269bc4",
                 "shasum": ""
             },
             "require": {
@@ -852,7 +852,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^11.3"
             },
-            "time": "2025-08-04T09:33:31+00:00",
+            "time": "2025-08-14T08:38:48+00:00",
             "default-branch": true,
             "type": "wordpress-plugin",
             "extra": {
@@ -922,7 +922,7 @@
             ],
             "support": {
                 "issues": "https://github.com/wpmetabox/meta-box/issues",
-                "source": "https://github.com/wpmetabox/meta-box/tree/master"
+                "source": "https://github.com/wpmetabox/meta-box/tree/5.10.13"
             },
             "install-path": "../../modules/meta-box"
         },
@@ -988,12 +988,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box-builder.git",
-                "reference": "dce0c49b38d7001f8f09bc2f18a3d40f1bf887db"
+                "reference": "b9824c7ea5555673179f785ebdb78367b9378624"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/dce0c49b38d7001f8f09bc2f18a3d40f1bf887db",
-                "reference": "dce0c49b38d7001f8f09bc2f18a3d40f1bf887db",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/b9824c7ea5555673179f785ebdb78367b9378624",
+                "reference": "b9824c7ea5555673179f785ebdb78367b9378624",
                 "shasum": ""
             },
             "require": {
@@ -1005,7 +1005,7 @@
                 "opis/json-schema": "^2.4",
                 "phpunit/phpunit": "^11.3"
             },
-            "time": "2025-08-05T01:04:23+00:00",
+            "time": "2025-08-18T01:47:54+00:00",
             "type": "wordpress-plugin",
             "extra": {
                 "dev-files": {
@@ -1204,6 +1204,6 @@
             "install-path": "../../modules/text-limiter"
         }
     ],
-    "dev": false,
+    "dev": true,
     "dev-package-names": []
 }
