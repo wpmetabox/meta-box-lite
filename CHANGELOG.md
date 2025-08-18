@@ -1,3 +1,7 @@
+### 2.0.1 - 2025-08-18
+
+Fix Open Street Maps field not showing (sometimes) with conditional logic
+
 ### 2.0.0 - 2025-08-05
 
 Highlights:
