@@ -1,3 +1,14 @@
+### Version 2.0.2 - 2025-08-21
+
+- Allow to change field type
+- Allow click to edit tab label
+- Always show sub-fields for cloneable group with "Start with no inputs" enabled
+- Set active field to new added field
+- Prevent invalid characters when editing field ID
+- Fix missing field prefix when auto creating custom tables
+- Fix admin menu overlaying the app (caused by ASE)
+- Fix cursor jump for ID, FileSize & block code
+
 ### 2.0.1 - 2025-08-18
 
 Fix Open Street Maps field not showing (sometimes) with conditional logic
