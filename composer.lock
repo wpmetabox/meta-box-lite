@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb6bc479d2cf37ff7dd138dacf1634a1",
+    "content-hash": "8a59c71b389c66ade363236ca67770f5",
     "packages": [
         {
             "name": "composer/installers",
@@ -938,16 +938,16 @@
         },
         {
             "name": "wpmetabox/meta-box-builder",
-            "version": "dev-ui",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box-builder.git",
-                "reference": "b9824c7ea5555673179f785ebdb78367b9378624"
+                "reference": "1a66f0ef4ca73c04a843bf2a2897183c24b9e6d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/b9824c7ea5555673179f785ebdb78367b9378624",
-                "reference": "b9824c7ea5555673179f785ebdb78367b9378624",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/1a66f0ef4ca73c04a843bf2a2897183c24b9e6d3",
+                "reference": "1a66f0ef4ca73c04a843bf2a2897183c24b9e6d3",
                 "shasum": ""
             },
             "require": {
@@ -959,6 +959,7 @@
                 "opis/json-schema": "^2.4",
                 "phpunit/phpunit": "^11.3"
             },
+            "default-branch": true,
             "type": "wordpress-plugin",
             "extra": {
                 "dev-files": {
@@ -1018,9 +1019,9 @@
             "description": "MB Builder extension for Meta Box",
             "support": {
                 "issues": "https://github.com/wpmetabox/meta-box-builder/issues",
-                "source": "https://github.com/wpmetabox/meta-box-builder/tree/ui"
+                "source": "https://github.com/wpmetabox/meta-box-builder/tree/5.0.1"
             },
-            "time": "2025-08-18T01:47:54+00:00"
+            "time": "2025-08-21T04:45:34+00:00"
         },
         {
             "name": "wpmetabox/meta-box-facetwp-integrator",

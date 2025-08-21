@@ -37,9 +37,7 @@ class Fields extends Base {
 	}
 
 	public function get_field_types() {
-		$this->registry->register_default_controls();
-
-		$general_tab    = [ 'name', 'id' ];
+		$general_tab    = [ 'type', 'name', 'id' ];
 		$appearance_tab = [ 'label_description', 'desc' ];
 		$validation_tab = [ 'validation' ];
 		$advanced_tab   = [ 'class', 'before', 'after', 'save_field', 'sanitize_callback', 'attributes', 'custom_settings' ];
@@ -615,6 +613,9 @@ class Fields extends Base {
 		];
 
 		$field_types = apply_filters( 'mbb_field_types', $field_types );
+
+		// Register default controls with field types for the type selector
+		$this->registry->register_default_controls( $field_types );
 
 		foreach ( $field_types as $type => $field_type ) {
 			$field_type['controls'] = apply_filters( 'mbb_field_controls', $field_type['controls'], $type );

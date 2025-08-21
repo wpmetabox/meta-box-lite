@@ -32,6 +32,15 @@ class Edit extends BaseEditPage {
 			true
 		);
 
+		// Script to toggle the admin menu.
+		wp_enqueue_script(
+			'mbb-admin-menu',
+			MBB_URL . 'assets/js/admin-menu.js',
+			[],
+			filemtime( MBB_DIR . 'assets/js/admin-menu.js' ),
+			true
+		);
+
 		$post = get_post();
 
 		$data = [

@@ -2,6 +2,21 @@ document.addEventListener( 'DOMContentLoaded', () => {
 	const key = 'mbb-admin-menu-folded';
 	const body = document.body;
 
+	const setupAdminMenuWidth = () => {
+		if ( body.classList.contains( 'folded' ) ) {
+			return;
+		}
+
+		const adminMenu = document.querySelector( '#adminmenu' );
+		const app = document.querySelector( '.mb' );
+
+		if ( adminMenu && app ) {
+			const width = adminMenu.offsetWidth;
+
+			app.style.setProperty( '--left', `${ width }px` );
+		}
+	};
+
 	// Only handle the menu state on small screens.
 	if ( window.innerWidth >= 1600 ) {
 		return;
@@ -13,6 +28,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 		setTimeout( () => {
 			const isFolded = body.classList.contains( 'folded' );
 			localStorage.setItem( key, isFolded ? 'true' : 'false' );
+			setupAdminMenuWidth();
 		}, 100 );
 	} );
 
@@ -27,6 +43,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 		}
 
 		body.classList.toggle( 'folded', storedState === 'true' );
+		setupAdminMenuWidth();
 	};
 
 	initMenuState();

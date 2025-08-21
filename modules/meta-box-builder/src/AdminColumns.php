@@ -166,7 +166,7 @@ class AdminColumns {
 				<?php
 				echo wp_kses_post( sprintf(
 					__('You are using the <a href="%s" target="_blank">new version</a> of the builder with a total new UI/UX. If you have any issues or suggestions, please <a href="%s" target="_blank">let us know</a>.', 'meta-box-builder'),
-					'https://metabox.io/mb-builder-5-0-0-rc2/',
+					'https://metabox.io/mb-builder-5-0-0-official-release/',
 					'https://metabox.io/contact/'
 				) );
 				?>

@@ -983,17 +983,17 @@
         },
         {
             "name": "wpmetabox/meta-box-builder",
-            "version": "dev-ui",
-            "version_normalized": "dev-ui",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box-builder.git",
-                "reference": "b9824c7ea5555673179f785ebdb78367b9378624"
+                "reference": "1a66f0ef4ca73c04a843bf2a2897183c24b9e6d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/b9824c7ea5555673179f785ebdb78367b9378624",
-                "reference": "b9824c7ea5555673179f785ebdb78367b9378624",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/1a66f0ef4ca73c04a843bf2a2897183c24b9e6d3",
+                "reference": "1a66f0ef4ca73c04a843bf2a2897183c24b9e6d3",
                 "shasum": ""
             },
             "require": {
@@ -1005,7 +1005,8 @@
                 "opis/json-schema": "^2.4",
                 "phpunit/phpunit": "^11.3"
             },
-            "time": "2025-08-18T01:47:54+00:00",
+            "time": "2025-08-21T04:45:34+00:00",
+            "default-branch": true,
             "type": "wordpress-plugin",
             "extra": {
                 "dev-files": {
@@ -1066,7 +1067,7 @@
             "description": "MB Builder extension for Meta Box",
             "support": {
                 "issues": "https://github.com/wpmetabox/meta-box-builder/issues",
-                "source": "https://github.com/wpmetabox/meta-box-builder/tree/ui"
+                "source": "https://github.com/wpmetabox/meta-box-builder/tree/5.0.1"
             },
             "install-path": "../../modules/meta-box-builder"
         },
@@ -1204,6 +1205,6 @@
             "install-path": "../../modules/text-limiter"
         }
     ],
-    "dev": true,
+    "dev": false,
     "dev-package-names": []
 }

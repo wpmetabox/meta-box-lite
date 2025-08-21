@@ -37,10 +37,11 @@ class CustomTable {
 			$table = $wpdb->prefix . $table;
 		}
 
-		$columns = [];
-		$fields  = array_filter( $data['fields'], [ $this, 'has_value' ] );
+		$columns   = [];
+		$id_prefix = Arr::get( $settings, 'prefix' );
+		$fields    = array_filter( $data['fields'], [ $this, 'has_value' ] );
 		foreach ( $fields as $field ) {
-			$columns[ $field['id'] ] = 'TEXT';
+			$columns[ $id_prefix . $field['id'] ] = 'TEXT';
 		}
 
 		$data      = [

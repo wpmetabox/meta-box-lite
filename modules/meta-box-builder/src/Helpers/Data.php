@@ -169,4 +169,33 @@ class Data {
 	public static function tooltip( $content ) {
 		return '<button type="button" class="mbb-tooltip" data-tippy-content="' . esc_attr( $content ) . '"><span class="dashicons dashicons-editor-help"></span></button>';
 	}
+
+	public static function get_field_categories(): array {
+		return [
+			[
+				'slug'  => 'basic',
+				'title' => __( 'Basic', 'meta-box-builder' ),
+			],
+			[
+				'slug'  => 'advanced',
+				'title' => __( 'Advanced', 'meta-box-builder' ),
+			],
+			[
+				'slug'  => 'html5',
+				'title' => __( 'HTML5', 'meta-box-builder' ),
+			],
+			[
+				'slug'  => 'wordpress',
+				'title' => __( 'WordPress', 'meta-box-builder' ),
+			],
+			[
+				'slug'  => 'upload',
+				'title' => __( 'Upload', 'meta-box-builder' ),
+			],
+			[
+				'slug'  => 'layout',
+				'title' => __( 'Layout', 'meta-box-builder' ),
+			],
+		];
+	}
 }

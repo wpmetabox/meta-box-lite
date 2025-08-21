@@ -6,6 +6,7 @@
 namespace MBB;
 
 use MetaBox\Support\Arr;
+use MBB\Helpers\Data;
 
 class Registry {
 	private $field_types = [];
@@ -13,11 +14,40 @@ class Registry {
 
 	/**
 	 * Register all default controls, so we can refer to them by id later.
+	 *
+	 * @param array $field_types Array of field types to generate the type selector options.
 	 */
-	public function register_default_controls() {
+	public function register_default_controls( array $field_types = [] ): void {
+		// Generate field type options grouped by category
+		$type_options = [];
+
+		// Get field categories with their labels
+		$field_categories = Data::get_field_categories();
+		$category_labels = [];
+		foreach ( $field_categories as $cat ) {
+			$category_labels[ $cat['slug'] ] = $cat['title'];
+			// Initialize categories in the defined order
+			$type_options[ $cat['title'] ] = [];
+		}
+
+		foreach ( $field_types as $type => $field_type ) {
+			$category = $field_type['category'] ?? 'other';
+			$category_label = $category_labels[ $category ] ?? ucfirst( $category );
+
+			// If category doesn't exist in our predefined order, add it at the end
+			if ( ! isset( $type_options[ $category_label ] ) ) {
+				$type_options[ $category_label ] = [];
+			}
+			$type_options[ $category_label ][ $type ] = $field_type['title'];
+		}
+
 		// In the same order as in Fields class.
 		$controls = [
 			// General.
+			Control::Select( 'type', [
+				'label'   => __( 'Type', 'meta-box-builder' ),
+				'options' => $type_options,
+			], '', 'general' ),
 			Control::Name( 'name', [
 				'label'       => __( 'Label', 'meta-box-builder' ),
 				'description' => __( 'Leave empty to make the input 100% width.', 'meta-box-builder' ),

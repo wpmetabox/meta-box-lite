@@ -7,15 +7,10 @@ use MetaBox\Support\Arr;
 class Parser extends Base {
 	public function parse() {
 		$this->parse_menu_icon()
+			->remove_menu_keys()
 			->parse_help_tabs()
 			->parse_tabs();
 
-		if ( 'top' === $this->menu_type ) {
-			unset( $this->parent );
-		}
-
-		// Cleanup.
-		unset( $this->menu_type );
 		$this->parse_boolean_values()
 			->parse_numeric_values()
 			->remove_empty_values()
@@ -25,7 +20,16 @@ class Parser extends Base {
 			->remove_default( 'tab_style', 'default' );
 	}
 
-	private function parse_menu_icon() {
+	private function parse_menu_icon(): self {
+		// Submenu.
+		if ( 'top' !== $this->menu_type ) {
+			return $this;
+		}
+
+		// Top level menu.
+		unset( $this->parent );
+
+		// Setup icon URL.
 		$type           = Arr::get( $this->settings, 'icon_type', 'dashicons' );
 		$this->icon_url = Arr::get( $this->settings, "icon_$type" );
 
@@ -33,7 +37,11 @@ class Parser extends Base {
 			$this->icon_url = 'dashicons-' . $this->icon_url;
 		}
 
-		$keys = [ 'icon_type', 'icon_dashicons', 'icon_svg', 'icon_custom', 'font_awesome' ];
+		return $this;
+	}
+
+	private function remove_menu_keys(): self {
+		$keys = [ 'menu_type', 'icon_type', 'icon_dashicons', 'icon_svg', 'icon_custom', 'icon_font_awesome' ];
 		foreach ( $keys as $key ) {
 			unset( $this->$key );
 		}
