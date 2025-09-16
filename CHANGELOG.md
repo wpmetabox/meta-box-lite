@@ -1,3 +1,16 @@
+### 2.1.0 - 2025-09-16
+
+- Ask before leaving editing field groups without saving changes
+- Add an icon to the field label to show if field has `save_value` settings is off
+- Use icon for required & cloneable settings for better accessibility
+- Add disabled, readonly attributes to date, time fields
+- Open field settings panel when add a new field
+- Improve behavior when deleting a field by auto seting the next or previous field active
+- Allow to change type for custom HTML, divider, heading, hidden fields
+- Fix compatible with Gutenberg plugin
+- Fix parsing std value for radio when it's 0
+- Remove notice for feedback for the new UI
+
 ### Version 2.0.2 - 2025-08-21
 
 - Allow to change field type
