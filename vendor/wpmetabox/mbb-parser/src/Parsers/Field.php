@@ -184,8 +184,18 @@ class Field extends Base {
 			|| in_array( $this->type, [ 'checkbox_list', 'autocomplete' ] )
 			|| in_array( $this->field_type, [ 'select_tree', 'checkbox_tree', 'checkbox_list', 'checkbox_tree' ] );
 
-		if ( $is_multiple ) {
-			$this->std = is_string( $this->std ) && ! empty( $this->std ) ? preg_split( '/\r\n|\r|\n/', $this->std ) : $this->std;
+		if ( ! $is_multiple ) {
+			if ( $this->std === '' ) {
+				unset( $this->std );
+			}
+			return $this;
+		}
+
+		// Multiple.
+		if ( is_string( $this->std ) && $this->std ) {
+			$this->std = preg_split( '/\r\n|\r|\n/', $this->std );
+		} elseif ( ! is_array( $this->std ) ) {
+			$this->std = [];
 		}
 
 		if ( empty( $this->std ) ) {

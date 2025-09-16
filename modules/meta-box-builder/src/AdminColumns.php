@@ -130,8 +130,6 @@ class AdminColumns {
 		// Don't show other notices.
 		remove_all_actions( 'admin_notices' );
 
-		$this->show_new_ui_notice();
-
 		if ( ! LocalJson::is_enabled() ) {
 			return;
 		}
@@ -155,22 +153,6 @@ class AdminColumns {
 		?>
 		<div class="notice notice-<?php esc_attr_e( $messages[ $custom_admin_notice ]['status'] ) ?> is-dismissible">
 			<p><?php esc_html_e( $messages[ $custom_admin_notice ]['message'] ) ?></p>
-		</div>
-		<?php
-	}
-
-	public function show_new_ui_notice(): void {
-		?>
-		<div class="notice notice-info is-dismissible">
-			<p>
-				<?php
-				echo wp_kses_post( sprintf(
-					__('You are using the <a href="%s" target="_blank">new version</a> of the builder with a total new UI/UX. If you have any issues or suggestions, please <a href="%s" target="_blank">let us know</a>.', 'meta-box-builder'),
-					'https://metabox.io/mb-builder-5-0-0-official-release/',
-					'https://metabox.io/contact/'
-				) );
-				?>
-			</p>
 		</div>
 		<?php
 	}

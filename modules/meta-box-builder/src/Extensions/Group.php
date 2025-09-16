@@ -15,6 +15,7 @@ class Group {
 			'category' => 'layout',
 			'disabled' => ! Data::is_extension_active( 'meta-box-group' ),
 			'controls' => [
+				'type',
 				'name',
 				'id',
 				'label_description',
