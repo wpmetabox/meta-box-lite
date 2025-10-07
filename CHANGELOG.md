@@ -1,3 +1,22 @@
+### 2.2.0 - 2025-10-07
+
+**Highlights:**
+
+Add new feature for taxonomies: allow to reorder terms.
+
+**Other changes:**
+
+- Let users know when deleting a field, its data remains in the DB
+- Revamp the API to register a new field type. Please follow [the docs](https://docs.metabox.io/creating-new-field-types/) for details.
+- Add an option to disable dragging the pin on the map/osm fields
+- Fix parsing/unparsing tabs for settings pages
+- Fix empty block render code after reloading the editing page
+- Fix cannot edit a field on Safari
+- Set default menu position for settings page after all menus
+- Fix menu icon (dashicons) not working for settings pages
+- Remove "text_domain" from generated labels for post types
+- Fix encoded unicode characters when importing post types
+
 ### 2.1.0 - 2025-09-16
 
 - Ask before leaving editing field groups without saving changes
