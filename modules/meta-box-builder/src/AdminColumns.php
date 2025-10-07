@@ -370,8 +370,8 @@ class AdminColumns {
 		] );
 
 		if ( Data::is_extension_active( 'mb-frontend-submission' ) ) {
-			wp_register_script( 'popper', MBB_URL . 'assets/js/popper.js', [], '2.11.6', true );
-			wp_enqueue_script( 'tippy', MBB_URL . 'assets/js/tippy.js', [ 'popper' ], '6.3.7', true );
+			wp_register_script( 'popper', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js', [], '2.11.8', true );
+			wp_enqueue_script( 'tippy', 'https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js', [ 'popper' ], '6.3.7', true );
 			wp_add_inline_script( 'tippy', 'tippy( ".mbb-tooltip", {placement: "top", arrow: true, animation: "fade"} );' );
 		}
 	}

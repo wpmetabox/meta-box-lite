@@ -10,6 +10,17 @@
 	padding: 32px;
 }
 
+.mb-header {
+	height: auto;
+	padding-block: 12px;
+}
+
+.mb-header__logo svg {
+	width: 46px;
+	height: 46px;
+	display: block;
+}
+
 .og-field {
 	display: grid;
 	grid-template-columns: 180px 1fr;

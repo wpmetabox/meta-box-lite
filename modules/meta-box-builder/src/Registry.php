@@ -264,6 +264,7 @@ class Registry {
 				'label'   => __( 'Region', 'meta-box-builder' ),
 				'options' => $this->get_regions(),
 			] ),
+			Control::Toggle( 'marker_draggable', __( 'Marker draggable', 'meta-box-builder' ), true ),
 
 			// Taxonomy.
 			Control::ReactSelect( 'taxonomy', [
@@ -883,11 +884,14 @@ class Registry {
 	/**
 	 * Transform fields controls to proper format (array).
 	 */
-	public function transform_controls() {
+	public function transform_controls(): void {
 		foreach ( $this->field_types as $type => &$field_type ) {
 			foreach ( $field_type['controls'] as &$control ) {
 				$control = $this->get_control( $control, $type );
 			}
+
+			// Remove empty controls like 'clone', 'sort_clone', as some controls are merged into a single control ('clone_settings').
+			$field_type['controls'] = array_values( array_filter( $field_type['controls'] ) );
 		}
 	}
 

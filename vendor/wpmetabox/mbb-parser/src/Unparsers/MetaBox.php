@@ -44,7 +44,7 @@ class MetaBox extends Base {
 		$this->unparse_schema();
 		$this->unparse_meta_box();
 		$this->unparse_relationship();
-		$this->unparse_settings_page();
+		$this->unparse_settings_page()->unparse_settings_page_tabs();
 		$this->unparse_post_fields();
 		$this->unparse_modified();
 		$this->unparse_settings();
@@ -107,7 +107,11 @@ class MetaBox extends Base {
 		return $this;
 	}
 
-	public function unparse_tabs() {
+	private function unparse_tabs(): self {
+		if ( $this->detect_post_type() !== 'meta-box' ) {
+			return $this;
+		}
+
 		$tabs = $this->lookup( [ 'tabs', 'meta_box.tabs' ], [] );
 
 		if ( empty( $tabs ) ) {
@@ -296,6 +300,23 @@ class MetaBox extends Base {
 
 		$this->settings_page = $settings_page;
 		$this->post_title    = $this->lookup( [ 'menu_title', 'id' ] );
+
+		return $this;
+	}
+
+	private function unparse_settings_page_tabs(): self {
+		$tabs = $this->lookup( [ 'tabs' ], [] );
+		if ( empty( $tabs ) ) {
+			return $this;
+		}
+
+		$tab_items = [];
+		foreach ( $tabs as $key => $value ) {
+			$id = uniqid( 'tab_' );
+			$tab_items[ $id ] = compact( 'id', 'key', 'value' );
+		}
+
+		$this->settings['tabs'] = $tab_items;
 
 		return $this;
 	}

@@ -16,7 +16,7 @@ class Edit extends BaseEditPage {
 			[ 'wp-components', 'code-editor' ],
 			filemtime( MBB_DIR . 'src/Extensions/SettingsPage/css/settings-page.css' )
 		);
-		wp_enqueue_style( 'font-awesome', MBB_URL . 'assets/fontawesome/css/all.min.css', [], '6.6.0' );
+		wp_enqueue_style( 'font-awesome', 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css', [], ' 6.7.2' );
 
 		wp_enqueue_code_editor( [ 'type' => 'application/x-httpd-php' ] );
 

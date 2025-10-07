@@ -1,6 +1,9 @@
 <?php
 namespace MBB\RestApi;
 
+use WP_REST_Request;
+use RWMB_Field;
+
 class Fields extends Base {
 	private $registry;
 
@@ -240,7 +243,7 @@ class Fields extends Base {
 				'category'    => 'advanced',
 				'controls'    => array_merge(
 					[ 'required', 'clone_settings' ],
-					array_merge( $general_tab, [ 'api_key', 'address_field', 'std', 'language', 'region' ] ),
+					array_merge( $general_tab, [ 'api_key', 'address_field', 'std', 'language', 'region', 'marker_draggable' ] ),
 					$appearance_tab,
 					$advanced_tab
 				),
@@ -364,7 +367,7 @@ class Fields extends Base {
 				'category'    => 'advanced',
 				'controls'    => array_merge(
 					[ 'required', 'clone_settings' ],
-					array_merge( $general_tab, [ 'std', 'address_field', 'language', 'region' ] ),
+					array_merge( $general_tab, [ 'std', 'address_field', 'language', 'region', 'marker_draggable' ] ),
 					$appearance_tab,
 					$advanced_tab
 				),
@@ -625,5 +628,16 @@ class Fields extends Base {
 		$this->registry->transform_controls();
 
 		return $this->registry->get_field_types();
+	}
+
+	public function get_field_html( WP_REST_Request $request ) {
+		$field = $request->get_param( 'field' );
+
+		$field = RWMB_Field::call( 'normalize', $field );
+
+		$meta = RWMB_Field::call( $field, 'meta', 0, false );
+		$html = RWMB_Field::call( $field, 'html', $meta );
+
+		return $html;
 	}
 }
