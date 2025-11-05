@@ -1,3 +1,21 @@
+### 2.3.0 - 2025-11-05
+
+**Highlights:**
+
+Add toggle status column settings for quickly toggle Published/Draft status for custom post types.
+
+**Other changes:**
+
+- Fix bug with `meta_box_sanitize_cb` when importing custom post types from ACF
+- WPML integration: filter helper functions to get the translated IDs for `post` field
+- Fix cloning `post` field not clearing the value
+- Remove IDs for custom HTML, divider, heading fields in the structure panel, and for custom HTML field in the preview area
+- Fix parsing prefix for tabs
+- Fix required URL & email fields preventing saving
+- Fix cannot save field group again if saving it without title and ID
+- Local JSON: fix custom table name not containing prefix
+- Do not show default user orms & fields in the admin
+
 ### 2.2.0 - 2025-10-07
 
 **Highlights:**
