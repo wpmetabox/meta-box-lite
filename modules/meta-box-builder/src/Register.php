@@ -55,17 +55,14 @@ class Register {
 
 		$files = JsonService::get_files();
 		foreach ( $files as $file ) {
-			[ $data, $error ] = LocalJson::read_file( $file );
-
-			if ( $data === null || $error !== null ) {
+			$json = LocalJson::read_file( $file );
+			if ( empty( $json ) ) {
 				continue;
 			}
 
-			$json     = json_decode( $data, true );
 			$unparser = new \MBBParser\Unparsers\MetaBox( $json );
 			$unparser->unparse();
-			$json     = $unparser->get_settings();
-			$meta_box = $json;
+			$meta_box = $unparser->get_settings();
 
 			if ( empty( $meta_box ) ) {
 				continue;

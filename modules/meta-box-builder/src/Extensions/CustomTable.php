@@ -25,7 +25,7 @@ class CustomTable {
 	 *                    This data must contains: `settings.custom_table` settings (enable, create, name, prefix) and `fields` array.
 	 * @return void
 	 */
-	public function create_custom_table( array $data ): void {
+	public function create_custom_table( array &$data ): void {
 		$settings = $data['settings'] ?? [];
 		if ( ! Arr::get( $settings, 'custom_table.enable' ) || ! Arr::get( $settings, 'custom_table.create' ) ) {
 			return;
@@ -35,6 +35,9 @@ class CustomTable {
 		if ( Arr::get( $settings, 'custom_table.prefix' ) ) {
 			global $wpdb;
 			$table = $wpdb->prefix . $table;
+
+			// Modify the table name in the parsed `meta_box` settings.
+			Arr::set( $data, 'meta_box.table', $table );
 		}
 
 		$columns   = [];
@@ -44,12 +47,13 @@ class CustomTable {
 			$columns[ $id_prefix . $field['id'] ] = 'TEXT';
 		}
 
-		$data      = [
+		$cache_data = [
 			'table'   => $table,
 			'columns' => $columns,
 		];
-		$cache_key = 'mb_create_table_' . md5( wp_json_encode( $data ) );
-		if ( get_transient( $cache_key ) !== false ) {
+		$cache_key  = 'mb_create_table_' . md5( wp_json_encode( $cache_data ) );
+		// Cache the table creation in production environment only.
+		if ( get_transient( $cache_key ) !== false && wp_get_environment_type() === 'production' ) {
 			return;
 		}
 

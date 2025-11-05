@@ -343,12 +343,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mb-custom-post-type.git",
-                "reference": "abc25cdf9b164209ca570a3bb05b3948a51856e5"
+                "reference": "45e444964bc9b4a5c5841f585cc91b217d99db4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/mb-custom-post-type/zipball/abc25cdf9b164209ca570a3bb05b3948a51856e5",
-                "reference": "abc25cdf9b164209ca570a3bb05b3948a51856e5",
+                "url": "https://api.github.com/repos/wpmetabox/mb-custom-post-type/zipball/45e444964bc9b4a5c5841f585cc91b217d99db4a",
+                "reference": "45e444964bc9b4a5c5841f585cc91b217d99db4a",
                 "shasum": ""
             },
             "require": {
@@ -389,7 +389,7 @@
                 "issues": "https://github.com/wpmetabox/mb-custom-post-type/issues",
                 "source": "https://github.com/wpmetabox/mb-custom-post-type/tree/master"
             },
-            "time": "2025-10-07T03:38:38+00:00"
+            "time": "2025-11-05T14:37:04+00:00"
         },
         {
             "name": "wpmetabox/mb-divi-integrator",
@@ -762,12 +762,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mbb-parser.git",
-                "reference": "c07a1acbbff855cfaeef0169ead30aabe5786b99"
+                "reference": "f6490022abe3ada452fb7511d9066f91c96aef51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/mbb-parser/zipball/c07a1acbbff855cfaeef0169ead30aabe5786b99",
-                "reference": "c07a1acbbff855cfaeef0169ead30aabe5786b99",
+                "url": "https://api.github.com/repos/wpmetabox/mbb-parser/zipball/f6490022abe3ada452fb7511d9066f91c96aef51",
+                "reference": "f6490022abe3ada452fb7511d9066f91c96aef51",
                 "shasum": ""
             },
             "require": {
@@ -790,7 +790,7 @@
                 "issues": "https://github.com/wpmetabox/mbb-parser/issues",
                 "source": "https://github.com/wpmetabox/mbb-parser/tree/master"
             },
-            "time": "2025-10-06T02:28:32+00:00"
+            "time": "2025-11-04T04:40:39+00:00"
         },
         {
             "name": "wpmetabox/meta-box",
@@ -798,12 +798,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box.git",
-                "reference": "bd60262221a018e56016bc06cb525685644ec1d1"
+                "reference": "9f3598cfb7e2377eac5df557a7e84ee63a29c21d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/bd60262221a018e56016bc06cb525685644ec1d1",
-                "reference": "bd60262221a018e56016bc06cb525685644ec1d1",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/9f3598cfb7e2377eac5df557a7e84ee63a29c21d",
+                "reference": "9f3598cfb7e2377eac5df557a7e84ee63a29c21d",
                 "shasum": ""
             },
             "require": {
@@ -882,7 +882,7 @@
                 "issues": "https://github.com/wpmetabox/meta-box/issues",
                 "source": "https://github.com/wpmetabox/meta-box/tree/master"
             },
-            "time": "2025-10-06T07:04:55+00:00"
+            "time": "2025-11-05T14:49:24+00:00"
         },
         {
             "name": "wpmetabox/meta-box-beaver-themer-integrator",
@@ -942,12 +942,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box-builder.git",
-                "reference": "aa4af314c9f729698450f5d250ed5d33f4606856"
+                "reference": "8a999507b4acc9c4bd2cf33f7db0997efcb9480f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/aa4af314c9f729698450f5d250ed5d33f4606856",
-                "reference": "aa4af314c9f729698450f5d250ed5d33f4606856",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/8a999507b4acc9c4bd2cf33f7db0997efcb9480f",
+                "reference": "8a999507b4acc9c4bd2cf33f7db0997efcb9480f",
                 "shasum": ""
             },
             "require": {
@@ -1019,9 +1019,9 @@
             "description": "MB Builder extension for Meta Box",
             "support": {
                 "issues": "https://github.com/wpmetabox/meta-box-builder/issues",
-                "source": "https://github.com/wpmetabox/meta-box-builder/tree/master"
+                "source": "https://github.com/wpmetabox/meta-box-builder/tree/5.1.2"
             },
-            "time": "2025-10-06T07:01:21+00:00"
+            "time": "2025-11-05T14:55:10+00:00"
         },
         {
             "name": "wpmetabox/meta-box-facetwp-integrator",

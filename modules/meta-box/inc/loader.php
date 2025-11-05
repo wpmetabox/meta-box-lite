@@ -7,7 +7,7 @@
 class RWMB_Loader {
 	protected function constants() {
 		// Script version, used to add version for scripts and styles.
-		define( 'RWMB_VER', '5.10.15' );
+		define( 'RWMB_VER', '5.10.16' );
 
 		list( $path, $url ) = self::get_path( dirname( __DIR__ ) );
 
@@ -96,10 +96,6 @@ class RWMB_Loader {
 		$media_modal = new RWMB_Media_Modal();
 		$media_modal->init();
 
-		// WPML Compatibility.
-		$wpml = new RWMB_WPML();
-		$wpml->init();
-
 		// Update.
 		$update_option  = null;
 		$update_checker = null;
@@ -112,6 +108,9 @@ class RWMB_Loader {
 			$update_notification = new \MetaBox\Updater\Notification( $update_checker, $update_option );
 			$update_notification->init();
 		}
+
+		// WPML Compatibility.
+		new \MetaBox\Integrations\WPML();
 
 		// Register categories for page builders.
 		new \MetaBox\Integrations\Block();

@@ -44,15 +44,8 @@ class JsonService {
 		// key by meta box id
 		$items = [];
 		foreach ( $files as $file ) {
-			[ $data, $error ] = LocalJson::read_file( $file );
-
-			if ( $data === null || $error !== null ) {
-				continue;
-			}
-
-			$raw_json = json_decode( $data, true );
-
-			if ( json_last_error() !== JSON_ERROR_NONE || ! is_array( $raw_json ) ) {
+			$raw_json = LocalJson::read_file( $file );
+			if ( empty( $raw_json ) ) {
 				continue;
 			}
 

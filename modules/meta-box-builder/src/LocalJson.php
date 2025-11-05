@@ -20,23 +20,17 @@ class LocalJson {
 	}
 
 	/**
-	 * Get data from a .json file
-	 *
-	 * @param string $file_path
-	 * @return array[ $data, $error ]
+	 * Get decoded JSON as an associative array from a .json file
 	 */
 	public static function read_file( string $file_path ): array {
-		if ( ! file_exists( $file_path ) ) {
-			return [ null, new \WP_Error( 'file_not_found', __( 'File not found!', 'meta-box-builder' ) ) ];
+		if ( ! file_exists( $file_path ) || ! is_readable( $file_path ) ) {
+			return [];
 		}
 
-		if ( ! is_readable( $file_path ) ) {
-			return [ null, new \WP_Error( 'file_not_readable', __( 'File not readable!', 'meta-box-builder' ) ) ];
-		}
+		$content = file_get_contents( $file_path );
+		$json    = json_decode( $content, true );
 
-		$data = file_get_contents( $file_path );
-
-		return [ $data, null ];
+		return is_array( $json ) ? $json : [];
 	}
 
 	public static function write_file( string $file_path, array $data ) {
@@ -192,15 +186,8 @@ class LocalJson {
 		$files     = JsonService::get_files();
 		$file_path = JsonService::get_paths()[0] . '/' . $post->post_name . '.json';
 		foreach ( $files as $file ) {
-			[ $data, $error ] = self::read_file( $file );
-
-			if ( $data === null || $error !== null ) {
-				continue;
-			}
-
-			$raw_json = json_decode( $data, true );
-
-			if ( json_last_error() !== JSON_ERROR_NONE || ! is_array( $raw_json ) ) {
+			$raw_json = self::read_file( $file );
+			if ( empty( $raw_json ) ) {
 				continue;
 			}
 
