@@ -1,3 +1,10 @@
+### 2.3.1 - 2025-11-14
+
+- Update pt_BR translation
+- Fix required text field preventing saving
+- Fix no selected settings page causes the field group editor error
+- WPML integration: fix error when filtering value for helper functions when no fields are found.
+
 ### 2.3.0 - 2025-11-05
 
 **Highlights:**

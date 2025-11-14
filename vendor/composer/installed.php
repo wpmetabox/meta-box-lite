@@ -3,7 +3,7 @@
         'name' => 'wpmetabox/meta-box-lite',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'a377250b52ba5b6b97bbc46c33831ef3982a10fb',
+        'reference' => '706e0e1178613c243452bfb8fbd39754d91b4cc8',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -230,7 +230,7 @@
         'wpmetabox/meta-box-lite' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'a377250b52ba5b6b97bbc46c33831ef3982a10fb',
+            'reference' => '706e0e1178613c243452bfb8fbd39754d91b4cc8',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
