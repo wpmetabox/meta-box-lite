@@ -2,7 +2,10 @@
 namespace MBBParser\Unparsers;
 
 class Settings extends Base {
-	// Allow these settings to be empty.
+	/**
+	 * Allow these settings to be empty.
+	 * @var array
+	 */
 	protected $empty_keys = [ 'post_types', 'taxonomies', 'settings_pages' ];
 
 	public function unparse() {
@@ -65,12 +68,12 @@ class Settings extends Base {
 		return $this;
 	}
 
-	public function replace_variables( $string ) {
-		if ( empty( $string ) ) {
-			return $string;
+	public function replace_variables( $text ) {
+		if ( empty( $text ) ) {
+			return $text;
 		}
 
-		return strtr( $string, [
+		return strtr( $text, [
 			'{{ site.path }}'  => wp_normalize_path( ABSPATH ),
 			'{{ site.url }}'   => untrailingslashit( home_url( '/' ) ),
 			'{{ theme.path }}' => wp_normalize_path( get_stylesheet_directory() ),

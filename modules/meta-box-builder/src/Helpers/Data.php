@@ -122,11 +122,20 @@ class Data {
 				}
 			}
 
-			$pages[] = [
-				'id'    => $settings_page['id'],
-				'title' => $title,
-				'tabs'  => $tabs,
-			];
+			$pages[] = array_merge(
+				// Default settings.
+				[
+					'style'     => 'boxes',
+					'columns'   => 2,
+					'tab_style' => 'default',
+				],
+				$settings_page,
+				[
+					'id'    => $settings_page['id'],
+					'title' => $title,
+					'tabs'  => $tabs,
+				]
+			);
 		}
 		return $pages;
 	}

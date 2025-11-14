@@ -21,22 +21,31 @@ class Fields extends Base {
 		];
 		$posts = get_posts( $args );
 
-		$fields = [];
+		$ids = [];
 		foreach ( $posts as $post ) {
-			$value       = [
+			$value    = [
 				'link'  => get_edit_post_link( $post ),
 				'title' => $post->post_title,
 			];
-			$post_fields = get_post_meta( $post->ID, 'fields', true ) ?: [];
+			$fields   = get_post_meta( $post->ID, 'fields', true ) ?: [];
+			$settings = get_post_meta( $post->ID, 'settings', true ) ?: [];
+			$prefix   = $settings['prefix'] ?? '';
 
-			foreach ( $post_fields as $field ) {
-				if ( ! empty( $field['id'] ) ) {
-					$fields[ $field['id'] ] = array_merge( $value, [ '_id' => $field['_id'] ?? ( $field['id'] ?? '' ) ] );
+			foreach ( $fields as $field ) {
+				if ( empty( $field['id'] ) ) {
+					continue;
 				}
+				// Final ID is the ID with the prefix.
+				$field_id = $prefix . $field['id'];
+
+				// Get _id to check if the same fields.
+				$ids[ $field_id ] = array_merge( $value, [
+					'_id' => $field['_id'] ?? ( $field['id'] ?? '' ),
+				] );
 			}
 		}
 
-		return $fields;
+		return $ids;
 	}
 
 	public function get_field_types() {
@@ -85,7 +94,7 @@ class Fields extends Base {
 				'controls'    => array_merge(
 					[ 'required', 'clone_settings' ],
 					array_merge( $general_tab, [ 'options', 'std', 'multiple' ] ),
-					array_merge( ['inline'], $appearance_tab ),
+					array_merge( [ 'inline' ], $appearance_tab ),
 					$validation_tab,
 					$advanced_tab
 				),
@@ -123,7 +132,7 @@ class Fields extends Base {
 					array_merge( $general_tab, [ 'std', 'alpha_channel' ] ),
 					$appearance_tab,
 					$validation_tab,
-					array_merge( ['js_options'], $advanced_tab )
+					array_merge( [ 'js_options' ], $advanced_tab )
 				),
 				'description' => __( 'Color picker', 'meta-box-builder' ),
 			],
@@ -144,7 +153,7 @@ class Fields extends Base {
 					array_merge( $general_tab, [ 'std', 'format', 'timestamp', 'save_format', 'input_attributes' ] ),
 					[ 'inline', 'label_description', 'desc', 'placeholder', 'size', 'prepend_append' ],
 					$validation_tab,
-					array_merge( ['js_options'], $advanced_tab )
+					array_merge( [ 'js_options' ], $advanced_tab )
 				),
 				'description' => __( 'Date picker', 'meta-box-builder' ),
 			],
@@ -156,7 +165,7 @@ class Fields extends Base {
 					array_merge( $general_tab, [ 'std', 'format', 'timestamp', 'save_format', 'input_attributes' ] ),
 					[ 'inline', 'label_description', 'desc', 'placeholder', 'size', 'prepend_append' ],
 					$validation_tab,
-					array_merge( ['js_options'], $advanced_tab )
+					array_merge( [ 'js_options' ], $advanced_tab )
 				),
 				'description' => __( 'Date and time picker', 'meta-box-builder' ),
 			],
@@ -271,7 +280,7 @@ class Fields extends Base {
 				'title'       => __( 'Icon', 'meta-box-builder' ),
 				'category'    => 'advanced',
 				'controls'    => array_merge(
-					['required', 'clone_settings'],
+					[ 'required', 'clone_settings' ],
 					array_merge( $general_tab, [ 'icon_set', 'icon_file', 'icon_dir', 'icon_css', 'std' ] ),
 					[ 'label_description', 'desc', 'placeholder' ],
 					$advanced_tab
@@ -441,7 +450,7 @@ class Fields extends Base {
 					array_merge( $general_tab, [ 'options', 'std', 'multiple' ] ),
 					[ 'select_all_none', 'label_description', 'desc', 'placeholder' ],
 					$validation_tab,
-					array_merge( ['js_options'], $advanced_tab )
+					array_merge( [ 'js_options' ], $advanced_tab )
 				),
 				'description' => __( 'Beautiful select dropdown using select2 library', 'meta-box-builder' ),
 			],
@@ -561,7 +570,7 @@ class Fields extends Base {
 					array_merge( $general_tab, [ 'std', 'input_attributes' ] ),
 					[ 'inline', 'label_description', 'desc', 'placeholder', 'size', 'prepend_append' ],
 					$validation_tab,
-					array_merge( ['js_options'], $advanced_tab )
+					array_merge( [ 'js_options' ], $advanced_tab )
 				),
 				'description' => __( 'Time picker', 'meta-box-builder' ),
 			],
@@ -609,7 +618,7 @@ class Fields extends Base {
 					array_merge( $general_tab, [ 'std', 'raw' ] ),
 					$appearance_tab,
 					$validation_tab,
-					array_merge( ['options'], $advanced_tab )
+					array_merge( [ 'options' ], $advanced_tab )
 				),
 				'description' => __( 'WordPress editor', 'meta-box-builder' ),
 			],

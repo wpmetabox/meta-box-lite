@@ -77,7 +77,7 @@ class MetaBox {
 	}
 
 	private function encode_fields( &$fields ) {
-		array_walk( $fields, array( $this, 'encode_field' ) );
+		array_walk( $fields, [ $this, 'encode_field' ] );
 		$fields = array_values( array_filter( $fields ) ); // Make sure to remove empty (such as empty groups) or "tab" fields.
 	}
 

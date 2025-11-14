@@ -799,19 +799,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mbb-parser.git",
-                "reference": "f6490022abe3ada452fb7511d9066f91c96aef51"
+                "reference": "35edf5e3a5da06337e2a94a12fe97548680c5a5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/mbb-parser/zipball/f6490022abe3ada452fb7511d9066f91c96aef51",
-                "reference": "f6490022abe3ada452fb7511d9066f91c96aef51",
+                "url": "https://api.github.com/repos/wpmetabox/mbb-parser/zipball/35edf5e3a5da06337e2a94a12fe97548680c5a5a",
+                "reference": "35edf5e3a5da06337e2a94a12fe97548680c5a5a",
                 "shasum": ""
             },
             "require": {
                 "riimu/kit-phpencoder": "^2.4",
                 "wpmetabox/support": "dev-master"
             },
-            "time": "2025-11-04T04:40:39+00:00",
+            "time": "2025-11-07T01:54:04+00:00",
             "default-branch": true,
             "type": "library",
             "installation-source": "dist",
@@ -838,12 +838,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box.git",
-                "reference": "9f3598cfb7e2377eac5df557a7e84ee63a29c21d"
+                "reference": "d305020f9cd268c69642292972cffb769e6428f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/9f3598cfb7e2377eac5df557a7e84ee63a29c21d",
-                "reference": "9f3598cfb7e2377eac5df557a7e84ee63a29c21d",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/d305020f9cd268c69642292972cffb769e6428f3",
+                "reference": "d305020f9cd268c69642292972cffb769e6428f3",
                 "shasum": ""
             },
             "require": {
@@ -852,7 +852,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^11.3"
             },
-            "time": "2025-11-05T14:49:24+00:00",
+            "time": "2025-11-07T03:13:48+00:00",
             "default-branch": true,
             "type": "wordpress-plugin",
             "extra": {
@@ -988,12 +988,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box-builder.git",
-                "reference": "8a999507b4acc9c4bd2cf33f7db0997efcb9480f"
+                "reference": "27476b30a7c5f4eba3768bbb06ed2b88ac6d13cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/8a999507b4acc9c4bd2cf33f7db0997efcb9480f",
-                "reference": "8a999507b4acc9c4bd2cf33f7db0997efcb9480f",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/27476b30a7c5f4eba3768bbb06ed2b88ac6d13cf",
+                "reference": "27476b30a7c5f4eba3768bbb06ed2b88ac6d13cf",
                 "shasum": ""
             },
             "require": {
@@ -1005,7 +1005,7 @@
                 "opis/json-schema": "^2.4",
                 "phpunit/phpunit": "^11.3"
             },
-            "time": "2025-11-05T14:55:10+00:00",
+            "time": "2025-11-13T14:51:35+00:00",
             "default-branch": true,
             "type": "wordpress-plugin",
             "extra": {
@@ -1067,7 +1067,7 @@
             "description": "MB Builder extension for Meta Box",
             "support": {
                 "issues": "https://github.com/wpmetabox/meta-box-builder/issues",
-                "source": "https://github.com/wpmetabox/meta-box-builder/tree/5.1.2"
+                "source": "https://github.com/wpmetabox/meta-box-builder/tree/master"
             },
             "install-path": "../../modules/meta-box-builder"
         },

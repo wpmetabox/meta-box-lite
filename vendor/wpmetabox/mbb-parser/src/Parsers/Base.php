@@ -59,7 +59,7 @@ class Base {
 			} );
 
 			// Don't remove allowed empty keys.
-			if ( in_array( $key, $this->empty_keys ) ) {
+			if ( in_array( $key, $this->empty_keys, true ) ) {
 				continue;
 			}
 
@@ -72,7 +72,7 @@ class Base {
 					continue;
 				}
 
-				if ( ! in_array( $key, $this->remove_false ) ) {
+				if ( ! in_array( $key, $this->remove_false, true ) ) {
 					continue;
 				}
 
@@ -189,9 +189,9 @@ class Base {
 		return $this;
 	}
 
-	protected function parse_json_dot_notations( $array ) {
+	protected function parse_json_dot_notations( array $arr ): array {
 		// Parse JSON notation.
-		foreach ( $array as &$value ) {
+		foreach ( $arr as &$value ) {
 			$json = json_decode( stripslashes( $value ), true );
 			if ( is_array( $json ) ) {
 				$value = $json;
@@ -199,7 +199,7 @@ class Base {
 		}
 
 		// Parse dot notation.
-		return Arr::unflatten( $array );
+		return Arr::unflatten( $arr );
 	}
 
 	protected function remove_default( $key, $value ) {

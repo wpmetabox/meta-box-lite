@@ -2,7 +2,10 @@
 namespace MBBParser\Unparsers;
 
 class Field extends Base {
-	// Allow these settings to be empty.
+	/**
+	 * Allow these settings to be empty.
+	 * @var array
+	 */
 	protected $empty_keys = [ 'save_field' ];
 
 	private $choice_types = [ 'select', 'radio', 'checkbox_list', 'select_advanced', 'button_group', 'image_select', 'autocomplete' ];
@@ -57,7 +60,7 @@ class Field extends Base {
 	 * @return static
 	 */
 	private function unparse_choice_options() {
-		if ( ! in_array( $this->type, $this->choice_types ) ) {
+		if ( ! in_array( $this->type, $this->choice_types, true ) ) {
 			return $this;
 		}
 
@@ -77,7 +80,7 @@ class Field extends Base {
 	}
 
 	private function unparse_choice_std() {
-		if ( ! in_array( $this->type, $this->choice_types ) ) {
+		if ( ! in_array( $this->type, $this->choice_types, true ) ) {
 			return $this;
 		}
 

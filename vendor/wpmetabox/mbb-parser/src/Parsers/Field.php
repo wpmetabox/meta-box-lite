@@ -2,10 +2,16 @@
 namespace MBBParser\Parsers;
 
 class Field extends Base {
-	// Allow these settings to be empty.
+	/**
+	 * Allow these settings to be empty.
+	 * @var array
+	 */
 	protected $empty_keys = [ 'save_field' ];
 
-	// Remove if "true", set to "false" if missing.
+	/**
+	 * Remove if "true", set to "false" if missing.
+	 * @var array
+	 */
 	protected $default_true = [
 		'button_group'   => [ 'inline' ],
 		'radio'          => [ 'inline' ],
@@ -135,7 +141,7 @@ class Field extends Base {
 	}
 
 	private function parse_choice_options() {
-		if ( ! in_array( $this->type, $this->choice_types ) ) {
+		if ( ! in_array( $this->type, $this->choice_types, true ) ) {
 			return $this;
 		}
 		if ( empty( $this->options ) || is_array( $this->options ) ) {
@@ -143,13 +149,13 @@ class Field extends Base {
 		}
 
 		// Use callback: function_name format.
-		if ( is_string( $this->options ) && 0 === strpos( $this->options, 'callback:' ) ) {
+		if ( is_string( $this->options ) && str_starts_with( $this->options, 'callback:' ) ) {
 			$callback = trim( str_replace( 'callback:', '', $this->options ) );
 			if ( is_callable( $callback ) ) {
 				try {
 					$this->options = call_user_func( $callback );
 				} catch ( \Throwable $th ) {
-					// throw $th;
+					$this->options = [];
 				}
 				$this->_callback = $callback; // For using in the encoders.
 			}
@@ -162,7 +168,7 @@ class Field extends Base {
 		$this->options = explode( "\n", $this->options );
 
 		foreach ( $this->options as $choice ) {
-			if ( false !== strpos( $choice, ':' ) ) {
+			if ( str_contains( $choice, ':' ) ) {
 				list( $value, $label )     = explode( ':', $choice, 2 );
 				$options[ trim( $value ) ] = trim( $label );
 			} else {
@@ -176,13 +182,13 @@ class Field extends Base {
 	}
 
 	private function parse_choice_std() {
-		if ( ! in_array( $this->type, $this->choice_types ) ) {
+		if ( ! in_array( $this->type, $this->choice_types, true ) ) {
 			return $this;
 		}
 
 		$is_multiple = $this->multiple
-			|| in_array( $this->type, [ 'checkbox_list', 'autocomplete' ] )
-			|| in_array( $this->field_type, [ 'select_tree', 'checkbox_tree', 'checkbox_list', 'checkbox_tree' ] );
+			|| in_array( $this->type, [ 'checkbox_list', 'autocomplete' ], true )
+			|| in_array( $this->field_type, [ 'select_tree', 'checkbox_tree', 'checkbox_list', 'checkbox_tree' ], true );
 
 		if ( ! $is_multiple ) {
 			if ( $this->std === '' ) {

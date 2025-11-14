@@ -59,6 +59,10 @@
 	height: 3px;
 }
 
+.components-notice {
+	margin-bottom: 16px;
+}
+
 #post_title {
 	text-align: center;
 }

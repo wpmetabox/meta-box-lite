@@ -10,7 +10,10 @@ use MBBParser\Prefixer;
  * This is to compatibility and allow users to import/export data between different versions, even with other plugins like ACF.
  */
 class MetaBox extends Base {
-	// Allows these keys to be empty as they are required to be compatible with the builder.
+	/**
+	 * Allows these keys to be empty as they are required to be compatible with the builder.
+	 * @var string[]
+	 */
 	protected $empty_keys = [ 'fields', 'meta_box', 'settings', 'data', 'modified' ];
 
 	private $settings_parser;
@@ -181,6 +184,7 @@ class MetaBox extends Base {
 				'icon_url'  => $icon_type === 'url' ? $icon : '',
 			];
 
+			// phpcs:ignore WordPress.PHP.StrictInArray.MissingTrueStrict
 			if ( ! in_array( $field['tab'], $added_tabs ) ) {
 				$new_fields[ $field['tab'] ] = $tab_field;
 				$added_tabs[]                = $tab_field;
@@ -270,7 +274,7 @@ class MetaBox extends Base {
 	 * - Remove prefix from field IDs for the settings, that can be used for export, builder, local JSON.
 	 * - Add prefix to field IDs for parsed meta box, that's ready for registering.
 	 */
-	public function unparse_meta_box(): static {
+	public function unparse_meta_box(): self {
 		// If not meta box, return
 		if ( $this->detect_post_type() !== 'meta-box' ) {
 			return $this;
@@ -319,8 +323,7 @@ class MetaBox extends Base {
 		return $this;
 	}
 
-	public function unparse_settings_page() {
-		// If not meta box, return
+	public function unparse_settings_page(): self {
 		if ( $this->detect_post_type() !== 'mb-settings-page' ) {
 			return $this;
 		}
@@ -343,6 +346,10 @@ class MetaBox extends Base {
 	}
 
 	private function unparse_settings_page_tabs(): self {
+		if ( $this->detect_post_type() !== 'mb-settings-page' ) {
+			return $this;
+		}
+
 		$tabs = $this->lookup( [ 'tabs' ], [] );
 		if ( empty( $tabs ) ) {
 			return $this;
@@ -410,7 +417,7 @@ class MetaBox extends Base {
 		$settings = array_merge( $this->lookup( [ 'settings' ], [] ), $settings );
 
 		foreach ( $this->settings as $key => $value ) {
-			if ( in_array( $key, $this->get_unneeded_keys() ) ) {
+			if ( in_array( $key, $this->get_unneeded_keys(), true ) ) {
 				continue;
 			}
 
@@ -439,7 +446,7 @@ class MetaBox extends Base {
 
 		$this->post_type    = $post_type;
 		$this->post_name    = $this->lookup( [ 'post_name', 'settings.id', 'relationship.id', 'meta_box.id', 'id' ] );
-		$this->post_date    = $this->lookup( [ 'post_date' ], date( 'Y-m-d H:i:s' ) );
+		$this->post_date    = $this->lookup( [ 'post_date' ], gmdate( 'Y-m-d H:i:s' ) );
 		$this->post_status  = $this->lookup( [ 'post_status' ], 'publish' );
 		$this->post_content = $this->lookup( [ 'post_content' ], '' );
 

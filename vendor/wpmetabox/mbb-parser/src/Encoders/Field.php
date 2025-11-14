@@ -33,7 +33,7 @@ class Field {
 
 	private function make_options_translatable() {
 		$choice_types = [ 'select', 'radio', 'checkbox_list', 'select_advanced', 'button_group', 'image_select', 'autocomplete' ];
-		if ( ! in_array( $this->type, $choice_types ) ) {
+		if ( ! in_array( $this->type, $choice_types, true ) ) {
 			return;
 		}
 

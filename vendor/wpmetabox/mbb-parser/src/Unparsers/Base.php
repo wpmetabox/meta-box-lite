@@ -104,8 +104,8 @@ class Base {
 	/**
 	 * Inverse of remove_default.
 	 *
-	 * @param mixed $key
-	 * @param mixed $value
+	 * @param mixed $key    The key to add the default value to.
+	 * @param mixed $value  The default value to add.
 	 * @return static
 	 */
 	protected function add_default( $key, $value ) {
@@ -117,18 +117,19 @@ class Base {
 	}
 
 	/**
-	 * Lookup from the data using keys, return the first key found or null
+	 * Lookup from the data using keys, return the first key found or the fallback value.
 	 *
-	 * @param array $keys
-	 * @return mixed
+	 * @param array $keys     Array of keys to lookup.
+	 * @param mixed $fallback Fallback value to return if no key is found.
+	 * @return mixed The value of the first key found or the fallback value.
 	 */
-	public function lookup( array $keys, $default = null ) {
+	public function lookup( array $keys, $fallback = null ) {
 		foreach ( $keys as $key ) {
 			if ( Arr::get( $this->settings, $key ) !== null ) {
 				return Arr::get( $this->settings, $key );
 			}
 		}
 
-		return $default;
+		return $fallback;
 	}
 }

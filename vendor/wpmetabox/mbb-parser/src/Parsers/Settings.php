@@ -4,7 +4,10 @@ namespace MBBParser\Parsers;
 use MetaBox\Support\Arr;
 
 class Settings extends Base {
-	// Allow these settings to be empty.
+	/**
+	 * Allow these settings to be empty.
+	 * @var array
+	 */
 	protected $empty_keys = [ 'post_types', 'taxonomies', 'settings_pages' ];
 
 	/**
@@ -40,15 +43,15 @@ class Settings extends Base {
 			unset( $this->taxonomies );
 			unset( $this->settings_pages );
 			unset( $this->type );
-		} else if ( $object_type === 'term' ) {
+		} elseif ( $object_type === 'term' ) {
 			unset( $this->post_types );
 			unset( $this->settings_pages );
 			unset( $this->type );
-		} else if ( $object_type === 'setting' ) {
+		} elseif ( $object_type === 'setting' ) {
 			unset( $this->post_types );
 			unset( $this->taxonomies );
 			unset( $this->type );
-		} else if ( in_array( $object_type, [ 'block', 'user', 'comment' ], true ) ) {
+		} elseif ( in_array( $object_type, [ 'block', 'user', 'comment' ], true ) ) {
 			unset( $this->post_types );
 			unset( $this->taxonomies );
 			unset( $this->settings_pages );
@@ -209,12 +212,12 @@ class Settings extends Base {
 		return $this;
 	}
 
-	public function replace_variables( $string ) {
-		if ( empty( $string ) ) {
-			return $string;
+	public function replace_variables( $text ) {
+		if ( empty( $text ) ) {
+			return $text;
 		}
 
-		return strtr( $string, [
+		return strtr( $text, [
 			'{{ site.path }}'  => wp_normalize_path( ABSPATH ),
 			'{{ site.url }}'   => untrailingslashit( home_url( '/' ) ),
 			'{{ theme.path }}' => wp_normalize_path( get_stylesheet_directory() ),
