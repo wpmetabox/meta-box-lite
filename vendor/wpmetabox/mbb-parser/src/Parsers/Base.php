@@ -192,6 +192,9 @@ class Base {
 	protected function parse_json_dot_notations( array $arr ): array {
 		// Parse JSON notation.
 		foreach ( $arr as &$value ) {
+			if ( ! is_string( $value ) ) {
+				continue;
+			}
 			$json = json_decode( stripslashes( $value ), true );
 			if ( is_array( $json ) ) {
 				$value = $json;

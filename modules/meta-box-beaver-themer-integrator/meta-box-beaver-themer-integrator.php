@@ -1,14 +1,13 @@
 <?php
 /**
- * Plugin Name:      MB Beaver Builder Integration
- * Plugin URI:       https://metabox.io/plugins/meta-box-beaver-themer-integrator/
- * Description:      Integrates Meta Box and Beaver Builder.
- * Author:           MetaBox.io
- * Author URI:       https://metabox.io
- * Text Domain:      meta-box-beaver-themer-integrator
- * Version:          2.1.4
- * Requires Plugins: meta-box
- * License:          GPL-2.0
+ * Plugin Name: MB Beaver Builder Integration
+ * Plugin URI:  https://metabox.io/plugins/meta-box-beaver-themer-integrator/
+ * Description: Integrates Meta Box and Beaver Builder.
+ * Author:      MetaBox.io
+ * Author URI:  https://metabox.io
+ * Text Domain: meta-box-beaver-themer-integrator
+ * Version:     2.1.5
+ * License:     GPL-2.0
  */
 
 // Prevent loading this file directly.

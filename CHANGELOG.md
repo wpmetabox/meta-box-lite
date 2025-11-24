@@ -1,3 +1,16 @@
+### 2.3.2 - 2025-11-24
+
+- Add filters for reordering post types and taxonomies, allowing built-in or other post types/taxonomies can be reordered. See [docs for usage](https://docs.metabox.io/reorder-posts-terms/).
+- Change icon for required/cloneable badge to avoid UX confusion
+- Change tooltip for field label to top to always show the ID
+- Hide date's `save_format` & `timestamp` settings when in a group to avoid confustion as they're not effective when inside groups
+- Fix cannot add rules for Advanced location rules
+- Fix cursor jumping when editing tooltip content
+- Fix typing issue with Vietnamese in the field label in the field settings panel
+- Fix incorrect location when importing field groups for settings pages
+- Fix parsing JSON notation
+- Fix deprecation message for `datetime` field
+
 ### 2.3.1 - 2025-11-14
 
 - Update pt_BR translation

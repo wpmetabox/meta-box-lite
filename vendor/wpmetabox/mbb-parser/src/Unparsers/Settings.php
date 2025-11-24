@@ -17,53 +17,74 @@ class Settings extends Base {
 	}
 
 	private function unparse_location(): self {
-		// Add missing object type if not set.
-		if ( in_array( $this->type, [ 'user', 'comment', 'block' ], true ) ) {
+		if ( ! empty( $this->taxonomies ) ) {
+			$this->object_type = 'term';
+			$this->ensure_array( 'taxonomies' );
+
+			unset( $this->post_types );
+			unset( $this->settings_pages );
+			unset( $this->type );
+
+			unset( $this->priority );
+			unset( $this->style );
+			unset( $this->closed );
+			unset( $this->revision );
+			unset( $this->context );
+			unset( $this->default_hidden );
+
+			return $this;
+		}
+
+		if ( ! empty( $this->settings_pages ) ) {
+			$this->object_type = 'setting';
+			$this->ensure_array( 'settings_pages' );
+
+			unset( $this->post_types );
+			unset( $this->taxonomies );
+			unset( $this->type );
+
+			return $this;
+		}
+
+		if ( in_array( $this->type, [ 'user', 'comment' ], true ) ) {
 			$this->object_type = $this->type;
-		}
 
-		$object_type = $this->object_type ?: 'post';
-
-		if ( $object_type === 'post' ) {
+			unset( $this->post_types );
 			unset( $this->taxonomies );
 			unset( $this->settings_pages );
-			unset( $this->type );
-			if ( isset( $this->post_types ) ) {
-				$this->post_types = array_filter( (array) $this->post_types );
-			}
 
-			return $this;
-		}
-
-		unset( $this->post_types );
-		unset( $this->priority );
-		unset( $this->style );
-		unset( $this->position );
-		unset( $this->closed );
-		unset( $this->revision );
-
-		if ( $object_type === 'term' ) {
-			unset( $this->settings_pages );
-			unset( $this->type );
+			unset( $this->priority );
+			unset( $this->style );
+			unset( $this->closed );
+			unset( $this->revision );
 			unset( $this->context );
+			unset( $this->default_hidden );
+
 			return $this;
 		}
 
-		if ( $object_type === 'setting' ) {
+		if ( $this->type === 'block' ) {
+			$this->object_type = $this->type;
+
+			unset( $this->post_types );
 			unset( $this->taxonomies );
-			unset( $this->type );
-			unset( $this->context );
+			unset( $this->settings_pages );
+
+			unset( $this->priority );
+			unset( $this->style );
+			unset( $this->closed );
+			unset( $this->revision );
+			unset( $this->default_hidden );
+
 			return $this;
 		}
 
-		// block, user, comment
+		$this->object_type = 'post';
+		$this->ensure_array( 'post_types' );
 
 		unset( $this->taxonomies );
 		unset( $this->settings_pages );
-
-		if ( ! in_array( $object_type, [ 'user', 'comment' ], true ) ) {
-			unset( $this->context );
-		}
+		unset( $this->type );
 
 		return $this;
 	}
@@ -79,5 +100,10 @@ class Settings extends Base {
 			'{{ theme.path }}' => wp_normalize_path( get_stylesheet_directory() ),
 			'{{ theme.url }}'  => get_stylesheet_directory_uri(),
 		] );
+	}
+
+	private function ensure_array( string $key ): void {
+		$value      = $this->$key;
+		$this->$key = array_filter( (array) $value );
 	}
 }
