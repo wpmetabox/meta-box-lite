@@ -1,3 +1,7 @@
+### 2.3.3 - 2025-11-24
+
+- Fix the `use` statement with non-compound name has no effect
+
 ### 2.3.2 - 2025-11-24
 
 - Add filters for reordering post types and taxonomies, allowing built-in or other post types/taxonomies can be reordered. See [docs for usage](https://docs.metabox.io/reorder-posts-terms/).

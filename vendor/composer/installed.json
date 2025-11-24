@@ -838,12 +838,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box.git",
-                "reference": "6aab85e8c016d931e30ccc8e7be445a194c6d7ff"
+                "reference": "8f9a03f119e95027a6999a9d9525509c5db0c71c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/6aab85e8c016d931e30ccc8e7be445a194c6d7ff",
-                "reference": "6aab85e8c016d931e30ccc8e7be445a194c6d7ff",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/8f9a03f119e95027a6999a9d9525509c5db0c71c",
+                "reference": "8f9a03f119e95027a6999a9d9525509c5db0c71c",
                 "shasum": ""
             },
             "require": {
@@ -852,7 +852,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^11.3"
             },
-            "time": "2025-11-24T09:27:24+00:00",
+            "time": "2025-11-24T13:08:20+00:00",
             "default-branch": true,
             "type": "wordpress-plugin",
             "extra": {
