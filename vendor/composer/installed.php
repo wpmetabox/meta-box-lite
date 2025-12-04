@@ -3,7 +3,7 @@
         'name' => 'wpmetabox/meta-box-lite',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'f770cb5edbb56decd0bb349948a1b4a91013cc34',
+        'reference' => '76f48f911fadbc1ca266701d421707303116a005',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -186,7 +186,7 @@
         'wpmetabox/meta-box' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '8f9a03f119e95027a6999a9d9525509c5db0c71c',
+            'reference' => '4c683e95d15a563160489a1eb5bc50316a9ba804',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../modules/meta-box',
             'aliases' => array(
@@ -208,7 +208,7 @@
         'wpmetabox/meta-box-builder' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '3ee79119acfa3f194811e8b84289619b9b87d2f2',
+            'reference' => '55cf18fe18dc39923a7b0e15f6c7b480d5a850e6',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../modules/meta-box-builder',
             'aliases' => array(
@@ -230,7 +230,7 @@
         'wpmetabox/meta-box-lite' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'f770cb5edbb56decd0bb349948a1b4a91013cc34',
+            'reference' => '76f48f911fadbc1ca266701d421707303116a005',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -250,7 +250,7 @@
         'wpmetabox/text-limiter' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'f6ab317dbca65007a38281475823509dd8b2de88',
+            'reference' => '83ed8ae612170819f8d7f262913eeacd4f27c96c',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../modules/text-limiter',
             'aliases' => array(

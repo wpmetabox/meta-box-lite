@@ -3,7 +3,7 @@
  * Plugin Name: MB Text Limiter
  * Plugin URI:  https://metabox.io/plugins/meta-box-text-limiter/
  * Description: Limit number of characters or words entered for text, textarea, and wysiwyg fields.
- * Version:     1.2.6
+ * Version:     1.2.7
  * Author:      MetaBox.io
  * Author URI:  https://metabox.io
  * License:     GPLv2 or later

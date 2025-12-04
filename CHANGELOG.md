@@ -1,3 +1,8 @@
+### 2.3.4 - 2025-12-04
+
+- Fix text limiter not working if a field has prepend value
+- Fix `sprintf` not imported, causing "Something is wrong" error
+
 ### 2.3.3 - 2025-11-24
 
 - Fix the `use` statement with non-compound name has no effect

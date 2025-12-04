@@ -16,6 +16,10 @@ jQuery( function ( $ ) {
 		// Initialize elements.
 		initElements: function () {
 			this.$input = this.$el.siblings( '.rwmb-text' );
+			let textWrap = this.$el.siblings( '.rwmb-input-group' );
+			if ( textWrap.length > 0 ) {
+				this.$input = textWrap.find( '.rwmb-text' );
+			}
 			if ( !this.$input.length ) {
 				this.$input = this.$el.siblings( '.rwmb-textarea' );
 			}

@@ -3,7 +3,7 @@
  * Plugin Name: MB Builder
  * Plugin URI:  https://metabox.io/plugins/meta-box-builder/
  * Description: Drag and drop UI for creating custom meta boxes and custom fields.
- * Version:     5.1.5
+ * Version:     5.1.6
  * Author:      MetaBox.io
  * Author URI:  https://metabox.io
  * License:     GPL-2.0-or-later
@@ -46,7 +46,7 @@ if ( ! function_exists( 'mb_builder_load' ) ) {
 			return;
 		}
 
-		define( 'MBB_VER', '5.1.4' );
+		define( 'MBB_VER', '5.1.6' );
 		define( 'MBB_DIR', trailingslashit( __DIR__ ) );
 
 		list( , $url ) = \RWMB_Loader::get_path( MBB_DIR );
