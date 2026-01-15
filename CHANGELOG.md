@@ -1,3 +1,16 @@
+### 2.4.0 - 2026-01-15
+
+**Highlights:**
+
+Add new field type: `block_editor`. See more details on our [blog post](https://metabox.io/block-editor-field-type/) and [documentation](https://docs.metabox.io/fields/block-editor/).
+
+**Other changes:**
+
+- Rearrange settings for custom post type/taxonomy for a better UX
+- Fix fatal error on custom post type/taxonomy list screens
+- Fix cannot publish a field group if its status is future
+- Clarify table name restriction
+
 ### 2.3.4 - 2025-12-04
 
 - Fix text limiter not working if a field has prepend value
