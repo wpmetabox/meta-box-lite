@@ -1,6 +1,7 @@
 <?php
 namespace MBB;
 
+use MBB\RestApi\Save;
 use MBB\Upgrade\Ver404;
 
 class Import {
@@ -84,6 +85,7 @@ class Import {
 			$unparser = new \MBBParser\Unparsers\MetaBox( $post );
 			$unparser->unparse();
 			$post    = $unparser->get_settings();
+			$post    = Save::fix_post_date( $post );
 			$post_id = wp_insert_post( $post );
 
 			if ( ! $post_id ) {

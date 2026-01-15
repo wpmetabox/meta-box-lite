@@ -79,6 +79,18 @@ class Fields extends Base {
 				),
 				'description' => __( 'Set background properties', 'meta-box-builder' ),
 			],
+			'block_editor'      => [
+				'title'       => __( 'Block Editor', 'meta-box-builder' ),
+				'category'    => 'advanced',
+				'controls'    => array_merge(
+					[ 'required' ],
+					array_merge( $general_tab, [ 'allowed_blocks' ] ),
+					$appearance_tab,
+					$validation_tab,
+					$advanced_tab
+				),
+				'description' => __( 'Gutenberg block editor', 'meta-box-builder' ),
+			],
 			'button'            => [
 				'title'       => __( 'Button', 'meta-box-builder' ),
 				'category'    => 'advanced',

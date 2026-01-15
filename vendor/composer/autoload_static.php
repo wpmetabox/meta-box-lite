@@ -25,15 +25,15 @@ class ComposerStaticInit8a59c71b389c66ade363236ca67770f5
     );
 
     public static $prefixLengthsPsr4 = array (
-        'e' => 
+        'e' =>
         array (
             'eLightUp\\' => 9,
         ),
-        'R' => 
+        'R' =>
         array (
             'Riimu\\Kit\\PHPEncoder\\' => 21,
         ),
-        'M' => 
+        'M' =>
         array (
             'MetaBox\\TS\\' => 11,
             'MetaBox\\Support\\' => 16,
@@ -48,70 +48,70 @@ class ComposerStaticInit8a59c71b389c66ade363236ca67770f5
             'MBBTI\\' => 6,
             'MBBParser\\' => 10,
         ),
-        'C' => 
+        'C' =>
         array (
             'Composer\\Installers\\' => 20,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'eLightUp\\' => 
+        'eLightUp\\' =>
         array (
             0 => __DIR__ . '/..' . '/elightup/twig',
         ),
-        'Riimu\\Kit\\PHPEncoder\\' => 
+        'Riimu\\Kit\\PHPEncoder\\' =>
         array (
             0 => __DIR__ . '/..' . '/riimu/kit-phpencoder/src',
         ),
-        'MetaBox\\TS\\' => 
+        'MetaBox\\TS\\' =>
         array (
             0 => __DIR__ . '/../..' . '/modules/mb-toolset-migration/src',
         ),
-        'MetaBox\\Support\\' => 
+        'MetaBox\\Support\\' =>
         array (
             0 => __DIR__ . '/..' . '/wpmetabox/support',
         ),
-        'MetaBox\\RestApi\\' => 
+        'MetaBox\\RestApi\\' =>
         array (
             0 => __DIR__ . '/../..' . '/modules/mb-rest-api/src',
         ),
-        'MetaBox\\Pods\\' => 
+        'MetaBox\\Pods\\' =>
         array (
             0 => __DIR__ . '/../..' . '/modules/mb-pods-migration/src',
         ),
-        'MetaBox\\ACF\\' => 
+        'MetaBox\\ACF\\' =>
         array (
             0 => __DIR__ . '/../..' . '/modules/mb-acf-migration/src',
         ),
-        'MetaBox\\' => 
+        'MetaBox\\' =>
         array (
             0 => __DIR__ . '/../..' . '/modules/meta-box/src',
         ),
-        'MBEI\\' => 
+        'MBEI\\' =>
         array (
             0 => __DIR__ . '/../..' . '/modules/mb-elementor-integrator/src',
         ),
-        'MBDI\\' => 
+        'MBDI\\' =>
         array (
             0 => __DIR__ . '/../..' . '/modules/mb-divi-integrator/src',
         ),
-        'MBCPT\\' => 
+        'MBCPT\\' =>
         array (
             0 => __DIR__ . '/../..' . '/modules/mb-custom-post-type/src',
         ),
-        'MBB\\' => 
+        'MBB\\' =>
         array (
             0 => __DIR__ . '/../..' . '/modules/meta-box-builder/src',
         ),
-        'MBBTI\\' => 
+        'MBBTI\\' =>
         array (
             0 => __DIR__ . '/../..' . '/modules/meta-box-beaver-themer-integrator/src',
         ),
-        'MBBParser\\' => 
+        'MBBParser\\' =>
         array (
             0 => __DIR__ . '/..' . '/wpmetabox/mbb-parser/src',
         ),
-        'Composer\\Installers\\' => 
+        'Composer\\Installers\\' =>
         array (
             0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
         ),

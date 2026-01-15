@@ -165,7 +165,7 @@ class Base {
 		$minimal_condition = $data;
 
 		// Remove relation if the value is AND
-		if ( 'and' === $data['relation'] ) {
+		if ( 'and' === ( $data['relation'] ?? 'and' ) ) {
 			unset( $minimal_condition['relation'] );
 		}
 

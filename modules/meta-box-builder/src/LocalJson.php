@@ -1,6 +1,8 @@
 <?php
 namespace MBB;
 
+use MBB\RestApi\Save;
+
 class LocalJson {
 	public function __construct() {
 		add_action( 'mbb_after_save', [ $this, 'generate_local_json' ], 10, 3 );
@@ -130,6 +132,7 @@ class LocalJson {
 			'post_status'  => $data['post_status'],
 			'post_content' => $data['post_content'],
 		] );
+		$post_array = Save::fix_post_date( $post_array );
 
 		$post_id = wp_insert_post( $post_array );
 

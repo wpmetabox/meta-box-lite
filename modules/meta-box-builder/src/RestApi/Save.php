@@ -62,12 +62,16 @@ class Save extends Base {
 			$post_status = 'publish';
 		}
 
-		$result = wp_update_post( [
+		$update_args = [
 			'ID'          => $post_id,
 			'post_title'  => $post_title,
 			'post_name'   => $post_name,
 			'post_status' => $post_status,
-		] );
+			'post_date'   => $post->post_date,
+		];
+		$update_args = self::fix_post_date( $update_args );
+
+		$result = wp_update_post( $update_args );
 
 		if ( is_wp_error( $result ) ) {
 			return [
@@ -107,5 +111,22 @@ class Save extends Base {
 			'success' => true,
 			'message' => __( 'Data saved successfully', 'meta-box-builder' )
 		];
+	}
+
+	public static function fix_post_date( array $args ): array {
+		if ( empty( $args['post_date'] ) ) {
+			return $args;
+		}
+
+		$now = current_time( 'mysql' );
+		if ( $args['post_date'] <= $now ) {
+			return $args;
+		}
+
+		// Fix post date if it's in the future.
+		$args['post_date']     = $now;
+		$args['post_date_gmt'] = current_time( 'mysql', true );
+
+		return $args;
 	}
 }

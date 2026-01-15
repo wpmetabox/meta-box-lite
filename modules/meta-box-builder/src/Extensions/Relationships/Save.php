@@ -4,6 +4,7 @@ namespace MBB\Extensions\Relationships;
 use WP_REST_Request;
 use WP_REST_Server;
 use WP_Error;
+use MBB\RestApi\Save as SaveRestApi;
 
 class Save {
 	public function __construct() {
@@ -61,12 +62,16 @@ class Save {
 			$post_status = 'publish';
 		}
 
-		$result = wp_update_post( [
+		$update_args = [
 			'ID'          => $post_id,
 			'post_title'  => $post_title,
 			'post_name'   => $post_name,
 			'post_status' => $post_status,
-		] );
+			'post_date'   => $post->post_date,
+		];
+		$update_args = SaveRestApi::fix_post_date( $update_args );
+
+		$result = wp_update_post( $update_args );
 
 		if ( is_wp_error( $result ) ) {
 			return [

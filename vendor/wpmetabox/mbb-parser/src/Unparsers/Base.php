@@ -51,6 +51,9 @@ class Base {
 			return $this;
 		}
 
+		// Convert nested arrays/objects to dot notation to prevent "[object Object]" issues.
+		$value = $this->array_to_dot_notation( $value );
+
 		$tmp_array = [];
 		foreach ( $value as $k => $v ) {
 			$tmp_key               = uniqid();
@@ -64,6 +67,59 @@ class Base {
 		$this->$key = $tmp_array;
 
 		return $this;
+	}
+
+	/**
+	 * Convert nested arrays/objects to dot notation.
+	 * Converts ['tax_query' => ['0' => ['taxonomy' => 'service-category']]]
+	 * to ['tax_query.0.taxonomy' => 'service-category']
+	 *
+	 * @param array  $array The array to convert.
+	 * @param string $prefix Internal use for recursion.
+	 * @return array Converted array with dot notation keys.
+	 */
+	protected function array_to_dot_notation( array $array, string $prefix = '' ): array {
+		$result = [];
+
+		foreach ( $array as $key => $value ) {
+			$new_key = $prefix === '' ? (string) $key : $prefix . '.' . $key;
+
+			if ( is_array( $value ) && ! empty( $value ) ) {
+				// Check if this is a numeric array (list) or associative array (object-like).
+				$keys = array_keys( $value );
+				$is_numeric = ! empty( $keys ) && $keys === array_values( range( 0, count( $value ) - 1 ) );
+
+				if ( $is_numeric ) {
+					// For numeric arrays (like tax_query[0], tax_query[1]), preserve numeric indices.
+					foreach ( $value as $idx => $item ) {
+						if ( is_array( $item ) && ! empty( $item ) ) {
+							// Recursively convert nested structures within numeric arrays.
+							$nested = $this->array_to_dot_notation( $item, $new_key . '.' . $idx );
+							$result = array_merge( $result, $nested );
+						} else {
+							$result[ $new_key . '.' . $idx ] = $item;
+						}
+					}
+				} else {
+					// For associative arrays, recursively convert.
+					$nested = $this->array_to_dot_notation( $value, $new_key );
+					$result = array_merge( $result, $nested );
+				}
+			} else {
+				// Convert non-array values to strings to prevent "[object Object]" issues.
+				if ( is_bool( $value ) ) {
+					$value = $value ? 'true' : 'false';
+				} elseif ( is_null( $value ) ) {
+					$value = '';
+				} elseif ( ! is_scalar( $value ) ) {
+					// For objects or other non-scalar types, convert to JSON string.
+					$value = wp_json_encode( $value );
+				}
+				$result[ $new_key ] = $value;
+			}
+		}
+
+		return $result;
 	}
 
 	protected function unparse_conditional_logic() {
