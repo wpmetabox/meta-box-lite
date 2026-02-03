@@ -67,6 +67,7 @@
 
         "composer.json",
         "composer.lock",
+        "package.json",
         "package-lock.json",
         "phpcs.xml",
         "pnpm-lock.yaml",
@@ -78,6 +79,7 @@
         ".editoconfig",
         ".vscode",
         "esbuild.js",
+        "webpack.config.js",
 
         "LICENSE",
         "*.md",
@@ -94,6 +96,9 @@
       ],
       "meta-box/*": [
         "vendor/"
+      ],
+      "wpmetabox/meta-box": [
+        "js/block-editor/src/"
       ],
       "wpmetabox/mb-custom-post-type": [
         "app/"

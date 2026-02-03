@@ -85,7 +85,7 @@ class Fields extends Base {
 				'controls'    => array_merge(
 					[ 'required' ],
 					array_merge( $general_tab, [ 'allowed_blocks' ] ),
-					$appearance_tab,
+					array_merge( $appearance_tab, [ 'height' ] ),
 					$validation_tab,
 					$advanced_tab
 				),

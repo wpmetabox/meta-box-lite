@@ -1,3 +1,23 @@
+### 2.4.1 - 2026-02-03
+
+**Improvements for the block editor field:**
+
+- Add block inspector sidebar
+- Add structure panel to show the list view of blocks
+- Add fullscreen mode
+- Add `height` settings (default is `300px`) and allow resizing the editor
+
+**Fixes for the block editor field:**
+
+- Fix cannot upload images for the image block
+- Fix blank site editor when using the block editor field
+- Fix custom rich text formats not working
+- Fix conflicts with `image_advanced` and `file_advanced` fields
+
+**Other changes:**
+
+- Fix cannot create new terms with required date/time fields
+
 ### 2.4.0 - 2026-01-15
 
 **Highlights:**

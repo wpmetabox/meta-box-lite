@@ -81,7 +81,10 @@ class Registry {
 				'label'       => __( 'Input size', 'meta-box-builder' ),
 				'description' => __( 'Leave empty to make the input 100% width.', 'meta-box-builder' ),
 			], '', 'appearance' ),
-
+			Control::Input( 'height', [
+				'label'       => __( 'Editor height', 'meta-box-builder' ),
+				'description' => __( 'Enter a value with a CSS unit (e.g. 300px, 60rem). If no unit is provided, px is used by default.', 'meta-box-builder' ),
+			], '', 'appearance' ),
 
 			// Validation.
 			Control::Validation( 'validation', [], [], 'validation' ),
