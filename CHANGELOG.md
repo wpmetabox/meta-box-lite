@@ -1,3 +1,22 @@
+### 2.4.2 - 2026-03-09
+
+**Improvements for the block editor field:**
+
+- Add breadcrumbs
+- Fix compatibility with Block Visibility plugin
+- Fix not loading 3rd-party blocks
+- Improve the CSS
+
+**Other changes:**
+
+- Fix save time format for the datetime field
+- Fix icon field dropdown broken display when SVG contains double quotes
+- Fix path traversal in `ajax_delete_file` for security
+- Fix timestamp should not be set for the time picker field
+- Add missing comma after capabilities in taxonomy PHP code output
+- Fix warning when slug of custom post type/taxonomy is too long
+- Fix updating WooCommerce products via REST API
+
 ### 2.4.1 - 2026-02-03
 
 **Improvements for the block editor field:**

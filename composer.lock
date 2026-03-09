@@ -942,12 +942,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box-builder.git",
-                "reference": "379d0716fcf2a4027f1431de4a58f44ce980a156"
+                "reference": "f7a220e9c1627c225782563cfef72d4ab0114927"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/379d0716fcf2a4027f1431de4a58f44ce980a156",
-                "reference": "379d0716fcf2a4027f1431de4a58f44ce980a156",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/f7a220e9c1627c225782563cfef72d4ab0114927",
+                "reference": "f7a220e9c1627c225782563cfef72d4ab0114927",
                 "shasum": ""
             },
             "require": {
@@ -1019,9 +1019,9 @@
             "description": "MB Builder extension for Meta Box",
             "support": {
                 "issues": "https://github.com/wpmetabox/meta-box-builder/issues",
-                "source": "https://github.com/wpmetabox/meta-box-builder/tree/master"
+                "source": "https://github.com/wpmetabox/meta-box-builder/tree/5.2.2"
             },
-            "time": "2026-02-11T11:53:48+00:00"
+            "time": "2026-03-09T01:26:13+00:00"
         },
         {
             "name": "wpmetabox/meta-box-facetwp-integrator",
