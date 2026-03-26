@@ -1,3 +1,14 @@
+### 2.4.5 - 2026-03-26
+
+- Add keyboard shortcut `Ctrl+S` (or `Cmd+S` on Mac) to quick save when editting field groups, settings pages, relationships, post types, taxonomies and views.
+- Block editor field: allow users to create/edit/select allowed block lists in the builder.
+- Block editor field: add `toolbar_position` option for where to display editing toolbar for blocks, which accepts value `top` (default) or `contextual`.
+- Fix saving an empty paragraph in the block editor field
+- Fix extra empty clone saved when calling `set_post_data()` during validation
+- Fix not showing tab icons after importing field groups
+- Fix removed tabs but code generation still has code for tabs
+- Fix geolocation not working with conditional logic
+
 ### 2.4.2 - 2026-03-09
 
 **Improvements for the block editor field:**
