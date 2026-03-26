@@ -86,7 +86,7 @@ class Base {
 
 			if ( is_array( $value ) && ! empty( $value ) ) {
 				// Check if this is a numeric array (list) or associative array (object-like).
-				$keys = array_keys( $value );
+				$keys       = array_keys( $value );
 				$is_numeric = ! empty( $keys ) && $keys === array_values( range( 0, count( $value ) - 1 ) );
 
 				if ( $is_numeric ) {

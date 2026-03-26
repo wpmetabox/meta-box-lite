@@ -14,15 +14,15 @@ class Save extends Base {
 			'callback'            => [ $this, 'save' ],
 			'permission_callback' => [ $this, 'has_permission' ],
 			'args'                => [
-				'post_id' => [
-					'required' => true,
-					'validate_callback' => function( $param ): bool {
+				'post_id'    => [
+					'required'          => true,
+					'validate_callback' => function ( $param ): bool {
 						return is_numeric( $param );
 					},
 					'sanitize_callback' => 'absint',
 				],
 				'post_title' => [
-					'validate_callback' => function( $param ) {
+					'validate_callback' => function ( $param ) {
 						if ( empty( $param ) ) {
 							return new WP_Error( 'rest_invalid_param', __( 'Please enter the field group title', 'meta-box-builder' ), [ 'status' => 400 ] );
 						}
@@ -30,7 +30,7 @@ class Save extends Base {
 					},
 					'sanitize_callback' => 'sanitize_text_field',
 				],
-				'post_name' => [
+				'post_name'  => [
 					'sanitize_callback' => 'sanitize_text_field',
 				],
 			],
@@ -38,11 +38,11 @@ class Save extends Base {
 	}
 
 	public function save( WP_REST_Request $request ): array {
-		$post_id     = $request->get_param( 'post_id' );
-		$post_title  = $request->get_param( 'post_title' );
-		$post_name   = $request->get_param( 'post_name' );
-		$fields      = $request->get_param( 'fields' );
-		$settings    = $request->get_param( 'settings' );
+		$post_id    = $request->get_param( 'post_id' );
+		$post_title = $request->get_param( 'post_title' );
+		$post_name  = $request->get_param( 'post_name' );
+		$fields     = $request->get_param( 'fields' );
+		$settings   = $request->get_param( 'settings' );
 
 		if ( ! $post_name ) {
 			$post_name = sanitize_title( $post_title );
@@ -80,37 +80,41 @@ class Save extends Base {
 			];
 		}
 
-		// Save fields, settings and data
+		$fields   = apply_filters( 'mbb_save_fields', $fields, $request );
+		$settings = apply_filters( 'mbb_save_settings', $settings, $request );
+
+		$parser = self::parse( $post, $fields, $settings, $post_title, $post_name );
+
+		do_action( 'mbb_after_save', $parser, $post_id, compact( 'fields', 'settings', 'post_title', 'post_name' ) );
+
+		return [
+			'success' => true,
+			'message' => __( 'Data saved successfully', 'meta-box-builder' ),
+		];
+	}
+
+	public static function parse( \WP_Post $post, array $fields, array $settings, ?string $post_title = null, ?string $post_name = null ): MetaBoxParser {
 		$base_parser = new BaseParser();
 
-		$settings = apply_filters( 'mbb_save_settings', $settings, $request );
 		$base_parser->set_settings( $settings )->parse_boolean_values()->parse_numeric_values();
-		update_post_meta( $post_id, 'settings', $base_parser->get_settings() );
+		update_post_meta( $post->ID, 'settings', $base_parser->get_settings() );
 
-		$fields = apply_filters( 'mbb_save_fields', $fields, $request );
 		$base_parser->set_settings( $fields )->parse_boolean_values()->parse_numeric_values();
-		update_post_meta( $post_id, 'fields', $base_parser->get_settings() );
+		update_post_meta( $post->ID, 'fields', $base_parser->get_settings() );
 
-		// Save parsed data for PHP (serialized array)
-		$submitted_data = compact( 'fields', 'settings' );
-		$submitted_data = apply_filters( 'mbb_save_submitted_data', $submitted_data, $request );
-
-		// Set post title and slug in case they're auto-generated
-		$submitted_data['post_title'] = $post_title;
-		$submitted_data['post_name']  = $post_name;
+		$submitted_data = [
+			'fields'     => $fields,
+			'settings'   => $settings,
+			'post_title' => $post_title ?? $post->post_title,
+			'post_name'  => $post_name ?? $post->post_name,
+		];
 
 		$parser = new MetaBoxParser( $submitted_data );
 		$parser->parse();
 
-		update_post_meta( $post_id, 'meta_box', $parser->get_settings() );
+		update_post_meta( $post->ID, 'meta_box', $parser->get_settings() );
 
-		// Allow developers to add actions after saving the meta box
-		do_action( 'mbb_after_save', $parser, $post_id, $submitted_data );
-
-		return [
-			'success' => true,
-			'message' => __( 'Data saved successfully', 'meta-box-builder' )
-		];
+		return $parser;
 	}
 
 	public static function fix_post_date( array $args ): array {

@@ -287,4 +287,26 @@ class Field extends Base {
 		unset( $this->text_limiter );
 		return $this;
 	}
+
+	private function parse_field_block_editor(): self {
+		if ( ! class_exists( '\MBB\Helpers\AllowedBlockLists' ) ) {
+			return $this;
+		}
+
+		if ( empty( $this->allowed_block_list ) ) {
+			unset( $this->allowed_blocks );
+			return $this;
+		}
+
+		$list = \MBB\Helpers\AllowedBlockLists::get_list( $this->allowed_block_list );
+
+		if ( $list && ! empty( $list['blocks'] ) ) {
+			$this->allowed_blocks = $list['blocks'];
+		} else {
+			unset( $this->allowed_blocks );
+		}
+
+		unset( $this->allowed_block_list );
+		return $this;
+	}
 }

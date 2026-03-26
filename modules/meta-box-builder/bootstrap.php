@@ -18,6 +18,7 @@ new RestApi\Save();
 new RestApi\ThemeCode\ThemeCode();
 
 new RestApi\Fields( new Registry() );
+new RestApi\AllowedBlockListsController();
 
 if ( Helpers\Data::is_extension_active( 'meta-box-include-exclude' ) ) {
 	new RestApi\IncludeExclude();

@@ -32,10 +32,10 @@ class Generator {
 	 * @return array|array{message: string, success: bool|string}
 	 */
 	public function generate( WP_REST_Request $request ) {
-		$post_title  = sanitize_text_field( $request->get_param( 'post_title' ) );
-		$post_name   = sanitize_text_field( $request->get_param( 'post_name' ) );
-		$fields      = $request->get_param( 'fields' );
-		$settings    = $request->get_param( 'settings' );
+		$post_title = sanitize_text_field( $request->get_param( 'post_title' ) );
+		$post_name  = sanitize_text_field( $request->get_param( 'post_name' ) );
+		$fields     = $request->get_param( 'fields' );
+		$settings   = $request->get_param( 'settings' );
 
 		if ( ! $post_title ) {
 			return [
@@ -54,7 +54,6 @@ class Generator {
 
 		// Save parsed data for PHP (serialized array)
 		$submitted_data = compact( 'fields', 'settings' );
-		$submitted_data = apply_filters( 'mbb_save_submitted_data', $submitted_data, $request );
 
 		// Set post title and slug in case they're auto-generated
 		$submitted_data['post_title'] = $post_title;
@@ -66,7 +65,7 @@ class Generator {
 		$settings = $parser->get_settings();
 		// 'modified' is used only for location JSON, not in PHP code
 		unset( $settings['modified'] );
-		$encoder  = new Encoder( $settings );
+		$encoder = new Encoder( $settings );
 		$encoder->encode();
 
 		return $encoder->get_encoded_string();

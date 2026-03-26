@@ -65,9 +65,14 @@ class RWMB_Block_Editor_Field extends RWMB_Field {
 		$field = parent::normalize( $field );
 
 		$field = wp_parse_args( $field, [
-			'allowed_blocks' => [],
-			'height'         => '300px',
+			'allowed_blocks'   => [],
+			'height'           => '300px',
+			'toolbar_position' => 'top',
 		] );
+
+		$field['toolbar_position'] = in_array( $field['toolbar_position'], [ 'top', 'contextual' ], true )
+			? $field['toolbar_position']
+			: 'top';
 
 		// Parse allowed_blocks from textarea (one block per line) to array for MB Builder
 		if ( is_string( $field['allowed_blocks'] ) ) {
@@ -108,8 +113,27 @@ class RWMB_Block_Editor_Field extends RWMB_Field {
 		return do_blocks( $value );
 	}
 
+	/**
+	 * Set value of meta before saving into database.
+	 *
+	 * @param mixed $new     The submitted meta value.
+	 * @param mixed $old     The existing meta value.
+	 * @param int   $post_id The post ID.
+	 * @param array $field   The field parameters.
+	 *
+	 * @return mixed
+	 */
+	public static function value( $new, $old, $post_id, $field ) {
+		$new = (string) $new;
+
+		// Remove the only empty paragraph block.
+		$pattern = '/^\s*<!-- wp:paragraph -->\s*?<p><\/p>\s*?<!-- \/wp:paragraph -->\s*$/';
+
+		return preg_replace( $pattern, '', $new );
+	}
+
 	protected static function get_editor_settings( array $field ): array {
-		$keys = [ 'allowed_blocks', 'height' ];
+		$keys = [ 'allowed_blocks', 'height', 'toolbar_position' ];
 		return array_filter( array_intersect_key( $field, array_flip( $keys ) ) );
 	}
 }

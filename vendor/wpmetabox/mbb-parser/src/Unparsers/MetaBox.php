@@ -173,6 +173,10 @@ class MetaBox extends Base {
 				$icon_type = 'url';
 			}
 
+			if ( $icon_type === 'dashicons' && str_starts_with( $icon, 'dashicons-' ) ) {
+				$icon = substr( $icon, strlen( 'dashicons-' ) );
+			}
+
 			$tab_field = [
 				'id'        => $field['tab'],
 				'_id'       => $field['tab'],

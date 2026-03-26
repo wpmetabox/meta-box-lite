@@ -237,6 +237,36 @@ class Field extends Base {
 		return $this;
 	}
 
+	private function unparse_field_block_editor(): self {
+		if ( ! class_exists( '\MBB\Helpers\AllowedBlockLists' ) ) {
+			return $this;
+		}
+
+		if ( ! empty( $this->allowed_block_list ) || empty( $this->allowed_blocks ) ) {
+			return $this;
+		}
+
+		$lists  = \MBB\Helpers\AllowedBlockLists::get_lists();
+		$blocks = (array) $this->allowed_blocks;
+
+		// Check if a list with the same blocks already exists.
+		foreach ( $lists as $id => $list ) {
+			if ( isset( $list['blocks'] ) && $list['blocks'] === $blocks ) {
+				$this->allowed_block_list = $id;
+				unset( $this->allowed_blocks );
+				return $this;
+			}
+		}
+
+		// Create a new list.
+		$list_name = sprintf( __( '%s: allowed blocks', 'meta-box-builder' ), $this->name ?? $this->id ?? uniqid() );
+		$list_id   = \MBB\Helpers\AllowedBlockLists::generate_id( $list_name );
+		\MBB\Helpers\AllowedBlockLists::update_list( $list_id, $list_name, $blocks );
+		$this->allowed_block_list = $list_id;
+		unset( $this->allowed_blocks );
+		return $this;
+	}
+
 	protected function ensure_boolean( $key ) {
 		if ( isset( $this->$key ) ) {
 			$this->$key = (bool) $this->$key;

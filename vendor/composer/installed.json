@@ -353,18 +353,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mb-custom-post-type.git",
-                "reference": "6b5344b810f55500d5b60c5d5c05971cd14d3bdf"
+                "reference": "f71bc114166880ba0521b69a70d2a33948a7833c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/mb-custom-post-type/zipball/6b5344b810f55500d5b60c5d5c05971cd14d3bdf",
-                "reference": "6b5344b810f55500d5b60c5d5c05971cd14d3bdf",
+                "url": "https://api.github.com/repos/wpmetabox/mb-custom-post-type/zipball/f71bc114166880ba0521b69a70d2a33948a7833c",
+                "reference": "f71bc114166880ba0521b69a70d2a33948a7833c",
                 "shasum": ""
             },
             "require": {
-                "wpmetabox/support": "dev-master"
+                "wpmetabox/support": "^1.0"
             },
-            "time": "2026-03-06T15:09:50+00:00",
+            "time": "2026-03-24T07:35:46+00:00",
             "default-branch": true,
             "type": "wordpress-plugin",
             "installation-source": "dist",
@@ -381,21 +381,17 @@
                 {
                     "name": "Tran Ngoc Tuan Anh",
                     "email": "anhtnt@elightup.com",
-                    "homepage": "https://metabox.io",
+                    "homepage": "https://deluxeblogtips.com",
                     "role": "Developer"
                 }
             ],
             "description": "Create and manage custom post types and custom taxonomies with an easy-to-use interface in WordPress.",
             "homepage": "https://metabox.io/plugins/custom-post-type/",
             "keywords": [
-                "custom-field",
                 "custom-post-type",
-                "meta-box",
-                "select2",
-                "ui",
+                "custom-taxonomy",
                 "wordpress",
-                "wordpress-plugin",
-                "wp-admin"
+                "wordpress-plugin"
             ],
             "support": {
                 "issues": "https://github.com/wpmetabox/mb-custom-post-type/issues",
@@ -799,19 +795,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mbb-parser.git",
-                "reference": "30d06ee2a592b31491febf62e7874c2547d17ffc"
+                "reference": "7bfbde762fd37b46ba1034c06d1892efdef352be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/mbb-parser/zipball/30d06ee2a592b31491febf62e7874c2547d17ffc",
-                "reference": "30d06ee2a592b31491febf62e7874c2547d17ffc",
+                "url": "https://api.github.com/repos/wpmetabox/mbb-parser/zipball/7bfbde762fd37b46ba1034c06d1892efdef352be",
+                "reference": "7bfbde762fd37b46ba1034c06d1892efdef352be",
                 "shasum": ""
             },
             "require": {
                 "riimu/kit-phpencoder": "^2.4",
                 "wpmetabox/support": "dev-master"
             },
-            "time": "2025-12-09T07:17:31+00:00",
+            "time": "2026-03-21T01:53:32+00:00",
             "default-branch": true,
             "type": "library",
             "installation-source": "dist",
@@ -838,21 +834,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box.git",
-                "reference": "270c63653de72c4677b99450551fcd71fbf84b93"
+                "reference": "ba3573605781ada11c77765955b22e2fbf9ed9ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/270c63653de72c4677b99450551fcd71fbf84b93",
-                "reference": "270c63653de72c4677b99450551fcd71fbf84b93",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/ba3573605781ada11c77765955b22e2fbf9ed9ac",
+                "reference": "ba3573605781ada11c77765955b22e2fbf9ed9ac",
                 "shasum": ""
             },
             "require": {
-                "wpmetabox/support": "dev-master"
+                "wpmetabox/support": "^1.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^11.3"
             },
-            "time": "2026-03-05T07:30:20+00:00",
+            "time": "2026-03-24T07:24:39+00:00",
             "default-branch": true,
             "type": "wordpress-plugin",
             "extra": {
@@ -907,11 +903,11 @@
                 {
                     "name": "Tran Ngoc Tuan Anh",
                     "email": "anhtnt@elightup.com",
-                    "homepage": "https://metabox.io",
+                    "homepage": "https://deluxeblogtips.com",
                     "role": "Developer"
                 }
             ],
-            "description": "A powerful, professional developer toolkit to create custom meta boxes and custom fields for WordPress websites.",
+            "description": "The most powerful & comprehensive plugin to create, manage, show and connect dynamic data with forms and custom fields effortlessly on WordPress.",
             "homepage": "https://metabox.io",
             "keywords": [
                 "custom-field",
@@ -988,12 +984,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box-builder.git",
-                "reference": "f7a220e9c1627c225782563cfef72d4ab0114927"
+                "reference": "4a34f7bc5727a1e7a077d4223b37a41114c7fa8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/f7a220e9c1627c225782563cfef72d4ab0114927",
-                "reference": "f7a220e9c1627c225782563cfef72d4ab0114927",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/4a34f7bc5727a1e7a077d4223b37a41114c7fa8d",
+                "reference": "4a34f7bc5727a1e7a077d4223b37a41114c7fa8d",
                 "shasum": ""
             },
             "require": {
@@ -1005,7 +1001,7 @@
                 "opis/json-schema": "^2.4",
                 "phpunit/phpunit": "^11.3"
             },
-            "time": "2026-03-09T01:26:13+00:00",
+            "time": "2026-03-24T07:14:06+00:00",
             "default-branch": true,
             "type": "wordpress-plugin",
             "extra": {
@@ -1067,7 +1063,7 @@
             "description": "MB Builder extension for Meta Box",
             "support": {
                 "issues": "https://github.com/wpmetabox/meta-box-builder/issues",
-                "source": "https://github.com/wpmetabox/meta-box-builder/tree/5.2.2"
+                "source": "https://github.com/wpmetabox/meta-box-builder/tree/5.2.3"
             },
             "install-path": "../../modules/meta-box-builder"
         },

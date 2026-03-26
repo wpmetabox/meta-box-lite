@@ -1,6 +1,7 @@
 <?php
 namespace MBB;
 
+use MBB\Helpers\AllowedBlockLists;
 use MBB\Helpers\Template;
 use MetaBox\Support\Data as DataHelper;
 use MBB\Helpers\Data;
@@ -132,9 +133,30 @@ class Edit extends BaseEditPage {
 		);
 
 		$fields = get_post_meta( get_the_ID(), 'fields', true ) ?: [];
+
+		// Migrate allowed_blocks to allowed_block_list (on associative array).
+		$migrated = false;
+		foreach ( $fields as &$field ) {
+			if ( $field['type'] !== 'block_editor' || empty( $field['allowed_blocks'] ) || ! empty( $field['allowed_block_list'] ) ) {
+				continue;
+			}
+			// Translators: %s - field name.
+			$list_name = sprintf( __( '%s: allowed blocks', 'meta-box-builder' ), $field['name'] ?? $field['id'] ?? uniqid() );
+			$list_id   = AllowedBlockLists::generate_id( $list_name );
+			AllowedBlockLists::update_list( $list_id, $list_name, $field['allowed_blocks'] );
+			$field['allowed_block_list'] = $list_id;
+			unset( $field['allowed_blocks'] );
+			$migrated = true;
+		}
+
+		if ( $migrated ) {
+			update_post_meta( get_the_ID(), 'fields', $fields );
+		}
+
+		// Convert to numeric array for frontend.
 		$fields = array_values( $fields );
 
-		// All other fields are false by default, but save_field need to be true by default.
+		// save_field need to be true by default.
 		$fields = array_map( function ( $field ) {
 			$field['save_field'] = $field['save_field'] ?? true;
 			return $field;
@@ -143,23 +165,23 @@ class Edit extends BaseEditPage {
 		$post = get_post();
 
 		$data = [
-			'adminUrl'      => admin_url(),
-			'title'         => $post->post_title,
-			'slug'          => $post->post_name,
+			'adminUrl'        => admin_url(),
+			'title'           => $post->post_title,
+			'slug'            => $post->post_name,
 
-			'fields'        => $fields,
-			'settings'      => get_post_meta( get_the_ID(), 'settings', true ),
+			'fields'          => $fields,
+			'settings'        => get_post_meta( get_the_ID(), 'settings', true ),
 
-			'postTypes'     => Data::get_post_types(),
-			'taxonomies'    => Data::get_taxonomies(),
-			'settingsPages' => Data::get_setting_pages(),
-			'templates'     => Data::get_templates(),
-			'icons'         => DataHelper::get_dashicons(),
+			'postTypes'       => Data::get_post_types(),
+			'taxonomies'      => Data::get_taxonomies(),
+			'settingsPages'   => Data::get_setting_pages(),
+			'templates'       => Data::get_templates(),
+			'icons'           => DataHelper::get_dashicons(),
 
 			'fieldCategories' => Data::get_field_categories(),
 
 			// Extensions check.
-			'extensions'    => [
+			'extensions'      => [
 				'aio'                => defined( 'META_BOX_AIO_DIR' ),
 				'adminColumns'       => Data::is_extension_active( 'mb-admin-columns' ),
 				'blocks'             => Data::is_extension_active( 'mb-blocks' ),
@@ -179,9 +201,9 @@ class Edit extends BaseEditPage {
 				'views'              => Data::is_extension_active( 'mb-views' ),
 			],
 
-			'assetsBaseUrl' => MBB_URL . 'assets',
+			'assetsBaseUrl'   => MBB_URL . 'assets',
 
-			'texts'         => [
+			'texts'           => [
 				'saving' => __( 'Saving...', 'meta-box-builder' ),
 			],
 		];

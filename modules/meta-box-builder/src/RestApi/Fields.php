@@ -84,8 +84,8 @@ class Fields extends Base {
 				'category'    => 'advanced',
 				'controls'    => array_merge(
 					[ 'required' ],
-					array_merge( $general_tab, [ 'allowed_blocks' ] ),
-					array_merge( $appearance_tab, [ 'height' ] ),
+					array_merge( $general_tab, [ 'allowed_block_list' ] ),
+					array_merge( $appearance_tab, [ 'height', 'toolbar_position' ] ),
 					$validation_tab,
 					$advanced_tab
 				),
@@ -275,7 +275,7 @@ class Fields extends Base {
 				'category'    => 'layout',
 				'controls'    => array_merge(
 					[ 'type', 'name', 'desc' ],
-					[ 'class', 'before', 'after' ],
+					[ 'class', 'before', 'after' ]
 				),
 				'description' => __( 'Heading text', 'meta-box-builder' ),
 			],
@@ -284,7 +284,7 @@ class Fields extends Base {
 				'category'    => 'advanced',
 				'controls'    => array_merge(
 					[ 'type', 'id', 'std' ],
-					[ 'class', 'before', 'after', 'custom_settings' ],
+					[ 'class', 'before', 'after', 'custom_settings' ]
 				),
 				'description' => __( 'For storing a default hidden value', 'meta-box-builder' ),
 			],

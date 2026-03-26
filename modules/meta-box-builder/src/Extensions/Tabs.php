@@ -65,9 +65,41 @@ class Tabs {
 	}
 
 	public function parse_meta_box_settings( array $settings ): array {
+		if ( empty( $settings['fields'] ) || ! is_array( $settings['fields'] ) ) {
+			return $settings;
+		}
+
+		$first_field_type = Arr::get( $settings, 'fields.0.type' );
+
+		// First field must be a tab!
+		if ( 'tab' !== $first_field_type ) {
+			$this->remove_tabs( $settings );
+			return $settings;
+		}
+
 		$this->parse_tabs( $settings );
 		$this->set_fields_tab( $settings );
 		return $settings;
+	}
+
+	private function remove_tabs( array &$settings ): void {
+		unset( 
+			$settings['tabs'],
+			$settings['tab_style'],
+			$settings['tab_default_active'],
+			$settings['tab_remember']
+		);
+
+		// Remove 'tab' property from all fields.
+		foreach ( $settings['fields'] as &$field ) {
+			unset( $field['tab'] );
+		}
+
+		// Remove all fields with type = 'tab'.
+		$settings['fields'] = array_filter( $settings['fields'], function( $field ) {
+			return 'tab' !== Arr::get( $field, 'type' );
+		} );
+		$settings['fields'] = array_values( $settings['fields'] );
 	}
 
 	private function parse_tabs( &$settings ): void {
@@ -104,32 +136,20 @@ class Tabs {
 			}
 		}
 
+		$settings['tabs'] = $tabs;
+
 		if ( 'default' === Arr::get( $settings, 'tab_style' ) ) {
 			unset( $settings['tab_style'] );
 		}
 
-		if ( empty( $tabs ) ) {
-			unset( $settings['tab_style'] );
-			unset( $settings['tab_default_active'] );
-		} else {
-			$settings['tabs'] = $tabs;
-
-			// Move 'fields' to bottom.
-			unset( $settings['fields'] );
-			$settings['fields'] = $fields;
-		}
+		// Move 'fields' to bottom.
+		unset( $settings['fields'] );
+		$settings['fields'] = $fields;
 	}
 
 	private function set_fields_tab( array &$settings ): void {
-		if ( empty( $settings['fields'] ) || ! is_array( $settings['fields'] ) ) {
-			return;
-		}
-		$fields = &$settings['fields'];
-		if ( 'tab' !== Arr::get( $fields[0], 'type' ) ) {
-			return;
-		}
-
 		$prefix = $settings['prefix'] ?? '';
+		$fields = &$settings['fields'];
 
 		$previous_tab = null;
 		foreach ( $fields as $k => &$field ) {

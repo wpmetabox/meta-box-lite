@@ -6,6 +6,7 @@
 namespace MBB;
 
 use MetaBox\Support\Arr;
+use MBB\Helpers\AllowedBlockLists;
 use MBB\Helpers\Data;
 
 class Registry {
@@ -85,6 +86,13 @@ class Registry {
 				'label'       => __( 'Editor height', 'meta-box-builder' ),
 				'description' => __( 'Enter a value with a CSS unit (e.g. 300px, 60rem). If no unit is provided, px is used by default.', 'meta-box-builder' ),
 			], '', 'appearance' ),
+			Control::ToggleGroup( 'toolbar_position', [
+				'label'   => __( 'Toolbar position', 'meta-box-builder' ),
+				'options' => [
+					'top'        => __( 'Top', 'meta-box-builder' ),
+					'contextual' => __( 'Contextual', 'meta-box-builder' ),
+				],
+			], 'top', 'appearance' ),
 
 			// Validation.
 			Control::Validation( 'validation', [], [], 'validation' ),
@@ -758,7 +766,7 @@ class Registry {
 				'label2' => __( 'Columns', 'meta-box-builder' ),
 				'key1'   => 'rows',
 				'key2'   => 'cols',
-			], [ 'rowls' => '', 'cols' => '' ], 'appearance' ),
+			], [ 'rows' => '', 'cols' => '' ], 'appearance' ),
 
 			// Time.
 			'inline_time'                  => Control::Toggle( 'inline', __( 'Display the time picker inline with the input', 'meta-box-builder' ), false, 'appearance' ),
@@ -777,7 +785,7 @@ class Registry {
 			'query_args_user'              => Control::KeyValue( 'query_args', [
 				'label'       => __( 'Query args', 'meta-box-builder' ),
 				// Translators: %s - URL to the get_users() page.
-				'description' => sprintf( __( 'Query arguments for getting user. Same as in the <a href="%s target="_blank">get_user()</a> function.', 'meta-box-builder' ), 'https://developer.wordpress.org/reference/classes/wp_user_query/prepare_query/' ),
+				'description' => sprintf( __( 'Query arguments for getting user. Same as in the <a href="%s" target="_blank">get_users()</a> function.', 'meta-box-builder' ), 'https://developer.wordpress.org/reference/classes/wp_user_query/prepare_query/' ),
 				'keys'        => [
 					'blog_id',
 					'role',
@@ -856,10 +864,9 @@ class Registry {
 					'default'          => [ 'true', 'false', 'tinymce', 'html' ],
 				],
 			], [], 'advanced' ),
-			'allowed_blocks'  => Control::ReactSelect( 'allowed_blocks', [
-				'label'       => __( 'Allowed blocks', 'meta-box-builder' ),
-				'description' => __( 'Choose blocks that can be inserted. Leave empty to allow all blocks.', 'meta-box-builder' ),
-				'options'     => Data::get_blocks(),
+			'allowed_block_list' => Control::BlockListSelect( 'allowed_block_list', [
+				'label'   => __( 'Allowed block list', 'meta-box-builder' ),
+				'options' => AllowedBlockLists::get_lists(),
 			] ),
 		];
 
