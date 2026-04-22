@@ -1,3 +1,17 @@
+### 2.5.0 - 2026-04-22
+
+- New field type `link` that allows you to add a link with native WordPress experience (similar to ACF)
+- Auto add child blocks for allowed blocks for the `block_editor` field
+- Add allowed blocks callback that must return a list of blocks for the `block_editor` field
+- Improve the UX of allowed block lists for the `block_editor` field
+- Add missing `class`, `before`, `after` controls for the `custom_html` field
+- Add time format support for the `datetime` field
+- Remove all tabs settings when there are no fields
+- Update the React app to React 18
+- Fix detecting title and name changes
+- Fix missing `sprintf` import for date time field preview
+- Fix custom settings not available in the builder after import
+
 ### 2.4.5 - 2026-03-26
 
 - Add keyboard shortcut `Ctrl+S` (or `Cmd+S` on Mac) to quick save when editting field groups, settings pages, relationships, post types, taxonomies and views.
