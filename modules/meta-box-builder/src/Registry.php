@@ -150,8 +150,19 @@ class Registry {
 					'dd-mm-yy'  => '28-03-2024 (dd-mm-yy)',
 					'mm/dd/yy'  => '03/28/2024 (mm/dd/yy)',
 					'dd MM yy'  => '28 March 2024 (dd MM yy)',
-					'M dd, yy' => 'Mar 03, 2024 (M dd, yy)',
+					'M dd, yy'  => 'Mar 03, 2024 (M dd, yy)',
 					'MM dd, yy' => 'March 28, 2024 (MM dd, yy)',
+				],
+			] ),
+			Control::SelectWithInput( 'datetime_format', [
+				'label' => __( 'Display format', 'meta-box-builder' ),
+				// Translators: %1$s - URL to jQueryUI date picker page, %2$s - URL to jQueryUI time picker page.
+				'description' => sprintf( __( '<a href="%s" target="_blank">jQueryUI date format</a> and <a href="%s" target="_blank">time format</a> (not PHP) to show in the input. You can input your own format, but please use only 1 space for separator.', 'meta-box-builder' ), 'https://api.jqueryui.com/datepicker/#utility-formatDate', 'https://trentrichardson.com/examples/timepicker/#tp-formatting' ),
+				'options'     => [
+					'yy-mm-dd HH:mm'     => '2024-03-28 14:05 (yy-mm-dd HH:mm)',
+					'dd-mm-yy HH:mm'     => '28-03-2024 14:05 (dd-mm-yy HH:mm)',
+					'mm/dd/yy hh:mm TT'  => '03/28/2024 02:05 PM (mm/dd/yy hh:mm TT)',
+					'MM dd, yy hh:mm TT' => 'March 28, 2024 02:05 PM (MM dd, yy hh:mm TT)',
 				],
 			] ),
 			'save_format_date' => Control::SelectWithInput( 'save_format', [
@@ -864,9 +875,15 @@ class Registry {
 					'default'          => [ 'true', 'false', 'tinymce', 'html' ],
 				],
 			], [], 'advanced' ),
-			'allowed_block_list' => Control::BlockListSelect( 'allowed_block_list', [
+			
+			// Block editor
+			Control::BlockListSelect( 'allowed_block_list', [
 				'label'   => __( 'Allowed block list', 'meta-box-builder' ),
 				'options' => AllowedBlockLists::get_lists(),
+			] ),
+			Control::Input( '_callback', [
+				'label'       => __( 'Allowed blocks callback', 'meta-box-builder' ),
+				'description' => __( 'PHP callback that returns the list of allowed blocks (the function must exist). If set, it overrides the allowed blocks list configured above.', 'meta-box-builder' ),
 			] ),
 		];
 

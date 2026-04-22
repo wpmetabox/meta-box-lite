@@ -10,6 +10,9 @@ class Field extends Base {
 
 	private $choice_types = [ 'select', 'radio', 'checkbox_list', 'select_advanced', 'button_group', 'image_select', 'autocomplete' ];
 
+	/** Keys from the original imported JSON, captured before any default values are injected. */
+	private array $original_keys = [];
+
 	/**
 	 * This is revert of parse method. While parse method converts to the minimal format,
 	 * this method converts back to the original format.
@@ -19,6 +22,8 @@ class Field extends Base {
 	 * @return void
 	 */
 	public function unparse() {
+		$this->original_keys = array_keys( $this->settings );
+
 		$this->unparse_default_values()
 			->unparse_boolean_values()
 			->unparse_numeric_values()
@@ -40,6 +45,7 @@ class Field extends Base {
 		if ( method_exists( $this, $func ) ) {
 			$this->$func();
 		}
+		$this->unparse_custom_settings();
 	}
 
 	private function unparse_datalist() {
@@ -271,6 +277,88 @@ class Field extends Base {
 		if ( isset( $this->$key ) ) {
 			$this->$key = (bool) $this->$key;
 		}
+		return $this;
+	}
+
+	private function unparse_field_datetime(): self {
+		if ( empty( $this->js_options ) ) {
+			return $this;
+		}
+
+		$js_options  = is_array( $this->js_options ) ? $this->js_options : [];
+		$date_format = $this->get_js_option_value( $js_options, 'dateFormat' );
+		$time_format = $this->get_js_option_value( $js_options, 'timeFormat' );
+		$separator   = $this->get_js_option_value( $js_options, 'separator' ) ?? ' ';
+
+		if ( $date_format && $time_format ) {
+			$this->datetime_format = "{$date_format}{$separator}{$time_format}";
+		} elseif ( $date_format ) {
+			$this->datetime_format = $date_format;
+		} elseif ( $time_format ) {
+			$this->datetime_format = $time_format;
+		}
+
+		foreach ( $js_options as $key => $option ) {
+			if ( isset( $option['key'] ) && in_array( $option['key'], [ 'dateFormat', 'timeFormat', 'separator' ], true ) ) {
+				unset( $js_options[ $key ] );
+			}
+		}
+		$this->js_options = $js_options;
+
+		return $this;
+	}
+
+	private function get_js_option_value( array $js_options, string $key ) {
+		foreach ( $js_options as $option ) {
+			if ( isset( $option['key'] ) && $option['key'] === $key ) {
+				return $option['value'] ?? null;
+			}
+		}
+
+		return null;
+	}
+
+	/**
+	 * Detect keys in the JSON that are not native MetaBox field settings
+	 * and move them into the custom_settings array format that the Builder
+	 * UI can read and display in the Advanced tab.
+	 *
+	 * Requires meta-box-builder plugin to be active (safe fallback if not).
+	 */
+	private function unparse_custom_settings(): self {
+		// Safe fallback: only run when Builder's FieldKeys helper is available.
+		if ( ! class_exists( '\\MBB\\Helpers\\FieldKeys' ) ) {
+			return $this;
+		}
+
+		$all_keys = \MBB\Helpers\FieldKeys::all();
+
+		// Move any unrecognized key into custom_settings format.
+		$custom_settings = $this->settings['custom_settings'] ?? [];
+
+		foreach ( $this->original_keys as $key ) {
+			if ( in_array( $key, $all_keys, true ) || ! isset( $this->settings[ $key ] ) ) {
+				continue;
+			}
+
+			$value  = $this->settings[ $key ];
+			$values = $this->array_to_dot_notation( [ $key => $value ] );
+			foreach ( $values as $k => $v ) {
+				$uid                     = uniqid();
+				$custom_settings[ $uid ] = [
+					'id'    => $uid,
+					'key'   => $k,
+					'value' => $v,
+				];
+			}
+
+			unset( $this->settings[ $key ] );
+		}
+
+		if ( ! empty( $custom_settings ) ) {
+			$this->settings['custom_settings'] = $custom_settings;
+		}
+
 		return $this;
 	}
 }

@@ -101,7 +101,10 @@ class AllowedBlockListsController {
 
 		AllowedBlockLists::update_list( $id, $name, $blocks );
 
-		return AllowedBlockLists::get_lists();
+		return [
+			'id'    => $id,
+			'lists' => AllowedBlockLists::get_lists(),
+		];
 	}
 
 	public function delete_item( WP_REST_Request $request ): array {

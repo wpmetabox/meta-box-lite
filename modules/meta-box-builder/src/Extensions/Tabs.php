@@ -66,6 +66,12 @@ class Tabs {
 
 	public function parse_meta_box_settings( array $settings ): array {
 		if ( empty( $settings['fields'] ) || ! is_array( $settings['fields'] ) ) {
+			unset(
+				$settings['tabs'],
+				$settings['tab_style'],
+				$settings['tab_default_active'],
+				$settings['tab_remember']
+			);
 			return $settings;
 		}
 
@@ -83,7 +89,7 @@ class Tabs {
 	}
 
 	private function remove_tabs( array &$settings ): void {
-		unset( 
+		unset(
 			$settings['tabs'],
 			$settings['tab_style'],
 			$settings['tab_default_active'],
@@ -96,7 +102,7 @@ class Tabs {
 		}
 
 		// Remove all fields with type = 'tab'.
-		$settings['fields'] = array_filter( $settings['fields'], function( $field ) {
+		$settings['fields'] = array_filter( $settings['fields'], function ( $field ) {
 			return 'tab' !== Arr::get( $field, 'type' );
 		} );
 		$settings['fields'] = array_values( $settings['fields'] );

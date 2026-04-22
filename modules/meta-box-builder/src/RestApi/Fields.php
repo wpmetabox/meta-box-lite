@@ -84,7 +84,7 @@ class Fields extends Base {
 				'category'    => 'advanced',
 				'controls'    => array_merge(
 					[ 'required' ],
-					array_merge( $general_tab, [ 'allowed_block_list' ] ),
+					array_merge( $general_tab, [ 'allowed_block_list', '_callback' ] ),
 					array_merge( $appearance_tab, [ 'height', 'toolbar_position' ] ),
 					$validation_tab,
 					$advanced_tab
@@ -153,7 +153,8 @@ class Fields extends Base {
 				'category'    => 'advanced',
 				'controls'    => array_merge(
 					[ 'type', 'name', 'std', 'callback' ],
-					$appearance_tab
+					$appearance_tab,
+					[ 'class', 'before', 'after' ]
 				),
 				'description' => __( 'Output custom HTML content', 'meta-box-builder' ),
 			],
@@ -174,7 +175,7 @@ class Fields extends Base {
 				'category'    => 'advanced',
 				'controls'    => array_merge(
 					[ 'required', 'clone_settings' ],
-					array_merge( $general_tab, [ 'std', 'format', 'timestamp', 'save_format', 'input_attributes' ] ),
+					array_merge( $general_tab, [ 'std', 'datetime_format', 'timestamp', 'save_format', 'input_attributes' ] ),
 					[ 'inline', 'label_description', 'desc', 'placeholder', 'size', 'prepend_append' ],
 					$validation_tab,
 					array_merge( [ 'js_options' ], $advanced_tab )
@@ -358,6 +359,17 @@ class Fields extends Base {
 					$advanced_tab
 				),
 				'description' => __( 'Add an unlimited group of key-value pairs', 'meta-box-builder' ),
+			],
+			'link'              => [
+				'title'       => __( 'Link', 'meta-box-builder' ),
+				'category'    => 'advanced',
+				'controls'    => array_merge(
+					[ 'clone_settings' ],
+					$general_tab,
+					$appearance_tab,
+					$advanced_tab
+				),
+				'description' => __( 'Input for link with title and target', 'meta-box-builder' ),
 			],
 			'number'            => [
 				'title'       => __( 'Number', 'meta-box-builder' ),

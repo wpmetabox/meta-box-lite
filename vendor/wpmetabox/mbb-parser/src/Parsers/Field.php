@@ -288,7 +288,53 @@ class Field extends Base {
 		return $this;
 	}
 
+	private function parse_field_datetime(): self {
+		if ( empty( $this->datetime_format ) ) {
+			return $this;
+		}
+
+		$js_options = is_array( $this->js_options ) ? $this->js_options : [];
+		$separator  = $js_options['separator'] ?? ' ';
+		$pos        = strpos( $this->datetime_format, $separator );
+
+		// Split format (simple format rule: "date time")
+		$date_format = false !== $pos ? substr( $this->datetime_format, 0, $pos ) : $this->datetime_format; // If no separator, client setup for date format
+		$time_format = false !== $pos ? substr( $this->datetime_format, $pos + strlen( $separator ) ) : '';
+
+		if ( $date_format && empty( $js_options['dateFormat'] ) ) {
+			$js_options['dateFormat'] = $date_format;
+		}
+
+		if ( $time_format && empty( $js_options['timeFormat'] ) ) {
+			$js_options['timeFormat'] = $time_format;
+		}
+
+		if ( empty( $js_options['separator'] ) ) {
+			$js_options['separator'] = ' ';
+		}
+
+		$this->js_options = $js_options;
+
+		unset( $this->datetime_format );
+
+		return $this;
+	}
+
 	private function parse_field_block_editor(): self {
+		// If users enter a callback for allowed blocks, run it.
+		if ( isset( $this->_callback ) && is_callable( $this->_callback ) ) {
+			$allowed_blocks = call_user_func( $this->_callback );
+			if ( ! empty( $allowed_blocks ) && is_array( $allowed_blocks ) ) {
+				$this->allowed_blocks = $allowed_blocks;
+			} else {
+				unset( $this->allowed_blocks );
+			}
+			unset( $this->_callback, $this->allowed_block_list );
+			return $this;
+		}
+		unset( $this->_callback );
+
+		// If users select a list.
 		if ( ! class_exists( '\MBB\Helpers\AllowedBlockLists' ) ) {
 			return $this;
 		}

@@ -484,14 +484,12 @@ class MetaBox extends Base {
 		return 'meta-box';
 	}
 
-	public function unparse_fields() {
-		$fields = $this->settings['meta_box']['fields'];
-
-		if ( empty( $fields ) ) {
+	public function unparse_fields(): self {
+		if ( empty( $this->settings['meta_box']['fields'] ) ) {
 			return $this;
 		}
 
-		$fields                   = $this->convert_fields_for_builder( $fields );
+		$fields                   = $this->convert_fields_for_builder( $this->settings['meta_box']['fields'] );
 		$this->settings['fields'] = $fields;
 
 		return $this;
