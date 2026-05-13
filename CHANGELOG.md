@@ -1,3 +1,10 @@
+### 2.5.1 - 2026-05-13
+
+- Show Cmd+S/Ctrl+S shortcut in the Save button in the builder
+- Fix text limiter not working with WYSIWYG fields on settings pages
+- Fix error in FieldKeys::all()
+- Fix reorder posts not clearing object cache
+
 ### 2.5.0 - 2026-04-22
 
 - New field type `link` that allows you to add a link with native WordPress experience (similar to ACF)

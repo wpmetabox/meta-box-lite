@@ -11,6 +11,30 @@ jQuery( function ( $ ) {
 			this.initElements();
 			this.addListeners();
 			this.$input.trigger( 'input' );
+
+			if ( this.$tmceEditorId && window.tinymce && !tinymce.get( this.$tmceEditorId ) ) {
+				this.waitForTinymce();
+			}
+		},
+
+		waitForTinymce: function () {
+			const that = this;
+			let attempts = 0;
+			const maxAttempts = 20;
+
+			function check() {
+				attempts++;
+				if ( window.tinymce && tinymce.get( that.$tmceEditorId ) ) {
+					that.initElements();
+					that.addListeners();
+					that.$input.trigger( 'input' );
+					return;
+				}
+				if ( attempts < maxAttempts ) {
+					setTimeout( check, 300 );
+				}
+			}
+			setTimeout( check, 300 );
 		},
 
 		// Initialize elements.
@@ -26,16 +50,16 @@ jQuery( function ( $ ) {
 
 			this.isTinymce = false;
 			if ( !this.$input.length ) {
-				let tmce = this.$el.siblings( '.tmce-active' ).contents().filter( '.wp-editor-container' ).contents().filter( 'textarea' );
+				let $wrap = this.$el.siblings( '.wp-editor-wrap' );
+				let $textarea = $wrap.find( '.wp-editor-container textarea.wp-editor-area' );
 
-				if ( tmce.length > 0 ) {
-					// wysiwyg in tmce mode
-					this.$tmceEditorId = tmce[ 0 ].id;
-					this.$input = $( '#' + this.$tmceEditorId );
-					this.isTinymce = true;
-				} else {
-					// wysiwyg in html mode
-					this.$input = this.$el.siblings( '.html-active' ).contents().filter( '.wp-editor-container' ).contents().filter( 'textarea' );
+				if ( $textarea.length > 0 ) {
+					this.$tmceEditorId = $textarea[ 0 ].id;
+					this.$input = $textarea;
+
+					if ( window.tinymce && tinymce.get( this.$tmceEditorId ) && $wrap.hasClass( 'tmce-active' ) ) {
+						this.isTinymce = true;
+					}
 				}
 				this.switchBtn = this.$el.siblings( '.wp-editor-wrap' ).contents().filter( '.wp-editor-tools' ).contents().filter( '.wp-editor-tabs' ).contents().filter( '.wp-switch-editor' );
 			}
@@ -83,7 +107,10 @@ jQuery( function ( $ ) {
 
 					that.$counter.html( length );
 				} );
+
+				that.bindTinymceEvents();
 			}
+
 			if ( that.switchBtn ) {
 				that.switchBtn.on( 'mouseup', function () {
 					setTimeout( () => {
@@ -93,6 +120,25 @@ jQuery( function ( $ ) {
 					}, 200 );
 				} );
 			}
+		},
+
+		bindTinymceEvents: function () {
+			const that = this;
+			const editor = window.tinymce ? tinymce.get( this.$tmceEditorId ) : null;
+
+			if ( !editor ) {
+				return;
+			}
+
+			if ( editor._textLimiterBound ) {
+				return;
+			}
+			editor._textLimiterBound = true;
+
+			editor.on( 'keyup change input paste', function () {
+				editor.save();
+				that.$input.trigger( 'change' );
+			} );
 		},
 
 		// Cut the content to the max length.

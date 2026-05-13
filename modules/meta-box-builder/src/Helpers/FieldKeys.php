@@ -7,10 +7,9 @@ use MBB\RestApi\Fields;
  * Provide field setting keys per field type, used by mbb-parser to detect custom keys on import.
  */
 class FieldKeys {
-
 	/**
 	 * List of field setting keys per field type [ type => [key, ...] ].
-	 * @var array<string, string[]>|null 
+	 * @var array<string, string[]>|null
 	 */
 	private static ?array $keys_by_type = null;
 
@@ -22,25 +21,24 @@ class FieldKeys {
 
 	private static ?Fields $fields_api = null;
 
-	/**
-	 * Inject the existing Fields instance.
-	 */
 	public static function init( Fields $fields_api ): void {
 		self::$fields_api = $fields_api;
 	}
 
 	public static function all(): array {
-
 		if ( self::$all_keys !== null ) {
 			return self::$all_keys;
 		}
 
 		self::build();
 
+		if ( self::$keys_by_type === null ) {
+	        return [];
+	    }
+
 		self::$all_keys = array_values( array_unique( array_merge( ...array_values( self::$keys_by_type ) ) ) );
 		return self::$all_keys;
 	}
-
 
 	private static function build(): void {
 		if ( self::$fields_api === null ) {
