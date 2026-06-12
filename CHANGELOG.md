@@ -1,3 +1,14 @@
+### 2.5.2 - 2026-06-12
+
+- Update style to match WordPress 7
+- Improve admin menu width detection
+- Add support for Divi 5
+- Improve check for creating relationships table
+- Fix showing block json path in admin columns when it's not enabled
+- Fix prefix in field ids when importing
+- Fix error when creating block with block.json and render_callback
+- Fix missing tabs, sub-groups, default_state when importing
+
 ### 2.5.1 - 2026-05-13
 
 - Show Cmd+S/Ctrl+S shortcut in the Save button in the builder
