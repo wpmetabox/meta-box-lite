@@ -11,7 +11,7 @@
     "sort-packages": true
   },
   "require": {
-    "composer/installers": "^1",
+    "composer/installers": "^2",
     "elightup/twig": "dev-master",
     "wpmetabox/mb-acf-migration": "^1",
     "wpmetabox/mb-comment-meta": "^1",
@@ -24,13 +24,13 @@
     "wpmetabox/mb-rest-api": "^2",
     "wpmetabox/mb-toolset-migration": "^1",
     "wpmetabox/mb-yoast-seo": "^1",
+    "wpmetabox/mbb-parser": "dev-master as 2",
     "wpmetabox/meta-box": "^5",
     "wpmetabox/meta-box-beaver-themer-integrator": "^2",
     "wpmetabox/meta-box-builder": "^5",
     "wpmetabox/meta-box-facetwp-integrator": "^1",
-    "wpmetabox/text-limiter": "^1",
     "wpmetabox/support": "dev-master as 1",
-    "wpmetabox/mbb-parser": "dev-master as 2"
+    "wpmetabox/text-limiter": "^1"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,

@@ -2,6 +2,7 @@
 namespace MBB\Extensions\Blocks\Json;
 
 use MBB\Helpers\Path;
+use MetaBox\Support\Arr;
 
 class Generator {
 	public function __construct() {
@@ -10,18 +11,11 @@ class Generator {
 
 	public function generate_block_json( $parser, $post_id, $raw_data ): void {
 		$settings = $parser->get_settings();
-
-		// Bail if this is not a block.
-		if ( ! isset( $settings['type'] ) || $settings['type'] !== 'block' ) {
+		if ( Arr::get( $settings, 'type' ) !== 'block' || ! Arr::get( $settings, 'block_json.enable' ) ) {
 			return;
 		}
 
-		// Bail if block path is empty.
-		if ( empty( $settings['block_json'] ) || ! $settings['block_json']['enable'] ) {
-			return;
-		}
-
-		$this->generate_block_package( $settings, $post_id, $raw_data );
+		$this->write_block_json_file( $settings, $post_id, $raw_data );
 	}
 
 	private function generate_block_metadata( array $settings, array $raw_data ): array {
@@ -44,8 +38,14 @@ class Generator {
 			],
 		];
 
+		// Render with MB Views
 		if ( ! empty( $settings['render_callback'] ) && str_starts_with( $settings['render_callback'], 'view:' ) ) {
 			$metadata['render'] = $settings['render_callback'];
+		}
+
+		// Render with a template.
+		if ( ! empty( $settings['render_template'] ) ) {
+			$metadata['render'] = "file:{$settings['render_template']}";
 		}
 
 		// Add fields to block metadata attributes.
@@ -77,7 +77,7 @@ class Generator {
 	 *
 	 * @todo: Add support for other field types. For example, enum.
 	 */
-	private function generate_block_attributes( ?array $fields ) {
+	private function generate_block_attributes( ?array $fields ): array {
 		if ( ! is_array( $fields ) ) {
 			return [];
 		}
@@ -107,7 +107,7 @@ class Generator {
 		return $attributes;
 	}
 
-	private function get_field_type_and_default_value( $field ) {
+	private function get_field_type_and_default_value( $field ): ?array {
 		$type = 'string';
 		$std  = $field['std'] ?? null;
 
@@ -128,27 +128,27 @@ class Generator {
 		$field['id'] = $field['id'] ?? $field['_id'] ?? null;
 
 		if ( ! isset( $field['type'] ) || ! isset( $field['id'] ) ) {
-			return;
+			return null;
 		}
 
-		if ( in_array( $field['type'], [ 'number', 'slider', 'range' ] ) ) {
+		if ( in_array( $field['type'], [ 'number', 'slider', 'range' ], true ) ) {
 			$type = 'number';
 			$std  = is_numeric( $field['std'] ) ? $field['std'] : 0;
 		}
 
-		if ( in_array( $field['type'], [ 'checkbox', 'switch' ] ) ) {
+		if ( in_array( $field['type'], [ 'checkbox', 'switch' ], true ) ) {
 			$type = 'boolean';
 			$std  = isset( $field['std'] ) ? (bool) $field['std'] : false;
 		}
 
-		if ( in_array( $field['type'], [ 'single_image', 'file_input', 'user', 'post' ] ) ) {
+		if ( in_array( $field['type'], [ 'single_image', 'file_input', 'user', 'post' ], true ) ) {
 			$type = 'object';
 			$std  = new \stdClass();
 		}
 
-		$is_multiple = ( isset( $field['multiple'] ) && $field['multiple'] )
-			|| ( isset( $field['type'] ) && in_array( $field['type'], $array_fields ) )
-			|| ( isset( $field['field_type'] ) && in_array( $field['field_type'], [ 'select_tree', 'checkbox_tree', 'checkbox_list', 'checkbox_tree' ] ) );
+		$is_multiple = ! empty( $field['multiple'] )
+			|| in_array( $field['type'], $array_fields, true )
+			|| ( isset( $field['field_type'] ) && in_array( $field['field_type'], [ 'select_tree', 'checkbox_tree', 'checkbox_list', 'checkbox_tree' ], true ) );
 
 		$is_cloneable = $field['clone'] ?? false;
 
@@ -160,7 +160,7 @@ class Generator {
 		return [ $type, $std ];
 	}
 
-	private function generate_block_package( array $settings, $post_id, $raw_data ): void {
+	private function write_block_json_file( array $settings, $post_id, $raw_data ): void {
 		$block_id          = $settings['id'];
 		$block_path        = trailingslashit( $settings['block_json']['path'] ) . $block_id;
 		$parent_block_path = dirname( $block_path );
@@ -173,43 +173,17 @@ class Generator {
 			wp_mkdir_p( $block_path );
 		}
 
-		$new_metadata = $this->generate_block_metadata( $settings, $raw_data );
+		$metadata = $this->generate_block_metadata( $settings, $raw_data );
 
-		// Compare old and new block metadata, and save the new one if it's newer.
-		$block_json_path = $block_path . '/block.json';
-
-		$is_newer = false;
-
-		if ( ! file_exists( $block_json_path ) ) {
-			$is_newer = true;
-		} else {
-			$current_metadata = json_decode( file_get_contents( $block_json_path ), true ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-
-			foreach ( $new_metadata as $key => $value ) {
-				if ( $key === 'version' ) {
-					continue;
-				}
-
-				if ( ! isset( $current_metadata[ $key ] ) || $current_metadata[ $key ] !== $value ) {
-					$is_newer = true;
-					break;
-				}
-			}
-		}
-
-		if ( ! $is_newer ) {
-			return;
-		}
-
-		// Save the new version back to the post meta.
+		// Save the new version back to the post meta
 		$settings                          = get_post_meta( $post_id, 'settings', true );
-		$settings['block_json']['version'] = $new_metadata['version'];
+		$settings['block_json']['version'] = $metadata['version'];
 		update_post_meta( $post_id, 'settings', $settings );
 
-		// phpcs:disable
-		$new_metadata = json_encode( $new_metadata, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
-		file_put_contents( $block_json_path, $new_metadata );
-		chmod( $block_json_path, 0664 );
-		// phpcs:enable
+		// Write to block.json file
+		$metadata        = wp_json_encode( $metadata, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
+		$block_json_path = $block_path . '/block.json';
+		file_put_contents( $block_json_path, $metadata ); // phpcs:ignore
+		chmod( $block_json_path, 0664 );                  // phpcs:ignore
 	}
 }

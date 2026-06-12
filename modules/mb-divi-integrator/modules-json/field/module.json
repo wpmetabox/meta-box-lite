@@ -1,0 +1,117 @@
+{
+  "name": "mbdi/field",
+  "d4Shortcode": "mbdi_field",
+  "title": "Meta Box Field",
+  "titles": "Meta Box Fields",
+  "moduleIcon": "mbdi/field",
+  "moduleClassName": "mbdi_field",
+  "moduleOrderClassName": "mbdi_field",
+  "category": "module",
+  "attributes": {
+    "module": {
+      "type": "object",
+      "selector": "{{selector}}",
+      "default": {
+        "meta": {
+          "adminLabel": {
+            "desktop": {
+              "value": "Meta Box Field"
+            }
+          }
+        }
+      },
+      "settings": {
+        "meta": {
+          "adminLabel": {}
+        },
+        "advanced": {
+          "link": {},
+          "text": {},
+          "htmlAttributes": {}
+        },
+        "decoration": {
+          "background": {},
+          "sizing": {},
+          "spacing": {},
+          "border": {},
+          "boxShadow": {},
+          "filters": {},
+          "transform": {},
+          "animation": {},
+          "overflow": {},
+          "disabledOn": {},
+          "transition": {},
+          "position": {},
+          "zIndex": {},
+          "scroll": {},
+          "sticky": {}
+        }
+      }
+    },
+    "metaboxFieldId": {
+      "type": "object",
+      "selector": "{{selector}}",
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupName": "mainContent",
+            "priority": 10,
+            "render": true,
+            "attrName": "metaboxFieldId.innerContent",
+            "label": "Meta Box Field",
+            "description": "Select a field to display.",
+            "features": {
+              "sticky": false,
+              "dynamicContent": false
+            },
+            "component": {
+              "name": "divi/select",
+              "type": "field"
+            }
+          }
+        }
+      }
+    },
+    "itemsPerRow": {
+      "type": "object",
+      "selector": "{{selector}}",
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupName": "mainContent",
+            "priority": 20,
+            "render": true,
+            "attrName": "itemsPerRow.innerContent",
+            "label": "Items Per Row",
+            "description": "Select the number of items to display per row.",
+            "features": {
+              "sticky": false,
+              "dynamicContent": false
+            },
+            "component": {
+              "name": "divi/select",
+              "type": "field",
+              "props": {
+                "options": [
+                  { "value": "1", "label": "1" },
+                  { "value": "2", "label": "2" },
+                  { "value": "3", "label": "3" },
+                  { "value": "4", "label": "4" },
+                  { "value": "5", "label": "5" },
+                  { "value": "6", "label": "6" }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "settings": {
+    "content": "auto",
+    "design": "auto",
+    "advanced": "auto"
+  }
+}

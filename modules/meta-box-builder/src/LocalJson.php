@@ -29,8 +29,7 @@ class LocalJson {
 			return [];
 		}
 
-		$content = file_get_contents( $file_path );
-		$json    = json_decode( $content, true );
+		$json = wp_json_file_decode( $file_path, [ 'associative' => true ] );
 
 		return is_array( $json ) ? $json : [];
 	}

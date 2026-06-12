@@ -3,6 +3,7 @@ namespace MBB;
 
 use MBB\RestApi\Save;
 use MBB\Upgrade\Ver404;
+use MBBParser\Unparsers\MetaBox;
 
 class Import {
 	private $upgrader_v4;
@@ -11,12 +12,10 @@ class Import {
 		$this->upgrader_v4 = new Ver404();
 
 		add_action( 'admin_footer-edit.php', [ $this, 'output_js_templates' ] );
-
-		// Import from the Import selector.
 		add_action( 'admin_init', [ $this, 'import' ] );
 	}
 
-	public function output_js_templates() {
+	public function output_js_templates(): void {
 		if ( ! in_array( get_current_screen()->id, [ 'edit-meta-box', 'edit-mb-relationship', 'edit-mb-settings-page' ], true ) ) {
 			return;
 		}
@@ -41,7 +40,7 @@ class Import {
 		<?php
 	}
 
-	public function import() {
+	public function import(): void {
 		// No file uploaded.
 		if ( empty( $_FILES['mbb_file'] ) || empty( $_FILES['mbb_file']['tmp_name'] ) || empty( $_POST['mbb_post_type'] ) ) {
 			return;
@@ -82,8 +81,10 @@ class Import {
 		}
 
 		foreach ( $posts as $post ) {
-			$unparser = new \MBBParser\Unparsers\MetaBox( $post );
+			// Expand minimal JSON (mirrors PHP structure) into full details.
+			$unparser = new MetaBox( $post );
 			$unparser->unparse();
+
 			$post    = $unparser->get_settings();
 			$post    = Save::fix_post_date( $post );
 			$post_id = wp_insert_post( $post );
@@ -91,7 +92,7 @@ class Import {
 			if ( ! $post_id ) {
 				wp_die( wp_kses_post( sprintf(
 					// Translators: %1$s - post type, %2$s - post title, %3$s - go back URL.
-					__( 'Cannot import the %1$s <strong>%2$s</strong>. <a href="%3$s">Go back</a>.', 'mb-custom-post-type' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch
+					__( 'Cannot import the %1$s <strong>%2$s</strong>. <a href="%3$s">Go back</a>.', 'meta-box-builder' ),
 					str_replace( 'mb-', '', $post['post_type'] ),
 					$post['post_title'],
 					admin_url( "edit.php?post_type={$post['post_type']}" )
@@ -102,11 +103,8 @@ class Import {
 				wp_die( wp_kses_post( implode( '<br>', $post_id->get_error_messages() ) ) );
 			}
 
-			// Handle the case when importing a meta box to already existing post.
-			// For example, when importing a meta box to a post that has post name "foo",
-			// The post name of the new post will be "foo-1", causing mismatch between the
-			// post name and the meta box id.
-			// Now we need to update those values
+			// On import, if the post slug already exists, WordPress appends "-1" (etc.),
+			// causing a mismatch between the post slug and meta box ID - fix both here.
 			$new_post = get_post( $post_id );
 			if ( $new_post->post_name !== $post['post_name'] ) {
 				$post['post_name']      = $new_post->post_name;
@@ -128,7 +126,7 @@ class Import {
 	/**
 	 * Import .dat files from < v4.
 	 */
-	private function import_dat( $data ) {
+	private function import_dat( string $data ): bool {
 		/**
 		 * Removed excerpt_save_pre filter for meta box, which adds rel="noopener"
 		 * to <a target="_blank"> links, thus braking JSON validity.
@@ -170,18 +168,5 @@ class Import {
 		}
 
 		return true;
-	}
-
-	private function get_meta_keys( $post_type ) {
-		switch ( $post_type ) {
-			case 'meta-box':
-				return [ 'settings', 'fields', 'meta_box' ];
-			case 'mb-relationship':
-				return [ 'settings', 'relationship' ];
-			case 'mb-settings-page':
-				return [ 'settings', 'settings_page' ];
-			default:
-				return [];
-		}
 	}
 }

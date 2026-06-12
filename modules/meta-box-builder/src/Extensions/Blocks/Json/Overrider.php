@@ -147,7 +147,7 @@ class Overrider {
 			return [];
 		}
 
-		$block_json = json_decode( file_get_contents( $path ), true ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		$block_json = wp_json_file_decode( $path, [ 'associative' => true ] );
 
 		$block_json['version'] = $block_json['version'] ?? 'v0';
 		$block_json['version'] = (int) str_replace( 'v', '', $block_json['version'] );

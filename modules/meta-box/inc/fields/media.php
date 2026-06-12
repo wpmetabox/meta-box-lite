@@ -54,7 +54,7 @@ class RWMB_Media_Field extends RWMB_File_Field {
 			foreach ( $ids as &$value ) {
 				$value = (array) $value;
 			}
-			$ids = call_user_func_array( 'array_merge', $ids );
+			$ids = array_merge( ...$ids );
 		}
 		update_meta_cache( 'post', $ids );
 
@@ -132,7 +132,16 @@ class RWMB_Media_Field extends RWMB_File_Field {
 		$attributes['class'] .= ' rwmb-media';
 
 		// Add attachment details.
-		$attachments                    = array_values( array_filter( array_map( 'wp_prepare_attachment_for_js', $value ) ) );
+		$attachments = [];
+		foreach ( $value as $attachment_id ) {
+			$attachment = wp_prepare_attachment_for_js( $attachment_id );
+			if ( empty( $attachment ) ) {
+				continue;
+			}
+			// Do not load compat media HTML markup, which can cause invalid JSON
+			unset( $attachment['compat'] );
+			$attachments[] = $attachment;
+		}
 		$attributes['data-attachments'] = wp_json_encode( $attachments );
 
 		if ( empty( $attachments ) ) {

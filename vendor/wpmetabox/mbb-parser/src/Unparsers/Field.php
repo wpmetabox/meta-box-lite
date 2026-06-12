@@ -133,14 +133,11 @@ class Field extends Base {
 		return $this;
 	}
 
-	private function unparse_field_group() {
-		$this->default_state = 'expanded';
-
-		$keys = [ 'default_state', 'save_state', 'group_title' ];
-
-		foreach ( $keys as $key ) {
-			$this->$key = $this->$key ?? '';
-		}
+	private function unparse_field_group(): self {
+		$this->collapsible   = $this->collapsible ?? false;
+		$this->save_state    = $this->save_state ?? false;
+		$this->default_state = $this->default_state ?? 'expanded';
+		$this->group_title   = $this->group_title ?? '';
 
 		return $this;
 	}

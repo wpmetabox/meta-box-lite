@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunk=globalThis.webpackChunk||[]).push([[1242],{1242(s,a,h){h.r(a),h.d(a,{default:()=>u});var e=h(6087),l=h(790);const u=(0,e.memo)(()=>(0,l.jsx)("hr",{}))}}]);

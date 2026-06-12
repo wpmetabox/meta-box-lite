@@ -585,8 +585,8 @@ class AdminColumns {
 				}, Arr::get( $data, 'taxonomies', [] ) ) ) ) );
 				break;
 			case 'block':
-				if ( isset( $data['block_json'] ) && isset( $data['block_json']['path'] ) ) {
-					echo esc_html( $data['block_json']['path'] );
+				if ( Arr::get( $data, 'block_json.enable' ) && Arr::get( $data, 'block_json.path' ) ) {
+					echo esc_html( Arr::get( $data, 'block_json.path' ) );
 				}
 				break;
 		}

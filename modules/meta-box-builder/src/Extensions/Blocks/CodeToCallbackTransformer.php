@@ -19,13 +19,17 @@ class CodeToCallbackTransformer {
 			return;
 		}
 
-		$meta_box['render_callback'] = function ( $attributes, $is_preview = false, $post_id = null ) use ( $meta_box ) {
+		$meta_box['render_callback'] = self::get_render_callback( $meta_box );
+	}
+
+	public static function get_render_callback( array $meta_box ): callable {
+		return static function ( $attributes, $content, $block ) use ( $meta_box ) {
 			$data               = $attributes;
-			$data['is_preview'] = $is_preview;
-			$data['post_id']    = $post_id;
+			$data['is_preview'] = defined( 'REST_REQUEST' ) && REST_REQUEST;
+			$data['post_id']    = get_the_ID();
 
 			// Get all fields data.
-			$fields = array_filter( $meta_box['fields'], [ $this, 'has_value' ] );
+			$fields = array_filter( $meta_box['fields'], [ __CLASS__, 'has_value' ] );
 			foreach ( $fields as $field ) {
 				$data[ $field['id'] ] = 'group' === $field['type'] ? mb_get_block_field( $field['id'], [] ) : mb_the_block_field( $field['id'], [], false );
 			}
@@ -42,7 +46,7 @@ class CodeToCallbackTransformer {
 		};
 	}
 
-	private function has_value( $field ): bool {
+	private static function has_value( array $field ): bool {
 		return ! empty( $field['id'] ) && ! in_array( $field['type'], [ 'heading', 'divider', 'button', 'custom_html', 'tab' ], true );
 	}
 }

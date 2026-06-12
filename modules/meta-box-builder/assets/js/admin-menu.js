@@ -2,49 +2,38 @@ document.addEventListener( 'DOMContentLoaded', () => {
 	const key = 'mbb-admin-menu-folded';
 	const body = document.body;
 
-	const setupAdminMenuWidth = () => {
-		if ( body.classList.contains( 'folded' ) ) {
-			return;
-		}
-
+	const setCssVariable = () => {
 		const adminMenu = document.querySelector( '#adminmenu' );
 		const app = document.querySelector( '.mb' );
 
 		if ( adminMenu && app ) {
 			const width = adminMenu.offsetWidth;
-
 			app.style.setProperty( '--left', `${ width }px` );
 		}
 	};
 
-	// Only handle the menu state on small screens.
-	if ( window.innerWidth >= 1600 ) {
-		return;
-	}
+	const initMenuState = () => {
+		let storedState = localStorage.getItem( key );
 
-	// Save menu state to local storage.
-	// Note that WordPress auto handles the body class, so we have to use setTimeout to ensure the class is added/removed.
+		// Collapse admin menu by default on small screens.
+		if ( storedState === null && window.innerWidth < 1600) {
+			storedState = 'true';
+			localStorage.setItem( key, storedState );
+		}
+
+		body.classList.toggle( 'folded', storedState === 'true' );
+		setCssVariable();
+	};
+
+	initMenuState();
+
+	// Persist menu state to localStorage on expand/collapse.
+	// setTimeout needed - WordPress adds/removes the body class asynchronously.
 	document.getElementById( 'collapse-button' ).addEventListener( 'click', () => {
 		setTimeout( () => {
 			const isFolded = body.classList.contains( 'folded' );
 			localStorage.setItem( key, isFolded ? 'true' : 'false' );
-			setupAdminMenuWidth();
+			setCssVariable();
 		}, 100 );
 	} );
-
-	const initMenuState = () => {
-		const storedState = localStorage.getItem( key );
-
-		// No preference saved, default to folded.
-		if ( storedState === null ) {
-			body.classList.add( 'folded' );
-			localStorage.setItem( key, 'true' );
-			return;
-		}
-
-		body.classList.toggle( 'folded', storedState === 'true' );
-		setupAdminMenuWidth();
-	};
-
-	initMenuState();
 } );

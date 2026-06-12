@@ -9,15 +9,16 @@ class RestApi {
 		add_action( 'rest_api_init', [ $this, 'register_routes' ] );
 	}
 
-	public function register_routes() {
+	public function register_routes(): void {
 		register_rest_route( 'mbb-parser', 'meta-box', [
 			'methods'             => WP_REST_Server::CREATABLE,
 			'callback'            => [ $this, 'generate_code' ],
 			'permission_callback' => '__return_true',
+			'show_in_index'       => false,
 		] );
 	}
 
-	public function generate_code( WP_REST_Request $request ) {
+	public function generate_code( WP_REST_Request $request ): string {
 		$parser = new Parsers\MetaBox( $request->get_params() );
 		$parser->parse();
 

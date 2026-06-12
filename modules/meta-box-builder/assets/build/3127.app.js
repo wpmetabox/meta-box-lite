@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunk=globalThis.webpackChunk||[]).push([[3127],{3127(e,a,l){l.r(a),l.d(a,{default:()=>d});var h=l(6087),s=l(7723),b=l(790);const d=(0,h.memo)(()=>(0,b.jsx)("a",{href:"#",children:(0,s.__)("Add link","meta-box-builder")}))}}]);

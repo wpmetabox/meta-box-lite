@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunk=globalThis.webpackChunk||[]).push([[6545],{6545(a,e,l){l.r(e),l.d(e,{default:()=>s});var i=l(6427),n=l(4959),u=l(790);const s=({name:a,defaultValue:e,updateField:l,...s})=>(e=Number(e),(isNaN(e)||e<1||e>12)&&(e=12),(0,u.jsx)(n.default,{...s,children:(0,u.jsx)(i.RangeControl,{min:1,max:12,initialPosition:12,value:e,onChange:e=>l(a,e)})}))}}]);

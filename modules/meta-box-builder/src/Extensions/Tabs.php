@@ -13,9 +13,10 @@ class Tabs {
 		}
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_font_awesome' ] );
 		add_filter( 'mbb_meta_box_settings', [ $this, 'parse_meta_box_settings' ] );
+		add_filter( 'mbb_field_keys', [ $this, 'add_field_key' ] );
 	}
 
-	public function add_field_type( $field_types ) {
+	public function add_field_type( array $field_types ): array {
 		$field_types['tab'] = [
 			'title'    => __( 'Tab', 'meta-box-builder' ),
 			'category' => 'layout',
@@ -173,5 +174,9 @@ class Tabs {
 			return substr( $field_id, strlen( $prefix ) );
 		}
 		return $field_id;
+	}
+
+	public function add_field_key( array $keys ): array {
+		return array_merge( $keys, [ 'tab' ] );
 	}
 }

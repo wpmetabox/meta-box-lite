@@ -42,7 +42,7 @@ class Path {
 			return false;
 		}
 
-		$block = json_decode( file_get_contents( $local_path ), true ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		$block = wp_json_file_decode( $local_path, [ 'associative' => true ] );
 		if ( ! is_array( $block ) ) {
 			return false;
 		}

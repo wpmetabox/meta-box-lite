@@ -173,14 +173,19 @@ class Settings extends Base {
 		// Render options.
 		if ( 'callback' === $this->render_with ) {
 			unset( $this->render_template );
+			unset( $this->render_code );
+			unset( $this->render_view );
 		}
 		if ( 'template' === $this->render_with ) {
 			unset( $this->render_callback );
+			unset( $this->render_code );
+			unset( $this->render_view );
 			$this->render_template = $this->replace_variables( $this->render_template );
 		}
 		if ( 'code' === $this->render_with ) {
-			unset( $this->render_template );
 			unset( $this->render_callback );
+			unset( $this->render_template );
+			unset( $this->render_view );
 		}
 
 		if ( 'view' === $this->render_with ) {
@@ -189,6 +194,7 @@ class Settings extends Base {
 			}
 
 			unset( $this->render_template );
+			unset( $this->render_code );
 			unset( $this->render_view );
 		}
 
