@@ -1,3 +1,20 @@
+### 2.6.0 - 2026-07-07
+
+**Highlights:**
+
+This release introduces **Abilities**, enabling you to manage custom post types and taxonomies, as well as create, retrieve, update, and delete posts and terms.
+
+See our [blog post](https://metabox.io/introducing-abilities/) for an overview or the [documentation](https://docs.metabox.io/abilities/) for usage details.
+
+**Other changes:**
+
+- Fix stale block lists when switching between block editor fields (#195)
+- Fix conflict with `tax_query` in `each_connected` for relationships
+- Fix unable to scroll in full screen mode for the `block_editor` field (#1689)
+- Use `WP_Query`'s `search_columns` instead of custom `search_by_title` filter
+- Fix autocomplete dropdown z-index in map/osm field inside MB Blocks
+- Fix image fields not displaying in Divi blurb and image fields
+
 ### 2.5.2 - 2026-06-12
 
 - Update style to match WordPress 7
