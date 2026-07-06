@@ -30,6 +30,7 @@ class Base {
 			'methods'             => WP_REST_Server::ALLMETHODS,
 			'callback'            => [ $this, $method ],
 			'permission_callback' => $permission_callback,
+			'show_in_index'       => false,
 		] );
 	}
 

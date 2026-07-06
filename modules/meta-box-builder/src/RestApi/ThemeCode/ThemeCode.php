@@ -14,6 +14,7 @@ class ThemeCode {
 			'methods'             => WP_REST_Server::CREATABLE,
 			'callback'            => [ $this, 'generate' ],
 			'permission_callback' => [ $this, 'has_permission' ],
+			'show_in_index'       => false,
 		] );
 	}
 

@@ -31,21 +31,18 @@ class Main {
 			return;
 		}
 
-		/** Render dynamic content placeholder and output */
-		add_filter('et_builder_dynamic_content_meta_value', [
-			$this,
-			'maybe_filter_dynamic_content_meta_value',
-		], 10, 3);
-
 		/** Add dynamic content fields */
-		add_filter('et_builder_custom_dynamic_content_fields', [
-			$this,
-			'maybe_filter_dynamic_content_fields',
-		], 10, 3);
+		add_filter( 'et_builder_custom_dynamic_content_fields', [ $this, 'maybe_filter_dynamic_content_fields' ], 10, 3 );
 
-		/** Register native D5 modules when running under Divi 5 */
+		/** Divi 5 */
 		if ( function_exists( 'et_builder_d5_enabled' ) && et_builder_d5_enabled() ) {
+			add_filter( 'divi_module_dynamic_content_resolved_custom_meta_value', [ $this, 'maybe_filter_dynamic_content_meta_value' ], 10, 3 );
+
+			/** Register native D5 modules when running */
 			D5\D5::init();
+		} else {
+			/** Render dynamic content placeholder and output (Divi 4) */
+			add_filter( 'et_builder_dynamic_content_meta_value', [ $this, 'maybe_filter_dynamic_content_meta_value' ], 10, 3 );
 		}
 	}
 
@@ -147,12 +144,12 @@ class Main {
 			return $value;
 		}
 
-		return Output::from([
+		return Output::from( [
 			'value' => $value,
 			'field' => $field,
 			'attrs' => [],
-			'raw'   => false,
-		]);
+			'raw'   => in_array( $field['type'], [ 'image', 'image_advanced', 'image_upload', 'single_image' ], true ),
+		] );
 	}
 
 

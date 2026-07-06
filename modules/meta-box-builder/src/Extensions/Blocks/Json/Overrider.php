@@ -18,6 +18,7 @@ class Overrider {
 			'permission_callback' => function (): bool {
 				return current_user_can( 'edit_posts' );
 			},
+			'show_in_index'       => false,
 		] );
 	}
 

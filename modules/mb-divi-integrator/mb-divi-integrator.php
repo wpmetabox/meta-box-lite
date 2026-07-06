@@ -3,7 +3,7 @@
  * Plugin Name: MB Divi Integration
  * Plugin URI:  https://metabox.io/plugins/mb-divi-integrator/
  * Description: Integrates Meta Box and Divi Page Builder.
- * Version:     1.0.6
+ * Version:     1.0.7
  * Author:      MetaBox.io
  * Author URI:  https://metabox.io
  * License:     GPL2+

@@ -6,7 +6,7 @@ use MetaBox\Support\Data;
 class Edit {
 	private $post_type;
 
-	public function __construct( $post_type ) {
+	public function __construct( string $post_type ) {
 		$this->post_type = $post_type;
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 
@@ -17,7 +17,7 @@ class Edit {
 		remove_meta_box( 'submitdiv', $this->post_type, 'side' );
 	}
 
-	public function enqueue_scripts() {
+	public function enqueue_scripts(): void {
 		if ( ! $this->is_screen() ) {
 			return;
 		}
@@ -69,6 +69,7 @@ class Edit {
 			'upgrade'         => ! $this->is_premium_user(),
 			'allCapabilities' => $this->get_all_capabilities(),
 			'mbb'             => defined( 'MBB_VER' ) ? true : false,
+			'abilities'       => class_exists( 'WP_Ability' ),
 		];
 
 		if ( 'mb-post-type' === get_current_screen()->id ) {
@@ -112,7 +113,7 @@ class Edit {
 		return $vars;
 	}
 
-	private function is_screen() {
+	private function is_screen(): bool {
 		$screen = get_current_screen();
 		return 'post' === $screen->base && $this->post_type === $screen->post_type;
 	}
@@ -172,22 +173,10 @@ class Edit {
 		return $positions;
 	}
 
-	/**
-	 * Strip span tag from HTML.
-	 *
-	 * @param string $html HTML content.
-	 *
-	 * @return string
-	 */
-	private function strip_span( $html ): string {
+	private function strip_span( string $html ): string {
 		return preg_replace( '@<span .*>.*</span>@si', '', $html );
 	}
 
-	/**
-	 * Get reserved terms.
-	 *
-	 * @return string[]
-	 */
 	private function get_reserved_terms(): array {
 		return [
 			'action',
@@ -279,11 +268,6 @@ class Edit {
 		];
 	}
 
-	/**
-	 * Get all capabilities.
-	 *
-	 * @return string[]
-	 */
 	private function get_all_capabilities(): array {
 		global $wp_roles;
 

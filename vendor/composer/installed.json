@@ -341,23 +341,23 @@
         },
         {
             "name": "wpmetabox/mb-custom-post-type",
-            "version": "2.11.5",
-            "version_normalized": "2.11.5.0",
+            "version": "2.12.0",
+            "version_normalized": "2.12.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mb-custom-post-type.git",
-                "reference": "ee59dacc6a795193f5274f934c7279ba40fd4fa4"
+                "reference": "f10021b4970afd154f34dba031af0918b384cd4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/mb-custom-post-type/zipball/ee59dacc6a795193f5274f934c7279ba40fd4fa4",
-                "reference": "ee59dacc6a795193f5274f934c7279ba40fd4fa4",
+                "url": "https://api.github.com/repos/wpmetabox/mb-custom-post-type/zipball/f10021b4970afd154f34dba031af0918b384cd4b",
+                "reference": "f10021b4970afd154f34dba031af0918b384cd4b",
                 "shasum": ""
             },
             "require": {
                 "wpmetabox/support": "^1.0"
             },
-            "time": "2026-05-13T03:02:27+00:00",
+            "time": "2026-07-06T08:01:58+00:00",
             "type": "wordpress-plugin",
             "installation-source": "dist",
             "autoload": {
@@ -387,26 +387,26 @@
             ],
             "support": {
                 "issues": "https://github.com/wpmetabox/mb-custom-post-type/issues",
-                "source": "https://github.com/wpmetabox/mb-custom-post-type/tree/2.11.5"
+                "source": "https://github.com/wpmetabox/mb-custom-post-type/tree/2.12.0"
             },
             "install-path": "../../modules/mb-custom-post-type"
         },
         {
             "name": "wpmetabox/mb-divi-integrator",
-            "version": "1.0.6",
-            "version_normalized": "1.0.6.0",
+            "version": "1.0.7",
+            "version_normalized": "1.0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mb-divi-integrator.git",
-                "reference": "e3e11d19c41fc268ff5099850b10543e8565602e"
+                "reference": "3583cd581f510aba642d1963915f1f241344c89a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/mb-divi-integrator/zipball/e3e11d19c41fc268ff5099850b10543e8565602e",
-                "reference": "e3e11d19c41fc268ff5099850b10543e8565602e",
+                "url": "https://api.github.com/repos/wpmetabox/mb-divi-integrator/zipball/3583cd581f510aba642d1963915f1f241344c89a",
+                "reference": "3583cd581f510aba642d1963915f1f241344c89a",
                 "shasum": ""
             },
-            "time": "2026-06-12T03:30:48+00:00",
+            "time": "2026-07-06T08:11:05+00:00",
             "type": "wordpress-plugin",
             "installation-source": "dist",
             "autoload": {
@@ -427,7 +427,7 @@
             "description": "Display Meta Box data in Divi",
             "support": {
                 "issues": "https://github.com/wpmetabox/mb-divi-integrator/issues",
-                "source": "https://github.com/wpmetabox/mb-divi-integrator/tree/1.0.6"
+                "source": "https://github.com/wpmetabox/mb-divi-integrator/tree/1.0.7"
             },
             "install-path": "../../modules/mb-divi-integrator"
         },
@@ -572,20 +572,20 @@
         },
         {
             "name": "wpmetabox/mb-relationships",
-            "version": "1.12.9",
-            "version_normalized": "1.12.9.0",
+            "version": "1.12.10",
+            "version_normalized": "1.12.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mb-relationships.git",
-                "reference": "fea66b1d50f0b5d5889ea0d05e7c9d35adae036b"
+                "reference": "ea1a87ced8afa3536cdd124346b7252d4cae57aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/mb-relationships/zipball/fea66b1d50f0b5d5889ea0d05e7c9d35adae036b",
-                "reference": "fea66b1d50f0b5d5889ea0d05e7c9d35adae036b",
+                "url": "https://api.github.com/repos/wpmetabox/mb-relationships/zipball/ea1a87ced8afa3536cdd124346b7252d4cae57aa",
+                "reference": "ea1a87ced8afa3536cdd124346b7252d4cae57aa",
                 "shasum": ""
             },
-            "time": "2026-06-12T03:46:01+00:00",
+            "time": "2026-07-06T08:21:14+00:00",
             "type": "wordpress-plugin",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -596,7 +596,7 @@
                 {
                     "name": "Tran Ngoc Tuan Anh",
                     "email": "anhtnt@elightup.com",
-                    "homepage": "https://metabox.io",
+                    "homepage": "https://deluxeblogtips.com",
                     "role": "Developer"
                 }
             ],
@@ -617,7 +617,7 @@
             ],
             "support": {
                 "issues": "https://github.com/wpmetabox/mb-relationships/issues",
-                "source": "https://github.com/wpmetabox/mb-relationships/tree/1.12.9"
+                "source": "https://github.com/wpmetabox/mb-relationships/tree/1.12.10"
             },
             "install-path": "../../modules/mb-relationships"
         },
@@ -779,19 +779,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mbb-parser.git",
-                "reference": "12e267cfc2a54b71a55ae3be4cc96feda7a73cfc"
+                "reference": "e0663efe56b260c0ec81debc029ef68cdde511b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/mbb-parser/zipball/12e267cfc2a54b71a55ae3be4cc96feda7a73cfc",
-                "reference": "12e267cfc2a54b71a55ae3be4cc96feda7a73cfc",
+                "url": "https://api.github.com/repos/wpmetabox/mbb-parser/zipball/e0663efe56b260c0ec81debc029ef68cdde511b0",
+                "reference": "e0663efe56b260c0ec81debc029ef68cdde511b0",
                 "shasum": ""
             },
             "require": {
                 "riimu/kit-phpencoder": "^2.4",
                 "wpmetabox/support": "^1"
             },
-            "time": "2026-06-11T08:17:05+00:00",
+            "time": "2026-07-04T09:37:00+00:00",
             "default-branch": true,
             "type": "library",
             "installation-source": "dist",
@@ -813,17 +813,17 @@
         },
         {
             "name": "wpmetabox/meta-box",
-            "version": "5.12.1",
-            "version_normalized": "5.12.1.0",
+            "version": "5.13.0",
+            "version_normalized": "5.13.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box.git",
-                "reference": "92483556ee2690a8f4dad5f6fa4068a3183c2dbf"
+                "reference": "ed67bfae37d62e7d3a6c97ba83614942ff6b817b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/92483556ee2690a8f4dad5f6fa4068a3183c2dbf",
-                "reference": "92483556ee2690a8f4dad5f6fa4068a3183c2dbf",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/ed67bfae37d62e7d3a6c97ba83614942ff6b817b",
+                "reference": "ed67bfae37d62e7d3a6c97ba83614942ff6b817b",
                 "shasum": ""
             },
             "require": {
@@ -832,7 +832,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^12.5"
             },
-            "time": "2026-06-10T02:51:43+00:00",
+            "time": "2026-07-06T08:25:28+00:00",
             "type": "wordpress-plugin",
             "extra": {
                 "dev-files": {
@@ -901,7 +901,7 @@
             ],
             "support": {
                 "issues": "https://github.com/wpmetabox/meta-box/issues",
-                "source": "https://github.com/wpmetabox/meta-box/tree/5.12.1"
+                "source": "https://github.com/wpmetabox/meta-box/tree/5.13.0"
             },
             "install-path": "../../modules/meta-box"
         },
@@ -961,17 +961,17 @@
         },
         {
             "name": "wpmetabox/meta-box-builder",
-            "version": "5.3.2",
-            "version_normalized": "5.3.2.0",
+            "version": "5.4.0",
+            "version_normalized": "5.4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box-builder.git",
-                "reference": "011f3ca9e5bdf118a88e9e7ac3a47c780e50c4fe"
+                "reference": "ea5873d5cded47dda0356801c1503303c06c945b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/011f3ca9e5bdf118a88e9e7ac3a47c780e50c4fe",
-                "reference": "011f3ca9e5bdf118a88e9e7ac3a47c780e50c4fe",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/ea5873d5cded47dda0356801c1503303c06c945b",
+                "reference": "ea5873d5cded47dda0356801c1503303c06c945b",
                 "shasum": ""
             },
             "require": {
@@ -983,7 +983,7 @@
                 "opis/json-schema": "^2.4",
                 "phpunit/phpunit": "^11.3"
             },
-            "time": "2026-06-11T04:08:17+00:00",
+            "time": "2026-07-06T08:07:28+00:00",
             "type": "wordpress-plugin",
             "extra": {
                 "dev-files": {
@@ -1044,7 +1044,7 @@
             "description": "MB Builder extension for Meta Box",
             "support": {
                 "issues": "https://github.com/wpmetabox/meta-box-builder/issues",
-                "source": "https://github.com/wpmetabox/meta-box-builder/tree/5.3.2"
+                "source": "https://github.com/wpmetabox/meta-box-builder/tree/5.4.0"
             },
             "install-path": "../../modules/meta-box-builder"
         },

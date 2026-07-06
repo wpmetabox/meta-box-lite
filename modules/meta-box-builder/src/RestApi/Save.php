@@ -13,6 +13,7 @@ class Save extends Base {
 			'methods'             => WP_REST_Server::CREATABLE,
 			'callback'            => [ $this, 'save' ],
 			'permission_callback' => [ $this, 'has_permission' ],
+			'show_in_index'       => false,
 			'args'                => [
 				'post_id'    => [
 					'required'          => true,

@@ -18,12 +18,14 @@ class AllowedBlockListsController {
 				'methods'             => WP_REST_Server::READABLE,
 				'callback'            => [ $this, 'get_items' ],
 				'permission_callback' => [ $this, 'has_permission' ],
+				'show_in_index'       => false,
 			],
 			[
 				'methods'             => WP_REST_Server::CREATABLE,
 				'callback'            => [ $this, 'update_item' ],
 				'permission_callback' => [ $this, 'has_permission' ],
 				'args'                => $this->get_schema(),
+				'show_in_index'       => false,
 			],
 		] );
 
@@ -32,6 +34,7 @@ class AllowedBlockListsController {
 				'methods'             => WP_REST_Server::DELETABLE,
 				'callback'            => [ $this, 'delete_item' ],
 				'permission_callback' => [ $this, 'has_permission' ],
+				'show_in_index'       => false,
 			],
 		] );
 
@@ -40,6 +43,7 @@ class AllowedBlockListsController {
 				'methods'             => WP_REST_Server::CREATABLE,
 				'callback'            => [ $this, 'import_items' ],
 				'permission_callback' => [ $this, 'has_permission' ],
+				'show_in_index'       => false,
 			],
 		] );
 
@@ -48,6 +52,7 @@ class AllowedBlockListsController {
 				'methods'             => WP_REST_Server::READABLE,
 				'callback'            => [ $this, 'export_items' ],
 				'permission_callback' => [ $this, 'has_permission' ],
+				'show_in_index'       => false,
 			],
 		] );
 
@@ -55,6 +60,7 @@ class AllowedBlockListsController {
 			'methods'             => WP_REST_Server::READABLE,
 			'callback'            => [ $this, 'get_blocks' ],
 			'permission_callback' => [ $this, 'has_permission' ],
+			'show_in_index'       => false,
 		] );
 	}
 
