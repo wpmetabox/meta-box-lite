@@ -31,6 +31,10 @@ class Relationship extends Base {
 			unset( $settings['empty_message'] );
 		}
 
+		if ( empty( $settings['has_one_relationship'] ) ) {
+			unset( $settings['has_one_relationship'] );
+		}
+
 		$this->parse_admin_column( $settings );
 
 		// Meta box settings.
