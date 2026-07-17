@@ -1,3 +1,19 @@
+### 2.7.0 - 2026-07-17
+
+**Highlight:**
+
+Introducing `has_one_relationship` option — configure it per side (`from`/`to`) to limit an item to a connect to only one item on the other side. Combined on both sides it creates a one-to-one relationship; on one side only, it creates one-to-many without duplicates.
+
+Read more on [our blog](https://metabox.io/has-one-relationship) or [documentation](https://docs.metabox.io/extensions/mb-relationships/)
+
+**Other changes:**
+
+- Fix missing authorization check in `ajax_delete_file` for enhanced security
+- Allow HTML in switch on/off and button group labels (e.g., Dashicons)
+- Fix fatal error when post content (of mb-custom-post-type) contains invalid JSON
+- Fix not displaying term meta in the Elementor taxonomy loop
+- Fix deprecated notice in GroupField in Elementor
+
 ### 2.6.0 - 2026-07-07
 
 **Highlights:**
