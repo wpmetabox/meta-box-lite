@@ -52,6 +52,7 @@ class Field extends Base {
 		'readonly',
 		'hide_from_rest',
 		'hide_from_front',
+		'hide_from_block_bindings',
 	];
 
 	private $choice_types = [ 'select', 'radio', 'checkbox_list', 'select_advanced', 'button_group', 'image_select', 'autocomplete' ];

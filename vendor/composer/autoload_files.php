@@ -6,6 +6,11 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'a5c46146abbe604d5c1093a7f3da03bd' => $vendorDir . '/elightup/twig/src/deprecation-contracts.php',
+    '8b498914ceeb1108203e7c7885f7bba3' => $vendorDir . '/elightup/twig/Symfony/Polyfill/Ctype/bootstrap.php',
+    '730a5433db5cc4599c79c4eb3c61d9b6' => $vendorDir . '/elightup/twig/Symfony/Polyfill/Mbstring/bootstrap.php',
+    '7c1a54178937151a8c6b81415aef6d0e' => $vendorDir . '/elightup/twig/Symfony/Polyfill/Php80/bootstrap.php',
+    '7a7f251a7840ae3e0424fbb9fde67f81' => $vendorDir . '/elightup/twig/Symfony/Polyfill/Php81/bootstrap.php',
     '186da8db9313476fc959eccd12aabc88' => $baseDir . '/modules/meta-box/meta-box.php',
     '910837841834469cf1aab439104a71eb' => $baseDir . '/modules/mb-acf-migration/mb-acf-migration.php',
     'ccbafb9fc9649c3fe3bfd34495fc395d' => $baseDir . '/modules/mb-comment-meta/mb-comment-meta.php',

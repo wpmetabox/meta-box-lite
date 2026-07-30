@@ -151,21 +151,20 @@
         },
         {
             "name": "elightup/twig",
-            "version": "dev-master",
-            "version_normalized": "dev-master",
+            "version": "3.11.3",
+            "version_normalized": "3.11.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elightup/twig.git",
-                "reference": "588a9d55508d383de47cade5cb0049c809f4750f"
+                "reference": "0ec60b18b7c2299b7f0a7e09aa46fce15c634d4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elightup/twig/zipball/588a9d55508d383de47cade5cb0049c809f4750f",
-                "reference": "588a9d55508d383de47cade5cb0049c809f4750f",
+                "url": "https://api.github.com/repos/elightup/twig/zipball/0ec60b18b7c2299b7f0a7e09aa46fce15c634d4e",
+                "reference": "0ec60b18b7c2299b7f0a7e09aa46fce15c634d4e",
                 "shasum": ""
             },
-            "time": "2025-03-17T09:08:24+00:00",
-            "default-branch": true,
+            "time": "2026-07-28T14:32:42+00:00",
             "type": "library",
             "extra": {
                 "mozart": {
@@ -181,13 +180,20 @@
             },
             "installation-source": "dist",
             "autoload": {
+                "files": [
+                    "src/deprecation-contracts.php",
+                    "Symfony/Polyfill/Ctype/bootstrap.php",
+                    "Symfony/Polyfill/Mbstring/bootstrap.php",
+                    "Symfony/Polyfill/Php80/bootstrap.php",
+                    "Symfony/Polyfill/Php81/bootstrap.php"
+                ],
                 "psr-4": {
                     "eLightUp\\": "./"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "support": {
-                "source": "https://github.com/elightup/twig/tree/master"
+                "source": "https://github.com/elightup/twig/tree/3.11.3"
             },
             "install-path": "../elightup/twig"
         },
@@ -774,24 +780,24 @@
         },
         {
             "name": "wpmetabox/mbb-parser",
-            "version": "2.0.9",
-            "version_normalized": "2.0.9.0",
+            "version": "2.0.11",
+            "version_normalized": "2.0.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/mbb-parser.git",
-                "reference": "e0663efe56b260c0ec81debc029ef68cdde511b0"
+                "reference": "0a41cbad52c33b819e676e67bba984218c1bd03d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/mbb-parser/zipball/e0663efe56b260c0ec81debc029ef68cdde511b0",
-                "reference": "e0663efe56b260c0ec81debc029ef68cdde511b0",
+                "url": "https://api.github.com/repos/wpmetabox/mbb-parser/zipball/0a41cbad52c33b819e676e67bba984218c1bd03d",
+                "reference": "0a41cbad52c33b819e676e67bba984218c1bd03d",
                 "shasum": ""
             },
             "require": {
                 "riimu/kit-phpencoder": "^2.4",
                 "wpmetabox/support": "^1"
             },
-            "time": "2026-07-04T09:37:00+00:00",
+            "time": "2026-07-28T03:41:40+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -806,23 +812,23 @@
             "description": "Parse meta box settings from JSON",
             "support": {
                 "issues": "https://github.com/wpmetabox/mbb-parser/issues",
-                "source": "https://github.com/wpmetabox/mbb-parser/tree/2.0.9"
+                "source": "https://github.com/wpmetabox/mbb-parser/tree/2.0.11"
             },
             "install-path": "../wpmetabox/mbb-parser"
         },
         {
             "name": "wpmetabox/meta-box",
-            "version": "5.13.1",
-            "version_normalized": "5.13.1.0",
+            "version": "5.14.0",
+            "version_normalized": "5.14.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box.git",
-                "reference": "dc618c83794e5f5dee4a742df5b60339b886126d"
+                "reference": "609d939bbac1f7f061271abdd28a94814d56f295"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/dc618c83794e5f5dee4a742df5b60339b886126d",
-                "reference": "dc618c83794e5f5dee4a742df5b60339b886126d",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box/zipball/609d939bbac1f7f061271abdd28a94814d56f295",
+                "reference": "609d939bbac1f7f061271abdd28a94814d56f295",
                 "shasum": ""
             },
             "require": {
@@ -831,7 +837,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^12.5"
             },
-            "time": "2026-07-14T09:36:18+00:00",
+            "time": "2026-07-30T09:56:31+00:00",
             "type": "wordpress-plugin",
             "extra": {
                 "dev-files": {
@@ -900,7 +906,7 @@
             ],
             "support": {
                 "issues": "https://github.com/wpmetabox/meta-box/issues",
-                "source": "https://github.com/wpmetabox/meta-box/tree/5.13.1"
+                "source": "https://github.com/wpmetabox/meta-box/tree/5.14.0"
             },
             "install-path": "../../modules/meta-box"
         },
@@ -960,21 +966,21 @@
         },
         {
             "name": "wpmetabox/meta-box-builder",
-            "version": "5.4.1",
-            "version_normalized": "5.4.1.0",
+            "version": "5.4.2",
+            "version_normalized": "5.4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpmetabox/meta-box-builder.git",
-                "reference": "178baa443d0b883acb58c3366b19d735039b1dbd"
+                "reference": "fae470e57048e7a219e1d391388ca07dd19cc45d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/178baa443d0b883acb58c3366b19d735039b1dbd",
-                "reference": "178baa443d0b883acb58c3366b19d735039b1dbd",
+                "url": "https://api.github.com/repos/wpmetabox/meta-box-builder/zipball/fae470e57048e7a219e1d391388ca07dd19cc45d",
+                "reference": "fae470e57048e7a219e1d391388ca07dd19cc45d",
                 "shasum": ""
             },
             "require": {
-                "elightup/twig": "dev-master",
+                "elightup/twig": "^3",
                 "wpmetabox/mbb-parser": "^2.0",
                 "wpmetabox/support": "^1"
             },
@@ -982,7 +988,7 @@
                 "opis/json-schema": "^2.4",
                 "phpunit/phpunit": "^11.3"
             },
-            "time": "2026-07-16T10:09:53+00:00",
+            "time": "2026-07-30T10:05:26+00:00",
             "type": "wordpress-plugin",
             "extra": {
                 "dev-files": {
@@ -1043,7 +1049,7 @@
             "description": "MB Builder extension for Meta Box",
             "support": {
                 "issues": "https://github.com/wpmetabox/meta-box-builder/issues",
-                "source": "https://github.com/wpmetabox/meta-box-builder/tree/5.4.1"
+                "source": "https://github.com/wpmetabox/meta-box-builder/tree/5.4.2"
             },
             "install-path": "../../modules/meta-box-builder"
         },

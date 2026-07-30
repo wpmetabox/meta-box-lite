@@ -11,6 +11,7 @@
 
 namespace eLightUp\Twig\Profiler\Node;
 
+use eLightUp\Twig\Attribute\YieldReady;
 use eLightUp\Twig\Compiler;
 use eLightUp\Twig\Node\Node;
 
@@ -19,6 +20,7 @@ use eLightUp\Twig\Node\Node;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
+#[YieldReady]
 class LeaveProfileNode extends Node
 {
     public function __construct(string $varName)
@@ -30,7 +32,7 @@ class LeaveProfileNode extends Node
     {
         $compiler
             ->write("\n")
-            ->write(sprintf("\$%s->leave(\$%s);\n\n", $this->getAttribute('var_name'), $this->getAttribute('var_name').'_prof'))
+            ->write(\sprintf("\$%s->leave(\$%s);\n\n", $this->getAttribute('var_name'), $this->getAttribute('var_name').'_prof'))
         ;
     }
 }

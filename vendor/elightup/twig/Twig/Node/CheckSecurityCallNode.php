@@ -11,17 +11,19 @@
 
 namespace eLightUp\Twig\Node;
 
+use eLightUp\Twig\Attribute\YieldReady;
 use eLightUp\Twig\Compiler;
 
 /**
  * @author Fabien Potencier <fabien@symfony.com>
  */
+#[YieldReady]
 class CheckSecurityCallNode extends Node
 {
     public function compile(Compiler $compiler)
     {
         $compiler
-            ->write("\$this->sandbox = \$this->env->getExtension('\eLightUp\Twig\Extension\SandboxExtension');\n")
+            ->write("\$this->sandbox = \$this->extensions[SandboxExtension::class];\n")
             ->write("\$this->checkSecurity();\n")
         ;
     }

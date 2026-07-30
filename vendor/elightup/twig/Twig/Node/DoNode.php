@@ -11,6 +11,7 @@
 
 namespace eLightUp\Twig\Node;
 
+use eLightUp\Twig\Attribute\YieldReady;
 use eLightUp\Twig\Compiler;
 use eLightUp\Twig\Node\Expression\AbstractExpression;
 
@@ -19,9 +20,10 @@ use eLightUp\Twig\Node\Expression\AbstractExpression;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
+#[YieldReady]
 class DoNode extends Node
 {
-    public function __construct(AbstractExpression $expr, int $lineno, string $tag = null)
+    public function __construct(AbstractExpression $expr, int $lineno, ?string $tag = null)
     {
         parent::__construct(['expr' => $expr], [], $lineno, $tag);
     }

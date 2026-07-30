@@ -15,11 +15,11 @@ use eLightUp\Twig\Environment;
 use eLightUp\Twig\Node\Node;
 
 /**
- * Used to make node visitors compatible with eLightUp\Twig 1.x and 2.x.
- *
- * To be removed in eLightUp\Twig 3.1.
+ * Used to make node visitors compatible with Twig 1.x and 2.x.
  *
  * @author Fabien Potencier <fabien@symfony.com>
+ *
+ * @deprecated since 3.9 (to be removed in 4.0)
  */
 abstract class AbstractNodeVisitor implements NodeVisitorInterface
 {

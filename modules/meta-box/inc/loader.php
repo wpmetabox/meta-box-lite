@@ -7,7 +7,7 @@
 class RWMB_Loader {
 	protected function constants() {
 		// Script version, used to add version for scripts and styles.
-		define( 'RWMB_VER', '5.13.1' );
+		define( 'RWMB_VER', '5.14.0' );
 
 		list( $path, $url ) = self::get_path( dirname( __DIR__ ) );
 
@@ -130,5 +130,9 @@ class RWMB_Loader {
 
 		// Public functions.
 		require_once RWMB_INC_DIR . 'functions.php';
+
+		// Block bindings (needs rwmb_get_registry from functions.php).
+		rwmb_get_registry( 'block_bindings' )->add( new \MetaBox\Integrations\BlockBindings\Post() );
+		new \MetaBox\Integrations\BlockBindings\Loader();
 	}
 }

@@ -11,6 +11,7 @@
 
 namespace eLightUp\Twig\Node;
 
+use eLightUp\Twig\Attribute\YieldReady;
 use eLightUp\Twig\Compiler;
 
 /**
@@ -18,9 +19,10 @@ use eLightUp\Twig\Compiler;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
+#[YieldReady]
 class SandboxNode extends Node
 {
-    public function __construct(Node $body, int $lineno, string $tag = null)
+    public function __construct(Node $body, int $lineno, ?string $tag = null)
     {
         parent::__construct(['body' => $body], [], $lineno, $tag);
     }

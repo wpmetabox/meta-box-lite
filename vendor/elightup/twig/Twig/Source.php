@@ -12,7 +12,7 @@
 namespace eLightUp\Twig;
 
 /**
- * Holds information about a non-compiled eLightUp\Twig template.
+ * Holds information about a non-compiled Twig template.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */

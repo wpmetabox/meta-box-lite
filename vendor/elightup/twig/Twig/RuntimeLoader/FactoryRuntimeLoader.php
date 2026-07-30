@@ -12,7 +12,7 @@
 namespace eLightUp\Twig\RuntimeLoader;
 
 /**
- * Lazy loads the runtime implementations for a eLightUp\Twig element.
+ * Lazy loads the runtime implementations for a Twig element.
  *
  * @author Robin Chalas <robin.chalas@gmail.com>
  */

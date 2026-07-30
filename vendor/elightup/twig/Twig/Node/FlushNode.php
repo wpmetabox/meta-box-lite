@@ -11,6 +11,7 @@
 
 namespace eLightUp\Twig\Node;
 
+use eLightUp\Twig\Attribute\YieldReady;
 use eLightUp\Twig\Compiler;
 
 /**
@@ -18,6 +19,7 @@ use eLightUp\Twig\Compiler;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
+#[YieldReady]
 class FlushNode extends Node
 {
     public function __construct(int $lineno, string $tag)

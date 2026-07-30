@@ -12,6 +12,7 @@
 
 namespace eLightUp\Twig\Node;
 
+use eLightUp\Twig\Attribute\YieldReady;
 use eLightUp\Twig\Compiler;
 
 /**
@@ -19,9 +20,10 @@ use eLightUp\Twig\Compiler;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
+#[YieldReady]
 class BlockReferenceNode extends Node implements NodeOutputInterface
 {
-    public function __construct(string $name, int $lineno, string $tag = null)
+    public function __construct(string $name, int $lineno, ?string $tag = null)
     {
         parent::__construct([], ['name' => $name], $lineno, $tag);
     }
@@ -30,7 +32,7 @@ class BlockReferenceNode extends Node implements NodeOutputInterface
     {
         $compiler
             ->addDebugInfo($this)
-            ->write(sprintf("\$this->displayBlock('%s', \$context, \$blocks);\n", $this->getAttribute('name')))
+            ->write(\sprintf("yield from \$this->unwrap()->yieldBlock('%s', \$context, \$blocks);\n", $this->getAttribute('name')))
         ;
     }
 }

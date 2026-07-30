@@ -52,7 +52,7 @@ class Fields extends Base {
 		$general_tab    = [ 'type', 'name', 'id' ];
 		$appearance_tab = [ 'label_description', 'desc' ];
 		$validation_tab = [ 'validation' ];
-		$advanced_tab   = [ 'class', 'before', 'after', 'save_field', 'sanitize_callback', 'attributes', 'custom_settings' ];
+		$advanced_tab   = [ 'class', 'before', 'after', 'hide_from_block_bindings', 'save_field', 'sanitize_callback', 'attributes', 'custom_settings' ];
 
 		$field_types = [
 			'autocomplete'      => [

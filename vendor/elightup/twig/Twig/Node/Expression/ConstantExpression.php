@@ -14,6 +14,9 @@ namespace eLightUp\Twig\Node\Expression;
 
 use eLightUp\Twig\Compiler;
 
+/**
+ * @final
+ */
 class ConstantExpression extends AbstractExpression
 {
     public function __construct($value, int $lineno)

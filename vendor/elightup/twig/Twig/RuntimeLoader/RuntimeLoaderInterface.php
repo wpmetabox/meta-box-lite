@@ -12,14 +12,14 @@
 namespace eLightUp\Twig\RuntimeLoader;
 
 /**
- * Creates runtime implementations for eLightUp\Twig elements (filters/functions/tests).
+ * Creates runtime implementations for Twig elements (filters/functions/tests).
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
 interface RuntimeLoaderInterface
 {
     /**
-     * Creates the runtime implementation of a eLightUp\Twig element (filter/function/test).
+     * Creates the runtime implementation of a Twig element (filter/function/test).
      *
      * @return object|null The runtime instance or null if the loader does not know how to create the runtime for this class
      */

@@ -12,7 +12,7 @@
   },
   "require": {
     "composer/installers": "^2",
-    "elightup/twig": "dev-master",
+    "elightup/twig": "^3",
     "wpmetabox/mb-acf-migration": "^1",
     "wpmetabox/mb-comment-meta": "^1",
     "wpmetabox/mb-custom-post-type": "^2",
@@ -32,8 +32,6 @@
     "wpmetabox/support": "^1",
     "wpmetabox/text-limiter": "^1"
   },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "scripts": {
     "post-update-cmd": [
       "echo Deleting .git dirs...",

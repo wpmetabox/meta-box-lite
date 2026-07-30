@@ -7,6 +7,11 @@ namespace Composer\Autoload;
 class ComposerStaticInit8a59c71b389c66ade363236ca67770f5
 {
     public static $files = array (
+        'a5c46146abbe604d5c1093a7f3da03bd' => __DIR__ . '/..' . '/elightup/twig/src/deprecation-contracts.php',
+        '8b498914ceeb1108203e7c7885f7bba3' => __DIR__ . '/..' . '/elightup/twig/Symfony/Polyfill/Ctype/bootstrap.php',
+        '730a5433db5cc4599c79c4eb3c61d9b6' => __DIR__ . '/..' . '/elightup/twig/Symfony/Polyfill/Mbstring/bootstrap.php',
+        '7c1a54178937151a8c6b81415aef6d0e' => __DIR__ . '/..' . '/elightup/twig/Symfony/Polyfill/Php80/bootstrap.php',
+        '7a7f251a7840ae3e0424fbb9fde67f81' => __DIR__ . '/..' . '/elightup/twig/Symfony/Polyfill/Php81/bootstrap.php',
         '186da8db9313476fc959eccd12aabc88' => __DIR__ . '/../..' . '/modules/meta-box/meta-box.php',
         '910837841834469cf1aab439104a71eb' => __DIR__ . '/../..' . '/modules/mb-acf-migration/mb-acf-migration.php',
         'ccbafb9fc9649c3fe3bfd34495fc395d' => __DIR__ . '/../..' . '/modules/mb-comment-meta/mb-comment-meta.php',
