@@ -1,3 +1,16 @@
+### 2.8.0 - 2026-07-30
+
+**Highlights:**
+
+This release introduces **Block Bindings** for Meta Box fields, allowing you to bind field values directly to blocks in the WordPress editor. Meta Box fields now appear as a source in the block bindings panel, making it easy to use custom field data inside blocks without shortcodes or PHP. See our [blog post](https://metabox.io/introducing-block-bindings/) for details.
+
+**Other changes:**
+
+- Update select2 library to fix missing placeholder
+- Fix `querySelector` errors with numeric IDs and missing DOM elements
+- Update description text for `max_clone` in relationship Fields tab for clarity
+- Update Twig to v3.11.3
+
 ### 2.7.0 - 2026-07-17
 
 **Highlight:**
