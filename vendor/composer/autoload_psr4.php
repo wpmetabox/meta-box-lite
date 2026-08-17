@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'eLightUp\\PluginSearch\\' => array($vendorDir . '/elightup/plugin-search/src'),
     'eLightUp\\' => array($vendorDir . '/elightup/twig'),
     'Riimu\\Kit\\PHPEncoder\\' => array($vendorDir . '/riimu/kit-phpencoder/src'),
     'MetaBox\\TS\\' => array($baseDir . '/modules/mb-toolset-migration/src'),

@@ -150,6 +150,28 @@
             "install-path": "./installers"
         },
         {
+            "name": "elightup/plugin-search",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/elightup/plugin-search.git",
+                "reference": "e6838a0b31fab8966630dafc6929621f2814d9c8"
+            },
+            "time": "2026-08-16T15:14:12+00:00",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "eLightUp\\PluginSearch\\": "src/"
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "install-path": "../elightup/plugin-search"
+        },
+        {
             "name": "elightup/twig",
             "version": "3.11.3",
             "version_normalized": "3.11.3.0",
@@ -1184,6 +1206,6 @@
             "install-path": "../../modules/text-limiter"
         }
     ],
-    "dev": false,
+    "dev": true,
     "dev-package-names": []
 }

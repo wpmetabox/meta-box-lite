@@ -3,11 +3,11 @@
         'name' => 'wpmetabox/meta-box-lite',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'c23807faccb25bb74086e48db089ac09ffa6cf19',
+        'reference' => 'ff0a28cf7e1125340e9045b7b50017af233b2b71',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'dev' => false,
+        'dev' => true,
     ),
     'versions' => array(
         'composer/installers' => array(
@@ -16,6 +16,15 @@
             'reference' => '12fb2dfe5e16183de69e784a7b84046c43d97e8e',
             'type' => 'composer-plugin',
             'install_path' => __DIR__ . '/./installers',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'elightup/plugin-search' => array(
+            'pretty_version' => '1.0.0',
+            'version' => '1.0.0.0',
+            'reference' => 'e6838a0b31fab8966630dafc6929621f2814d9c8',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../elightup/plugin-search',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -184,7 +193,7 @@
         'wpmetabox/meta-box-lite' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'c23807faccb25bb74086e48db089ac09ffa6cf19',
+            'reference' => 'ff0a28cf7e1125340e9045b7b50017af233b2b71',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

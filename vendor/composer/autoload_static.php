@@ -12,6 +12,7 @@ class ComposerStaticInit8a59c71b389c66ade363236ca67770f5
         '730a5433db5cc4599c79c4eb3c61d9b6' => __DIR__ . '/..' . '/elightup/twig/Symfony/Polyfill/Mbstring/bootstrap.php',
         '7c1a54178937151a8c6b81415aef6d0e' => __DIR__ . '/..' . '/elightup/twig/Symfony/Polyfill/Php80/bootstrap.php',
         '7a7f251a7840ae3e0424fbb9fde67f81' => __DIR__ . '/..' . '/elightup/twig/Symfony/Polyfill/Php81/bootstrap.php',
+        '4423a9a7b9dcbfb1adf6e69b6c55b0d3' => __DIR__ . '/..' . '/elightup/plugin-search/bootstrap.php',
         '186da8db9313476fc959eccd12aabc88' => __DIR__ . '/../..' . '/modules/meta-box/meta-box.php',
         '910837841834469cf1aab439104a71eb' => __DIR__ . '/../..' . '/modules/mb-acf-migration/mb-acf-migration.php',
         'ccbafb9fc9649c3fe3bfd34495fc395d' => __DIR__ . '/../..' . '/modules/mb-comment-meta/mb-comment-meta.php',
@@ -32,6 +33,7 @@ class ComposerStaticInit8a59c71b389c66ade363236ca67770f5
     public static $prefixLengthsPsr4 = array (
         'e' =>
         array (
+            'eLightUp\\PluginSearch\\' => 22,
             'eLightUp\\' => 9,
         ),
         'R' =>
@@ -60,6 +62,10 @@ class ComposerStaticInit8a59c71b389c66ade363236ca67770f5
     );
 
     public static $prefixDirsPsr4 = array (
+        'eLightUp\\PluginSearch\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/elightup/plugin-search/src',
+        ),
         'eLightUp\\' =>
         array (
             0 => __DIR__ . '/..' . '/elightup/twig',

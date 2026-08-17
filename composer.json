@@ -10,8 +10,15 @@
     },
     "sort-packages": true
   },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/elightup/plugin-search.git"
+    }
+  ],
   "require": {
     "composer/installers": "^2",
+    "elightup/plugin-search": "^1.0",
     "elightup/twig": "^3",
     "wpmetabox/mb-acf-migration": "^1",
     "wpmetabox/mb-comment-meta": "^1",

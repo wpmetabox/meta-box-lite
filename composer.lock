@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "117ee1f433167c581b9986b1df7a05fd",
+    "content-hash": "abf49e654f772b5165d241f5d2dc7ba2",
     "packages": [
         {
             "name": "composer/installers",
@@ -151,6 +151,25 @@
                 }
             ],
             "time": "2024-06-24T20:46:46+00:00"
+        },
+        {
+            "name": "elightup/plugin-search",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/elightup/plugin-search.git",
+                "reference": "e6838a0b31fab8966630dafc6929621f2814d9c8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "eLightUp\\PluginSearch\\": "src/"
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "time": "2026-08-16T15:14:12+00:00"
         },
         {
             "name": "elightup/twig",
