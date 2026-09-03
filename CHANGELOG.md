@@ -1,3 +1,15 @@
+### 2.9.0 - 2026-09-03
+
+**Highlights:**
+
+This version adds support for WooCommerce HPOS that allows you to use Meta Box fields to WooCommerce orders (with WooCommerce's High-Performance Order Storage (HPOS) feature). For more information, see our [blog post](https://metabox.io/hpos-support/).
+
+**Other changes:**
+- Add info columns to post type and taxonomy list tables
+- Fix security bug with migration from CPT UI
+- Fix icon picker not showing for existing post types
+- Tighten security for Abilities: users now need the `edit_post` capability (or equivalent) to read custom field values, so sensitive data is only accessible to users who can edit content
+
 ### 2.8.0 - 2026-07-30
 
 **Highlights:**
