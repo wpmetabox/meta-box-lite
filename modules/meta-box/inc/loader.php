@@ -7,7 +7,7 @@
 class RWMB_Loader {
 	protected function constants() {
 		// Script version, used to add version for scripts and styles.
-		define( 'RWMB_VER', '5.14.0' );
+		define( 'RWMB_VER', '5.15.0' );
 
 		list( $path, $url ) = self::get_path( dirname( __DIR__ ) );
 
@@ -114,7 +114,7 @@ class RWMB_Loader {
 		new \MetaBox\Integrations\WPML();
 
 		// Abilities API integration (WordPress 6.9+). Bails silently on older versions.
-		$abilities = new \MetaBox\Abilities\Abilities();
+		$abilities = new \MetaBox\Abilities();
 		$abilities->init();
 
 		// Register categories for page builders.
@@ -122,10 +122,10 @@ class RWMB_Loader {
 		new \MetaBox\Integrations\Bricks();
 		new \MetaBox\Integrations\Elementor();
 		new \MetaBox\Integrations\Oxygen();
+		new \MetaBox\Integrations\WooCommerce\HPOS\Manager();
 
 		if ( is_admin() ) {
 			new \MetaBox\Dashboard\Dashboard( $update_checker, $update_option );
-			new \MetaBox\FeaturedPlugins();
 		}
 
 		// Public functions.

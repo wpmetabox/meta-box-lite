@@ -8,7 +8,7 @@ class PostTypeRegister extends Register {
 	private $menu_positions       = [];
 	private $font_awesome_classes = [ 'fa', 'fa-classic', 'fa-sharp', 'fas', 'fa-solid', 'far', 'fa-regular', 'fab', 'fa-brands' ];
 
-	public function register() {
+	public function register(): void {
 		// Register main post type 'mb-post-type'.
 		$labels = [
 			'name'               => _x( 'Post Types', 'Post Type General Name', 'mb-custom-post-type' ),
@@ -82,7 +82,7 @@ class PostTypeRegister extends Register {
 		}
 	}
 
-	public function get_post_types() {
+	public function get_post_types(): array {
 		$post_types = [];
 
 		$posts = get_posts( [
@@ -109,16 +109,17 @@ class PostTypeRegister extends Register {
 		return $post_types;
 	}
 
-	public function get_post_type_settings( WP_Post $post ) {
+	public function get_post_type_settings( WP_Post $post ): array {
 		// phpcs:ignore
 		$settings = empty( $post->post_content ) || isset( $_GET['mbcpt-force'] ) ? $this->migrate_data( $post ) : json_decode( $post->post_content, true );
 
-		if ( empty( $settings ) ) {
+		if ( empty( $settings ) || ! is_array( $settings ) ) {
 			return [];
 		}
 
 		self::sanitize_labels( $settings );
 		$this->parse_archive_slug( $settings );
+		$this->parse_show_in_menu( $settings );
 
 		if ( $this->has_font_awesome( $settings ) ) {
 			$this->add_font_awesome_hooks();
@@ -131,7 +132,7 @@ class PostTypeRegister extends Register {
 		return $settings;
 	}
 
-	private function migrate_data( WP_Post $post ) {
+	private function migrate_data( WP_Post $post ): array {
 		$args      = [ 'labels' => [] ];
 		$post_meta = get_post_meta( $post->ID );
 
@@ -154,7 +155,8 @@ class PostTypeRegister extends Register {
 
 		// Bypass new post types.
 		if ( isset( $_GET['mbcpt-force'] ) && empty( $args['slug'] ) ) { // phpcs:ignore
-			return json_decode( $post->post_content, true );
+			$settings = json_decode( $post->post_content, true );
+			return is_array( $settings ) ? $settings : [];
 		}
 
 		// Rewrite.
@@ -173,7 +175,7 @@ class PostTypeRegister extends Register {
 		return $args;
 	}
 
-	public function updated_message( $messages ) {
+	public function updated_message( $messages ): array {
 		$post             = get_post();
 		$post_type_object = get_post_type_object( $post->post_type );
 		$label            = ucfirst( $post_type_object->labels->singular_name );
@@ -258,7 +260,7 @@ class PostTypeRegister extends Register {
 		return $messages;
 	}
 
-	public function bulk_updated_messages( $bulk_messages, $bulk_counts ) {
+	public function bulk_updated_messages( $bulk_messages, $bulk_counts ): array {
 		$labels = [
 			'mb-post-type' => [
 				'singular' => __( 'post type', 'mb-custom-post-type' ),
@@ -299,13 +301,34 @@ class PostTypeRegister extends Register {
 		return $bulk_messages;
 	}
 
-	private function parse_archive_slug( &$settings ) {
+	private function parse_archive_slug( array &$settings ): void {
 		if ( empty( Arr::get( $settings, 'has_archive' ) ) || empty( Arr::get( $settings, 'archive_slug' ) ) ) {
 			return;
 		}
 		Arr::set( $settings, 'has_archive', $settings['archive_slug'] );
 	}
-	private function parse_capabilities( &$settings ) {
+
+	private function parse_show_in_menu( array &$settings ): void {
+		$show_in_menu = Arr::get( $settings, 'show_in_menu' );
+
+		if ( 'true' === $show_in_menu || true === $show_in_menu ) {
+			Arr::set( $settings, 'show_in_menu', true );
+			return;
+		}
+		if ( 'false' === $show_in_menu || false === $show_in_menu ) {
+			Arr::set( $settings, 'show_in_menu', false );
+			return;
+		}
+		if ( 'custom' !== $show_in_menu ) {
+			return;
+		}
+
+		$parent = Arr::get( $settings, 'parent' );
+		Arr::set( $settings, 'show_in_menu', $parent ?: 'index.php' );
+		unset( $settings['parent'] );
+	}
+
+	private function parse_capabilities( array &$settings ): void {
 		if ( 'custom' !== Arr::get( $settings, 'capability_type' ) ) {
 			return;
 		}
@@ -319,14 +342,14 @@ class PostTypeRegister extends Register {
 		Arr::set( $settings, 'map_meta_cap', true );
 	}
 
-	private function parse_supports( &$settings ) {
+	private function parse_supports( array &$settings ): void {
 		if ( ! empty( Arr::get( $settings, 'supports' ) ) ) {
 			return;
 		}
 		Arr::set( $settings, 'supports', false );
 	}
 
-	private function parse_icon( &$settings ) {
+	private function parse_icon( array &$settings ): void {
 		$default = Arr::get( $settings, 'menu_icon', 'dashicons-admin-generic' );
 
 		$icons = [
@@ -349,7 +372,7 @@ class PostTypeRegister extends Register {
 		unset( $settings['font_awesome'] );
 	}
 
-	private function has_font_awesome( $settings ) {
+	private function has_font_awesome( array $settings ): bool {
 		return Arr::get( $settings, 'icon_type', 'dashicons' ) === 'font_awesome';
 	}
 
@@ -377,15 +400,15 @@ class PostTypeRegister extends Register {
 		);
 	}
 
-	public function filter_class_font_awesome() {
+	public function filter_class_font_awesome(): void {
 		add_filter( 'sanitize_html_class', [ $this, 'sanitize_html_class_font_awesome' ], 10, 2 );
 	}
 
-	public function remove_filter_class_font_awesome() {
+	public function remove_filter_class_font_awesome(): void {
 		remove_filter( 'sanitize_html_class', [ $this, 'sanitize_html_class_font_awesome' ] );
 	}
 
-	public function sanitize_html_class_font_awesome( $classname, $fallback ) {
+	public function sanitize_html_class_font_awesome( $classname, $fallback ): string {
 		$fa_classnames = [ 'fa', 'fas', 'fa-solid', 'fab', 'fa-brand', 'far', 'fa-regular' ];
 		foreach ( $fa_classnames as $fa_classname ) {
 			if ( str_contains( $fallback, $fa_classname ) ) {
