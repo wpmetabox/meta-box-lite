@@ -1,8 +1,11 @@
 <?php
 namespace MBB\Helpers;
 
+use MBB\Extensions\CustomModel\Register;
+use MetaBox\CustomTable\Model\Factory;
 use MetaBox\Support\Data as DataHelper;
 use WP_Block_Type_Registry;
+use WP_Query;
 
 class Data {
 	public static function get_post_types() {
@@ -58,7 +61,7 @@ class Data {
 	}
 
 	public static function get_views(): array {
-		$query = new \WP_Query( [
+		$query = new WP_Query( [
 			'post_type'              => 'mb-views',
 			'posts_per_page'         => -1,
 			'orderby'                => 'title',
@@ -139,6 +142,69 @@ class Data {
 			);
 		}
 		return $pages;
+	}
+
+	public static function get_models(): array {
+		if ( ! class_exists( Factory::class ) ) {
+			return [];
+		}
+
+		$cache = get_option( Register::CACHE_OPTION, [] );
+		if ( ! is_array( $cache ) ) {
+			$cache = [];
+		}
+
+		$models = [];
+		foreach ( Factory::get() as $name => $model ) {
+			$models[] = self::format_model( $name, $model, $cache );
+		}
+
+		return $models;
+	}
+
+	/**
+	 * Build the editor payload for one registered model (no database inspect).
+	 *
+	 * @param string                    $name  Model slug.
+	 * @param object|null               $model Factory model instance.
+	 * @param array<string, mixed>|null $cache mbb_models option.
+	 * @return array<string, mixed>
+	 */
+	public static function format_model( string $name, $model = null, ?array $cache = null ): array {
+		if ( ! class_exists( Factory::class ) ) {
+			return [];
+		}
+
+		if ( null === $model ) {
+			$model = Factory::get( $name );
+		}
+		if ( ! $model ) {
+			return [];
+		}
+
+		if ( ! is_array( $cache ) ) {
+			$cache = get_option( Register::CACHE_OPTION, [] );
+			$cache = is_array( $cache ) ? $cache : [];
+		}
+
+		$cached  = $cache[ $name ] ?? [];
+		$post_id = isset( $cached['post_id'] ) ? (int) $cached['post_id'] : 0;
+		$columns = isset( $cached['columns'] ) && is_array( $cached['columns'] ) ? $cached['columns'] : [];
+		$keys    = isset( $cached['keys'] ) && is_array( $cached['keys'] ) ? $cached['keys'] : [];
+
+		if ( $post_id <= 0 && empty( $columns ) && isset( $model->columns ) && is_array( $model->columns ) ) {
+			$columns = $model->columns;
+		}
+
+		return [
+			'name'       => $name,
+			'label'      => $model->labels['singular_name'] ?? $model->labels['name'] ?? $name,
+			'table'      => $model->table,
+			'columns'    => $columns,
+			'db_columns' => [],
+			'keys'       => $keys,
+			'post_id'    => $post_id,
+		];
 	}
 
 	public static function is_extension_active( $extension ) {

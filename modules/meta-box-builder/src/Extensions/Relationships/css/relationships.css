@@ -7,7 +7,7 @@
 }
 
 .mb-content {
-	padding: 32px 32px 0 32px;
+	padding: 24px 24px 0 24px;
 }
 
 .mb-header {
@@ -36,7 +36,7 @@
 }
 
 .components-panel__body {
-	margin-inline: -32px;
+	margin-inline: -24px;
 }
 
 .components-tab-panel__tab-content {

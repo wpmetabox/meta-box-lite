@@ -48,6 +48,7 @@ if ( Helpers\Data::is_extension_active( 'mb-relationships' ) ) {
 
 if ( Helpers\Data::is_extension_active( 'mb-custom-table' ) ) {
 	new Extensions\CustomTable();
+	new Extensions\CustomModel\Manager();
 }
 
 new Extensions\AdminColumns();

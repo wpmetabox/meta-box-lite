@@ -4,10 +4,13 @@ namespace MBB;
 use MBB\RestApi\Save;
 use MBB\JsonService;
 use MBB\LocalJson;
+use MBB\Helpers\Id;
 use MBBParser\Unparsers\MetaBox;
 use MBBParser\Unparsers\Field as FieldUnparser;
 use WP_REST_Request;
 use WP_Error;
+use WP_Post;
+use WP_Query;
 
 class Abilities {
 	private const CATEGORY = 'meta-box';
@@ -611,7 +614,7 @@ class Abilities {
 			$args['s'] = $search;
 		}
 
-		$query  = new \WP_Query( $args );
+		$query  = new WP_Query( $args );
 		$groups = [];
 
 		foreach ( $query->posts as $post ) {
@@ -655,7 +658,7 @@ class Abilities {
 		$post_id = wp_insert_post( [
 			'post_type'   => 'meta-box',
 			'post_title'  => $title,
-			'post_name'   => $slug ? $slug : sanitize_title( $title ),
+			'post_name'   => Id::sanitize( $slug ?: $title, $title ),
 			'post_status' => $status,
 		] );
 
@@ -920,7 +923,7 @@ class Abilities {
 	/**
 	 * Helpers.
 	 */
-	private function get_field_group_post( int $id ): ?\WP_Post {
+	private function get_field_group_post( int $id ): ?WP_Post {
 		$post = get_post( $id );
 
 		return $post && $post->post_type === 'meta-box' ? $post : null;
@@ -984,7 +987,7 @@ class Abilities {
 		return current_user_can( 'manage_options' );
 	}
 
-	private function is_database_only( \WP_Post $post ): bool {
+	private function is_database_only( WP_Post $post ): bool {
 		if ( ! LocalJson::is_enabled() ) {
 			return true;
 		}
@@ -1000,11 +1003,11 @@ class Abilities {
 	/**
 	 * Build a lightweight summary array for a field group.
 	 *
-	 * @param \WP_Post $post   The field group post object.
+	 * @param WP_Post $post   The field group post object.
 	 * @param array    $fields The field definitions.
 	 * @return array
 	 */
-	private function build_field_group_summary( \WP_Post $post, array $fields = [] ): array {
+	private function build_field_group_summary( WP_Post $post, array $fields = [] ): array {
 		return [
 			'id'          => $post->ID,
 			'title'       => $post->post_title,
@@ -1016,7 +1019,7 @@ class Abilities {
 		];
 	}
 
-	private function build_field_group_response( \WP_Post $post ): array {
+	private function build_field_group_response( WP_Post $post ): array {
 		$fields  = get_post_meta( $post->ID, 'fields', true ) ?: [];
 		$summary = $this->build_field_group_summary( $post, $fields );
 

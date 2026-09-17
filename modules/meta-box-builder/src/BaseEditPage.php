@@ -41,7 +41,7 @@ abstract class BaseEditPage {
 		}
 
 		// Remove admin footer, which causes CSS issues.
-		add_filter('admin_footer_text', '__return_empty_string' );
+		add_filter( 'admin_footer_text', '__return_empty_string' );
 		remove_filter( 'update_footer', 'core_update_footer' );
 
 		$this->enqueue();
@@ -51,5 +51,35 @@ abstract class BaseEditPage {
 
 	protected function is_screen(): bool {
 		return $this->post_type === get_current_screen()->id;
+	}
+
+	protected function get_menu_positions(): array {
+		global $menu;
+
+		$positions = [];
+		foreach ( $menu as $position => $params ) {
+			if ( ! empty( $params[0] ) ) {
+				$positions[ $position ] = $this->strip_span( $params[0] );
+			}
+		}
+
+		return $positions;
+	}
+
+	protected function get_menu_parents(): array {
+		global $menu;
+
+		$options = [];
+		foreach ( $menu as $params ) {
+			if ( ! empty( $params[0] ) && ! empty( $params[2] ) ) {
+				$options[ $params[2] ] = $this->strip_span( $params[0] );
+			}
+		}
+
+		return $options;
+	}
+
+	protected function strip_span( string $html ): string {
+		return (string) preg_replace( '@<span .*>.*</span>@si', '', $html );
 	}
 }

@@ -1,3 +1,28 @@
+### 2.10.0 - 2026-09-17
+
+**Highlights:**
+
+This release lets you create **custom models** in the builder, instead of registering them in PHP with the MB Custom Table extension. Local JSON supports models as well.
+
+See our [blog post](https://metabox.io/create-custom-model-with-builder/) for an overview.
+
+**Other changes:**
+
+- Add a column schema editor for field group custom tables, with column types, indexes, and automatic columns for new fields
+- Include the WordPress table prefix by default for new custom tables
+- Transliterate accented characters in table names instead of dropping them
+- Report custom table create and update failures when saving, instead of reporting success
+- Report Local JSON sync failures when saving, and reject an ID that another JSON file already owns
+- Delete stale Local JSON files after renaming a field group
+- Update the existing object when importing a JSON file with the same ID, instead of creating a duplicate
+- Rebuild editor settings when importing settings pages and blocks, so icons and menu settings survive the round trip
+- Fix multibyte IDs breaking meta box tooltips in WordPress 7.1
+- Fix admin column position suggestions missing the field ID prefix
+- Fix select advanced field preview not showing and not clearing
+- Fix error when trashing a post
+- Fix focus handling for hidden validation error elements
+- Fix image advanced in a cloneable group not displayed correctly in Elementor
+
 ### 2.9.0 - 2026-09-03
 
 **Highlights:**

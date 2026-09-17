@@ -4,6 +4,10 @@ namespace MBB\RestApi;
 use WP_REST_Server;
 use WP_REST_Request;
 use WP_Error;
+use WP_Post;
+use MBB\Helpers\Id;
+use MBB\Extensions\CustomTable;
+use MBB\LocalJson;
 use MBBParser\Parsers\Base as BaseParser;
 use MBBParser\Parsers\MetaBox as MetaBoxParser;
 
@@ -45,9 +49,7 @@ class Save extends Base {
 		$fields     = $request->get_param( 'fields' );
 		$settings   = $request->get_param( 'settings' );
 
-		if ( ! $post_name ) {
-			$post_name = sanitize_title( $post_title );
-		}
+		$post_name = Id::sanitize( $post_name ?: $post_title, $post_title );
 
 		$post = get_post( $post_id );
 		if ( ! $post ) {
@@ -57,10 +59,22 @@ class Save extends Base {
 			];
 		}
 
+		$previous_id = $post->post_name;
+
 		// Create (publish) the post if it's auto-draft.
 		$post_status = $post->post_status;
 		if ( ! in_array( $post_status, [ 'publish', 'draft' ], true ) ) {
 			$post_status = 'publish';
+		}
+
+		if ( 'publish' === $post_status ) {
+			$json_error = LocalJson::check_id( 'meta-box', $post_name, $previous_id );
+			if ( '' !== $json_error ) {
+				return [
+					'success' => false,
+					'message' => $json_error,
+				];
+			}
 		}
 
 		$update_args = [
@@ -86,7 +100,20 @@ class Save extends Base {
 
 		$parser = self::parse( $post, $fields, $settings, $post_title, $post_name );
 
-		do_action( 'mbb_after_save', $parser, $post_id, compact( 'fields', 'settings', 'post_title', 'post_name' ) );
+		$raw_data = compact( 'fields', 'settings', 'post_title', 'post_name' );
+		if ( $previous_id !== '' && $previous_id !== $post_name ) {
+			$raw_data['previous_id'] = $previous_id;
+		}
+
+		do_action( 'mbb_after_save', $parser, $post_id, $raw_data );
+
+		$error = CustomTable::get_last_ddl_error() ?: LocalJson::get_last_error();
+		if ( '' !== $error ) {
+			return [
+				'success' => false,
+				'message' => $error,
+			];
+		}
 
 		return [
 			'success' => true,
@@ -94,7 +121,7 @@ class Save extends Base {
 		];
 	}
 
-	public static function parse( \WP_Post $post, array $fields, array $settings, ?string $post_title = null, ?string $post_name = null ): MetaBoxParser {
+	public static function parse( WP_Post $post, array $fields, array $settings, ?string $post_title = null, ?string $post_name = null ): MetaBoxParser {
 		$base_parser = new BaseParser();
 
 		$base_parser->set_settings( $settings )->parse_boolean_values()->parse_numeric_values();

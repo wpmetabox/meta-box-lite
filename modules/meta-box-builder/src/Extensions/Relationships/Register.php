@@ -1,6 +1,9 @@
 <?php
 namespace MBB\Extensions\Relationships;
 
+use MB_Relationships_API;
+use WP_Query;
+
 class Register {
 	public function __construct() {
 		$this->register_post_type();
@@ -63,7 +66,7 @@ class Register {
 	}
 
 	public function register_relationships() {
-		$query = new \WP_Query( [
+		$query = new WP_Query( [
 			'posts_per_page'         => -1,
 			'post_status'            => 'publish',
 			'post_type'              => 'mb-relationship',
@@ -77,7 +80,7 @@ class Register {
 			// Allow WPML to translate relationship data.
 			$relationship = apply_filters( 'mbb_relationship', $relationship, $post );
 
-			\MB_Relationships_API::register( $relationship );
+			MB_Relationships_API::register( $relationship );
 		}
 	}
 }

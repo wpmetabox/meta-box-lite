@@ -7,7 +7,7 @@
 }
 
 .mb-content {
-	padding: 32px;
+	padding: 24px;
 }
 
 .mb-header {
@@ -36,7 +36,7 @@
 }
 
 hr {
-	margin: 32px -32px;
+	margin: 24px -24px;
 	border-top: 0;
 	border-bottom-color: #e0e0e0;
 }

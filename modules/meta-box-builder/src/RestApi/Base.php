@@ -2,6 +2,8 @@
 namespace MBB\RestApi;
 
 use WP_REST_Server;
+use WP_REST_Request;
+use WP_REST_Response;
 use ReflectionMethod;
 use RWMB_Post_Field;
 use RWMB_Taxonomy_Field;
@@ -164,14 +166,14 @@ class Base {
 	 *
 	 * @return array
 	 */
-	public function get_json_data( \WP_REST_Request $request ): array {
+	public function get_json_data( WP_REST_Request $request ): array {
 		$params = $request->get_params();
 		$json   = JsonService::get_json( $params );
 
 		return $json;
 	}
 
-	public function get_redirection_url( \WP_REST_Request $request ) {
+	public function get_redirection_url( WP_REST_Request $request ) {
 		$params = $request->get_params();
 
 		$slug = $params['slug'] ?? '';
@@ -189,12 +191,12 @@ class Base {
 		exit;
 	}
 
-	public function set_json_data( \WP_REST_Request $request ): \WP_REST_Response {
+	public function set_json_data( WP_REST_Request $request ): WP_REST_Response {
 		$params = $request->get_params();
 
 		foreach ( [ 'id', 'use' ] as $param ) {
 			if ( ! isset( $params[ $param ] ) ) {
-				return new \WP_REST_Response( [
+				return new WP_REST_Response( [
 					'success' => false,
 					// Translators: %s - The parameter name.
 					'message' => sprintf( __( '%s is required', 'meta-box-builder' ), ucfirst( $param ) ),
@@ -212,7 +214,7 @@ class Base {
 			]
 		);
 
-		return new \WP_REST_Response( [
+		return new WP_REST_Response( [
 			'success' => (bool) $res,
 		], 200 );
 	}

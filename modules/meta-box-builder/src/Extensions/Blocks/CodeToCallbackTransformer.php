@@ -1,6 +1,8 @@
 <?php
 namespace MBB\Extensions\Blocks;
 
+use eLightUp\Twig\Environment;
+use eLightUp\Twig\Loader\ArrayLoader;
 use MBB\TwigProxy;
 
 class CodeToCallbackTransformer {
@@ -34,10 +36,10 @@ class CodeToCallbackTransformer {
 				$data[ $field['id'] ] = 'group' === $field['type'] ? mb_get_block_field( $field['id'], [] ) : mb_the_block_field( $field['id'], [], false );
 			}
 
-			$loader = new \eLightUp\Twig\Loader\ArrayLoader( [
+			$loader = new ArrayLoader( [
 				'block' => '{% autoescape false %}' . $meta_box['render_code'] . '{% endautoescape %}',
 			] );
-			$twig   = new \eLightUp\Twig\Environment( $loader );
+			$twig   = new Environment( $loader );
 
 			// Proxy for all PHP/WordPress functions.
 			$data['mb'] = new TwigProxy();

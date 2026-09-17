@@ -12,7 +12,7 @@
 
 	const showDialog = async ( mbbId ) => {
 		const syncData = await wp.apiFetch( {
-			path: '/mbb/json-data?id=' + mbbId,
+			path: '/mbb/json-data?id=' + mbbId + '&post_type=' + ( MBBDialog.postType || 'meta-box' ),
 			method: 'GET',
 		} );
 
@@ -103,6 +103,7 @@
 					data: {
 						id: buttonSync.dataset.id,
 						use: buttonSync.dataset.use,
+						post_type: MBBDialog.postType || 'meta-box',
 					}
 				} );
 

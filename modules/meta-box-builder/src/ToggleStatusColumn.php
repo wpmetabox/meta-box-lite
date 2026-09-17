@@ -5,7 +5,7 @@ use WP_Post;
 use RWMB_Switch_Field;
 
 class ToggleStatusColumn {
-	private $post_types = [ 'meta-box', 'mb-settings-page', 'mb-relationship', 'mb-post-type', 'mb-taxonomy', 'mb-views' ];
+	private $post_types = [ 'meta-box', 'mb-settings-page', 'mb-relationship', 'mb-model', 'mb-post-type', 'mb-taxonomy', 'mb-views' ];
 
 	public function __construct() {
 		add_action( 'admin_init', [ $this, 'init' ] );

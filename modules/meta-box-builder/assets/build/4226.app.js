@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunk=globalThis.webpackChunk||[]).push([[4226],{4226(i,s,a){a.r(s),a.d(s,{default:()=>t});var l=a(790);const t=({id:i,options:s})=>s.length>0&&(0,l.jsx)("datalist",{id:i,children:s.map(i=>(0,l.jsx)("option",{children:i},i))})}}]);

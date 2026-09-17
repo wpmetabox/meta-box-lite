@@ -2,6 +2,7 @@
 namespace MBB;
 
 use MetaBox\Support\Arr;
+use MBBParser\Unparsers\MetaBox;
 
 class Register {
 	private $meta_box_post_ids = [];
@@ -60,7 +61,7 @@ class Register {
 				continue;
 			}
 
-			$unparser = new \MBBParser\Unparsers\MetaBox( $json );
+			$unparser = new MetaBox( $json );
 			$unparser->unparse();
 			$meta_box = $unparser->get_settings();
 

@@ -8,7 +8,7 @@ class Settings extends Base {
 	 * Allow these settings to be empty.
 	 * @var array
 	 */
-	protected $empty_keys = [ 'post_types', 'taxonomies', 'settings_pages' ];
+	protected $empty_keys = [ 'post_types', 'taxonomies', 'settings_pages', 'models' ];
 
 	/**
 	 * Remove these settings if they are false.
@@ -42,19 +42,31 @@ class Settings extends Base {
 		if ( $object_type === 'post' ) {
 			unset( $this->taxonomies );
 			unset( $this->settings_pages );
+			unset( $this->models );
 			unset( $this->type );
 		} elseif ( $object_type === 'term' ) {
 			unset( $this->post_types );
 			unset( $this->settings_pages );
+			unset( $this->models );
 			unset( $this->type );
 		} elseif ( $object_type === 'setting' ) {
 			unset( $this->post_types );
 			unset( $this->taxonomies );
+			unset( $this->models );
 			unset( $this->type );
+		} elseif ( $object_type === 'model' ) {
+			unset( $this->post_types );
+			unset( $this->taxonomies );
+			unset( $this->settings_pages );
+			unset( $this->type );
+			if ( isset( $this->models ) ) {
+				$this->models = array_filter( (array) $this->models );
+			}
 		} elseif ( in_array( $object_type, [ 'block', 'user', 'comment' ], true ) ) {
 			unset( $this->post_types );
 			unset( $this->taxonomies );
 			unset( $this->settings_pages );
+			unset( $this->models );
 			$this->type = $object_type;
 		}
 
@@ -102,6 +114,23 @@ class Settings extends Base {
 	}
 
 	private function parse_custom_table() {
+		$object_type = Arr::get( $this->settings, 'object_type', '' );
+		$models      = array_filter( (array) Arr::get( $this->settings, 'models', [] ) );
+
+		// Models own the table schema — inject storage from the registered model.
+		if ( 'model' === $object_type || ! empty( $models ) ) {
+			$table = $this->get_model_table( $models );
+			if ( $table ) {
+				$this->storage_type = 'custom_table';
+				$this->table        = $table;
+			} else {
+				unset( $this->storage_type );
+				unset( $this->table );
+			}
+			unset( $this->custom_table );
+			return $this;
+		}
+
 		$enable = Arr::get( $this->settings, 'custom_table.enable', false );
 		$name   = Arr::get( $this->settings, 'custom_table.name', '' );
 		if ( $enable && $name ) {
@@ -118,6 +147,42 @@ class Settings extends Base {
 
 		unset( $this->custom_table );
 		return $this;
+	}
+
+	private function get_model_table( array $models ): string {
+		$first = reset( $models );
+		if ( ! $first ) {
+			return '';
+		}
+
+		if ( class_exists( '\MetaBox\CustomTable\Model\Factory' ) ) {
+			$model = \MetaBox\CustomTable\Model\Factory::get( $first );
+			if ( $model && ! empty( $model->table ) ) {
+				return (string) $model->table;
+			}
+		}
+
+		$cache = get_option( 'mbb_models', [] );
+		if ( is_array( $cache ) && ! empty( $cache[ $first ]['table'] ) ) {
+			return (string) $cache[ $first ]['table'];
+		}
+
+		$query = new \WP_Query( [
+			'posts_per_page'         => 1,
+			'post_status'            => 'publish',
+			'post_type'              => 'mb-model',
+			'name'                   => $first,
+			'no_found_rows'          => true,
+			'update_post_term_cache' => false,
+			'update_post_meta_cache' => false,
+		] );
+
+		if ( empty( $query->posts ) ) {
+			return '';
+		}
+
+		$model = get_post_meta( $query->posts[0]->ID, 'model', true );
+		return is_array( $model ) && ! empty( $model['table'] ) ? (string) $model['table'] : '';
 	}
 
 	private function parse_block() {

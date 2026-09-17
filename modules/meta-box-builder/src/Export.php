@@ -1,6 +1,8 @@
 <?php
 namespace MBB;
 
+use WP_Post;
+
 class Export {
 	public function __construct() {
 		add_filter( 'post_row_actions', [ $this, 'add_export_link' ], 10, 2 );
@@ -11,11 +13,11 @@ class Export {
 	 * Add export link to the post row actions.
 	 *
 	 * @param array<string, string> $actions
-	 * @param \WP_Post              $post
+	 * @param WP_Post               $post
 	 * @return array
 	 */
 	public function add_export_link( $actions, $post ): array {
-		if ( ! in_array( $post->post_type, [ 'meta-box', 'mb-relationship', 'mb-settings-page' ], true ) ) {
+		if ( ! in_array( $post->post_type, [ 'meta-box', 'mb-relationship', 'mb-settings-page', 'mb-model' ], true ) ) {
 			return $actions;
 		}
 
@@ -96,6 +98,7 @@ class Export {
 			'meta-box'         => [ 'settings', 'fields', 'meta_box' ],
 			'mb-relationship'  => [ 'settings', 'relationship' ],
 			'mb-settings-page' => [ 'settings', 'settings_page' ],
+			'mb-model'         => [ 'settings', 'model' ],
 		];
 
 		return $meta_keys[ $post_type ] ?? [];

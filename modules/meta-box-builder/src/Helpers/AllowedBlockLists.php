@@ -92,12 +92,13 @@ class AllowedBlockLists {
 	}
 
 	public static function generate_id( string $name ): string {
-		$id      = sanitize_title( $name );
+		$id      = Id::sanitize( $name, $name );
 		$lists   = self::get_lists();
 		$counter = 2;
+		$base    = $id;
 
 		while ( isset( $lists[ $id ] ) ) {
-			$id = sanitize_title( $name ) . '-' . $counter;
+			$id = $base . '-' . $counter;
 			++$counter;
 		}
 

@@ -1,6 +1,8 @@
 <?php
 namespace MBB\Extensions\SettingsPage;
 
+use WP_Query;
+
 class Register {
 	public function __construct() {
 		$this->register_post_type();
@@ -65,7 +67,7 @@ class Register {
 	// phpcs:enable
 
 	public function register_settings_pages( $settings_pages ) {
-		$query = new \WP_Query( [
+		$query = new WP_Query( [
 			'posts_per_page'         => -1,
 			'post_status'            => 'publish',
 			'post_type'              => 'mb-settings-page',

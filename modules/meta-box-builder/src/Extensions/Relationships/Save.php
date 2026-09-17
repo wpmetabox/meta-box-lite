@@ -4,6 +4,7 @@ namespace MBB\Extensions\Relationships;
 use WP_REST_Request;
 use WP_REST_Server;
 use WP_Error;
+use MBB\Helpers\Id;
 use MBB\RestApi\Save as SaveRestApi;
 
 class Save {
@@ -47,7 +48,7 @@ class Save {
 		$post_title = $request->get_param( 'post_title' );
 		$settings   = $request->get_param( 'settings' );
 
-		$post_name = sanitize_title( empty( $settings['id'] ) ? $post_title : $settings['id'] );
+		$post_name = Id::sanitize( empty( $settings['id'] ) ? $post_title : $settings['id'], $post_title );
 
 		$post = get_post( $post_id );
 		if ( ! $post ) {

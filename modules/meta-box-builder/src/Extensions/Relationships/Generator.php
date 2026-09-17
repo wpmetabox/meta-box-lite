@@ -1,6 +1,7 @@
 <?php
 namespace MBB\Extensions\Relationships;
 
+use MBB\Helpers\Id;
 use WP_REST_Server;
 use WP_REST_Request;
 
@@ -28,9 +29,9 @@ class Generator {
 			return __( 'Please enter a title for the relationship.', 'meta-box-builder' );
 		}
 
-		$settings   = $request->get_param( 'settings' );
+		$settings = $request->get_param( 'settings' );
 
-		$settings['id'] = sanitize_title( empty( $settings['id'] ) ? $post_title : $settings['id'] );
+		$settings['id'] = Id::sanitize( empty( $settings['id'] ) ? $post_title : $settings['id'], $post_title );
 
 		$parser = new Parsers\Relationship( $settings );
 		$parser->parse();

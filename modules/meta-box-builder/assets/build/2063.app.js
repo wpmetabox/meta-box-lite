@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunk=globalThis.webpackChunk||[]).push([[2063,3093],{2063(e,s,a){a.r(s),a.d(s,{default:()=>l.default});var l=a(3093)},3093(e,s,a){a.r(s),a.d(s,{default:()=>b});var l=a(6087),t=a(790);const b=(0,l.memo)(({field:e})=>(0,t.jsx)("img",{src:`${MbbApp.assetsBaseUrl}/img/${e.type}.webp`}))}}]);

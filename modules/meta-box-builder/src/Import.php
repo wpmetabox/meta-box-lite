@@ -4,6 +4,7 @@ namespace MBB;
 use MBB\RestApi\Save;
 use MBB\Upgrade\Ver404;
 use MBBParser\Unparsers\MetaBox;
+use MetaBox\Support\Arr;
 
 class Import {
 	private $upgrader_v4;
@@ -16,7 +17,7 @@ class Import {
 	}
 
 	public function output_js_templates(): void {
-		if ( ! in_array( get_current_screen()->id, [ 'edit-meta-box', 'edit-mb-relationship', 'edit-mb-settings-page' ], true ) ) {
+		if ( ! in_array( get_current_screen()->id, [ 'edit-meta-box', 'edit-mb-relationship', 'edit-mb-settings-page', 'edit-mb-model' ], true ) ) {
 			return;
 		}
 		?>
@@ -85,8 +86,18 @@ class Import {
 			$unparser = new MetaBox( $post );
 			$unparser->unparse();
 
-			$post    = $unparser->get_settings();
-			$post    = Save::fix_post_date( $post );
+			$post = $unparser->get_settings();
+			$post = Save::fix_post_date( $post );
+
+			// Update the object owning this ID: creating a second one would take a suffixed
+			// slug while keeping the imported ID, leaving two objects with the same ID.
+			// Look up the slug WordPress will store, since get_page_by_path() keeps accents.
+			$slug     = sanitize_title( $post['post_name'] ?? '' );
+			$existing = $slug ? get_page_by_path( $slug, OBJECT, $post['post_type'] ) : null;
+			if ( $existing ) {
+				$post['ID'] = $existing->ID;
+			}
+
 			$post_id = wp_insert_post( $post );
 
 			if ( ! $post_id ) {
@@ -103,12 +114,11 @@ class Import {
 				wp_die( wp_kses_post( implode( '<br>', $post_id->get_error_messages() ) ) );
 			}
 
-			// On import, if the post slug already exists, WordPress appends "-1" (etc.),
-			// causing a mismatch between the post slug and meta box ID - fix both here.
+			// WordPress sanitizes the slug, or derives it from the title when the JSON has no
+			// ID, so the imported ID may not survive. Realign it with the slug in use.
 			$new_post = get_post( $post_id );
 			if ( $new_post->post_name !== $post['post_name'] ) {
-				$post['post_name']      = $new_post->post_name;
-				$post['meta_box']['id'] = $new_post->post_name;
+				$post = $this->sync_id( $post, $new_post->post_name );
 			}
 
 			$meta_keys = Export::get_meta_keys( $post['post_type'] );
@@ -121,6 +131,28 @@ class Import {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Store the given ID everywhere the object type keeps it.
+	 *
+	 * @param array  $post Imported post data.
+	 * @param string $id   ID to store, which is also the post slug.
+	 */
+	private function sync_id( array $post, string $id ): array {
+		$keys = [
+			'meta-box'         => [ 'settings.id', 'meta_box.id' ],
+			'mb-model'         => [ 'settings.slug', 'model.id', 'model.name' ],
+			'mb-settings-page' => [ 'settings.id', 'settings_page.id' ],
+			'mb-relationship'  => [ 'settings.id', 'relationship.id' ],
+		];
+
+		$post['post_name'] = $id;
+		foreach ( $keys[ $post['post_type'] ] ?? [] as $key ) {
+			Arr::set( $post, $key, $id );
+		}
+
+		return $post;
 	}
 
 	/**

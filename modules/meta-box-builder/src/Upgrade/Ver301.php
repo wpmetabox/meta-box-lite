@@ -1,9 +1,11 @@
 <?php
 namespace MBB\Upgrade;
 
+use WP_Query;
+
 class Ver301 {
 	public function migrate() {
-		$query = new \WP_Query( [
+		$query = new WP_Query( [
 			'post_type'              => 'meta-box',
 			'post_status'            => 'any',
 			'posts_per_page'         => -1,

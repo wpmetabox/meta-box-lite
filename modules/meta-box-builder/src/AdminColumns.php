@@ -21,6 +21,10 @@ class AdminColumns {
 		add_action( 'manage_meta-box_posts_custom_column', [ $this, 'show_column' ], 10, 2 );
 		add_filter( 'views_edit-meta-box', [ $this, 'admin_table_views' ], 10, 1 );
 		add_filter( 'bulk_actions-edit-meta-box', [ $this, 'admin_table_bulk_actions' ], 10, 1 );
+		add_filter( 'manage_mb-model_posts_columns', [ $this, 'add_json_columns' ] );
+		add_action( 'manage_mb-model_posts_custom_column', [ $this, 'show_column' ], 10, 2 );
+		add_filter( 'views_edit-mb-model', [ $this, 'admin_table_views' ], 10, 1 );
+		add_filter( 'bulk_actions-edit-mb-model', [ $this, 'admin_table_bulk_actions' ], 10, 1 );
 		add_action( 'current_screen', [ $this, 'current_screen' ] );
 		add_action( 'admin_footer', [ Template::class, 'render_diff_dialog' ] );
 		add_action( 'admin_notices', [ $this, 'admin_notices' ] );
@@ -42,28 +46,31 @@ class AdminColumns {
 			return;
 		}
 
-		if ( $post->post_type !== $this->post_type ) {
+		if ( ! in_array( $post->post_type, [ 'meta-box', 'mb-model' ], true ) ) {
 			return;
 		}
 
 		if ( $new_status === 'publish' && $old_status === 'draft' ) {
-			// When switching from 'draft' to 'publish', the earlier meta box does not contains id
-			// (since draft posts don't have post_name property).
-			// So, we need to set the id for the meta box
-			$meta_box = get_post_meta( $post->ID, 'meta_box', true );
+			if ( 'meta-box' === $post->post_type ) {
+				// When switching from 'draft' to 'publish', the earlier meta box does not contains id
+				// (since draft posts don't have post_name property).
+				// So, we need to set the id for the meta box
+				$meta_box = get_post_meta( $post->ID, 'meta_box', true );
 
-			if ( ! is_array( $meta_box ) ) {
-				return;
-			}
+				if ( ! is_array( $meta_box ) ) {
+					return;
+				}
 
-			if ( ! isset( $meta_box['id'] ) ) {
-				$meta_box['id'] = $post->post_name;
-				update_post_meta( $post->ID, 'meta_box', $meta_box );
+				if ( ! isset( $meta_box['id'] ) ) {
+					$meta_box['id'] = $post->post_name;
+					update_post_meta( $post->ID, 'meta_box', $meta_box );
+				}
 			}
 
 			// Publish the json file.
 			LocalJson::use_database( [
-				'post_id' => $post->ID,
+				'post_id'   => $post->ID,
+				'post_type' => $post->post_type,
 			] );
 		}
 	}
@@ -77,7 +84,7 @@ class AdminColumns {
 		if ( $new_status === 'draft' ) {
 			$post = get_post( $post_id );
 
-			if ( $post->post_type !== $this->post_type ) {
+			if ( $post->post_type !== 'meta-box' && $post->post_type !== 'mb-model' ) {
 				return $new_status;
 			}
 
@@ -89,12 +96,13 @@ class AdminColumns {
 
 	public function delete_json( $post_id ) {
 		$post = get_post( $post_id );
-		if ( ! $post ) {
+		if ( ! $post || ! in_array( $post->post_type, [ 'meta-box', 'mb-model' ], true ) ) {
 			return;
 		}
 
 		$json = JsonService::get_json( [
-			'post_id' => $post_id,
+			'post_id'   => $post_id,
+			'post_type' => $post->post_type,
 		] );
 
 		if ( empty( $json ) ) {
@@ -118,12 +126,13 @@ class AdminColumns {
 		}
 
 		return LocalJson::use_database( [
-			'post_id' => $post_id,
+			'post_id'   => $post_id,
+			'post_type' => $post->post_type,
 		] );
 	}
 
 	public function admin_notices(): void {
-		if ( get_current_screen()->id !== 'edit-meta-box' ) {
+		if ( ! in_array( get_current_screen()->id, [ 'edit-meta-box', 'edit-mb-model' ], true ) ) {
 			return;
 		}
 
@@ -163,12 +172,12 @@ class AdminColumns {
 		}
 		$screen = get_current_screen();
 
-		if ( $screen->id !== 'edit-meta-box' ) {
+		if ( ! in_array( $screen->id, [ 'edit-meta-box', 'edit-mb-model' ], true ) ) {
 			return;
 		}
 
 		$this->view      = $_GET['post_status'] ?? ''; //phpcs:ignore WordPress.Security.NonceVerification.Recommended -- used as intval to return a page.
-		$this->post_type = $_GET['post_type'] ?? 'meta-box'; //phpcs:ignore WordPress.Security.NonceVerification.Recommended -- used as intval to return a page.
+		$this->post_type = $screen->post_type ?: ( $_GET['post_type'] ?? 'meta-box' ); //phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
 		$this->check_sync();
 
@@ -204,7 +213,9 @@ class AdminColumns {
 			return;
 		}
 
-		$json = JsonService::get_json();
+		$json = JsonService::get_json( [
+			'post_type' => $this->post_type,
+		] );
 
 		$json = array_filter( $json, function ( $item, $key ) use ( $id ) {
 			return in_array( $key, $id, true );
@@ -212,7 +223,7 @@ class AdminColumns {
 
 		LocalJson::import_many( $json );
 
-		wp_safe_redirect( admin_url( 'edit.php?post_type=meta-box&message=import-success' ) );
+		wp_safe_redirect( admin_url( 'edit.php?post_type=' . $this->post_type . '&message=import-success' ) );
 		exit;
 	}
 
@@ -221,7 +232,9 @@ class AdminColumns {
 		// Get table columns.
 		$columns = $wp_list_table->get_columns();
 		$hidden  = get_hidden_columns( $wp_list_table->screen );
-		$json    = JsonService::get_json();
+		$json    = JsonService::get_json( [
+			'post_type' => $this->post_type,
+		] );
 
 		// Filter where local is not null
 		// and its should not imported yet.
@@ -263,7 +276,12 @@ class AdminColumns {
 									break;
 
 								case 'title':
-									echo esc_html( $data['local_minimized']['title'] );
+									echo esc_html(
+										$data['local_minimized']['title']
+										?? $data['local_minimized']['labels']['name']
+										?? $data['local_minimized']['id']
+										?? ''
+									);
 									break;
 
 								case 'for':
@@ -276,6 +294,14 @@ class AdminColumns {
 
 								case 'sync_status':
 									$this->show_sync_status( $id );
+									break;
+
+								case 'mbb-model-slug':
+									echo esc_html( (string) ( $data['local_minimized']['id'] ?? '' ) );
+									break;
+
+								case 'mbb-model-table':
+									echo esc_html( (string) ( $data['local_minimized']['table'] ?? '' ) );
 									break;
 							}
 
@@ -315,7 +341,9 @@ class AdminColumns {
 	public function admin_table_views( $views ) {
 		global $wp_list_table, $wp_query;
 
-		$json = JsonService::get_json();
+		$json = JsonService::get_json( [
+			'post_type' => $this->post_type,
+		] );
 
 		$json = array_filter( $json, function ( $item ) {
 			return isset( $item['local'] ) && $item['is_newer'] !== 0;
@@ -350,7 +378,7 @@ class AdminColumns {
 	}
 
 	public function enqueue() {
-		if ( ! in_array( get_current_screen()->id, [ 'edit-meta-box', 'edit-mb-relationship', 'edit-mb-settings-page' ], true ) ) {
+		if ( ! in_array( get_current_screen()->id, [ 'edit-meta-box', 'edit-mb-relationship', 'edit-mb-settings-page', 'edit-mb-model' ], true ) ) {
 			return;
 		}
 
@@ -367,6 +395,7 @@ class AdminColumns {
 			'syncing'        => esc_html__( 'Syncing...', 'meta-box-builder' ),
 			'newer'          => esc_html__( '(newer)', 'meta-box-builder' ),
 			'sync_available' => esc_html__( 'Sync available', 'meta-box-builder' ),
+			'postType'       => get_current_screen()->post_type ?: 'meta-box',
 		] );
 
 		if ( Data::is_extension_active( 'mb-frontend-submission' ) ) {
@@ -395,6 +424,21 @@ class AdminColumns {
 
 		if ( $this->is_status( 'sync' ) ) {
 			unset( $columns['location'] );
+			unset( $columns['date'] );
+		}
+
+		return $columns;
+	}
+
+	public function add_json_columns( $columns ) {
+		if ( ! LocalJson::is_enabled() || $this->is_status( 'trash' ) ) {
+			return $columns;
+		}
+
+		$columns['path']        = __( 'Path', 'meta-box-builder' );
+		$columns['sync_status'] = __( 'Sync status', 'meta-box-builder' ) . Data::tooltip( __( 'You must set the modified time to a Unix timestamp for it to display correctly.', 'meta-box-builder' ) );
+
+		if ( $this->is_status( 'sync' ) ) {
 			unset( $columns['date'] );
 		}
 
@@ -436,7 +480,8 @@ class AdminColumns {
 		}
 
 		$json = JsonService::get_json( [
-			'id' => $meta_box_id,
+			'id'        => $meta_box_id,
+			'post_type' => $this->post_type,
 		] );
 
 		if ( empty( $json ) || ! is_array( $json ) ) {
@@ -504,6 +549,7 @@ class AdminColumns {
 			'post'    => __( 'Posts', 'meta-box-builder' ),
 			'term'    => __( 'Taxonomies', 'meta-box-builder' ),
 			'block'   => __( 'Blocks', 'meta-box-builder' ),
+			'model'   => __( 'Custom Models', 'meta-box-builder' ),
 		];
 
 		esc_html_e( $labels[ $object_type ] ?? '' );
@@ -570,6 +616,12 @@ class AdminColumns {
 				$settings_pages = wp_list_pluck( $settings_pages, 'title', 'id' );
 				$ids            = Arr::get( $data, 'settings_pages', [] );
 				$saved          = array_intersect_key( $settings_pages, array_flip( $ids ) );
+				echo wp_kses_post( implode( '<br>', $saved ) );
+				break;
+			case 'model':
+				$models = wp_list_pluck( Data::get_models(), 'label', 'name' );
+				$ids    = Arr::get( $data, 'models', [] );
+				$saved  = array_intersect_key( $models, array_flip( $ids ) );
 				echo wp_kses_post( implode( '<br>', $saved ) );
 				break;
 			case 'post':

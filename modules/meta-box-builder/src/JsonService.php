@@ -2,6 +2,8 @@
 namespace MBB;
 
 use MBB\Helpers\Path;
+use MBBParser\Unparsers\MetaBox;
+use WP_Query;
 
 class JsonService {
 	/**
@@ -27,15 +29,14 @@ class JsonService {
 	 * @return array[]
 	 */
 	public static function get_json( array $params = [] ): array {
-		static $items = null;
+		static $items = [];
 
-		if ( $items === null ) {
-			$items = self::query_json( $params );
+		$post_type = $params['post_type'] ?? 'meta-box';
+		if ( ! isset( $items[ $post_type ] ) ) {
+			$items[ $post_type ] = self::query_json( [ 'post_type' => $post_type ] );
 		}
 
-		$filter_items = self::filter_items( $items, $params );
-
-		return $filter_items;
+		return self::filter_items( $items[ $post_type ], $params );
 	}
 
 	private static function query_json( array $params ): array {
@@ -54,10 +55,15 @@ class JsonService {
 				continue;
 			}
 
-			$unparser = new \MBBParser\Unparsers\MetaBox( $raw_json );
+			$unparser = new MetaBox( $raw_json );
 			$unparser->unparse();
 			$json            = $unparser->get_settings();
 			$local_minimized = $unparser->to_minimal_format();
+			$json_post_type  = $json['post_type'] ?? 'meta-box';
+
+			if ( $json_post_type !== ( $params['post_type'] ?? 'meta-box' ) ) {
+				continue;
+			}
 
 			// ID is required so we can compare with the post ID
 			if ( ! isset( $local_minimized['id'] ) ) {
@@ -162,7 +168,7 @@ class JsonService {
 			} );
 		}
 
-		foreach ( [ 'is_newer', 'post_id', 'file' ] as $key ) {
+		foreach ( [ 'is_newer', 'post_id', 'file', 'post_type' ] as $key ) {
 			if ( ! isset( $params[ $key ] ) ) {
 				continue;
 			}
@@ -186,6 +192,7 @@ class JsonService {
 			'meta-box'         => [ 'meta_box' ],
 			'mb-relationship'  => [ 'relationship' ],
 			'mb-settings-page' => [ 'settings_page' ],
+			'mb-model'         => [ 'model' ],
 		];
 
 		return $meta_keys[ $post_type ] ?? [];
@@ -201,7 +208,7 @@ class JsonService {
 		];
 
 		$query_params = wp_parse_args( $query_params, $defaults );
-		$query        = new \WP_Query( $query_params );
+		$query        = new WP_Query( $query_params );
 
 		$meta_boxes = [];
 		foreach ( $query->posts as $post ) {
@@ -222,7 +229,7 @@ class JsonService {
 			$settings              = get_post_meta( $post->ID, 'settings', true );
 			$post_data['settings'] = (array) $settings;
 
-			$unparser = new \MBBParser\Unparsers\MetaBox( $post_data );
+			$unparser = new MetaBox( $post_data );
 			$unparser->unparse();
 			$post_data = $format === 'minimal' ? $unparser->to_minimal_format() : $unparser->get_settings();
 

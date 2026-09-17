@@ -8,6 +8,8 @@ class Template {
 		$show_on_screens = [
 			'meta-box',
 			'edit-meta-box',
+			'mb-model',
+			'edit-mb-model',
 		];
 		// Only show the dialog in the meta box edit screen.
 		if ( ! in_array( get_current_screen()->id, $show_on_screens, true ) ) {

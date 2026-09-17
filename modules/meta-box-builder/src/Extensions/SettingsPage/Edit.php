@@ -2,6 +2,7 @@
 namespace MBB\Extensions\SettingsPage;
 
 use MBB\BaseEditPage;
+use MBB\Assets;
 use MetaBox\Support\Data;
 
 class Edit extends BaseEditPage {
@@ -16,7 +17,7 @@ class Edit extends BaseEditPage {
 			[ 'wp-components', 'code-editor' ],
 			filemtime( MBB_DIR . 'src/Extensions/SettingsPage/css/settings-page.css' )
 		);
-		wp_enqueue_style( 'font-awesome', 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css', [], ' 6.7.2' );
+		Assets::enqueue_font_awesome();
 
 		wp_enqueue_code_editor( [ 'type' => 'application/x-httpd-php' ] );
 
@@ -61,32 +62,6 @@ class Edit extends BaseEditPage {
 		];
 
 		wp_localize_script( 'mb-settings-page-app', 'MbbApp', $data );
-	}
-
-	private function get_menu_positions() {
-		global $menu;
-		$positions = [];
-		foreach ( $menu as $position => $params ) {
-			if ( ! empty( $params[0] ) ) {
-				$positions[ $position ] = $this->strip_span( $params[0] );
-			}
-		}
-		return $positions;
-	}
-
-	private function get_menu_parents() {
-		global $menu;
-		$options = [];
-		foreach ( $menu as $params ) {
-			if ( ! empty( $params[0] ) && ! empty( $params[2] ) ) {
-				$options[ $params[2] ] = $this->strip_span( $params[0] );
-			}
-		}
-		return $options;
-	}
-
-	private function strip_span( $html ) {
-		return preg_replace( '@<span .*>.*</span>@si', '', $html );
 	}
 
 	private function get_capabilities() {

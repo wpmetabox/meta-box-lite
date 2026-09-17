@@ -1,8 +1,10 @@
 <?php
 namespace MBB\Extensions\Blocks\Json;
 
+use MBB\Helpers\Id;
 use MBB\Helpers\Path;
 use MetaBox\Support\Arr;
+use stdClass;
 
 class Generator {
 	public function __construct() {
@@ -19,7 +21,7 @@ class Generator {
 	}
 
 	private function generate_block_metadata( array $settings, array $raw_data ): array {
-		$block_id = $settings['id'] ?? sanitize_title( $settings['title'] );
+		$block_id = Id::sanitize( $settings['id'] ?? $settings['title'] ?? '', $settings['title'] ?? '' );
 
 		$metadata = [
 			'$schema'     => 'https://schemas.wp.org/trunk/block.json',
@@ -63,7 +65,7 @@ class Generator {
 			];
 		}
 
-		$metadata['attributes'] = ! empty( $attributes ) ? $attributes : new \stdClass();
+		$metadata['attributes'] = ! empty( $attributes ) ? $attributes : new stdClass();
 
 		return $metadata;
 	}
@@ -143,7 +145,7 @@ class Generator {
 
 		if ( in_array( $field['type'], [ 'single_image', 'file_input', 'user', 'post' ], true ) ) {
 			$type = 'object';
-			$std  = new \stdClass();
+			$std  = new stdClass();
 		}
 
 		$is_multiple = ! empty( $field['multiple'] )

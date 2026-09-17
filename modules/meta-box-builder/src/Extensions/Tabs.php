@@ -1,6 +1,7 @@
 <?php
 namespace MBB\Extensions;
 
+use MBB\Assets;
 use MBB\Control;
 use MetaBox\Support\Arr;
 use MBB\Helpers\Data;
@@ -61,7 +62,7 @@ class Tabs {
 
 	public function enqueue_font_awesome(): void {
 		if ( get_current_screen()->id === 'meta-box' ) {
-			wp_enqueue_style( 'font-awesome', 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css', [], ' 6.7.2' );
+			Assets::enqueue_font_awesome();
 		}
 	}
 

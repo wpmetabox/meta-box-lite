@@ -101,4 +101,13 @@ class Assets {
 		$url  = trailingslashit( dirname( MBB_URL ) );
 		return [ $path, $url ];
 	}
+
+	public static function enqueue_font_awesome(): void {
+		wp_enqueue_style(
+			'font-awesome',
+			'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css',
+			[],
+			'6.7.2'
+		);
+	}
 }

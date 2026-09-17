@@ -6,7 +6,7 @@ class Settings extends Base {
 	 * Allow these settings to be empty.
 	 * @var array
 	 */
-	protected $empty_keys = [ 'post_types', 'taxonomies', 'settings_pages' ];
+	protected $empty_keys = [ 'post_types', 'taxonomies', 'settings_pages', 'models' ];
 
 	public function unparse() {
 		$this->add_default( 'context', 'normal' )
@@ -23,6 +23,7 @@ class Settings extends Base {
 
 			unset( $this->post_types );
 			unset( $this->settings_pages );
+			unset( $this->models );
 			unset( $this->type );
 
 			unset( $this->priority );
@@ -41,7 +42,27 @@ class Settings extends Base {
 
 			unset( $this->post_types );
 			unset( $this->taxonomies );
+			unset( $this->models );
 			unset( $this->type );
+
+			return $this;
+		}
+
+		if ( ! empty( $this->models ) ) {
+			$this->object_type = 'model';
+			$this->ensure_array( 'models' );
+
+			unset( $this->post_types );
+			unset( $this->taxonomies );
+			unset( $this->settings_pages );
+			unset( $this->type );
+
+			unset( $this->priority );
+			unset( $this->style );
+			unset( $this->closed );
+			unset( $this->revision );
+			unset( $this->context );
+			unset( $this->default_hidden );
 
 			return $this;
 		}
@@ -52,6 +73,7 @@ class Settings extends Base {
 			unset( $this->post_types );
 			unset( $this->taxonomies );
 			unset( $this->settings_pages );
+			unset( $this->models );
 
 			unset( $this->priority );
 			unset( $this->style );
@@ -69,6 +91,7 @@ class Settings extends Base {
 			unset( $this->post_types );
 			unset( $this->taxonomies );
 			unset( $this->settings_pages );
+			unset( $this->models );
 
 			unset( $this->priority );
 			unset( $this->style );
@@ -84,6 +107,7 @@ class Settings extends Base {
 
 		unset( $this->taxonomies );
 		unset( $this->settings_pages );
+		unset( $this->models );
 		unset( $this->type );
 
 		return $this;
