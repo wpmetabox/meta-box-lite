@@ -180,16 +180,12 @@ class TableColumns {
 		}
 
 		$from_factory = self::supports_from_factory( $model_name );
-		if ( null !== $from_factory && $from_factory ) {
+		// Empty array means the model is registered with no features — do not hit the DB.
+		if ( null !== $from_factory ) {
 			return $from_factory;
 		}
 
-		$from_meta = self::supports_from_meta( $model_name );
-		if ( $from_meta ) {
-			return $from_meta;
-		}
-
-		return $from_factory ?? [];
+		return self::supports_from_meta( $model_name );
 	}
 
 	/**

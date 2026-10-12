@@ -1,6 +1,8 @@
 <?php
 namespace MBB\Extensions\SettingsPage;
 
+use MBB\JsonService;
+use MBB\LocalJson;
 use WP_Query;
 
 class Register {
@@ -66,7 +68,17 @@ class Register {
 	}
 	// phpcs:enable
 
-	public function register_settings_pages( $settings_pages ) {
+	public function register_settings_pages( $settings_pages ): array {
+		$pages = LocalJson::is_enabled()
+			? $this->get_json_settings_pages()
+			: $this->get_database_settings_pages();
+
+		return array_merge( $settings_pages, $pages );
+	}
+
+	private function get_database_settings_pages(): array {
+		$pages = [];
+
 		$query = new WP_Query( [
 			'posts_per_page'         => -1,
 			'post_status'            => 'publish',
@@ -82,11 +94,30 @@ class Register {
 			}
 
 			// Allow WPML to modify the settings page to use translations.
-			$settings_page = apply_filters( 'mbb_settings_page', $settings_page, $post );
-
-			$settings_pages[] = $settings_page;
+			$pages[] = apply_filters( 'mbb_settings_page', $settings_page, $post );
 		}
 
-		return $settings_pages;
+		return $pages;
+	}
+
+	private function get_json_settings_pages(): array {
+		$pages = [];
+
+		foreach ( JsonService::get_unparsed( 'mb-settings-page' ) as $item ) {
+			$data          = $item['data'];
+			$settings_page = $data['settings_page'] ?? [];
+			if ( empty( $settings_page ) || ! is_array( $settings_page ) ) {
+				continue;
+			}
+
+			$post_object = (object) [
+				'post_title' => $data['post_title'] ?? '',
+				'post_name'  => $data['post_name'] ?? '',
+			];
+
+			$pages[] = apply_filters( 'mbb_settings_page', $settings_page, $post_object );
+		}
+
+		return $pages;
 	}
 }

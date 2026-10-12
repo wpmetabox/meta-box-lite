@@ -5,6 +5,7 @@ use WP_REST_Request;
 use WP_REST_Server;
 use WP_Error;
 use MBB\Helpers\Id;
+use MBB\LocalJson;
 use MBB\RestApi\Save as SaveRestApi;
 
 class Save {
@@ -58,10 +59,22 @@ class Save {
 			];
 		}
 
+		$previous_id = $post->post_name;
+
 		// Create (publish) the post if it's auto-draft.
 		$post_status = $post->post_status;
 		if ( ! in_array( $post_status, [ 'publish', 'draft' ], true ) ) {
 			$post_status = 'publish';
+		}
+
+		if ( 'publish' === $post_status ) {
+			$json_error = LocalJson::check_id( 'mb-relationship', $post_name, $previous_id );
+			if ( $json_error ) {
+				return [
+					'success' => false,
+					'message' => $json_error,
+				];
+			}
 		}
 
 		$update_args = [
@@ -82,7 +95,8 @@ class Save {
 			];
 		}
 
-		$settings['id'] = $post_name;
+		$settings['id']       = $post_name;
+		$settings['modified'] = time();
 
 		$parser = new Parsers\Relationship( $settings );
 		$parser->parse_boolean_values()->parse_numeric_values();
@@ -90,6 +104,24 @@ class Save {
 
 		$parser->parse();
 		update_post_meta( $post_id, 'relationship', $parser->get_settings() );
+
+		$args = [
+			'post_id'   => $post_id,
+			'post_type' => 'mb-relationship',
+		];
+		if ( $previous_id && $previous_id !== $post_name ) {
+			$args['previous_id'] = $previous_id;
+		}
+
+		LocalJson::use_database( $args );
+
+		$json_error = LocalJson::get_last_error();
+		if ( $json_error ) {
+			return [
+				'success' => false,
+				'message' => $json_error,
+			];
+		}
 
 		return [
 			'success' => true,

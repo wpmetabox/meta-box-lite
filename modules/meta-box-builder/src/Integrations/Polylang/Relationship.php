@@ -2,7 +2,6 @@
 namespace MBB\Integrations\Polylang;
 
 use MetaBox\Support\Arr;
-use WP_Post;
 
 class Relationship {
 	private $keys = [];
@@ -26,10 +25,12 @@ class Relationship {
 	/**
 	 * Register strings for translation.
 	 *
-	 * @param array $relationship Relationship data.
+	 * @param array  $relationship Relationship data.
+	 * @param object $post         Post object with `post_name` and `post_title`. Cannot use
+	 *                             WP_Post because Local JSON has no database post.
 	 * @return array Modified relationship data.
 	 */
-	public function register_strings( array $relationship, WP_Post $post ): array {
+	public function register_strings( array $relationship, object $post ): array {
 		if ( empty( $relationship ) || ! is_array( $relationship ) ) {
 			return $relationship;
 		}
@@ -80,7 +81,13 @@ class Relationship {
 		}
 	}
 
-	private function get_context( array $relationship, WP_Post $post ): string {
+	/**
+	 * Context label for Polylang string registration.
+	 *
+	 * @param array  $relationship Relationship data.
+	 * @param object $post         Post object with `post_name` and `post_title`.
+	 */
+	private function get_context( array $relationship, object $post ): string {
 		// translators: %s is the title of the relationship.
 		return sprintf( __( 'Meta Box Relationship: %s', 'meta-box-builder' ), $post->post_title );
 	}

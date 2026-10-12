@@ -2,9 +2,18 @@
 namespace MBB;
 
 use MBB\RestApi\Save;
+use MBB\Helpers\Template;
 use MBBParser\Unparsers\MetaBox;
+use MetaBox\Support\Arr;
 
 class LocalJson {
+	public const SUPPORTED_POST_TYPES = [
+		'meta-box',
+		'mb-model',
+		'mb-settings-page',
+		'mb-relationship',
+	];
+
 	/**
 	 * Why the latest sync did not write a file, empty when it wrote one or had nothing to do.
 	 *
@@ -14,6 +23,13 @@ class LocalJson {
 
 	public function __construct() {
 		add_action( 'mbb_after_save', [ $this, 'generate_local_json' ], 10, 3 );
+		if ( is_admin() ) {
+			new Template();
+		}
+	}
+
+	public static function is_supported( string $post_type ): bool {
+		return in_array( $post_type, self::SUPPORTED_POST_TYPES, true );
 	}
 
 	/**
@@ -57,6 +73,11 @@ class LocalJson {
 		return is_array( $json ) ? $json : [];
 	}
 
+	/**
+	 * Write encoded JSON to disk.
+	 *
+	 * @return int|false Bytes written, or false on failure.
+	 */
 	private static function write_file( string $file_path, array $data ) {
 		// Create the directory first: a missing one is never writable.
 		$dir = dirname( $file_path );
@@ -75,8 +96,9 @@ class LocalJson {
 
 	public static function import_many( array $json ): void {
 		foreach ( $json as $data ) {
-			self::sync_json( $data );
+			self::sync_json( $data, false );
 		}
+		JsonService::clear_cache();
 	}
 
 	/**
@@ -121,10 +143,11 @@ class LocalJson {
 	 *      'data',
 	 * ]
 	 *
-	 * @param array $data
+	 * @param array $data        Sync payload with post_id and local JSON.
+	 * @param bool  $clear_cache Whether to clear the JsonService cache after writing.
 	 * @return bool Success or not
 	 */
-	private static function sync_json( array $data ): bool {
+	private static function sync_json( array $data, bool $clear_cache = true ): bool {
 		$required_keys = [ 'post_id', 'local' ];
 
 		foreach ( $required_keys as $key ) {
@@ -165,7 +188,7 @@ class LocalJson {
 		self::use_database( [
 			'post_id'   => $post_id,
 			'post_type' => $data['post_type'] ?? 'meta-box',
-		] );
+		], $clear_cache );
 
 		return true;
 	}
@@ -173,10 +196,11 @@ class LocalJson {
 	/**
 	 * Sync data from database to JSON file, overwriting existing content.
 	 *
-	 * @param array $args Contains post_id or post_name, optional post_type and previous_id (old slug after rename).
+	 * @param array $args        Contains post_id or post_name, optional post_type and previous_id (old slug after rename).
+	 * @param bool  $clear_cache Whether to clear the JsonService cache after writing.
 	 * @return bool Success or not.
 	 */
-	public static function use_database( array $args = [] ): bool {
+	public static function use_database( array $args = [], bool $clear_cache = true ): bool {
 		self::$last_error = '';
 
 		if ( ! self::is_enabled() ) {
@@ -195,7 +219,7 @@ class LocalJson {
 			return false;
 		}
 
-		if ( ! in_array( $post->post_type, [ 'meta-box', 'mb-model' ], true ) ) {
+		if ( ! self::is_supported( $post->post_type ) ) {
 			return false;
 		}
 
@@ -222,6 +246,10 @@ class LocalJson {
 		// A rename writes a new file, so the old one is left behind.
 		if ( $own_file && $own_file !== $file_path ) {
 			wp_delete_file( $own_file );
+		}
+
+		if ( $clear_cache ) {
+			JsonService::clear_cache();
 		}
 
 		return true;
@@ -299,18 +327,9 @@ class LocalJson {
 			return '';
 		}
 
-		foreach ( JsonService::get_files() as $file ) {
-			$raw_json = self::read_file( $file );
-			if ( empty( $raw_json ) ) {
-				continue;
-			}
-
-			$unparser = new MetaBox( $raw_json );
-			$unparser->unparse();
-			$json = $unparser->get_settings();
-
-			if ( ( $json['post_type'] ?? 'meta-box' ) === $post_type && self::get_json_id( $json ) === $id ) {
-				return $file;
+		foreach ( JsonService::get_unparsed( $post_type ) as $item ) {
+			if ( self::get_json_id( $item['data'] ) === $id ) {
+				return $item['file'];
 			}
 		}
 
@@ -321,12 +340,20 @@ class LocalJson {
 	 * ID used to match a JSON file to a Builder post.
 	 */
 	private static function get_json_id( array $data ): string {
-		$post_type = $data['post_type'] ?? 'meta-box';
+		$keys = [
+			'meta-box'         => [ 'meta_box.id', 'post_name' ],
+			'mb-model'         => [ 'model.id', 'model.name', 'post_name' ],
+			'mb-settings-page' => [ 'settings_page.id', 'post_name' ],
+			'mb-relationship'  => [ 'relationship.id', 'post_name' ],
+		];
 
-		if ( 'mb-model' === $post_type ) {
-			return (string) ( $data['model']['id'] ?? $data['model']['name'] ?? $data['post_name'] ?? '' );
+		foreach ( $keys[ $data['post_type'] ?? 'meta-box' ] ?? [] as $key ) {
+			$value = Arr::get( $data, $key );
+			if ( $value ) {
+				return (string) $value;
+			}
 		}
 
-		return (string) ( $data['meta_box']['id'] ?? $data['post_name'] ?? '' );
+		return '';
 	}
 }

@@ -1,3 +1,18 @@
+### 2.11.0 - 2026-10-12
+
+**Highlights:**
+
+This release adds a **Custom Model** field type and a **Model** object type for relationships, so you can select and relate custom table rows in the builder (requires MB Custom Table). See our [blog post](https://metabox.io/custom-model-field/) for an overview or [documentation](https://docs.metabox.io/fields/model/) for details.
+
+Local JSON now supports settings pages and relationships.
+
+**Other changes:**
+
+- Suggest SQL column types from field settings in the schema modal
+- Fix column name detection treating SQL types as column names
+- Fix bug with Elementor carousel widget and image advanced
+- Fix group skin in Elementor doesn't work when activating WPML
+
 ### 2.10.0 - 2026-09-17
 
 **Highlights:**

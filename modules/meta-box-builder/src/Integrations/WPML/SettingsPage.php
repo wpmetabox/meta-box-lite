@@ -46,7 +46,14 @@ class SettingsPage {
 		}
 	}
 
-	public function use_translations( array $settings_page, WP_Post $post ): array {
+	/**
+	 * Filter to apply WPML translations.
+	 *
+	 * @param array  $settings_page Settings page data.
+	 * @param object $post          Post object with `post_name` and `post_title`. Cannot use
+	 *                              WP_Post because Local JSON has no database post.
+	 */
+	public function use_translations( array $settings_page, object $post ): array {
 		$package = $this->get_package( $post );
 
 		foreach ( $this->keys as $key => $label ) {
@@ -58,17 +65,28 @@ class SettingsPage {
 		return $settings_page;
 	}
 
-	private function get_package( WP_Post $post ): array {
-		return [
+	/**
+	 * WPML string package.
+	 *
+	 * @param object $post Post object with `post_name` and `post_title`. Cannot use
+	 *                     WP_Post because Local JSON has no database post.
+	 */
+	private function get_package( object $post ): array {
+		$package = [
 			'kind'      => 'Meta Box: Settings Page',
 			'name'      => urldecode( $post->post_name ),
 			'title'     => $post->post_title,
-			'edit_link' => get_edit_post_link( $post ),
 			'view_link' => admin_url( "admin.php?page={$post->post_name}" ),
 		];
+
+		if ( $post instanceof WP_Post ) {
+			$package['edit_link'] = get_edit_post_link( $post );
+		}
+
+		return $package;
 	}
 
-	public function delete_package( int $post_id, WP_Post $post ) {
+	public function delete_package( int $post_id, WP_Post $post ): void {
 		$package = $this->get_package( $post );
 		do_action( 'wpml_delete_package', $package['name'], $package['kind'] );
 	}

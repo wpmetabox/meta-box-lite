@@ -21,12 +21,44 @@
 		$select2.trigger( 'change' );
 	}
 
+	function setObjectThumbnailTemplate( options, $select ) {
+		if ( ! options.show_thumbnail ) {
+			return options;
+		}
+
+		const thumbClass = $select.hasClass( 'rwmb-user' )
+			? 'rwmb-object-thumbnail rwmb-object-thumbnail--user'
+			: 'rwmb-object-thumbnail';
+
+		options.templateResult = function ( data ) {
+			if ( ! data.id ) {
+				return data.text;
+			}
+			const $wrap = $( '<span class="rwmb-object-option"></span>' );
+			const thumb = data.thumbnail || ( data.element ? $( data.element ).data( 'thumbnail' ) : '' );
+
+			if ( thumb ) {
+				$wrap.append( $( '<img>', {
+					src: thumb,
+					class: thumbClass,
+					alt: '',
+				} ) );
+			}
+
+			$wrap.append( document.createTextNode( data.text || '' ) );
+			return $wrap;
+		};
+		options.templateSelection = options.templateResult;
+
+		return options;
+	}
+
 	/**
 	 * Transform select fields into beautiful dropdown with select2 library.
 	 */
 	function transform() {
 		var $this = $( this ),
-			options = $this.data( 'options' );
+			options = setObjectThumbnailTemplate( $this.data( 'options' ) || {}, $this );
 
 		$this.removeClass( 'select2-hidden-accessible' ).removeAttr( 'data-select2-id' );
 		$this.siblings( '.select2-container' ).remove();
@@ -42,6 +74,7 @@
 					return {
 						id: item.value,
 						text: _.unescape( item.label ),
+						thumbnail: item.thumbnail || ''
 					};
 				} );
 
@@ -74,13 +107,8 @@
 					return;
 				}
 
-				var actions = {
-					'post': 'rwmb_get_posts',
-					'taxonomy': 'rwmb_get_terms',
-					'taxonomy_advanced': 'rwmb_get_terms',
-					'user': 'rwmb_get_users'
-				};
-				params.data.action = actions[ params.data.field.type ];
+				// Action comes from PHP field.ajax_action (set in each field's normalize()).
+				params.data.action = params.data.field.ajax_action;
 				params.method = 'POST';
 
 				return $.ajax( params ).then( function ( data ) {

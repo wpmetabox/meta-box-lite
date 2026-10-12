@@ -72,7 +72,14 @@ class Relationship {
 		}
 	}
 
-	public function use_translations( array $relationship, WP_Post $post ): array {
+	/**
+	 * Filter to apply WPML translations.
+	 *
+	 * @param array  $relationship Relationship data.
+	 * @param object $post         Post object with `post_name` and `post_title`. Cannot use
+	 *                             WP_Post because Local JSON has no database post.
+	 */
+	public function use_translations( array $relationship, object $post ): array {
 		$package = $this->get_package( $post );
 
 		if ( ! empty( $relationship['title'] ) ) {
@@ -98,16 +105,27 @@ class Relationship {
 		}
 	}
 
-	private function get_package( WP_Post $post ): array {
-		return [
-			'kind'      => 'Meta Box: Relationship',
-			'name'      => urldecode( $post->post_name ),
-			'title'     => $post->post_title,
-			'edit_link' => get_edit_post_link( $post ),
+	/**
+	 * WPML string package.
+	 *
+	 * @param object $post Post object with `post_name` and `post_title`. Cannot use
+	 *                     WP_Post because Local JSON has no database post.
+	 */
+	private function get_package( object $post ): array {
+		$package = [
+			'kind'  => 'Meta Box: Relationship',
+			'name'  => urldecode( $post->post_name ),
+			'title' => $post->post_title,
 		];
+
+		if ( $post instanceof WP_Post ) {
+			$package['edit_link'] = get_edit_post_link( $post );
+		}
+
+		return $package;
 	}
 
-	public function delete_package( int $post_id, WP_Post $post ) {
+	public function delete_package( int $post_id, WP_Post $post ): void {
 		$package = $this->get_package( $post );
 		do_action( 'wpml_delete_package', $package['name'], $package['kind'] );
 	}

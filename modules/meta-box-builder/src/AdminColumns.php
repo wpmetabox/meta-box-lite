@@ -2,7 +2,6 @@
 namespace MBB;
 
 use MBB\Helpers\Data;
-use MBB\Helpers\Template;
 use MetaBox\Support\Arr;
 
 class AdminColumns {
@@ -21,12 +20,15 @@ class AdminColumns {
 		add_action( 'manage_meta-box_posts_custom_column', [ $this, 'show_column' ], 10, 2 );
 		add_filter( 'views_edit-meta-box', [ $this, 'admin_table_views' ], 10, 1 );
 		add_filter( 'bulk_actions-edit-meta-box', [ $this, 'admin_table_bulk_actions' ], 10, 1 );
-		add_filter( 'manage_mb-model_posts_columns', [ $this, 'add_json_columns' ] );
-		add_action( 'manage_mb-model_posts_custom_column', [ $this, 'show_column' ], 10, 2 );
-		add_filter( 'views_edit-mb-model', [ $this, 'admin_table_views' ], 10, 1 );
-		add_filter( 'bulk_actions-edit-mb-model', [ $this, 'admin_table_bulk_actions' ], 10, 1 );
+
+		foreach ( [ 'mb-model', 'mb-settings-page', 'mb-relationship' ] as $post_type ) {
+			add_filter( "manage_{$post_type}_posts_columns", [ $this, 'add_json_columns' ] );
+			add_action( "manage_{$post_type}_posts_custom_column", [ $this, 'show_column' ], 10, 2 );
+			add_filter( "views_edit-{$post_type}", [ $this, 'admin_table_views' ], 10, 1 );
+			add_filter( "bulk_actions-edit-{$post_type}", [ $this, 'admin_table_bulk_actions' ], 10, 1 );
+		}
+
 		add_action( 'current_screen', [ $this, 'current_screen' ] );
-		add_action( 'admin_footer', [ Template::class, 'render_diff_dialog' ] );
 		add_action( 'admin_notices', [ $this, 'admin_notices' ] );
 
 		// Delete posts should delete the json file as well.
@@ -46,7 +48,7 @@ class AdminColumns {
 			return;
 		}
 
-		if ( ! in_array( $post->post_type, [ 'meta-box', 'mb-model' ], true ) ) {
+		if ( ! LocalJson::is_supported( $post->post_type ) ) {
 			return;
 		}
 
@@ -84,7 +86,7 @@ class AdminColumns {
 		if ( $new_status === 'draft' ) {
 			$post = get_post( $post_id );
 
-			if ( $post->post_type !== 'meta-box' && $post->post_type !== 'mb-model' ) {
+			if ( ! LocalJson::is_supported( $post->post_type ) ) {
 				return $new_status;
 			}
 
@@ -96,7 +98,7 @@ class AdminColumns {
 
 	public function delete_json( $post_id ) {
 		$post = get_post( $post_id );
-		if ( ! $post || ! in_array( $post->post_type, [ 'meta-box', 'mb-model' ], true ) ) {
+		if ( ! $post || ! LocalJson::is_supported( $post->post_type ) ) {
 			return;
 		}
 
@@ -117,6 +119,7 @@ class AdminColumns {
 		}
 
 		unlink( $file_path );
+		JsonService::clear_cache();
 	}
 
 	public function restore_json( $post_id ): bool {
@@ -132,7 +135,7 @@ class AdminColumns {
 	}
 
 	public function admin_notices(): void {
-		if ( ! in_array( get_current_screen()->id, [ 'edit-meta-box', 'edit-mb-model' ], true ) ) {
+		if ( ! $this->is_list_screen() ) {
 			return;
 		}
 
@@ -172,7 +175,7 @@ class AdminColumns {
 		}
 		$screen = get_current_screen();
 
-		if ( ! in_array( $screen->id, [ 'edit-meta-box', 'edit-mb-model' ], true ) ) {
+		if ( ! $this->is_list_screen() ) {
 			return;
 		}
 
@@ -186,6 +189,21 @@ class AdminColumns {
 		}
 
 		add_action( 'admin_footer', [ $this, 'render_sync_template' ], 1 );
+	}
+
+	private function is_list_screen(): bool {
+		$screen = get_current_screen();
+		if ( ! $screen ) {
+			return false;
+		}
+
+		foreach ( LocalJson::SUPPORTED_POST_TYPES as $post_type ) {
+			if ( $screen->id === "edit-{$post_type}" ) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	public function check_sync() {
@@ -223,7 +241,7 @@ class AdminColumns {
 
 		LocalJson::import_many( $json );
 
-		wp_safe_redirect( admin_url( 'edit.php?post_type=' . $this->post_type . '&message=import-success' ) );
+		wp_safe_redirect( admin_url( 'edit.php?post_type=' . $this->post_type . '&status=imported' ) );
 		exit;
 	}
 
@@ -384,18 +402,9 @@ class AdminColumns {
 
 		wp_enqueue_style( 'mbb-list', MBB_URL . 'assets/css/list.css', [], time() );
 		wp_enqueue_script( 'mbb-list', MBB_URL . 'assets/js/list.js', [ 'jquery' ], MBB_VER, true );
-		wp_enqueue_script( 'mbb-dialog', MBB_URL . 'assets/js/dialog.js', [ 'jquery', 'wp-api-fetch' ], MBB_VER, true );
-		wp_enqueue_style( 'mbb-dialog', MBB_URL . 'assets/css/dialog.css', [], MBB_VER );
-		wp_localize_script( 'mbb-dialog', 'MBBDialog', [
-			'export'         => esc_html__( 'Export', 'meta-box-builder' ),
-			'import'         => esc_html__( 'Import', 'meta-box-builder' ),
-			'not_imported'   => esc_html__( 'Not Imported', 'meta-box-builder' ),
-			'error'          => esc_html__( 'Error!', 'meta-box-builder' ),
-			'synced'         => esc_html__( 'Synced', 'meta-box-builder' ),
-			'syncing'        => esc_html__( 'Syncing...', 'meta-box-builder' ),
-			'newer'          => esc_html__( '(newer)', 'meta-box-builder' ),
-			'sync_available' => esc_html__( 'Sync available', 'meta-box-builder' ),
-			'postType'       => get_current_screen()->post_type ?: 'meta-box',
+		wp_localize_script( 'mbb-list', 'MBBList', [
+			'export' => esc_html__( 'Export', 'meta-box-builder' ),
+			'import' => esc_html__( 'Import', 'meta-box-builder' ),
 		] );
 
 		if ( Data::is_extension_active( 'mb-frontend-submission' ) ) {

@@ -334,6 +334,10 @@ class Registry {
 				'label'      => __( 'Display "Toggle All" button', 'meta-box-builder' ),
 				'dependency' => 'multiple:true',
 			], false, 'appearance' ),
+			'select_all_none_model' => Control::Toggle( 'select_all_none', [
+				'label'      => __( 'Display "Toggle All" button', 'meta-box-builder' ),
+				'dependency' => 'multiple:true',
+			], false, 'appearance' ),
 			'select_all_none_select' => Control::Toggle( 'select_all_none', [
 				'label'      => __( 'Display "Select: All | None" button', 'meta-box-builder' ),
 				'dependency' => 'multiple:true',

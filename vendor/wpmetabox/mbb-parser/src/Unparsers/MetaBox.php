@@ -57,7 +57,7 @@ class MetaBox extends Base {
 		$this->unparse_modified();
 		$this->unparse_settings();
 
-		// Settings page and block read the settings that unparse_settings() builds.
+		// Settings page menu fields need settings seeded above.
 		$this->unparse_settings_page_menu();
 		$this->unparse_block_icon();
 
@@ -393,6 +393,11 @@ class MetaBox extends Base {
 		$this->settings_page = $settings_page;
 		$this->post_title    = $this->lookup( [ 'menu_title', 'id' ] );
 
+		// Editor and registration use the same keys; seed settings for import/sync.
+		if ( empty( $this->settings['settings'] ) || ! is_array( $this->settings['settings'] ) ) {
+			$this->settings['settings'] = $settings_page;
+		}
+
 		return $this;
 	}
 
@@ -412,7 +417,14 @@ class MetaBox extends Base {
 			$tab_items[ $id ] = compact( 'id', 'key', 'value' );
 		}
 
-		$this->settings['tabs'] = $tab_items;
+		$settings = $this->settings['settings'] ?? [];
+		if ( ! is_array( $settings ) ) {
+			$settings = [];
+		}
+		$settings['tabs'] = $tab_items;
+
+		$this->settings['tabs']     = $tab_items;
+		$this->settings['settings'] = $settings;
 
 		return $this;
 	}
@@ -424,6 +436,9 @@ class MetaBox extends Base {
 	 */
 	private function unparse_settings_page_menu(): self {
 		$settings = $this->settings['settings'] ?? [];
+		if ( ! is_array( $settings ) ) {
+			$settings = [];
+		}
 
 		if ( $this->detect_post_type() !== 'mb-settings-page' || isset( $settings['menu_type'] ) ) {
 			return $this;
@@ -459,6 +474,11 @@ class MetaBox extends Base {
 		}
 		$this->relationship = $relationship;
 		$this->post_title   = $this->lookup( [ 'menu_title', 'id' ] );
+
+		// Editor and registration use the same keys; seed settings for import/sync.
+		if ( empty( $this->settings['settings'] ) || ! is_array( $this->settings['settings'] ) ) {
+			$this->settings['settings'] = $relationship;
+		}
 
 		return $this;
 	}
@@ -656,8 +676,8 @@ class MetaBox extends Base {
 			return $this;
 		}
 
-		// Models build their settings in unparse_model_settings(), which runs earlier.
-		if ( $this->detect_post_type() === 'mb-model' ) {
+		// Field-group defaults only. Other types build settings elsewhere.
+		if ( $this->detect_post_type() !== 'meta-box' ) {
 			return $this;
 		}
 

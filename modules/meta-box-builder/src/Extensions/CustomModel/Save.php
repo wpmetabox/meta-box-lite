@@ -121,7 +121,7 @@ class Save {
 
 		if ( 'publish' === $post_status ) {
 			$json_error = LocalJson::check_id( 'mb-model', $post_name, $previous_id );
-			if ( '' !== $json_error ) {
+			if ( $json_error ) {
 				return [
 					'success' => false,
 					'message' => $json_error,
@@ -283,7 +283,7 @@ class Save {
 		LocalJson::use_database( $args );
 
 		$json_error = LocalJson::get_last_error();
-		if ( '' !== $json_error ) {
+		if ( $json_error ) {
 			return [
 				'success' => false,
 				'message' => $json_error,

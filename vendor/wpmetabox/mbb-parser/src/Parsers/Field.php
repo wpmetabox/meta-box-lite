@@ -110,7 +110,7 @@ class Field extends Base {
 	}
 
 	private function parse_object_field() {
-		if ( ! in_array( $this->type, [ 'taxonomy', 'taxonomy_advanced', 'post', 'user' ], true ) ) {
+		if ( ! in_array( $this->type, [ 'taxonomy', 'taxonomy_advanced', 'post', 'user', 'model' ], true ) ) {
 			return $this;
 		}
 		unset( $this->terms );

@@ -59,6 +59,7 @@ new Integrations\Polylang\Manager();
 new Extensions\Columns();
 new Extensions\ConditionalLogic();
 new Extensions\Group();
+new Extensions\ModelField();
 new Extensions\Tabs();
 new Extensions\Tooltip();
 new Extensions\RestApi();

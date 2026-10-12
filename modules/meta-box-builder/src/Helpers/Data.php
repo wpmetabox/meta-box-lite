@@ -2,6 +2,7 @@
 namespace MBB\Helpers;
 
 use MBB\Extensions\CustomModel\Register;
+use MBB\Extensions\CustomModel\TableColumns;
 use MetaBox\CustomTable\Model\Factory;
 use MetaBox\Support\Data as DataHelper;
 use WP_Block_Type_Registry;
@@ -163,7 +164,25 @@ class Data {
 	}
 
 	/**
-	 * Build the editor payload for one registered model (no database inspect).
+	 * Model choices for select controls: name => "Label (name)".
+	 *
+	 * @param array|null $models Optional preloaded list from get_models().
+	 * @return array<string, string>
+	 */
+	public static function get_model_options( ?array $models = null ): array {
+		$options = [];
+		foreach ( $models ?? self::get_models() as $model ) {
+			$name             = $model['name'] ?? '';
+			$label            = ( $model['label'] ?? '' ) ?: $name;
+			$options[ $name ] = sprintf( '%s (%s)', $label, $name );
+		}
+		return $options;
+	}
+
+	/**
+	 * Build the editor payload for one registered model.
+	 *
+	 * Prefers Factory + mbb_models cache; does not DESCRIBE the database table.
 	 *
 	 * @param string                    $name  Model slug.
 	 * @param object|null               $model Factory model instance.
@@ -203,6 +222,7 @@ class Data {
 			'columns'    => $columns,
 			'db_columns' => [],
 			'keys'       => $keys,
+			'supports'   => TableColumns::supports_for( $name ),
 			'post_id'    => $post_id,
 		];
 	}

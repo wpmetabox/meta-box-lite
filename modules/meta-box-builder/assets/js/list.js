@@ -1,13 +1,13 @@
 jQuery( $ => {
 	// Add "Export" option to the Bulk Actions dropdowns.
 	$( '<option value="mbb-export">' )
-		.text( MBBDialog.export )
+		.text( MBBList.export )
 		.appendTo( 'select[name="action"], select[name="action2"]' );
 
 	// Toggle upload form.
 	var $form = $( $( '#mbb-import-form' ).html() ).insertAfter( '.wp-header-end' );
 	var $toggle = $( '<button class="page-title-action">' )
-		.text( MBBDialog.import )
+		.text( MBBList.import )
 		.insertAfter( '.page-title-action' );
 
 	$toggle.on( 'click', e => {

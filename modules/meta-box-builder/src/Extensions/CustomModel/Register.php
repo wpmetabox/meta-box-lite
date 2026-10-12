@@ -4,7 +4,6 @@ namespace MBB\Extensions\CustomModel;
 use MBB\LocalJson;
 use MBB\JsonService;
 use MBB\Helpers\TableSchema;
-use MBBParser\Unparsers\MetaBox;
 use MetaBox\CustomTable\Model\Factory;
 use MetaBox\CustomTable\Model\Model;
 use WP_Query;
@@ -234,21 +233,8 @@ class Register {
 	public static function query_models_from_json(): array {
 		$models = self::query_models();
 
-		foreach ( JsonService::get_files() as $file ) {
-			$raw = LocalJson::read_file( $file );
-			if ( empty( $raw ) ) {
-				continue;
-			}
-
-			$unparser = new MetaBox( $raw );
-			$unparser->unparse();
-			$data = $unparser->get_settings();
-
-			if ( ( $data['post_type'] ?? '' ) !== 'mb-model' ) {
-				continue;
-			}
-
-			$model = $data['model'] ?? [];
+		foreach ( JsonService::get_unparsed( 'mb-model' ) as $item ) {
+			$model = $item['data']['model'] ?? [];
 			if ( ! is_array( $model ) || empty( $model['name'] ) || empty( $model['table'] ) ) {
 				continue;
 			}

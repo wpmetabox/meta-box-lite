@@ -58,6 +58,12 @@ class Edit extends BaseEditPage {
 			],
 		];
 
+		if ( Data::is_extension_active( 'mb-custom-table' ) ) {
+			$models               = Data::get_models();
+			$data['models']       = $models;
+			$data['modelOptions'] = Data::get_model_options( $models );
+		}
+
 		wp_localize_script( 'mb-relationships-app', 'MbbApp', $data );
 	}
 
@@ -87,6 +93,9 @@ class Edit extends BaseEditPage {
 		}
 		if ( Data::is_extension_active( 'mb-user-meta' ) ) {
 			$options['user'] = __( 'User', 'meta-box-builder' );
+		}
+		if ( Data::is_extension_active( 'mb-custom-table' ) ) {
+			$options['model'] = __( 'Model', 'meta-box-builder' );
 		}
 		return $options;
 	}

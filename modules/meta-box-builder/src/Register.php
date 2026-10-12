@@ -2,7 +2,6 @@
 namespace MBB;
 
 use MetaBox\Support\Arr;
-use MBBParser\Unparsers\MetaBox;
 
 class Register {
 	private $meta_box_post_ids = [];
@@ -54,22 +53,10 @@ class Register {
 	private function get_json_meta_boxes(): array {
 		$meta_boxes = [];
 
-		$files = JsonService::get_files();
-		foreach ( $files as $file ) {
-			$json = LocalJson::read_file( $file );
-			if ( empty( $json ) ) {
-				continue;
+		foreach ( JsonService::get_unparsed( 'meta-box' ) as $item ) {
+			if ( ! empty( $item['data'] ) ) {
+				$meta_boxes[] = $item['data'];
 			}
-
-			$unparser = new MetaBox( $json );
-			$unparser->unparse();
-			$meta_box = $unparser->get_settings();
-
-			if ( empty( $meta_box ) ) {
-				continue;
-			}
-
-			$meta_boxes[] = $meta_box;
 		}
 
 		return $meta_boxes;

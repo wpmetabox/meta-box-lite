@@ -64,6 +64,7 @@ class FieldGroup {
 					$tab['label'] ?? '',
 					'tab_' . $key,
 					$package,
+					// translators: %s: Tab label.
 					sprintf( __( 'Tab: %s', 'meta-box-builder' ), $tab['label'] ?? '' ),
 					'LINE'
 				);
@@ -139,9 +140,9 @@ class FieldGroup {
 	/**
 	 * Filter to modify the meta box to use translations.
 	 *
-	 * @param array                                             $meta_box Meta box settings.
-	 * @param object{'post_name': string, 'post_title': string} $post     Post object. Can't use WP_Post because when using Local JSON, the post object is not available.
-	 *
+	 * @param array  $meta_box Meta box settings.
+	 * @param object $post     Post object with `post_name` and `post_title`. Cannot use
+	 *                         WP_Post because Local JSON has no database post.
 	 * @return array Modified meta box settings.
 	 */
 	public function use_translations( array $meta_box, object $post ): array {
@@ -208,8 +209,8 @@ class FieldGroup {
 	/**
 	 * Get the package for the post.
 	 *
-	 * @param object{'post_name': string, 'post_title': string} $post Post object. Can't use WP_Post because when using Local JSON, the post object is not available.
-	 *
+	 * @param object $post Post object with `post_name` and `post_title`. Cannot use
+	 *                     WP_Post because Local JSON has no database post.
 	 * @return array Package.
 	 */
 	private function get_package( object $post ): array {

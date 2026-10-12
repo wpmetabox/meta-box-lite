@@ -20,9 +20,37 @@ class CustomTable {
 		add_action( 'mbb_after_save', [ $this, 'create_custom_table_after_save' ], 10, 3 );
 		add_action( 'mbb_sync_json', [ $this, 'create_custom_table_after_sync' ], 10, 2 );
 
+		// Always: stored meta_box.table can go stale when the model toggles prefix / renames the table.
+		add_action( 'mbb_before_register_meta_box', [ $this, 'sync_model_table' ], 9 );
+
 		if ( LocalJson::is_enabled() ) {
 			add_action( 'mbb_before_register_meta_box', [ $this, 'create_custom_table' ] );
 		}
+	}
+
+	/**
+	 * Point model field groups at the live model table before registration.
+	 *
+	 * meta_box.table is baked in when the field group is saved. If the model later
+	 * toggles the WP table prefix (or renames the table), that value goes stale:
+	 * list screens read $model->table while field saves still hit the old table.
+	 *
+	 * @param array $data Field group payload (settings + meta_box), by reference.
+	 */
+	public function sync_model_table( array &$data ): void {
+		$settings = $data['settings'] ?? [];
+		$models   = array_filter( (array) ( $settings['models'] ?? [] ) );
+		if ( ! $models ) {
+			return;
+		}
+
+		$table = TableSchema::resolve_model_table( $settings );
+		if ( '' === $table ) {
+			return;
+		}
+
+		Arr::set( $data, 'meta_box.table', $table );
+		Arr::set( $data, 'meta_box.storage_type', 'custom_table' );
 	}
 
 	/**
@@ -108,6 +136,13 @@ class CustomTable {
 			return;
 		}
 
+		// Keep meta_box.table aligned (also done in sync_model_table on register).
+		$table = TableSchema::resolve_model_table( $settings );
+		if ( $table ) {
+			Arr::set( $data, 'meta_box.table', $table );
+			Arr::set( $data, 'meta_box.storage_type', 'custom_table' );
+		}
+
 		$model_id = Register::get_model_post_id( (string) $first );
 		if ( $model_id ) {
 			$this->sync_builder_model( $model_id, $data['fields'] ?? [] );
@@ -119,12 +154,9 @@ class CustomTable {
 			return;
 		}
 
-		$table = TableSchema::resolve_model_table( $settings );
 		if ( '' === $table ) {
 			return;
 		}
-
-		Arr::set( $data, 'meta_box.table', $table );
 
 		$items = $this->create_table(
 			$table,

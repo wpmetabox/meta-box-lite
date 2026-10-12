@@ -23,7 +23,7 @@ class Import {
 		?>
 		<?php if ( isset( $_GET['imported'] ) ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
 			<div class="notice notice-success is-dismissible">
-				<p><?php esc_html_e( 'Field groups have been imported successfully!', 'meta-box-builder' ); ?></p>
+				<p><?php esc_html_e( 'Imported successfully!', 'meta-box-builder' ); ?></p>
 			</div>
 		<?php endif; ?>
 
@@ -127,8 +127,10 @@ class Import {
 			}
 
 			// After importing, we write to the json file too.
-			LocalJson::use_database( [ 'post_id' => $post_id ] );
+			LocalJson::use_database( [ 'post_id' => $post_id ], false );
 		}
+
+		JsonService::clear_cache();
 
 		return true;
 	}

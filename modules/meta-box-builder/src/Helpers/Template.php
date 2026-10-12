@@ -4,19 +4,35 @@ namespace MBB\Helpers;
 use MBB\LocalJson;
 
 class Template {
-	public static function render_diff_dialog() {
-		$show_on_screens = [
-			'meta-box',
-			'edit-meta-box',
-			'mb-model',
-			'edit-mb-model',
-		];
-		// Only show the dialog in the meta box edit screen.
-		if ( ! in_array( get_current_screen()->id, $show_on_screens, true ) ) {
+	public function __construct() {
+		if ( ! LocalJson::is_enabled() ) {
 			return;
 		}
 
-		if ( ! LocalJson::is_enabled() ) {
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue' ] );
+		add_action( 'admin_footer', [ $this, 'render_diff_dialog' ] );
+	}
+
+	public function enqueue(): void {
+		if ( ! $this->is_supported_screen() ) {
+			return;
+		}
+
+		$version = filemtime( MBB_DIR . 'assets/js/dialog.js' );
+
+		wp_enqueue_style( 'mbb-dialog', MBB_URL . 'assets/css/dialog.css', [], filemtime( MBB_DIR . 'assets/css/dialog.css' ) );
+		wp_enqueue_script( 'mbb-dialog', MBB_URL . 'assets/js/dialog.js', [ 'jquery', 'wp-api-fetch' ], $version, true );
+		wp_localize_script( 'mbb-dialog', 'MBBDialog', [
+			'error'    => esc_html__( 'Error!', 'meta-box-builder' ),
+			'synced'   => esc_html__( 'Synced', 'meta-box-builder' ),
+			'syncing'  => esc_html__( 'Syncing...', 'meta-box-builder' ),
+			'newer'    => esc_html__( '(newer)', 'meta-box-builder' ),
+			'postType' => get_current_screen()->post_type ?: 'meta-box',
+		] );
+	}
+
+	public function render_diff_dialog(): void {
+		if ( ! $this->is_supported_screen() ) {
 			return;
 		}
 		?>
@@ -81,5 +97,20 @@ class Template {
 			</div>
 		</dialog>
 		<?php
+	}
+
+	private function is_supported_screen(): bool {
+		$screen = get_current_screen();
+		if ( ! $screen ) {
+			return false;
+		}
+
+		foreach ( LocalJson::SUPPORTED_POST_TYPES as $post_type ) {
+			if ( $screen->id === $post_type || $screen->id === "edit-{$post_type}" ) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 }

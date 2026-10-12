@@ -69,7 +69,7 @@ class Save extends Base {
 
 		if ( 'publish' === $post_status ) {
 			$json_error = LocalJson::check_id( 'meta-box', $post_name, $previous_id );
-			if ( '' !== $json_error ) {
+			if ( $json_error ) {
 				return [
 					'success' => false,
 					'message' => $json_error,
@@ -108,7 +108,7 @@ class Save extends Base {
 		do_action( 'mbb_after_save', $parser, $post_id, $raw_data );
 
 		$error = CustomTable::get_last_ddl_error() ?: LocalJson::get_last_error();
-		if ( '' !== $error ) {
+		if ( $error ) {
 			return [
 				'success' => false,
 				'message' => $error,
