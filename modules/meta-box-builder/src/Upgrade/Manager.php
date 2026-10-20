@@ -17,7 +17,7 @@ class Manager {
 			$current_version = MBB_VER;
 		}
 
-		$vesions = [ '3.0.0', '3.0.1', '4.0.4' ];
+		$vesions = [ '3.0.0', '3.0.1', '4.0.4', '5.6.1' ];
 		foreach ( $vesions as $version ) {
 			if ( version_compare( $current_version, $version, '>=' ) ) {
 				continue;

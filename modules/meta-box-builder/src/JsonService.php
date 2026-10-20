@@ -148,11 +148,11 @@ class JsonService {
 			unset( $meta_box['post_id'], $meta_box['post_type'] );
 
 			if ( ! isset( $items[ $id ] ) ) {
-				$file = self::get_future_path( $id );
+				$file = self::get_future_path( $id, $post_type );
 
 				$items[ $id ] = [
 					'file'            => $file,
-					'is_writable'     => Path::is_future_path_writable( dirname( $file ) ),
+					'is_writable'     => $file && Path::is_future_path_writable( dirname( $file ) ),
 					'id'              => $id,
 					'is_newer'        => -1,
 					'diff'            => self::diff( $meta_box, null ),
@@ -357,11 +357,7 @@ class JsonService {
 		return $paths;
 	}
 
-	public static function get_future_path( string $meta_box_id ): string {
-		if ( ! LocalJson::is_enabled() ) {
-			return '';
-		}
-
-		return self::get_paths()[0] . "/$meta_box_id.json";
+	public static function get_future_path( string $id, string $post_type = 'meta-box' ): string {
+		return LocalJson::new_file_path( $post_type, $id );
 	}
 }

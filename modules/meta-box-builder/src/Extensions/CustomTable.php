@@ -206,7 +206,7 @@ class CustomTable {
 		$parsed = TableSchema::parse_columns( $items );
 
 		foreach ( $names as $name ) {
-			$name = TableSchema::sanitize_name( (string) $name );
+			$name = TableSchema::sanitize_column_name( (string) $name );
 			if ( ! $name || 'id' === $name || isset( $parsed['columns'][ $name ] ) ) {
 				continue;
 			}
@@ -239,7 +239,7 @@ class CustomTable {
 				continue;
 			}
 
-			$name = TableSchema::sanitize_name( $id_prefix . $field['id'] );
+			$name = TableSchema::sanitize_column_name( $id_prefix . $field['id'] );
 			if ( $name ) {
 				$names[] = $name;
 			}
@@ -338,7 +338,7 @@ class CustomTable {
 		$items   = [];
 
 		foreach ( $columns as $name => $sql ) {
-			$name = TableSchema::sanitize_name( (string) $name );
+			$name = TableSchema::sanitize_column_name( (string) $name );
 			if ( ! $name || 'id' === $name ) {
 				continue;
 			}

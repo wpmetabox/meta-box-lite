@@ -280,23 +280,54 @@ class LocalJson {
 	 * @param string $own_file  File currently storing this object, if any.
 	 */
 	private static function target_file( string $post_type, string $id, string $own_file ): string {
-		// Files are matched by the ID inside them, since users may rename files freely.
+		// Match by ID inside the file: users may rename files freely.
 		$holder = self::find_file_by_id( $post_type, $id );
 		if ( $holder ) {
 			return $holder === $own_file ? $holder : '';
 		}
 
-		// Nothing stores the ID yet, so use {$id}.json unless a file already sits there.
-		$path = JsonService::get_paths()[0] . '/' . $id . '.json';
+		foreach ( self::candidate_paths( $post_type, $id ) as $path ) {
+			if ( $path === $own_file || ! self::read_file( $path ) ) {
+				return $path;
+			}
+		}
 
-		return $path === $own_file || ! self::read_file( $path ) ? $path : '';
+		return '';
+	}
+
+	/**
+	 * Path for a new Local JSON file: `{id}.json`, or `{prefix}-{id}.json` when that name is taken.
+	 */
+	public static function new_file_path( string $post_type, string $id ): string {
+		return self::is_enabled() && $id ? self::target_file( $post_type, $id, '' ) : '';
+	}
+
+	/**
+	 * `{id}.json` first, then `{prefix}-{id}.json` when the short name is taken.
+	 *
+	 * @return string[]
+	 */
+	private static function candidate_paths( string $post_type, string $id ): array {
+		$prefixes = [
+			'meta-box'         => 'field-group',
+			'mb-model'         => 'model',
+			'mb-settings-page' => 'settings-page',
+			'mb-relationship'  => 'relationship',
+		];
+		$base     = JsonService::get_paths()[0];
+		$prefix   = $prefixes[ $post_type ] ?? $post_type;
+
+		return [
+			"{$base}/{$id}.json",
+			"{$base}/{$prefix}-{$id}.json",
+		];
 	}
 
 	/**
 	 * Error when another object owns this ID, empty string when the ID is free.
 	 *
-	 * Saving checks this before writing the post, because the sync runs afterwards and
-	 * would leave the new ID on the post while the file kept the old one.
+	 * Run before `wp_update_post` so a failed sync cannot leave a new ID on the post
+	 * while the file still has the old one.
 	 *
 	 * @param string $post_type   Builder post type.
 	 * @param string $id          ID about to be saved.
@@ -317,7 +348,41 @@ class LocalJson {
 	}
 
 	/**
-	 * Path of the JSON file storing an ID, empty string when no file matches.
+	 * Write a Local JSON file for each published object that does not already have one.
+	 *
+	 * Leave existing files alone so JSON stays the source of truth.
+	 *
+	 * @param string[] $post_types Post types to export.
+	 */
+	public static function export_missing( array $post_types ): void {
+		if ( ! self::is_enabled() ) {
+			return;
+		}
+
+		foreach ( $post_types as $post_type ) {
+			if ( ! self::is_supported( $post_type ) ) {
+				continue;
+			}
+
+			foreach ( JsonService::get_meta_boxes( [
+				'post_type'   => $post_type,
+				'post_status' => 'publish',
+			] ) as $meta_box ) {
+				$id = (string) ( $meta_box['id'] ?? '' );
+				if ( $id && ! self::find_file_by_id( $post_type, $id ) ) {
+					self::use_database( [
+						'post_id'   => $meta_box['post_id'],
+						'post_type' => $post_type,
+					], false );
+				}
+			}
+		}
+
+		JsonService::clear_cache();
+	}
+
+	/**
+	 * Path of the JSON file that stores an ID, or empty string if none matches.
 	 *
 	 * @param string $post_type Builder post type.
 	 * @param string $id        ID stored in the JSON file.

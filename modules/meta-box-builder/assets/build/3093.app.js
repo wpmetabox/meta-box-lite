@@ -1,1 +1,1 @@
-"use strict";(globalThis.webpackChunk=globalThis.webpackChunk||[]).push([[3093],{3093(s,e,a){a.r(e),a.d(e,{default:()=>p});var b=a(6087),l=a(790);const p=(0,b.memo)(({field:s})=>(0,l.jsx)("img",{src:`${MbbApp.assetsBaseUrl}/img/${s.type}.webp`}))}}]);
+"use strict";(globalThis.webpackChunkmbb_app=globalThis.webpackChunkmbb_app||[]).push([[3093],{3093(s,b,p){p.r(b),p.d(b,{default:()=>l});var a=p(6087),e=p(790);const l=(0,a.memo)(({field:s})=>(0,e.jsx)("img",{src:`${MbbApp.assetsBaseUrl}/img/${s.type}.webp`}))}}]);

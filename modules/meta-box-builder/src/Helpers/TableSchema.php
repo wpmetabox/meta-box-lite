@@ -63,7 +63,7 @@ class TableSchema {
 				continue;
 			}
 
-			$name = self::sanitize_name( (string) ( $item['name'] ?? '' ) );
+			$name = self::sanitize_column_name( (string) ( $item['name'] ?? '' ) );
 			if ( ! $name || 'id' === $name ) {
 				continue;
 			}
@@ -186,8 +186,8 @@ class TableSchema {
 
 		$missing = [];
 		foreach ( $expected as $name ) {
-			$name = self::sanitize_name( (string) $name );
-			if ( $name && empty( $present[ strtolower( $name ) ] ) ) {
+			$name = self::sanitize_column_name( (string) $name );
+			if ( $name && empty( $present[ $name ] ) ) {
 				$missing[] = $name;
 			}
 		}
@@ -196,13 +196,22 @@ class TableSchema {
 	}
 
 	/**
-	 * Transliterate first: sanitize_key() drops accented characters, turning "đơn hàng" into
-	 * "nhng". Match sanitizeSqlName() in JS, which slugifies before sanitizing.
+	 * Sanitize a table name. Keep letter case so an uppercase $wpdb->prefix still matches.
+	 *
+	 * Transliterate first: a raw preg_replace drops accents and turns "đơn hàng" into "nhng".
 	 */
 	public static function sanitize_name( string $name ): string {
 		$name = str_replace( [ ' ', '-' ], '_', remove_accents( $name ) );
+		$name = preg_replace( '/[^A-Za-z0-9_\-]/', '', $name );
 
-		return sanitize_key( $name );
+		return is_string( $name ) ? $name : '';
+	}
+
+	/**
+	 * Sanitize a column name. Lowercase to match field IDs.
+	 */
+	public static function sanitize_column_name( string $name ): string {
+		return strtolower( self::sanitize_name( $name ) );
 	}
 
 	public static function sanitize_column_type( string $type ): string {
@@ -227,7 +236,7 @@ class TableSchema {
 	 */
 	public static function merge_field_columns( array $columns, array $names ): array {
 		foreach ( $names as $name ) {
-			$name = self::sanitize_name( (string) $name );
+			$name = self::sanitize_column_name( (string) $name );
 			if ( ! $name || 'id' === $name || isset( $columns[ $name ] ) ) {
 				continue;
 			}

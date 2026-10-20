@@ -1,3 +1,19 @@
+### 2.11.1 - 2026-10-20
+
+- Fix custom table lookup when the DB prefix has uppercase letters
+- Fix unauthenticated migration reset and export disclosure
+- Fix Local JSON ID collisions across object types
+- Cache-bust async webpack chunks to prevent stale builder crashes
+- Fix stored XSS in background field via unexpected array keys
+- Sanitize block editor field content on save
+- Fix a permission bypass in the `[rwmb_meta]` shortcode. The shortcode now checks whether the current user can read the object before it prints a value. Credit Mohammed Dsleman.
+  - Public posts and terms stay readable. Password-protected posts need `read_post` until the visitor enters the password
+  - User meta needs `edit_user`
+  - Use `rwmb_meta_shortcode_permission` to override the check when needed
+- Only allow predefined keys to be used for block bindings (#1707)
+- Declare the text fields of blocks to WPML
+- Fix image metas have special characters in Elementor widget
+
 ### 2.11.0 - 2026-10-12
 
 **Highlights:**
