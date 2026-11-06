@@ -22,7 +22,7 @@ class Field extends Base {
 	 * @return void
 	 */
 	public function unparse() {
-		$this->original_keys = array_keys( $this->settings );
+		$this->original_keys = array_diff( array_keys( $this->settings ), [ '_id' ] );
 
 		$this->unparse_default_values()
 			->unparse_boolean_values()

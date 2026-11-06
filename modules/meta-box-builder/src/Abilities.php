@@ -742,11 +742,11 @@ class Abilities {
 			return new WP_Error( 'not_found', __( 'Field group not found.', 'meta-box-builder' ) );
 		}
 
-		$fields   = get_post_meta( $post->ID, 'fields', true ) ?: [];
+		$fields   = $this->get_fields( $post );
 		$settings = get_post_meta( $post->ID, 'settings', true ) ?: [];
 
 		return [
-			'fields'   => array_values( $fields ),
+			'fields'   => $fields,
 			'settings' => $settings,
 		];
 	}
@@ -763,10 +763,10 @@ class Abilities {
 			return new WP_Error( 'not_found', __( 'Field group not found.', 'meta-box-builder' ) );
 		}
 
-		$fields = get_post_meta( $post->ID, 'fields', true ) ?: [];
+		$fields = $this->get_fields( $post );
 		$index  = $this->find_field_index( $fields, $input['field_id'] );
 
-		if ( ! $index ) {
+		if ( null === $index ) {
 			return new WP_Error( 'not_found', __( 'Field not found.', 'meta-box-builder' ) );
 		}
 
@@ -784,11 +784,11 @@ class Abilities {
 			return $this->error( __( 'Field must have id and type.', 'meta-box-builder' ) );
 		}
 
-		$fields   = get_post_meta( $post->ID, 'fields', true ) ?: [];
+		$fields   = $this->get_fields( $post );
 		$settings = get_post_meta( $post->ID, 'settings', true ) ?: [];
 
 		$existing_index = $this->find_field_index( $fields, $field_data['id'] );
-		if ( $existing_index ) {
+		if ( null !== $existing_index ) {
 			return $this->error( __( 'Field with this ID already exists. Use update field instead.', 'meta-box-builder' ) );
 		}
 
@@ -811,19 +811,19 @@ class Abilities {
 			$field_data['id'] = $field_id;
 		}
 
-		$fields   = get_post_meta( $post->ID, 'fields', true ) ?: [];
+		$fields   = $this->get_fields( $post );
 		$settings = get_post_meta( $post->ID, 'settings', true ) ?: [];
 
 		$found_index = $this->find_field_index( $fields, $field_id );
 
-		if ( ! $found_index ) {
+		if ( null === $found_index ) {
 			return $this->error( __( 'Field not found. Use create field instead.', 'meta-box-builder' ) );
 		}
 
 		$new_id = $field_data['id'];
 		if ( $new_id !== $field_id ) {
 			$collision_index = $this->find_field_index( $fields, $new_id );
-			if ( $collision_index && $collision_index !== $found_index ) {
+			if ( null !== $collision_index && $collision_index !== $found_index ) {
 				return $this->error( sprintf(
 					/* translators: %s: The new field ID. */
 					__( 'Another field with ID %s already exists.', 'meta-box-builder' ),
@@ -850,11 +850,11 @@ class Abilities {
 			return $this->error( __( 'Field group not found.', 'meta-box-builder' ) );
 		}
 
-		$fields   = get_post_meta( $post->ID, 'fields', true ) ?: [];
+		$fields   = $this->get_fields( $post );
 		$settings = get_post_meta( $post->ID, 'settings', true ) ?: [];
 
 		$index = $this->find_field_index( $fields, $input['field_id'] );
-		if ( ! $index ) {
+		if ( null === $index ) {
 			return $this->error( __( 'Field not found.', 'meta-box-builder' ) );
 		}
 
@@ -870,11 +870,11 @@ class Abilities {
 			return $this->error( __( 'Field group not found.', 'meta-box-builder' ) );
 		}
 
-		$fields   = get_post_meta( $post->ID, 'fields', true ) ?: [];
+		$fields   = $this->get_fields( $post );
 		$settings = get_post_meta( $post->ID, 'settings', true ) ?: [];
 
 		$field_index = $this->find_field_index( $fields, $input['field_id'] );
-		if ( ! $field_index ) {
+		if ( null === $field_index ) {
 			return $this->error( __( 'Field not found.', 'meta-box-builder' ) );
 		}
 
@@ -890,7 +890,7 @@ class Abilities {
 
 		if ( $target_id !== null ) {
 			$target_index = $this->find_field_index( $fields, $target_id );
-			if ( ! $target_index ) {
+			if ( null === $target_index ) {
 				return $this->error( sprintf(
 					/* translators: %s: The field ID to move before/after. */
 					__( 'Target field %s not found.', 'meta-box-builder' ),
@@ -929,7 +929,24 @@ class Abilities {
 		return $post && $post->post_type === 'meta-box' ? $post : null;
 	}
 
-	private function find_field_index( array $fields, string $field_id ) {
+	/**
+	 * Get the fields of a field group, keyed numerically.
+	 *
+	 * @param WP_Post $post The field group post object.
+	 * @return array
+	 */
+	private function get_fields( WP_Post $post ): array {
+		return array_values( get_post_meta( $post->ID, 'fields', true ) ?: [] );
+	}
+
+	/**
+	 * Find the key of a field by its ID.
+	 *
+	 * @param array  $fields   The fields, keyed numerically.
+	 * @param string $field_id The field ID to find.
+	 * @return int|null The field key, or null if not found.
+	 */
+	private function find_field_index( array $fields, string $field_id ): ?int {
 		foreach ( $fields as $index => $field ) {
 			$id = $field['id'] ?? $field['_id'] ?? '';
 			if ( $id === $field_id ) {
@@ -940,6 +957,14 @@ class Abilities {
 		return null;
 	}
 
+	/**
+	 * Ensure a field has a unique `_id`.
+	 *
+	 * @param array    $field_data      The field data.
+	 * @param array    $existing_fields The existing fields.
+	 * @param int|null $exclude_index   The key of the field being updated, if any.
+	 * @return array
+	 */
 	private function ensure_unique_field_id( array $field_data, array $existing_fields, ?int $exclude_index = null ): array {
 		$existing_ids = [];
 		foreach ( $existing_fields as $index => $field ) {
@@ -963,7 +988,7 @@ class Abilities {
 		$request->set_param( 'post_id', $post_id );
 		$request->set_param( 'post_title', $title );
 		$request->set_param( 'post_name', $slug );
-		$request->set_param( 'fields', $fields );
+		$request->set_param( 'fields', array_values( $fields ) );
 		$request->set_param( 'settings', $settings );
 
 		return ( new Save() )->save( $request );
@@ -1020,11 +1045,11 @@ class Abilities {
 	}
 
 	private function build_field_group_response( WP_Post $post ): array {
-		$fields  = get_post_meta( $post->ID, 'fields', true ) ?: [];
+		$fields  = $this->get_fields( $post );
 		$summary = $this->build_field_group_summary( $post, $fields );
 
 		return array_merge( $summary, [
-			'fields'   => array_values( $fields ),
+			'fields'   => $fields,
 			'settings' => get_post_meta( $post->ID, 'settings', true ) ?: [],
 		] );
 	}

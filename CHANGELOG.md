@@ -1,3 +1,26 @@
+### 2.12.0 - 2026-11-06
+
+**Highlights:**
+
+Add the "Remove post type slug from URL" option for post types, so posts can have URLs like `example.com/post-name/` instead of `example.com/post-type/post-name/`. For more details, please see [this blog post](https://metabox.io/remove-custom-post-type-slug/).
+
+**Other changes:**
+
+- Security: prevent stored XSS via slider, range and file input field values and map info window content
+- Security: prevent changing the query of post, taxonomy and user fields via Ajax requests
+- Security: prevent unauthenticated requests from triggering the MB Builder upgrade process
+- Map field: use Places API (New) for address autocomplete, so new Google Cloud projects work. Old API keys still work
+- User field: Ajax search no longer searches by email by default
+- Show Meta Box abilities in the REST API
+- Fix the wysiwyg field removing `<span>` tags without attributes
+- Fix the post field with select advanced and multiple values in WooCommerce
+- Fix field operations at the first position in abilities
+- Fix the "Undefined array key" warning when importing fields
+- Fix abilities not registered when the post type or taxonomy slug contains underscores
+- Fix custom capability names for post types with accented characters
+- Hide the REST API endpoints of MB REST API from the public REST API index (`/wp-json/`)
+- Developers: changing `ajax_data.field.query_args` in JavaScript no longer has effect. Custom `ajax_action` handlers must not trust the `field` data sent in the request
+
 ### 2.11.1 - 2026-10-20
 
 - Fix custom table lookup when the DB prefix has uppercase letters
