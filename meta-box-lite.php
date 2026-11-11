@@ -4,6 +4,8 @@
  * Plugin URI:  https://metabox.io/pricing/
  * Description: A feature-rich free UI version of Meta Box.
  * Version:     2.12.0
+ * Requires at least: 6.7
+ * Requires PHP:      7.4
  * Author:      MetaBox.io
  * Author URI:  https://metabox.io
  * License:     GPL2+
