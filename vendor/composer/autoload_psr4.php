@@ -8,7 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'eLightUp\\PluginSearch\\' => array($vendorDir . '/elightup/plugin-search/src'),
     'eLightUp\\' => array($vendorDir . '/elightup/twig'),
-    'Riimu\\Kit\\PHPEncoder\\' => array($vendorDir . '/riimu/kit-phpencoder/src'),
+    'Riimu\\Kit\\PHPEncoder\\' => array($vendorDir . '/wpmetabox/kit-phpencoder/src'),
     'MetaBox\\TS\\' => array($baseDir . '/modules/mb-toolset-migration/src'),
     'MetaBox\\Support\\' => array($vendorDir . '/wpmetabox/support'),
     'MetaBox\\RestApi\\' => array($baseDir . '/modules/mb-rest-api/src'),

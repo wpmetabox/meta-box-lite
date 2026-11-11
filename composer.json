@@ -122,7 +122,7 @@
         ".phpcs.xml.dist",
         "*.json"
       ],
-      "riimu/kit-phpencoder": [
+      "wpmetabox/kit-phpencoder": [
         "examples/",
         "*.json"
       ]
