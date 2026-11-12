@@ -8,4 +8,7 @@ jobs:
   php:
     uses: wpmetabox/meta-box/.github/workflows/php-compat.yml@master
     with:
-      pages: "admin.php?page=meta-box"
+      php_min: "7.4"
+  phpunit:
+    uses: wpmetabox/meta-box/.github/workflows/phpunit.yml@master
+    secrets: inherit
