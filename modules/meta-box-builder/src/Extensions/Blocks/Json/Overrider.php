@@ -98,6 +98,7 @@ class Overrider {
 		update_post_meta( $post_id, 'meta_box', $parser->get_settings() );
 
 		// Trigger after save action
+		// @internal Not a public hook, can change without notice.
 		do_action( 'mbb_after_save', $parser, $post_id, $submitted_data );
 
 		return [

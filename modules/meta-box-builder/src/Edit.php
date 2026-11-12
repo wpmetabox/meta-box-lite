@@ -114,6 +114,7 @@ class Edit extends BaseEditPage {
 			],
 		];
 
+		// @internal Not a public hook, can change without notice.
 		$data = apply_filters( 'mbb_app_data', $data );
 
 		wp_localize_script( 'mbb-app', 'MbbApp', $data );

@@ -1,13 +1,15 @@
 <?php
 /**
- * Plugin Name: MB Pods Migration
- * Plugin URI:  https://metabox.io/plugins/mb-pods-migration/
- * Description: Migrate Pods custom fields to Meta Box.
- * Version:     1.0.6
- * Author:      MetaBox.io
- * Author URI:  https://metabox.io
- * License:     GPL2+
- * Text Domain: mb-pods-migration
+ * Plugin Name:       MB Pods Migration
+ * Plugin URI:        https://metabox.io/plugins/mb-pods-migration/
+ * Description:       Migrate Pods custom fields to Meta Box.
+ * Version:           1.0.7
+ * Requires at least: 6.7
+ * Requires PHP:      7.4
+ * Author:            MetaBox.io
+ * Author URI:        https://metabox.io
+ * License:           GPL2+
+ * Text Domain:       mb-pods-migration
  *
  * Copyright (C) 2010-2025 Tran Ngoc Tuan Anh. All rights reserved.
  *

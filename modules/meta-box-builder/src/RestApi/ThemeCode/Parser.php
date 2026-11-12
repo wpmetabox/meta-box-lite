@@ -8,15 +8,25 @@ class Parser extends Base {
 	private $theme_code;
 
 	public function parse() {
-		$object_type      = $this->settings['object_type'];
-		$map              = [
+		$object_type = $this->settings['object_type'];
+		$map         = [
 			'setting' => "'" . $this->get_settings_page_option_name( Arr::get( $this->settings, 'settings_pages.0', '' ) ) . "'",
 			'term'    => 'get_queried_object_id()',
-			'comment' => '$comment_id',
+			'comment' => 'get_comment_ID()',
 			'user'    => 'get_current_user_id()',
 		];
+		$args        = $object_type === 'post' ? [] : [ 'object_type' => $object_type ];
+		$table       = Arr::get( $this->settings, 'custom_table.name', '' );
+
+		// Same as MBBParser\Parsers\Settings::parse_custom_table(). Old field groups can have "true"/"false" strings.
+		if ( $table && wp_validate_boolean( Arr::get( $this->settings, 'custom_table.enable' ) ) ) {
+			global $wpdb;
+			$args['storage_type'] = 'custom_table';
+			$args['table']        = ( wp_validate_boolean( Arr::get( $this->settings, 'custom_table.prefix' ) ) ? $wpdb->prefix : '' ) . $table;
+		}
+
 		$this->theme_code = [
-			'args'        => $object_type === 'post' ? [] : [ 'object_type' => $object_type ],
+			'args'        => $args,
 			'object_type' => $object_type,
 			'object_id'   => $map[ $object_type ] ?? '',
 			'prefix'      => $this->settings['prefix'],

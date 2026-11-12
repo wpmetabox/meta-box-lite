@@ -95,6 +95,7 @@ class Register {
 			}
 
 			// Allow WPML to translate relationship data.
+			// @internal Not a public hook, can change without notice.
 			$relationships[] = apply_filters( 'mbb_relationship', $relationship, $post );
 		}
 
@@ -116,6 +117,7 @@ class Register {
 				'post_name'  => $data['post_name'] ?? '',
 			];
 
+			// @internal Not a public hook, can change without notice.
 			$relationships[] = apply_filters( 'mbb_relationship', $relationship, $post_object );
 		}
 

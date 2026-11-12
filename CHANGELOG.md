@@ -1,3 +1,14 @@
+### 2.12.1 - 2026-11-12
+
+- Fix form being saved when a required checkbox or radio list is empty
+- Fix "Get PHP Code" for post types with a custom capability type, so the code gives the same permissions as the plugin
+- Fix "Get PHP Code" for field groups with a prefix, custom table or comment fields
+- Fix a PHP warning when showing a fieldset text field that has no value
+- Fix a PHP 8.1+ deprecation notice in the Pods migration
+- Update bundled Meta Box, Meta Box Builder, MB Custom Post Type, ACF migration, Pods migration and Toolset migration extensions
+- Require WordPress 6.7+ and PHP 7.4+
+- Tested up to WordPress 7.1
+
 ### 2.12.0 - 2026-11-06
 
 **Highlights:**

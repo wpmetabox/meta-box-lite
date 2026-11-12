@@ -20,6 +20,7 @@ class Register {
 
 			// Use do_action_ref_array() to pass the reference to the meta box, to be able to modify it.
 			// See Extensions\Blocks\CodeToCallbackTransformer.
+			// @internal Not a public hook, can change without notice.
 			do_action_ref_array( 'mbb_before_register_meta_box', [ &$meta_box ] );
 
 			$settings = $meta_box['settings'] ?? [];
@@ -37,6 +38,7 @@ class Register {
 					'post_name'  => $meta_box['post_name'],
 				];
 
+				// @internal Not a public hook, can change without notice.
 				$meta_box['meta_box'] = apply_filters( 'mbb_meta_box', $meta_box['meta_box'], $post_object );
 			}
 

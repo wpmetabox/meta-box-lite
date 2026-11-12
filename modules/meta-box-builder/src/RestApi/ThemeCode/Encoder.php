@@ -33,11 +33,30 @@ class Encoder {
 	}
 
 	public function encode() {
-		foreach ( $this->fields as $key => $field ) {
-			$field['id']    = ! empty( $this->settings['prefix'] ) ? $this->settings['prefix'] . $field['id'] : $field['id'];
+		$fields = $this->fields;
+		$this->add_prefix( $fields, (string) ( $this->settings['prefix'] ?? '' ) );
+		foreach ( $fields as $key => $field ) {
 			$encoded_string = $this->get_theme_code( $field );
 			// Set theme code for view
 			$this->fields[ $key ]['theme_code'] = $encoded_string;
+		}
+	}
+
+	/**
+	 * Add prefix to field IDs, including sub-fields in groups.
+	 * Must match how MBBParser\Parsers\MetaBox::parse_field() adds prefix when saving the field group.
+	 */
+	private function add_prefix( array &$fields, string $prefix ): void {
+		if ( ! $prefix ) {
+			return;
+		}
+		foreach ( $fields as &$field ) {
+			if ( ! empty( $field['id'] ) ) {
+				$field['id'] = $prefix . $field['id'];
+			}
+			if ( ! empty( $field['fields'] ) && is_array( $field['fields'] ) ) {
+				$this->add_prefix( $field['fields'], $prefix );
+			}
 		}
 	}
 

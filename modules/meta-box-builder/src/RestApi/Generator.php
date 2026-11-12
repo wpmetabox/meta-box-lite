@@ -49,6 +49,7 @@ class Generator {
 		$post_name = Id::sanitize( $post_name ?: $post_title, $post_title );
 
 		// Save fields, settings and data
+		// @internal Not a public hook, can change without notice.
 		$settings = apply_filters( 'mbb_save_settings', $settings, $request );
 		$fields   = apply_filters( 'mbb_save_fields', $fields, $request );
 

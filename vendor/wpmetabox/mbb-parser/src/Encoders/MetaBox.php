@@ -60,8 +60,8 @@ class MetaBox {
 			$validation['messages'] = [];
 		}
 		foreach ( $this->validation['rules'] as $key => $value ) {
-			$new_key = substr( $key, strlen( $this->id_prefix ) );
-			$new_key = '{prefix}' . $new_key;
+			// Keys don't have prefix, see Parsers\MetaBox::parse_field_validation().
+			$new_key = '{prefix}' . $key;
 
 			$validation['rules'][ $new_key ] = $value;
 
@@ -93,10 +93,10 @@ class MetaBox {
 
 	private function replace_placeholders() {
 		// Translate.
-		$this->encoded_string = preg_replace( "!'{translate}(.*){/translate}'!", "__( '$1', '" . $this->text_domain . "' )", $this->encoded_string );
+		$this->encoded_string = preg_replace( "!'{translate}(.*?){/translate}'!s", "__( '$1', '" . $this->text_domain . "' )", $this->encoded_string );
 
 		// Raw code.
-		$this->encoded_string = preg_replace( "!'{raw}(.*){/raw}'!", '$1', $this->encoded_string );
+		$this->encoded_string = preg_replace( "!'{raw}(.*?){/raw}'!s", '$1', $this->encoded_string );
 
 		// Field ID prefix.
 		$this->encoded_string = str_replace( '\'{prefix}', '$prefix . \'', $this->encoded_string );

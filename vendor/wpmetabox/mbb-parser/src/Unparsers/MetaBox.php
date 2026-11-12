@@ -856,9 +856,9 @@ class MetaBox extends Base {
 			return $this;
 		}
 
-		// Model-style map { name: sqlType } must not become custom_settings.
+		// Model-style map { name: sqlType } must not become custom_settings. MB Columns sizes can be plain numbers.
 		$first = reset( $columns );
-		if ( ! is_array( $first ) && ! is_object( $first ) ) {
+		if ( is_string( $first ) && ! is_numeric( $first ) ) {
 			return $this;
 		}
 

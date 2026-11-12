@@ -1,13 +1,15 @@
 <?php
 /**
- * Plugin Name: MB Toolset Migration
- * Plugin URI:  https://metabox.io/plugins/mb-toolset-migration
- * Description: Migrate Toolset custom fields to Meta Box.
- * Version:     1.0.8
- * Author:      MetaBox.io
- * Author URI:  https://metabox.io
- * License:     GPL2+
- * Text Domain: mb-toolset-migration
+ * Plugin Name:       MB Toolset Migration
+ * Plugin URI:        https://metabox.io/plugins/mb-toolset-migration
+ * Description:       Migrate Toolset custom fields to Meta Box.
+ * Version:           1.0.9
+ * Requires at least: 6.7
+ * Requires PHP:      7.4
+ * Author:            MetaBox.io
+ * Author URI:        https://metabox.io
+ * License:           GPL2+
+ * Text Domain:       mb-toolset-migration
  *
  * Copyright (C) 2010-2025 Tran Ngoc Tuan Anh. All rights reserved.
  *

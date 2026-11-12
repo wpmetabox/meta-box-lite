@@ -95,6 +95,7 @@ class Save extends Base {
 			];
 		}
 
+		// @internal Not a public hook, can change without notice.
 		$fields   = apply_filters( 'mbb_save_fields', $fields, $request );
 		$settings = apply_filters( 'mbb_save_settings', $settings, $request );
 
@@ -105,6 +106,7 @@ class Save extends Base {
 			$raw_data['previous_id'] = $previous_id;
 		}
 
+		// @internal Not a public hook, can change without notice.
 		do_action( 'mbb_after_save', $parser, $post_id, $raw_data );
 
 		$error = CustomTable::get_last_ddl_error() ?: LocalJson::get_last_error();

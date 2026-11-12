@@ -182,6 +182,7 @@ class LocalJson {
 			update_post_meta( $post_id, $meta_key, $data[ $meta_key ] );
 		}
 
+		// @internal Not a public hook, can change without notice.
 		do_action( 'mbb_sync_json', $data, $post_id );
 
 		// Now we need to save the modified data back to the JSON file

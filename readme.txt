@@ -4,8 +4,8 @@ Donate link: https://metabox.io/pricing/
 Tags: custom fields, custom post types, post type, custom taxonomies, meta box
 Requires at least: 6.7
 Requires PHP: 7.4
-Tested up to: 6.7.1
-Stable tag: 2.12.0
+Tested up to: 7.1
+Stable tag: 2.12.1
 License: GPLv2 or later
 
 A powerful and performant tool to create custom post types and custom fields for WordPress.
@@ -45,6 +45,17 @@ No data is collected or shared by this plugin. However, YouTube may collect data
 [Get started here](https://docs.metabox.io/introduction/).
 
 == Changelog ==
+
+= 2.12.1 - 2026-11-12 =
+
+- Fix form being saved when a required checkbox or radio list is empty
+- Fix "Get PHP Code" for post types with a custom capability type, so the code gives the same permissions as the plugin
+- Fix "Get PHP Code" for field groups with a prefix, custom table or comment fields
+- Fix a PHP warning when showing a fieldset text field that has no value
+- Fix a PHP 8.1+ deprecation notice in the Pods migration
+- Update bundled Meta Box, Meta Box Builder, MB Custom Post Type, ACF migration, Pods migration and Toolset migration extensions
+- Require WordPress 6.7+ and PHP 7.4+
+- Tested up to WordPress 7.1
 
 = 2.12.0 - 2026-11-06 =
 

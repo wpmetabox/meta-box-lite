@@ -31,12 +31,16 @@ class Parser extends Base {
 		unset( $this->parent );
 
 		// Setup icon URL.
-		$type           = Arr::get( $this->settings, 'icon_type', 'dashicons' );
-		$this->icon_url = Arr::get( $this->settings, "icon_$type" );
+		$type = Arr::get( $this->settings, 'icon_type', 'dashicons' );
+		$icon = Arr::get( $this->settings, "icon_$type" );
 
-		if ( 'dashicons' === $type ) {
-			$this->icon_url = 'dashicons-' . $this->icon_url;
+		// No icon selected: let WordPress use its default icon.
+		if ( ! $icon ) {
+			unset( $this->icon_url );
+			return $this;
 		}
+
+		$this->icon_url = 'dashicons' === $type ? "dashicons-$icon" : $icon;
 
 		return $this;
 	}

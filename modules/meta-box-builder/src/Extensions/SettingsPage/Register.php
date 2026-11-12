@@ -94,6 +94,7 @@ class Register {
 			}
 
 			// Allow WPML to modify the settings page to use translations.
+			// @internal Not a public hook, can change without notice.
 			$pages[] = apply_filters( 'mbb_settings_page', $settings_page, $post );
 		}
 
@@ -115,6 +116,7 @@ class Register {
 				'post_name'  => $data['post_name'] ?? '',
 			];
 
+			// @internal Not a public hook, can change without notice.
 			$pages[] = apply_filters( 'mbb_settings_page', $settings_page, $post_object );
 		}
 
